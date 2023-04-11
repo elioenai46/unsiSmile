@@ -466,6 +466,68 @@ FOREIGN KEY(fk_id_odontograma_final) references odontograma(id_odontograma)
 
 
 
+-- ********************************** Historia clínica de cirugía bucal **********************************************************
+
+create table antecedentes_personales_familiares(
+id_antecedentes_personales_familiares int not null auto_increment primary key,
+padecimiento_en_familiar boolean not null,
+tipo varchar(50),
+padecimiento_cronico boolean,
+diabetes boolean,
+hipertension boolean,
+epilepsia boolean,
+cardiopatias boolean,
+hemorragias boolean,
+alergias text,
+enfermedades_infecciosas text
+);
+
+create table interrogatorios_por_aparatos_y_sistemas(
+id_interrogatorios_por_aparatos_y_sistemas int not null auto_increment primary key,
+aparato_cardiovascular text,
+aparato_digestivo text,
+aparato_renal text,
+sistema_nervioso text,
+sistema_genital text
+);
+
+create table padecimiento_actual(
+id_padecimiento_actual int not null auto_increment primary key,
+fecha_ultima_consulta_medica date,
+motivo_medico text,
+fecha_ultima_consulta_dental date,
+motivo_dental text,
+embarazada boolean,
+lactancia boolean,
+tipo_sangrado integer,
+examen_radiologico text,
+tecnicas_de_anestecia text,
+instrumental text,
+dientes_extraidos text,
+estado_del_paciente text
+);
+
+-- tabla general sobre la historia clínica de cirugía bucal, en esta 
+-- se encontrarán las referencias a las tablas previas para complementar la información
+
+create table historia_clinica_de_cirugia_bucal(
+id_historia_clinica_de_cirugia_bucal int not null auto_increment primary key,
+numero_de_expediente int not null,
+fecha_de_realizacion datetime,
+
+id_ficha_de_identificacion int not null,
+id_signos_vitales int not null,
+id_antecedentes_personales_familiares int not null,
+id_interrogatorios_por_aparatos_y_sistemas int not null,
+id_padecimiento_actual int not null,
+foreign key (id_ficha_de_identificacion) references paciente(id_paciente),
+foreign key (id_signos_vitales) references signos_vitales(id_signos_vitales),
+foreign key (id_antecedentes_personales_familiares) references antecedentes_personales_familiares(id_antecedentes_personales_familiares),
+foreign key (id_interrogatorios_por_aparatos_y_sistemas) references interrogatorios_por_aparatos_y_sistemas(id_interrogatorios_por_aparatos_y_sistemas),
+foreign key (id_padecimiento_actual) references padecimiento_actual(id_padecimiento_actual)
+);
+
+
 
 
 
@@ -528,3 +590,6 @@ id_entidad int,
 fecha_de_realizacion datetime,
 tipo_movimiento char
 );
+
+
+
