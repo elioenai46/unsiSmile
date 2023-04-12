@@ -576,7 +576,136 @@ CREATE TABLE odontologia_preventiva (
         REFERENCES odontograma (id_odontograma)
 );
 
+-- ****************Historia Clínica de Prótesis Bucal****************************
 
+-- Interrogatorio
+Create table Interrogatorio(
+id_Interrogatorio int not null auto_increment primary key,
+Motivo text,
+Padecimiento_Actual text,
+Salud text,
+Ateención_médica boolean,
+Tratamiento text,
+F_exam_físico date,
+Medicina_especial_droga boolean,
+Sustancia_y_motivo text,
+Medicamento_alergia text,
+Reacción_inusual text,
+Anestesia_local_compl text,
+Detalles_extra text,
+Enfermedad_infecciosa text,
+Ataques_Epilépticos text,
+Detalles_consultaprevia text,
+Embarazo boolean,
+Mes text
+);
+
+-- Examen Paradontal
+Create table Exam_Paradontal(
+id_Exam_Paradontal int not null auto_increment primary key,
+Materia_Alba boolean,
+Placa_Bacteriana boolean,
+Sarro boolean,
+Gingivitis boolean,
+Bolsas_Periodontales boolean,
+Absceso_Periodontal boolean,
+Reabsorción_Ósea boolean,
+Movilidad_Dental boolean
+);
+
+-- Exploración de la cavidad bucal y anexos;
+create table Expl_Bucal(
+id_Expl_Bucal int not null auto_increment primary key,
+Piso_boca text,
+Labios text,
+Paladar text,
+Lengua text,
+Carrillos text,
+Proceso_Residual text,
+Áreas_Edéntulas text,
+Mucosa_Bucal text,
+Articulación_Temporomandibular text
+);
+
+-- Examen dientes pilares
+create table Dientes_pilares(
+id_Dientes_pilares int not null auto_increment primary key,
+Cariados text,
+Ausentes text,
+Obturados text,
+Extracciones_Indicadas text,
+Raíces text,
+Amalgamas text,
+Resinas text,
+Incrustaciones text,
+Prótesis_fija text,
+Prótesis_Removible text
+);
+
+-- Examen radiográfico dientes pilares
+create table exm_radio_DP(
+id_exm_radio_DP int not null auto_increment primary key,
+CP_Normal boolean,
+CP_Amplio boolean,
+CP_Estrecho boolean,
+CP_Nódulos boolean,
+CP_Calcificada boolean,
+ZA_Periodonto_Norm boolean,
+ZA_Periodonto_Ensanchado boolean,
+ZA_Reabsorción_Apical boolean,
+ZA_Cementosis boolean,
+ZA_Osteoesclerosis boolean,
+CR_Normal boolean,
+CR_Amplio boolean,
+CR_Estrecho boolean,
+CR_Agujas_Cálcicas boolean,
+CR_Calcificado boolean
+);
+
+-- Examen de organo dentario
+create table Organo_Dentario(
+id_Organo_Dentario int not null auto_increment primary key,
+Num_de_Conductos int not null,
+PC_R_1a3 boolean,
+PC_R_1a2 boolean,
+PC_R_1a1 boolean,
+Reabsorción_I boolean,
+Reabsorción_E boolean,
+Obturado boolean
+);
+
+-- Plan de tratamiento
+create table Plan_tratamiento(
+id_Plan_tratamiento int not null auto_increment primary key,
+Fecha_ini date,
+Fecha_fin date,
+Observaciones text,
+Ctrl_Post_operatorio text
+);
+
+create table protesis_bucal(
+id_protesis_bucal int not null auto_increment primary key,
+fk_paciente int,
+fk_sigvital int,
+fk_Interrogatorio int,
+fk_Exam_Paradontal int,
+fk_Expl_Bucal int,
+fk_Dientes_pilares int,
+fk_exm_radio_DP int,
+fk_Organo_Dentario int,
+fk_odontograma int,
+fk_Plan_tratamiento int,
+FOREIGN KEY(fk_paciente) references paciente(id_paciente),
+FOREIGN KEY(fk_sigvital) references signos_vitales(id_signos_vitales),
+FOREIGN KEY(fk_Interrogatorio) references Interrogatorio(id_Interrogatorio),
+FOREIGN KEY(fk_Exam_Paradontal) references Exam_Paradontal(id_Exam_Paradontal),
+FOREIGN KEY(fk_Expl_Bucal) references Expl_Bucal(id_Expl_Bucal),
+FOREIGN KEY(fk_Dientes_pilares) references Dientes_pilares(id_Dientes_pilares),
+FOREIGN KEY(fk_exm_radio_DP) references exm_radio_DP(id_exm_radio_DP),
+FOREIGN KEY(fk_Organo_Dentario) references Organo_Dentario(id_Organo_Dentario),
+FOREIGN KEY(fk_odontograma) references odontograma(id_odontograma),
+FOREIGN KEY(fk_Plan_tratamiento) references Plan_tratamiento(id_Plan_tratamiento)
+);
 
 -- *************************  HISTORIA CLÍNICA DE OPERATORIA DENTAL *************************
 
