@@ -557,20 +557,129 @@ observaciones text
 );
 
 -- tabla de la historia clinica   de odontología preventiva y salud pública con llaves foraneas de sus respectivas regiones
-create table odontologia_preventiva(
-id_odontologia_preventica int not null auto_increment primary key,
-fk_id_paciente int not null,
-fk_id_profilaxis int not null,
-fk_id_fluorosis int not null,
-fk_id_sellador int not null,
-fk_id_odontograma int not null,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente),
-FOREIGN KEY(fk_id_profilaxis) references profilaxis (id_profilaxis),
-FOREIGN KEY(fk_id_fluorosis) references fluorosis(id_fluorosis),
-FOREIGN KEY(fk_id_sellador) references sellador_de_fosetas_y_fisuras(id_sellador),
-FOREIGN KEY(fk_id_odontograma) references odontograma(id_odontograma)
+CREATE TABLE odontologia_preventiva (
+    id_odontologia_preventica INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    fk_id_paciente INT NOT NULL,
+    fk_id_profilaxis INT NOT NULL,
+    fk_id_fluorosis INT NOT NULL,
+    fk_id_sellador INT NOT NULL,
+    fk_id_odontograma INT NOT NULL,
+    FOREIGN KEY (fk_id_paciente)
+        REFERENCES paciente (id_paciente),
+    FOREIGN KEY (fk_id_profilaxis)
+        REFERENCES profilaxis (id_profilaxis),
+    FOREIGN KEY (fk_id_fluorosis)
+        REFERENCES fluorosis (id_fluorosis),
+    FOREIGN KEY (fk_id_sellador)
+        REFERENCES sellador_de_fosetas_y_fisuras (id_sellador),
+    FOREIGN KEY (fk_id_odontograma)
+        REFERENCES odontograma (id_odontograma)
 );
 
+
+
+-- *************************  HISTORIA CLÍNICA DE OPERATORIA DENTAL *************************
+
+create table Historia_Clininca (
+NO_Expediente int, 
+Fecha datetime
+);
+
+create table Fecha_Identificacion(
+id_Fecha_Identificacion int not null auto_increment primary key,
+Nombre_del_Paciente varchar(50),
+Direccion varchar(50),
+Edad integer not null,
+sexo varchar(20), -- char(1)
+Estado_Civil varchar(20),
+Profesion varchar(30),
+Telefono varchar(10),
+nombre_del_responsable varchar(50)
+);
+
+create table Signos_Vitales(
+id_Signos_Vitales int not null auto_increment primary key,
+Peso double,
+T_A varchar(20),
+Pulso double, 
+Temperatura double, 
+Glucosa double
+);
+
+/*
+create table Interrogatorio(
+id_Interrogatorio int not null auto_increment primary key,
+Motivo_de_la_consulta text,
+Padecimiento_Actual text,
+Goza_de_Buena_salud text,
+Está_siendo_atendido_actualmente_por_un_médico text,
+mencione_las_razones_de_su_tratamiento text,
+Fecha_de_su_último_examen_físico text,
+Está_recibiendo_en_este_momento_cualquier_tipo_de_medicación_o_droga text,
+Indique_los_nombres_de_los_medicamentos_y_las_razones_por_las_cuales_las_usa text,
+Hay_alguna_medicina_que_usted_no_pueda_tomar text,
+Usa_usted_marca_paso_cardiaco text,
+Alguna_vez_ha_sufrido_una_reacción_inusual_a_una_droga_medicamento text,
+Existe_alguna_otra_información_que_deba_ser_conocida_acerca_de_su_salud text,
+Acerca_de_sus_consultas_odontológicas_previas text,
+En_caso_de_ser_mujer_usted_está_embarazada text,
+Mes text
+); */
+
+create table Interrogatorio(
+id_Interrogatorio int not null auto_increment primary key,
+Motivo_consulta text,
+Padecimiento_Actual text,
+Buena_salud text,
+actualmente_es_atendido_por_un_médico text,
+razones_de_su_tratamiento text,
+Fecha_examen_físico text,
+Está_recibiendo_actualmente_medicamentos_o_droga text,
+Indique_los_nombres_y_porque_las_usa text,
+Alergias_de_alguna_medicina text,
+Usa_usted_marca_paso_cardiaco text,
+reacción_inusual_a_una_droga_medicamento text,
+Otra_información_que_deba_ser_conocida_acerca_de_su_salud text,
+Acerca_de_sus_consultas_odontológicas_previas text,
+En_caso_de_ser_mujer_usted_está_embarazada text,
+Mes text
+);
+
+create table Antecedentes_Patologicos(
+id_Antecedentes_Patologicos int not null auto_increment primary key,
+Alcoholismo boolean,
+Alergias boolean,
+Anemias boolean,
+Artritis boolean,
+Asma boolean,
+Cáncer boolean,
+Dependencia_de_Drogas_o_Narcóticos boolean,
+Diabetes boolean,
+Enfermedades_Venéreas boolean,
+Epilepsia boolean,
+Trastorno_del_Riñón_o_Hígado boolean,
+SIDA boolean,
+Lesiones_en_cabeza_o_cuello boolean,
+Migraña boolean,
+Problemas_Cardiacos boolean,
+Sinusitis boolean,
+Trastornos_Metales boolean,
+Trastornos_Respiratorios boolean,
+Tuberculosis boolean,
+Ulceras_del_Estómago boolean,
+Fiebre_Reumática boolean,
+otras text
+);
+
+create table EXPLORACIÓN_DE_LA_CAVIDAD_BUCAL_Y_ANEXOS (
+id_EXPLORACIÓN_DE_LA_CAVIDAD_BUCAL_Y_ANEXOS int not null auto_increment primary key,
+Tejidos_Blandos text,
+Tejidos_Óseos text,
+Articulación_Temporomandibular text,
+Diagnóstico text,
+Estudio_de_Laboratorio_y_Gabinete text,
+Indicaciones_de_interconsulta_Médica_u_Odontológica text
+);
 
 
 
@@ -631,6 +740,8 @@ id_entidad int,
 fecha_de_realizacion datetime,
 tipo_movimiento char
 );
+
+
 
 
 
