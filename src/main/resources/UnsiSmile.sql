@@ -527,8 +527,49 @@ foreign key (id_interrogatorios_por_aparatos_y_sistemas) references interrogator
 foreign key (id_padecimiento_actual) references padecimiento_actual(id_padecimiento_actual)
 );
 
+-- ********************************** Historia clínica de Odontología preventiva y salud pública **********************************************************
 
+-- tabla de profilaxis
+create table profilaxis(
+id_profilaxis int not null auto_increment primary key,
+    Diente int,
+    Codigo int
+    );
+    
+-- tabla de Fluorosis
+create table fluorosis(
+id_fluorosis int not null auto_increment primary key,
+    Diente int,
+    Codigo int
+    );
+    
+-- tabla de datos del sellador de fosetas y fisuras que se rellenan con tipo texto
+create table sellador_de_fosetas_y_fisuras(
+id_sellador int not null auto_increment primary key,
+Autorizacion text,
+Aislamientos_Relativo text,
+Limpieza_de_superficie text,
+Grabado text,
+Lavados_y_Secado text,
+Sellador_de_foseta_y_fisura text,
+Terninado text,
+observaciones text
+);
 
+-- tabla de la historia clinica   de odontología preventiva y salud pública con llaves foraneas de sus respectivas regiones
+create table odontologia_preventiva(
+id_odontologia_preventica int not null auto_increment primary key,
+fk_id_paciente int not null,
+fk_id_profilaxis int not null,
+fk_id_fluorosis int not null,
+fk_id_sellador int not null,
+fk_id_odontograma int not null,
+FOREIGN KEY(fk_id_paciente) references paciente(id_paciente),
+FOREIGN KEY(fk_id_profilaxis) references profilaxis (id_profilaxis),
+FOREIGN KEY(fk_id_fluorosis) references fluorosis(id_fluorosis),
+FOREIGN KEY(fk_id_sellador) references sellador_de_fosetas_y_fisuras(id_sellador),
+FOREIGN KEY(fk_id_odontograma) references odontograma(id_odontograma)
+);
 
 
 
