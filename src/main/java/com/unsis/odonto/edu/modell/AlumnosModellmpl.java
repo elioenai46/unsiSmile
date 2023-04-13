@@ -14,7 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AlumnosModel implements IAlumnosModel {
+public class AlumnosModellmpl implements IAlumnosModel {
 
     private SessionFactory sf;
     private Session s;
