@@ -2,12 +2,12 @@
  * Autor: Oscar Funtes Alvarado
  * Fecha creación: 13 de abril de 2023
  * Fecha modificación: 13 de abril de 2023
- * Descripción: clase model para grupo, modelamos el crud de dicho objeto
+ * Descripción: clase model para semestres, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Grupo;
+import com.unsis.odonto.edu.entity.Semestres;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class GrupoModel implements IGrupoModel {
+public class SemestresModelImpl implements ISemestresModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(Grupo grupo) {
+    public void crearRegistro(Semestres semestres) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(grupo);
+            s.save(semestres);
             //s.createNamedQuery("guardar()");
             //s.
             s.getTransaction().commit();
@@ -38,12 +38,12 @@ public class GrupoModel implements IGrupoModel {
     }
 
     @Override
-    public List<Grupo> obtenerRegistros() {
-        List<Grupo> listaEjemplareses = new ArrayList<>();
+    public List<Semestres> obtenerRegistros() {
+        List<Semestres> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(Grupo.class).list();
+            listaEjemplareses = s.createCriteria(Semestres.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -53,12 +53,12 @@ public class GrupoModel implements IGrupoModel {
     }
 
     @Override
-    public void eliminarRegistro(Grupo grupo) {
+    public void eliminarRegistro(Semestres semestres) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(grupo);
+            s.delete(semestres);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -68,27 +68,27 @@ public class GrupoModel implements IGrupoModel {
     }
 
     @Override
-    public Grupo obtenerRegistro(int idGrupo) {
-        Grupo grupo = null;
+    public Semestres obtenerRegistro(int idSemestre) {
+        Semestres semestres = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            grupo = s.get(Grupo.class, idGrupo);
+            semestres = s.get(Semestres.class, idSemestre);
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return grupo;
+        return semestres;
     }
 
     @Override
-    public void actualizarRegistro(Grupo grupo) {
+    public void actualizarRegistro(Semestres semestres) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(grupo);
+            s.update(semestres);
             s.getTransaction().commit();
             s.close();
             sf.close();

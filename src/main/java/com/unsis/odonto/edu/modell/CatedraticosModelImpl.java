@@ -1,13 +1,13 @@
 /**
  * Autor: Oscar Funtes Alvarado
- * Fecha creación: 13 de abril de 2023
- * Fecha modificación: 13 de abril de 2023
- * Descripción: clase model para semestres, modelamos el crud de dicho objeto
+ * Fecha creación: 14 de abril de 2023
+ * Fecha modificación: 14 de abril de 2023
+ * Descripción: clase model para catedraticos, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Semestres;
+import com.unsis.odonto.edu.entity.Catedraticos;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class SemestresModel implements ISemestresModel {
+public class CatedraticosModelImpl implements ICatedraticosModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(Semestres semestres) {
+    public void crearRegistro(Catedraticos catedraticos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(semestres);
+            s.save(catedraticos);
             //s.createNamedQuery("guardar()");
             //s.
             s.getTransaction().commit();
@@ -38,12 +38,12 @@ public class SemestresModel implements ISemestresModel {
     }
 
     @Override
-    public List<Semestres> obtenerRegistros() {
-        List<Semestres> listaEjemplareses = new ArrayList<>();
+    public List<Catedraticos> obtenerRegistros() {
+        List<Catedraticos> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(Semestres.class).list();
+            listaEjemplareses = s.createCriteria(Catedraticos.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -53,12 +53,12 @@ public class SemestresModel implements ISemestresModel {
     }
 
     @Override
-    public void eliminarRegistro(Semestres semestres) {
+    public void eliminarRegistro(Catedraticos catedraticos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(semestres);
+            s.delete(catedraticos);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -68,27 +68,27 @@ public class SemestresModel implements ISemestresModel {
     }
 
     @Override
-    public Semestres obtenerRegistro(int idSemestre) {
-        Semestres semestres = null;
+    public Catedraticos obtenerRegistro(int idCatedratico) {
+        Catedraticos catedraticos = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            semestres = s.get(Semestres.class, idSemestre);
+            catedraticos = s.get(Catedraticos.class, idCatedratico);
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return semestres;
+        return catedraticos;
     }
 
     @Override
-    public void actualizarRegistro(Semestres semestres) {
+    public void actualizarRegistro(Catedraticos catedraticos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(semestres);
+            s.update(catedraticos);
             s.getTransaction().commit();
             s.close();
             sf.close();

@@ -12,9 +12,9 @@ public interface IServiceBase<T> {
 
     public List<T> obtenerRegistros();
 
-    public void eliminarRegistro(int id);
+    public void eliminarRegistro(T registro);
 
-    public T obtenerRegistro(int id);
+    public T obtenerRegistro(int idRegistro);
 
     public void actualizarRegistro(T registro);
 }
