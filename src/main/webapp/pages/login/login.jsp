@@ -12,7 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilos.css" />
   <title>Sign in & Sign up Form</title>
 </head>
 
@@ -20,15 +20,15 @@
   <div class="container">
     <div class="forms-container">
       <div class="signin-signup">
-        <form action="#" class="sign-in-form">
+        <form action="${pageContext.request.contextPath}/LoginController" method="post" class="sign-in-form">
           <h2 class="title">Ingresar</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Nombre" />
+            <input  type="text" name="usuario" placeholder="Nombre" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Contraseña" />
+            <input type="password" name="contraseña" placeholder="Contraseña" />
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Siguenos en nuestras redes sociales</p>
@@ -58,10 +58,9 @@
             “Nada de lo que llevas es más importante que tu sonrisa”
           </p>
         </div>
-        <img src="img/undraw_medical_care_movn.svg" class="image" alt="" />
+          <img src="../../resources/img/undraw_medical_care_movn.svg" class="image" alt="" />
       </div>
     </div>
   </div>
 </body>
-
 </html>

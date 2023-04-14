@@ -51,7 +51,7 @@ public class Usuarios implements Serializable {
     private String passUsuario;
     @Column(name = "estatus")
     private Boolean estatus;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fIdUsuario")
+    /*@OneToMany(cascade = CascadeType.ALL, mappedBy = "fIdUsuario")
     private Collection<Alumnos> alumnosCollection;
     @JoinColumn(name = "f_id_rol", referencedColumnName = "id_rol")
     @ManyToOne(optional = false)
@@ -61,7 +61,9 @@ public class Usuarios implements Serializable {
     @OneToMany(mappedBy = "fkUsuario")
     private Collection<Administradores> administradoresCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkIdUsuario")
-    private Collection<Catedraticos> catedraticosCollection;
+    private Collection<Catedraticos> catedraticosCollection;*/
+    //Simular un rol dentro de usuario
+    private String nombreRol;
 
     public Usuarios() {
     }
@@ -108,7 +110,7 @@ public class Usuarios implements Serializable {
         this.estatus = estatus;
     }
 
-    @XmlTransient
+    /*@XmlTransient
     public Collection<Alumnos> getAlumnosCollection() {
         return alumnosCollection;
     }
@@ -151,7 +153,7 @@ public class Usuarios implements Serializable {
     public void setCatedraticosCollection(Collection<Catedraticos> catedraticosCollection) {
         this.catedraticosCollection = catedraticosCollection;
     }
-
+*/
     @Override
     public int hashCode() {
         int hash = 0;
@@ -176,5 +178,15 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "com.unsis.odonto.edu.entity.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
+
+    public String getNombreRol() {
+        return nombreRol;
+    }
+
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
+    }
+    
+    
     
 }
