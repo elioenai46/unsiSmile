@@ -5,7 +5,6 @@
  * Descripción: clase model para usuarios, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
-
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Usuarios;
@@ -48,7 +47,7 @@ public class UsuariosModel implements IUsuariosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
         }
         return listaEjemplareses;
     }
@@ -64,7 +63,7 @@ public class UsuariosModel implements IUsuariosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
     }
 
@@ -78,7 +77,7 @@ public class UsuariosModel implements IUsuariosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener un registro: " + e.getMessage());
         }
         return usuarios;
     }
@@ -94,7 +93,7 @@ public class UsuariosModel implements IUsuariosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
 
