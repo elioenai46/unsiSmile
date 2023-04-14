@@ -7,18 +7,12 @@
  */
 package com.unsis.odonto.edu.service;
 
+
 import com.unsis.odonto.edu.entity.Alumnos;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IServiceBase;
 
-public interface IAlumnoService {
 
-    public void crearRegistro(Alumnos alumnos);
+public interface IAlumnoService extends IServiceBase<Alumnos>{
 
-    public List<Alumnos> obtenerRegistros();
-
-    public void eliminarRegistro(Alumnos alumnos);
-
-    public Alumnos obtenerRegistro(int idAlumnos);
-
-    public void actualizarRegistro(Alumnos alumnos);
+   
 }
