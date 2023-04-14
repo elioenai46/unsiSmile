@@ -5,9 +5,12 @@
 package com.unsis.odonto.edu.service;
 
 /**
- *
- * @author labingsw07
- */
-public class EstadoDienteImpl {
+  
+    Document   : EstadoDienteImplservice
+    Created on : 13 abr 2023, 16:55
+    Author     : Vite
+
+    */
+public class EstadoDienteImpl implements IEstadoDiente{
     
 }

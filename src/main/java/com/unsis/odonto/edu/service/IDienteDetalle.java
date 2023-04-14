@@ -4,10 +4,18 @@
  */
 package com.unsis.odonto.edu.service;
 
+import com.unsis.odonto.edu.entity.DienteDetalle;
+import java.util.List;
+
 /**
- *
- * @author labingsw07
+ *  Document   : IDienteDetalleService
+ *  Created on : 13 abr 2023, 16:55
+ *  Author     : Vite
  */
 public interface IDienteDetalle {
-    
+    public void crearRegistro(DienteDetalle DienteDetalle);
+    public List<DienteDetalle> obtenerRegistros();
+    public void eliminarRegistro(DienteDetalle DienteDetalle);
+    public DienteDetalle obtenerRegistro(int id);
+    public void actualizarRegistro(DienteDetalle DienteDetalle);
 }
