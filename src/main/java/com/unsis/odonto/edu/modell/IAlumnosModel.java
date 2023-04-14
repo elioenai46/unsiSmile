@@ -2,7 +2,7 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:Interfaz para modelar los métodos abstractos de la clse model
+ *Descripción:Interfaz para modelar los métodos abstractos de la clase model
  *             refrente a Alumno
  */
 package com.unsis.odonto.edu.modell;
