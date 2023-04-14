@@ -2,12 +2,12 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:clase model para Alumno, modelamos el crud de dicho objeto
+ *Descripción:clase model para ExamenFacial, modelamos el crud de dicho objeto
  *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.ExamenFacial;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AlumnosModellmpl implements IAlumnosModel {
+public class ExamenFacialModelImpl implements IExamenFacialModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(Alumnos alumnos) {
+    public void crearRegistro(ExamenFacial examenFacial) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(alumnos);
+            s.save(examenFacial);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -36,27 +36,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
-        List<Alumnos> listaAlumnos = new ArrayList<>();
+    public List<ExamenFacial> obtenerRegistros() {
+        List<ExamenFacial> listaExamenFacial = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            listaExamenFacial = s.createCriteria(ExamenFacial.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener el registro: " + e.getMessage());
         }
-        return listaAlumnos;
+        return listaExamenFacial;
     }
 
     @Override
-    public void eliminarRegistro(Alumnos alumnos) {
+    public void eliminarRegistro(ExamenFacial examenFacial) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(alumnos);
+            s.delete(examenFacial);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -66,32 +66,32 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public Alumnos obtenerRegistro(int idAlumnos) {
-        Alumnos alumnos = null;
+    public ExamenFacial obtenerRegistro(int idExamenFacial) {
+        ExamenFacial examenFacial = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            alumnos = s.get(Alumnos.class, idAlumnos);
+            examenFacial = s.get(ExamenFacial.class, idExamenFacial);
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener el registro: " + e.getMessage());
         }
-        return alumnos;
+        return examenFacial;
     }
 
     @Override
-    public void actualizarRegistro(Alumnos alumnos) {
+    public void actualizarRegistro(ExamenFacial examenFacial) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(alumnos);
+            s.update(examenFacial);
             s.getTransaction().commit();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al actualizar el registro: " + e.getMessage());
+            System.out.println("Error al actualizarr el registro: " + e.getMessage());
         }
     }
 

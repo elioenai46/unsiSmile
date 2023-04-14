@@ -1,19 +1,16 @@
 /**
  *Autor:Nancy Obed Martínez Miguel
- *Fecha de creación:13 de abril 2023
+ *Fecha de creación:14 de abril 2023
  *Fecha de Modificación:
- *Descripción:Interfaz para modelar los métodos abstractos de la clase model
- *             refrente a Alumno
+ *Descripción:Interfaz para modelar los métodos abstractos de la clase service
+ *             refrente a Alumnos
  */
-package com.unsis.odonto.edu.modell;
+package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Alumnos;
 import java.util.List;
 
-/**
- *
- */
-public interface IAlumnosModel {
+public interface IAlumnoService {
 
     public void crearRegistro(Alumnos alumnos);
 

@@ -2,12 +2,11 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:clase model para Alumno, modelamos el crud de dicho objeto
+ *Descripción: clase model para SignosVitales, modelamos el crud de dicho objeto 
  *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
-
-import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.SignosVitales;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +14,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AlumnosModellmpl implements IAlumnosModel {
 
-    private SessionFactory sf;
+public class SignosVitalesModelImpl implements ISignosVitalesModel {
+private SessionFactory sf;
     private Session s;
-
     @Override
-    public void crearRegistro(Alumnos alumnos) {
+    public void crearRegistro(SignosVitales signosVitales) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(alumnos);
+            s.save(signosVitales);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -36,27 +34,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
-        List<Alumnos> listaAlumnos = new ArrayList<>();
+    public List<SignosVitales> obtenerRegistros() {
+        List<SignosVitales> listaSignosVitales = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            listaSignosVitales = s.createCriteria(SignosVitales.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener el registro: " + e.getMessage());
         }
-        return listaAlumnos;
+        return listaSignosVitales;
     }
 
     @Override
-    public void eliminarRegistro(Alumnos alumnos) {
+    public void eliminarRegistro(SignosVitales signosVitales) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(alumnos);
+            s.delete(signosVitales);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -66,27 +64,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public Alumnos obtenerRegistro(int idAlumnos) {
-        Alumnos alumnos = null;
+    public SignosVitales obtenerRegistro(int idSignosVitales) {
+         SignosVitales signosVitales = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            alumnos = s.get(Alumnos.class, idAlumnos);
+            signosVitales = s.get(SignosVitales.class, idSignosVitales);
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener el registro: " + e.getMessage());
         }
-        return alumnos;
+        return signosVitales;
     }
 
     @Override
-    public void actualizarRegistro(Alumnos alumnos) {
+    public void actualizarRegistro(SignosVitales signosVitales) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(alumnos);
+            s.update(signosVitales);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -94,5 +92,5 @@ public class AlumnosModellmpl implements IAlumnosModel {
             System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
-
+    
 }
