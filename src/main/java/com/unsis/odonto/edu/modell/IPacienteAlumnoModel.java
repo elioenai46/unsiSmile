@@ -11,7 +11,7 @@ import com.unsis.odonto.edu.entity.PacienteAlumno;
 import java.util.List;
 
 
-public interface IPacienteAlumno {
+public interface IPacienteAlumnoModel {
     public void crearRegistro(PacienteAlumno pacienteAlumno);
     public List<PacienteAlumno> obtenerRegistros();
     public void eliminarRegistro(PacienteAlumno pacienteAlumno);
