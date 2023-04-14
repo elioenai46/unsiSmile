@@ -2,12 +2,13 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:
+ *Descripción:clase model para PacienteAlumno, modelamos el crud de dicho objeto
+ *             implementando la clase interfaz
  */
 
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Alumnos;
+
 import com.unsis.odonto.edu.entity.PacienteAlumno;
 import java.util.ArrayList;
 import java.util.List;
@@ -70,12 +71,12 @@ public class PacienteAlumnoModelImpl implements IPacienteAlumnoModel{
     }
 
     @Override
-    public PacienteAlumno obtenerRegistro(int id) {
+    public PacienteAlumno obtenerRegistro(int idPacienteAlumno) {
         PacienteAlumno pacienteAlumno = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            pacienteAlumno = s.get(PacienteAlumno.class, id);
+            pacienteAlumno = s.get(PacienteAlumno.class, idPacienteAlumno);
             s.close();
             sf.close();
         } catch (HibernateException e) {

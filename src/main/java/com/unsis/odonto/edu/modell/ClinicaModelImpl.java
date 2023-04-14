@@ -2,7 +2,8 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:
+ *Descripción:clase model para Clinica, modelamos el crud de dicho objeto
+ *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
@@ -66,12 +67,12 @@ public class ClinicaModelImpl implements IClinicaModel {
     }
 
     @Override
-    public Clinica obtenerRegistro(int id) {
+    public Clinica obtenerRegistro(int idClinica) {
         Clinica clinica = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            clinica = s.get(Clinica.class, id);
+            clinica = s.get(Clinica.class, idClinica);
             s.close();
             sf.close();
         } catch (HibernateException e) {

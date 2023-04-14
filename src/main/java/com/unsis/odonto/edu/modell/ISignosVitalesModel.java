@@ -2,7 +2,8 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:
+ *Descripción: Interfaz para modelar los métodos abstractos de la clse model
+ *             refrente a SignosVitales
  */
 package com.unsis.odonto.edu.modell;
 
@@ -14,6 +15,6 @@ public interface ISignosVitalesModel {
     public void crearRegistro(SignosVitales signosVitales);
     public List<SignosVitales> obtenerRegistros();
     public void eliminarRegistro(SignosVitales signosVitales);
-    public SignosVitales obtenerRegistro(int id);
+    public SignosVitales obtenerRegistro(int idSignosVitales);
     public void actualizarRegistro(SignosVitales signosVitales);
 }

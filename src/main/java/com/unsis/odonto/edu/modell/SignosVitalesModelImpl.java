@@ -1,4 +1,10 @@
-
+/**
+ *Autor:Nancy Obed Martínez Miguel
+ *Fecha de creación:13 de abril 2023
+ *Fecha de Modificación:
+ *Descripción: clase model para SignosVitales, modelamos el crud de dicho objeto 
+ *             implementando la clase interfaz
+ */
 package com.unsis.odonto.edu.modell;
 import com.unsis.odonto.edu.entity.SignosVitales;
 import java.util.ArrayList;
@@ -8,10 +14,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-/**
- *
- * @author TECNOCITY
- */
+
 public class SignosVitalesModelImpl implements ISignosVitalesModel {
 private SessionFactory sf;
     private Session s;
@@ -61,12 +64,12 @@ private SessionFactory sf;
     }
 
     @Override
-    public SignosVitales obtenerRegistro(int id) {
+    public SignosVitales obtenerRegistro(int idSignosVitales) {
          SignosVitales signosVitales = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            signosVitales = s.get(SignosVitales.class, id);
+            signosVitales = s.get(SignosVitales.class, idSignosVitales);
             s.close();
             sf.close();
         } catch (HibernateException e) {

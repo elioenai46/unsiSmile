@@ -2,7 +2,8 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:
+ *Descripción:clase model para Alumno, modelamos el crud de dicho objeto
+ *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
@@ -65,12 +66,12 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public Alumnos obtenerRegistro(int id) {
+    public Alumnos obtenerRegistro(int idAlumnos) {
         Alumnos alumnos = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            alumnos = s.get(Alumnos.class, id);
+            alumnos = s.get(Alumnos.class, idAlumnos);
             s.close();
             sf.close();
         } catch (HibernateException e) {

@@ -2,7 +2,8 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:
+ *Descripción:clase model para RolAlumno, modelamos el crud de dicho objeto
+ *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
@@ -19,11 +20,13 @@ import org.hibernate.cfg.Configuration;
  * @author TECNOCITY
  */
 public class RolAlumnosModelImpl implements IRolAlumnosModel {
+
     private SessionFactory sf;
     private Session s;
+
     @Override
     public void crearRegistro(RolAlumno rolAlumno) {
-         try {
+        try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
@@ -38,7 +41,7 @@ public class RolAlumnosModelImpl implements IRolAlumnosModel {
 
     @Override
     public List<RolAlumno> obtenerRegistros() {
-         List<RolAlumno> listaRolAlumno = new ArrayList<>();
+        List<RolAlumno> listaRolAlumno = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
@@ -67,12 +70,12 @@ public class RolAlumnosModelImpl implements IRolAlumnosModel {
     }
 
     @Override
-    public RolAlumno obtenerRegistro(int id) {
+    public RolAlumno obtenerRegistro(int idRolAlumnos) {
         RolAlumno rolAlumno = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            rolAlumno = s.get(RolAlumno.class, id);
+            rolAlumno = s.get(RolAlumno.class, idRolAlumnos);
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -83,7 +86,7 @@ public class RolAlumnosModelImpl implements IRolAlumnosModel {
 
     @Override
     public void actualizarRegistro(RolAlumno rolAlumno) {
-         try {
+        try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
@@ -95,5 +98,5 @@ public class RolAlumnosModelImpl implements IRolAlumnosModel {
             System.out.println("Error al crear el registro: " + e.getMessage());
         }
     }
-    
+
 }
