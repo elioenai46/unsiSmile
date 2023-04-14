@@ -2,12 +2,12 @@
  * Autor: Oscar Funtes Alvarado
  * Fecha creación: 14 de abril de 2023
  * Fecha modificación: 14 de abril de 2023
- * Descripción: clase model para rolesTiposUsuario, modelamos el crud de dicho objeto
+ * Descripción: clase model para administradores, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.RolesTiposUsuario;
+import com.unsis.odonto.edu.entity.Administradores;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class RolesTiposUsuarioModel implements IRolesTiposUsuarioModel {
+public class AdministradoresModelImpl implements IAdministradoresModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(RolesTiposUsuario rolesTiposUsuario) {
+    public void crearRegistro(Administradores administradores) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(rolesTiposUsuario);
+            s.save(administradores);
             //s.createNamedQuery("guardar()");
             //s.
             s.getTransaction().commit();
@@ -38,12 +38,12 @@ public class RolesTiposUsuarioModel implements IRolesTiposUsuarioModel {
     }
 
     @Override
-    public List<RolesTiposUsuario> obtenerRegistros() {
-        List<RolesTiposUsuario> listaEjemplareses = new ArrayList<>();
+    public List<Administradores> obtenerRegistros() {
+        List<Administradores> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(RolesTiposUsuario.class).list();
+            listaEjemplareses = s.createCriteria(Administradores.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -53,12 +53,12 @@ public class RolesTiposUsuarioModel implements IRolesTiposUsuarioModel {
     }
 
     @Override
-    public void eliminarRegistro(RolesTiposUsuario rolesTiposUsuario) {
+    public void eliminarRegistro(Administradores administradores) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(rolesTiposUsuario);
+            s.delete(administradores);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -68,27 +68,27 @@ public class RolesTiposUsuarioModel implements IRolesTiposUsuarioModel {
     }
 
     @Override
-    public RolesTiposUsuario obtenerRegistro(int idRol) {
-        RolesTiposUsuario rolesTiposUsuario = null;
+    public Administradores obtenerRegistro(int idAdministrador) {
+        Administradores administradores = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            rolesTiposUsuario = s.get(RolesTiposUsuario.class, idRol);
+            administradores = s.get(Administradores.class, idAdministrador);
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return rolesTiposUsuario;
+        return administradores;
     }
 
     @Override
-    public void actualizarRegistro(RolesTiposUsuario rolesTiposUsuario) {
+    public void actualizarRegistro(Administradores administradores) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(rolesTiposUsuario);
+            s.update(administradores);
             s.getTransaction().commit();
             s.close();
             sf.close();

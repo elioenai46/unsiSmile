@@ -1,38 +1,41 @@
-
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Administradores;
+import com.unsis.odonto.edu.modell.AdministradoresModelImpl;
+import com.unsis.odonto.edu.modell.IAdministradoresModel;
 import java.util.List;
 
 /**
  *
  * @author labingsw02
  */
-public class AdministradorServiceImpl implements IAdministradorService{
+public class AdministradorServiceImpl implements IAdministradorService {
+
+    private IAdministradoresModel model = new AdministradoresModelImpl();
 
     @Override
-    public void crearRegistro(Administradores registro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void crearRegistro(Administradores Administrador) {
+        model.crearRegistro(Administrador);
     }
 
     @Override
     public List<Administradores> obtenerRegistros() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return model.obtenerRegistros();
     }
 
     @Override
-    public void eliminarRegistro(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void eliminarRegistro(Administradores administrador) {
+        model.eliminarRegistro(administrador);
     }
 
     @Override
-    public Administradores obtenerRegistro(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Administradores obtenerRegistro(int idadministrador) {
+        return model.obtenerRegistro(idadministrador);
     }
 
     @Override
-    public void actualizarRegistro(Administradores registro) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void actualizarRegistro(Administradores administrador) {
+        model.actualizarRegistro(administrador);
     }
-    
+
 }

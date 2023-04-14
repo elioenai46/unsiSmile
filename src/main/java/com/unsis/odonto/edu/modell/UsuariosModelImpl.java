@@ -1,13 +1,13 @@
 /**
  * Autor: Oscar Funtes Alvarado
- * Fecha creación: 14 de abril de 2023
- * Fecha modificación: 14 de abril de 2023
- * Descripción: clase model para catedraticoGrupo, modelamos el crud de dicho objeto
+ * Fecha creación: 13 de abril de 2023
+ * Fecha modificación: 13 de abril de 2023
+ * Descripción: clase model para usuarios, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.CatedraticoGrupo;
+import com.unsis.odonto.edu.entity.Usuarios;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,18 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CatedraticoGrupoModel implements ICatedraticoGrupoModel {
+public class UsuariosModelImpl implements IUsuariosModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(CatedraticoGrupo catedraticoGrupo) {
+    public void crearRegistro(Usuarios usuarios) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(catedraticoGrupo);
+            s.save(usuarios);
             //s.createNamedQuery("guardar()");
             //s.
             s.getTransaction().commit();
@@ -38,12 +38,12 @@ public class CatedraticoGrupoModel implements ICatedraticoGrupoModel {
     }
 
     @Override
-    public List<CatedraticoGrupo> obtenerRegistros() {
-        List<CatedraticoGrupo> listaEjemplareses = new ArrayList<>();
+    public List<Usuarios> obtenerRegistros() {
+        List<Usuarios> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(CatedraticoGrupo.class).list();
+            listaEjemplareses = s.createCriteria(Usuarios.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -53,12 +53,12 @@ public class CatedraticoGrupoModel implements ICatedraticoGrupoModel {
     }
 
     @Override
-    public void eliminarRegistro(CatedraticoGrupo catedraticoGrupo) {
+    public void eliminarRegistro(Usuarios usuarios) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(catedraticoGrupo);
+            s.delete(usuarios);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -68,27 +68,27 @@ public class CatedraticoGrupoModel implements ICatedraticoGrupoModel {
     }
 
     @Override
-    public CatedraticoGrupo obtenerRegistro(int idCatedraticoGrupo) {
-        CatedraticoGrupo catedraticoGrupo = null;
+    public Usuarios obtenerRegistro(int idUsuario) {
+        Usuarios usuarios = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            catedraticoGrupo = s.get(CatedraticoGrupo.class, idCatedraticoGrupo);
+            usuarios = s.get(Usuarios.class, idUsuario);
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return catedraticoGrupo;
+        return usuarios;
     }
 
     @Override
-    public void actualizarRegistro(CatedraticoGrupo catedraticoGrupo) {
+    public void actualizarRegistro(Usuarios usuarios) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(catedraticoGrupo);
+            s.update(usuarios);
             s.getTransaction().commit();
             s.close();
             sf.close();
