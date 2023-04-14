@@ -45,7 +45,7 @@ public class ExamenFacialModelImpl implements IExamenFacialModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return listaExamenFacial;
     }
@@ -61,7 +61,7 @@ public class ExamenFacialModelImpl implements IExamenFacialModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
     }
 
@@ -75,7 +75,7 @@ public class ExamenFacialModelImpl implements IExamenFacialModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return examenFacial;
     }
@@ -91,7 +91,7 @@ public class ExamenFacialModelImpl implements IExamenFacialModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizarr el registro: " + e.getMessage());
         }
     }
 

@@ -45,7 +45,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return listaAlumnos;
     }
@@ -61,7 +61,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
     }
 
@@ -75,7 +75,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return alumnos;
     }
@@ -91,7 +91,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
 

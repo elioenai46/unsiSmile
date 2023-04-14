@@ -49,7 +49,7 @@ public class PacienteAlumnoModelImpl implements IPacienteAlumnoModel{
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return listaPacienteAlumnos;
     }
@@ -65,7 +65,7 @@ public class PacienteAlumnoModelImpl implements IPacienteAlumnoModel{
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         } 
     
     }
@@ -80,7 +80,7 @@ public class PacienteAlumnoModelImpl implements IPacienteAlumnoModel{
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return pacienteAlumno;
     }
@@ -96,7 +96,7 @@ public class PacienteAlumnoModelImpl implements IPacienteAlumnoModel{
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
     

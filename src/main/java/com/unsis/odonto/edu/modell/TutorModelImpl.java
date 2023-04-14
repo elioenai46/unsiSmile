@@ -45,7 +45,7 @@ public class TutorModelImpl implements ITutorModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return listaTutor;
     }
@@ -61,7 +61,7 @@ public class TutorModelImpl implements ITutorModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
 
     }
@@ -76,7 +76,7 @@ public class TutorModelImpl implements ITutorModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return tutor;
     }
@@ -92,7 +92,7 @@ public class TutorModelImpl implements ITutorModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
 
     }

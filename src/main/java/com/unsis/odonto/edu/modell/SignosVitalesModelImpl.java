@@ -43,7 +43,7 @@ private SessionFactory sf;
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return listaSignosVitales;
     }
@@ -59,7 +59,7 @@ private SessionFactory sf;
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
     }
 
@@ -73,7 +73,7 @@ private SessionFactory sf;
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return signosVitales;
     }
@@ -89,7 +89,7 @@ private SessionFactory sf;
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
     
