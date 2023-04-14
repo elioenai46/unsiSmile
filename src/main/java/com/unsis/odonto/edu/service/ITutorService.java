@@ -8,18 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Tutor;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IServiceBase;
 
+public interface ITutorService extends IServiceBase<Tutor> {
 
-public interface ITutorService {
-    public void crearRegistro(Tutor tutor);
-
-    public List<Tutor> obtenerRegistros();
-
-    public void eliminarRegistro(Tutor tutor);
-
-    public Tutor obtenerRegistro(int idTutor);
-
-    public void actualizarRegistro(Tutor tutor);
-    
 }

@@ -8,18 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.SignosVitales;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IServiceBase;
 
-public interface ISignosVitales {
-
-    public void crearRegistro(SignosVitales signosVitales);
-
-    public List<SignosVitales> obtenerRegistros();
-
-    public void eliminarRegistro(SignosVitales signosVitales);
-
-    public SignosVitales obtenerRegistro(int idSignosVitales);
-
-    public void actualizarRegistro(SignosVitales signosVitales);
+public interface ISignosVitales extends IServiceBase<SignosVitales> {
 
 }

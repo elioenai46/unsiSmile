@@ -8,18 +8,11 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.ExamenFacial;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IServiceBase;
 
-public interface IExamenFacialService {
 
-    public void crearRegistro(ExamenFacial examenFacial);
+public interface IExamenFacialService extends IServiceBase<ExamenFacial>{
 
-    public List<ExamenFacial> obtenerRegistros();
-
-    public void eliminarRegistro(ExamenFacial examenFacial);
-
-    public ExamenFacial obtenerRegistro(int idExamenFacial);
-
-    public void actualizarRegistro(ExamenFacial examenFacial);
+    
 
 }
