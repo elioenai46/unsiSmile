@@ -1,3 +1,10 @@
+/**
+ * Autor: Oscar Funtes Alvarado
+ * Fecha creación: 14 de abril de 2023
+ * Fecha modificación: 14 de abril de 2023
+ * Descripción: clase service para administradores, modelamos el crud de dicho objeto
+ *              implementando una clase interfaz
+ */
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Administradores;
@@ -14,8 +21,8 @@ public class AdministradorServiceImpl implements IAdministradorService {
     private IAdministradoresModel model = new AdministradoresModelImpl();
 
     @Override
-    public void crearRegistro(Administradores Administrador) {
-        model.crearRegistro(Administrador);
+    public void crearRegistro(Administradores administrador) {
+        model.crearRegistro(administrador);
     }
 
     @Override
