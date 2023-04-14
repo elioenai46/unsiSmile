@@ -16,7 +16,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AdministradoresModel_1 implements IAdministradoresModel {
+public class AdministradoresModel implements IAdministradoresModel {
 
     private SessionFactory sf;
     private Session s;
