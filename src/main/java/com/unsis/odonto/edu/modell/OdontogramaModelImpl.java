@@ -7,34 +7,91 @@
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Odontograma;
+import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 
 public class OdontogramaModelImpl implements IOdontogramaModel{
-
+    private SessionFactory sf;
+    private Session s;
     @Override
     public void crearRegistro(Odontograma Odontograma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            s.beginTransaction();
+            s.save(Odontograma);
+            s.getTransaction().commit();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
+    
     }
 
     @Override
     public List<Odontograma> obtenerRegistros() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Odontograma> listaOdontograma = new ArrayList<>();
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            listaOdontograma= s.createCriteria(Odontograma.class).list();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
+        return listaOdontograma;
     }
 
     @Override
     public void eliminarRegistro(Odontograma Odontograma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            s.beginTransaction();
+            s.delete(Odontograma);     
+            s.getTransaction().commit();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
     }
 
     @Override
     public Odontograma obtenerRegistro(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Odontograma odonto = null;
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            odonto = s.get(Odontograma.class, id);
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
+        return odonto;
     }
 
     @Override
     public void actualizarRegistro(Odontograma Odontograma) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            s.beginTransaction();
+            s.update(Odontograma);
+            s.getTransaction().commit();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
     }
     
 }

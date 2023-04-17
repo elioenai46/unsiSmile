@@ -1,18 +1,14 @@
 /**
  * Autor     : Vite 
  * Fecha de creación : 13 abr 2023, 16:55
- * Fecha de modificación: 14 abr 2023, 16:34
+ * Fecha de modificación: 17 abr 2023, 16:19
  * Descripción : InterfaceEstudioDeLaboratorioBiopsiaService 
  */
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.EstudioDeLaboratorioBiopsia;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IServiceBase;
 
-public interface IEstudioDeLaboratorioBiopsiaService {
-    public void crearRegistro(EstudioDeLaboratorioBiopsia EstudioDeLaboratorioBiopsia);
-    public List<EstudioDeLaboratorioBiopsia> obtenerRegistros();
-    public void eliminarRegistro(EstudioDeLaboratorioBiopsia EstudioDeLaboratorioBiopsia);
-    public EstudioDeLaboratorioBiopsia obtenerRegistro(int id);
-    public void actualizarRegistro(EstudioDeLaboratorioBiopsia EstudioDeLaboratorioBiopsia);
+public interface IEstudioDeLaboratorioBiopsiaService extends IServiceBase<EstudioDeLaboratorioBiopsia> {
+    
 }

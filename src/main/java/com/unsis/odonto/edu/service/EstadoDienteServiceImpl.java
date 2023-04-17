@@ -7,11 +7,13 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.EstadoDiente;
+import com.unsis.odonto.edu.modell.EstadoDienteModelImpl;
+import com.unsis.odonto.edu.modell.IEstadoDienteModel;
 import java.util.List;
 
 
 public class EstadoDienteServiceImpl implements IEstadoDienteService{
-private com.unsis.odonto.edu.modell.IEstadoDienteModel model = new com.unsis.odonto.edu.modell.EstadoDienteModelImpl();
+private IEstadoDienteModel model = new EstadoDienteModelImpl();
     @Override
     public void crearRegistro(EstadoDiente EstadoDiente) {
         model.crearRegistro(EstadoDiente);

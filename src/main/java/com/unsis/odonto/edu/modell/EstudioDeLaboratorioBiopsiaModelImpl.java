@@ -7,34 +7,90 @@
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.EstudioDeLaboratorioBiopsia;
+import java.util.ArrayList;
 import java.util.List;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 
 public class EstudioDeLaboratorioBiopsiaModelImpl implements IEstudioDeLaboratorioBiopsiaModel{
-
+private SessionFactory sf;
+    private Session s;
     @Override
-    public void crearRegistro(EstudioDeLaboratorioBiopsia EstudioDeLaboratorioBiopsia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void crearRegistro(EstudioDeLaboratorioBiopsia ELB) {
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            s.beginTransaction();
+            s.save(ELB);
+            s.getTransaction().commit();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
+    
     }
 
     @Override
     public List<EstudioDeLaboratorioBiopsia> obtenerRegistros() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<EstudioDeLaboratorioBiopsia> listaELB = new ArrayList<>();
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            listaELB= s.createCriteria(EstudioDeLaboratorioBiopsia.class).list();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
+        return listaELB;
     }
 
     @Override
-    public void eliminarRegistro(EstudioDeLaboratorioBiopsia EstudioDeLaboratorioBiopsia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void eliminarRegistro(EstudioDeLaboratorioBiopsia ELB) {
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            s.beginTransaction();
+            s.delete(ELB);     
+            s.getTransaction().commit();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
     }
 
     @Override
     public EstudioDeLaboratorioBiopsia obtenerRegistro(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        EstudioDeLaboratorioBiopsia elb = null;
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            elb = s.get(EstudioDeLaboratorioBiopsia.class, id);
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
+        return elb;
     }
 
     @Override
-    public void actualizarRegistro(EstudioDeLaboratorioBiopsia EstudioDeLaboratorioBiopsia) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void actualizarRegistro(EstudioDeLaboratorioBiopsia ELB) {
+        try {
+             sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            s.beginTransaction();
+            s.update(ELB);
+            s.getTransaction().commit();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al crear el registro: " + e.getMessage());
+        }
     }
-    
 }
