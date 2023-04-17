@@ -1,14 +1,12 @@
 /**
- * Autor: Oscar Funtes Alvarado
- * Fecha creación: 13 de abril de 2023
- * Fecha modificación: 13 de abril de 2023
- * Descripción: clase model para usuarios, modelamos el crud de dicho objeto
- *              implementando una clase interfaz
+ *Autor:Nancy Obed Martínez Miguel
+ *Fecha de creación:13 de abril 2023
+ *Fecha de Modificación:
+ *Descripción: clase model para SignosVitales, modelamos el crud de dicho objeto 
+ *             implementando la clase interfaz
  */
-
 package com.unsis.odonto.edu.modell;
-
-import com.unsis.odonto.edu.entity.Usuarios;
+import com.unsis.odonto.edu.entity.SignosVitales;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -16,20 +14,17 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class UsuariosModel implements IUsuariosModel {
 
-    private SessionFactory sf;
+public class SignosVitalesModelImpl implements ISignosVitalesModel {
+private SessionFactory sf;
     private Session s;
-
     @Override
-    public void crearRegistro(Usuarios usuarios) {
+    public void crearRegistro(SignosVitales signosVitales) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(usuarios);
-            //s.createNamedQuery("guardar()");
-            //s.
+            s.save(signosVitales);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -39,63 +34,63 @@ public class UsuariosModel implements IUsuariosModel {
     }
 
     @Override
-    public List<Usuarios> obtenerRegistros() {
-        List<Usuarios> listaEjemplareses = new ArrayList<>();
+    public List<SignosVitales> obtenerRegistros() {
+        List<SignosVitales> listaSignosVitales = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(Usuarios.class).list();
+            listaSignosVitales = s.createCriteria(SignosVitales.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
-        return listaEjemplareses;
+        return listaSignosVitales;
     }
 
     @Override
-    public void eliminarRegistro(Usuarios usuarios) {
+    public void eliminarRegistro(SignosVitales signosVitales) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(usuarios);
+            s.delete(signosVitales);
             s.getTransaction().commit();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
     }
 
     @Override
-    public Usuarios obtenerRegistro(int idUsuario) {
-        Usuarios usuarios = null;
+    public SignosVitales obtenerRegistro(int idSignosVitales) {
+         SignosVitales signosVitales = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            usuarios = s.get(Usuarios.class, idUsuario);
+            signosVitales = s.get(SignosVitales.class, idSignosVitales);
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
-        return usuarios;
+        return signosVitales;
     }
 
     @Override
-    public void actualizarRegistro(Usuarios usuarios) {
+    public void actualizarRegistro(SignosVitales signosVitales) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(usuarios);
+            s.update(signosVitales);
             s.getTransaction().commit();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
-
+    
 }

@@ -1,13 +1,13 @@
 /**
- *Autor:Nancy Obed Martínez Miguel
- *Fecha de creación:13 de abril 2023
- *Fecha de Modificación:
- *Descripción:clase model para Alumno, modelamos el crud de dicho objeto
- *             implementando la clase interfaz
+ * Autor: Oscar Funtes Alvarado
+ * Fecha creación: 14 de abril de 2023
+ * Fecha modificación: 14 de abril de 2023
+ * Descripción: clase model para semestreGrupo, modelamos el crud de dicho objeto
+ *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.SemestreGrupo;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,20 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AlumnosModellmpl implements IAlumnosModel {
+public class SemestreGrupoModelImpl implements ISemestreGrupoModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(Alumnos alumnos) {
+    public void crearRegistro(SemestreGrupo semestreGrupo) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(alumnos);
+            s.save(semestreGrupo);
+            //s.createNamedQuery("guardar()");
+            //s.
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -36,27 +38,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
-        List<Alumnos> listaAlumnos = new ArrayList<>();
+    public List<SemestreGrupo> obtenerRegistros() {
+        List<SemestreGrupo> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            listaEjemplareses = s.createCriteria(SemestreGrupo.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
         }
-        return listaAlumnos;
+        return listaEjemplareses;
     }
 
     @Override
-    public void eliminarRegistro(Alumnos alumnos) {
+    public void eliminarRegistro(SemestreGrupo semestreGrupo) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(alumnos);
+            s.delete(semestreGrupo);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -66,27 +68,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public Alumnos obtenerRegistro(int idAlumnos) {
-        Alumnos alumnos = null;
+    public SemestreGrupo obtenerRegistro(int idSemestreGrupo) {
+        SemestreGrupo semestreGrupo = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            alumnos = s.get(Alumnos.class, idAlumnos);
+            semestreGrupo = s.get(SemestreGrupo.class, idSemestreGrupo);
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return alumnos;
+        return semestreGrupo;
     }
 
     @Override
-    public void actualizarRegistro(Alumnos alumnos) {
+    public void actualizarRegistro(SemestreGrupo semestreGrupo) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(alumnos);
+            s.update(semestreGrupo);
             s.getTransaction().commit();
             s.close();
             sf.close();

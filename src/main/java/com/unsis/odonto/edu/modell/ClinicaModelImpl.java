@@ -2,7 +2,8 @@
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
  *Fecha de Modificación:
- *Descripción:
+ *Descripción:clase model para Clinica, modelamos el crud de dicho objeto
+ *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
@@ -44,7 +45,7 @@ public class ClinicaModelImpl implements IClinicaModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return listaClinicas;
     }
@@ -60,22 +61,22 @@ public class ClinicaModelImpl implements IClinicaModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
 
     }
 
     @Override
-    public Clinica obtenerRegistro(int id) {
+    public Clinica obtenerRegistro(int idClinica) {
         Clinica clinica = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            clinica = s.get(Clinica.class, id);
+            clinica = s.get(Clinica.class, idClinica);
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro: " + e.getMessage());
         }
         return clinica;
     }
@@ -91,7 +92,7 @@ public class ClinicaModelImpl implements IClinicaModel {
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al crear el registro: " + e.getMessage());
+            System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
     }
 

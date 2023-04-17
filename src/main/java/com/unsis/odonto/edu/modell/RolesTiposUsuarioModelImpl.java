@@ -1,13 +1,13 @@
 /**
- *Autor:Nancy Obed Martínez Miguel
- *Fecha de creación:13 de abril 2023
- *Fecha de Modificación:
- *Descripción:clase model para Alumno, modelamos el crud de dicho objeto
- *             implementando la clase interfaz
+ * Autor: Oscar Funtes Alvarado
+ * Fecha creación: 14 de abril de 2023
+ * Fecha modificación: 14 de abril de 2023
+ * Descripción: clase model para rolesTiposUsuario, modelamos el crud de dicho objeto
+ *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.RolesTiposUsuario;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,20 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AlumnosModellmpl implements IAlumnosModel {
+public class RolesTiposUsuarioModelImpl implements IRolesTiposUsuarioModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(Alumnos alumnos) {
+    public void crearRegistro(RolesTiposUsuario rolesTiposUsuario) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(alumnos);
+            s.save(rolesTiposUsuario);
+            //s.createNamedQuery("guardar()");
+            //s.
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -36,27 +38,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
-        List<Alumnos> listaAlumnos = new ArrayList<>();
+    public List<RolesTiposUsuario> obtenerRegistros() {
+        List<RolesTiposUsuario> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            listaEjemplareses = s.createCriteria(RolesTiposUsuario.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
         }
-        return listaAlumnos;
+        return listaEjemplareses;
     }
 
     @Override
-    public void eliminarRegistro(Alumnos alumnos) {
+    public void eliminarRegistro(RolesTiposUsuario rolesTiposUsuario) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(alumnos);
+            s.delete(rolesTiposUsuario);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -66,27 +68,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public Alumnos obtenerRegistro(int idAlumnos) {
-        Alumnos alumnos = null;
+    public RolesTiposUsuario obtenerRegistro(int idRol) {
+        RolesTiposUsuario rolesTiposUsuario = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            alumnos = s.get(Alumnos.class, idAlumnos);
+            rolesTiposUsuario = s.get(RolesTiposUsuario.class, idRol);
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return alumnos;
+        return rolesTiposUsuario;
     }
 
     @Override
-    public void actualizarRegistro(Alumnos alumnos) {
+    public void actualizarRegistro(RolesTiposUsuario rolesTiposUsuario) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(alumnos);
+            s.update(rolesTiposUsuario);
             s.getTransaction().commit();
             s.close();
             sf.close();

@@ -1,13 +1,13 @@
 /**
- *Autor:Nancy Obed Martínez Miguel
- *Fecha de creación:13 de abril 2023
- *Fecha de Modificación:
- *Descripción:clase model para Alumno, modelamos el crud de dicho objeto
- *             implementando la clase interfaz
+ * Autor: Oscar Funtes Alvarado
+ * Fecha creación: 13 de abril de 2023
+ * Fecha modificación: 13 de abril de 2023
+ * Descripción: clase model para semestres, modelamos el crud de dicho objeto
+ *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
-import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.Semestres;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,18 +15,20 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class AlumnosModellmpl implements IAlumnosModel {
+public class SemestresModelImpl implements ISemestresModel {
 
     private SessionFactory sf;
     private Session s;
 
     @Override
-    public void crearRegistro(Alumnos alumnos) {
+    public void crearRegistro(Semestres semestres) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.save(alumnos);
+            s.save(semestres);
+            //s.createNamedQuery("guardar()");
+            //s.
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -36,27 +38,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public List<Alumnos> obtenerRegistros() {
-        List<Alumnos> listaAlumnos = new ArrayList<>();
+    public List<Semestres> obtenerRegistros() {
+        List<Semestres> listaEjemplareses = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            listaEjemplareses = s.createCriteria(Semestres.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
         }
-        return listaAlumnos;
+        return listaEjemplareses;
     }
 
     @Override
-    public void eliminarRegistro(Alumnos alumnos) {
+    public void eliminarRegistro(Semestres semestres) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.delete(alumnos);
+            s.delete(semestres);
             s.getTransaction().commit();
             s.close();
             sf.close();
@@ -66,27 +68,27 @@ public class AlumnosModellmpl implements IAlumnosModel {
     }
 
     @Override
-    public Alumnos obtenerRegistro(int idAlumnos) {
-        Alumnos alumnos = null;
+    public Semestres obtenerRegistro(int idSemestre) {
+        Semestres semestres = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            alumnos = s.get(Alumnos.class, idAlumnos);
+            semestres = s.get(Semestres.class, idSemestre);
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener un registro: " + e.getMessage());
         }
-        return alumnos;
+        return semestres;
     }
 
     @Override
-    public void actualizarRegistro(Alumnos alumnos) {
+    public void actualizarRegistro(Semestres semestres) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             s.beginTransaction();
-            s.update(alumnos);
+            s.update(semestres);
             s.getTransaction().commit();
             s.close();
             sf.close();
