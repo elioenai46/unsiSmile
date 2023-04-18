@@ -1,0 +1,13 @@
+/target/
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# configurations files#
+hibernate.cfg.xml
+
