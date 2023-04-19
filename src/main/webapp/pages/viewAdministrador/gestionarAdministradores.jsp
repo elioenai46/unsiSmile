@@ -27,7 +27,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="index.html">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -36,7 +36,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAdministradores.jsp" >
+                    <a href="gestionarAdministradores.html">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -88,12 +88,12 @@
                 </div>
 
                 <div class="user">
-                    <img src="/assets/imgs/customer01.jpg" alt="">
+                    <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
 
             <!-- ======================= Cards ================== -->
-            <!-- <div class="cardBox">
+            <div class="cardBox">
                 <div class="card">
                     <div>
                         <div class="numbers">1,504</div>
@@ -137,84 +137,75 @@
                         <ion-icon name="cash-outline"></ion-icon>
                     </div>
                 </div>
-            </div> -->
+            </div>
 
             <!-- ================ Order Details List ================= -->
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
-                        <h2>Usuarios</h2>
+                        <h2>Alumnos</h2>
                         <a href="#" class="btn">Ver todos</a>
                     </div>
 
                     <table>
                         <thead>
-                            <tr>
-                                <td>Nombres</td>
-                                <td>Apellido Paterno</td>
-                                <td>Apellido Materno</td>
-                                <td>Rol</td>
-                            </tr>
+                          <tr>
+                            <td>Nombres</td>
+                            <td>Apellido Paterno</td>
+                            <td>Apellido Materno</td>
+                          </tr>
                         </thead>
-                    
+                      
                         <tbody>
-                            <tr>
-                                <td>Juan</td>
-                                <td>García</td>
-                                <td>Pérez</td>
-                                <td>Alumno</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>María</td>
-                                <td>Martínez</td>
-                                <td>Gómez</td>
-                                <td>Profesor</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>Carlos</td>
-                                <td>Ruiz</td>
-                                <td>González</td>
-                                <td>Administrador</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>Sofía</td>
-                                <td>Hernández</td>
-                                <td>Rodríguez</td>
-                                <td>Alumno</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>Pablo</td>
-                                <td>López</td>
-                                <td>Gutiérrez</td>
-                                <td>Profesor</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>Luisa</td>
-                                <td>Rodríguez</td>
-                                <td>Chávez</td>
-                                <td>Alumno</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>Andrés</td>
-                                <td>González</td>
-                                <td>Hernández</td>
-                                <td>Profesor</td>
-                            </tr>
-                    
-                            <tr>
-                                <td>Isabel</td>
-                                <td>Ruiz</td>
-                                <td>Martínez</td>
-                                <td>Administrador</td>
-                            </tr>
+                          <tr>
+                            <td>Juan</td>
+                            <td>García</td>
+                            <td>Pérez</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>María</td>
+                            <td>Martínez</td>
+                            <td>Gómez</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>Carlos</td>
+                            <td>Ruiz</td>
+                            <td>González</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>Sofía</td>
+                            <td>Hernández</td>
+                            <td>Rodríguez</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>Pablo</td>
+                            <td>López</td>
+                            <td>Gutiérrez</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>Luisa</td>
+                            <td>Rodríguez</td>
+                            <td>Chávez</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>Andrés</td>
+                            <td>González</td>
+                            <td>Hernández</td>
+                          </tr>
+                      
+                          <tr>
+                            <td>Isabel</td>
+                            <td>Ruiz</td>
+                            <td>Martínez</td>
+                          </tr>
                         </tbody>
-                    </table>
+                      </table>
                     
                 </div>
 
@@ -227,7 +218,7 @@
                     <table>
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Administrador</span></h4>
@@ -236,7 +227,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>Administrador</span></h4>
@@ -245,7 +236,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Alumno</span></h4>
@@ -254,7 +245,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>Alumno</span></h4>
@@ -263,7 +254,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Alumno</span></h4>
@@ -272,7 +263,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>Alumno</span></h4>
@@ -281,7 +272,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer01.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>David <br> <span>Italy</span></h4>
@@ -290,7 +281,7 @@
 
                         <tr>
                             <td width="60px">
-                                <div class="imgBx"><img src="/assets/imgs/customer02.jpg" alt=""></div>
+                                <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
                             </td>
                             <td>
                                 <h4>Amit <br> <span>India</span></h4>
