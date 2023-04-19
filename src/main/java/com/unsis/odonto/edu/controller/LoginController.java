@@ -1,4 +1,3 @@
-
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Usuarios;
@@ -14,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class LoginController extends HttpServlet {
-     @Override
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     }
@@ -22,30 +22,44 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String username = request.getParameter("usuario");
-        String password = request.getParameter("contraseña");
-        
+        String password = request.getParameter("contrasena");
+
         Usuarios usuarios = new Usuarios();
         usuarios.setNombreUsuario(username);
         usuarios.setPassUsuario(password);
-         
+
         ILoginService service = new LoginServiceImpl();
-         
+
         usuarios = service.login(usuarios);
 
         String paginaDestino = "/pages/login/login.jsp";
-        if (usuarios.getNombreRol().compareTo("") != 0 ) {
+        if (usuarios.getNombreRol().compareTo("") != 0) {
+           
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(20);
             session.setAttribute("usuarios", usuarios);
-            paginaDestino = "/pages/index.jsp";
+             switch (usuarios.getNombreRol()) {
+                case "ADMIN":
+                    paginaDestino = "/pages/viewAdministrador/homeAdministrador.jsp";
+
+                    break;
+                case "ALUMNO":
+                    paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
+
+                    break;
+
+                default:
+                    throw new AssertionError();
+            }
+         //   paginaDestino = "/pages/index.jsp";
         } else {
             String message = "usuario o contraseña incorrecta";
             request.setAttribute("message", message);
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher(paginaDestino);
         dispatcher.forward(request, response);
-        
+
     }
 }

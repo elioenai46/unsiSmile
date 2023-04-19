@@ -28,7 +28,7 @@
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" name="contraseña" placeholder="Contraseña" />
+            <input type="password" name="contrasena" placeholder="Contraseña" />
           </div>
           <input type="submit" value="Login" class="btn solid" />
           <p class="social-text">Siguenos en nuestras redes sociales</p>
