@@ -6,13 +6,9 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AntecedentesHeredofamiliares;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IAntecedentesHeredofamiliaresServiceBase;
 
-public interface IAntecedentesHeredofamiliaresService {
-     public void crearRegistro(AntecedentesHeredofamiliares antecedentesHeredofamiliares);
-    public List<AntecedentesHeredofamiliares> obtenerRegistros();
-    public void eliminarRegistro(AntecedentesHeredofamiliares antecedentesHeredofamiliares);
-    public AntecedentesHeredofamiliares obtenerRegistro(int id_antecedentes_heredofamiliares);
-    public void actualizarRegistro(AntecedentesHeredofamiliares antecedentesHeredofamiliares);
+
+public interface IAntecedentesHeredofamiliaresService extends IAntecedentesHeredofamiliaresServiceBase<AntecedentesHeredofamiliares>{
     
 }

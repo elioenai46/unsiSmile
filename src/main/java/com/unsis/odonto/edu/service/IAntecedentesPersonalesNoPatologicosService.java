@@ -6,13 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AntecedentesPersonalesNoPatologicos;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IAntecedentesPersonalesNoPatologicosServiceBase;
 
-public interface IAntecedentesPersonalesNoPatologicosService {
-    public void crearRegistro( AntecedentesPersonalesNoPatologicos antecedentesPersonalesNoPatologicos);
-    public List<AntecedentesPersonalesNoPatologicos> obtenerRegistros();
-    public void eliminarRegistro(AntecedentesPersonalesNoPatologicos antecedentesPersonalesNoPatologicos);
-    public AntecedentesPersonalesNoPatologicos obtenerRegistro(int id_antecedentes_personales_no_patologicos);
-    public void actualizarRegistro(AntecedentesPersonalesNoPatologicos antecedentesPersonalesNoPatologicos);
+public interface IAntecedentesPersonalesNoPatologicosService extends IAntecedentesPersonalesNoPatologicosServiceBase<AntecedentesPersonalesNoPatologicos>{
     
 }
