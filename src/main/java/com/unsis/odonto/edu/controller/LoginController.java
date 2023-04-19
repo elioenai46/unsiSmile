@@ -25,6 +25,7 @@ public class LoginController extends HttpServlet {
 
         String username = request.getParameter("usuario");
         String password = request.getParameter("contrasena");
+        
 
         Usuarios usuarios = new Usuarios();
         usuarios.setNombreUsuario(username);

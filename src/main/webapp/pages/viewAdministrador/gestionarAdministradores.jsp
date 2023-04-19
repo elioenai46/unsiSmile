@@ -27,7 +27,7 @@
                 </li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="homeAdministrador.jsp">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -36,7 +36,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAdministradores.html">
+                    <a href="gestionarAdministradores.jsp">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAlumno.html">
+                    <a href="gestionarAlumno.jsp">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -54,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarProfesor.html">
+                    <a href="gestionarProfesor.jsp">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>

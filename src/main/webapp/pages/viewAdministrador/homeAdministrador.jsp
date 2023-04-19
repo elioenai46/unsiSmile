@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAlumno.html">
+                    <a href="gestionarAlumno.jsp">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -54,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarProfesor.html">
+                    <a href="gestionarProfesor.jsp">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>

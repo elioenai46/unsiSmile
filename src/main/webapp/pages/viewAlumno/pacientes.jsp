@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages//assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages//assets/js/main.js">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/js/main.js">
 </head>
 
 <body>
@@ -37,7 +37,7 @@
                 </li>
 
                 <li>
-                    <a href="pacientes.jsp">
+                    <a href="gestionarAdministradores.html">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -99,25 +99,30 @@
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
 
-                <!-- <div class="search">
+                <div class="search">
                     <label>
                         <input type="text" placeholder="Buscar usuario">
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
-                </div> -->
+                </div>
 
                 <div class="user">
-                    <img src="/assets/imgs/customer01.jpg" alt="">
+                    <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
 
             <!-- ======================= Cards ================== -->
-            <div class="cardBox">
-                <div class="cardAlumno">
-                    <img src="/assets/imgs/customer01.jpg" alt="">
-            </div>
+            <!-- <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">1,504</div>
+                        <div class="cardName">Daily Views</div>
+                    </div>
 
-            <div class="cardBox">
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </div>
+                </div>
 
                 <div class="card">
                     <div>
@@ -140,10 +145,21 @@
                         <ion-icon name="chatbubbles-outline"></ion-icon>
                     </div>
                 </div>
-            </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">$7,842</div>
+                        <div class="cardName">Earning</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="cash-outline"></ion-icon>
+                    </div>
+                </div>
+            </div> -->
 
             <!-- ================ Order Details List ================= -->
-            <!-- <div class="details">
+            <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Usuarios</h2>
@@ -219,10 +235,10 @@
                         </tbody>
                     </table>
 
-                </div> -->
+                </div>
 
                 <!-- ================= New Customers ================ -->
-                <!-- <div class="recentCustomers">
+                <div class="recentCustomers">
                     <div class="cardHeader">
                         <h2>Modificaciones recientes</h2>
                     </div>
@@ -300,7 +316,7 @@
                             </td>
                         </tr>
                     </table>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>
