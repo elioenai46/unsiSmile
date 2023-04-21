@@ -42,11 +42,11 @@ public class LoginController extends HttpServlet {
             session.setMaxInactiveInterval(20);
             session.setAttribute("usuarios", usuarios);
              switch (usuarios.getNombreRol()) {
-                case "ADMIN":
+                case "Administrador":
                     paginaDestino = "/pages/viewAdministrador/homeAdministrador.jsp";
 
                     break;
-                case "ALUMNO":
+                case "Alumno":
                     paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
 
                     break;
