@@ -14,34 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class AdministradoresServletController extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doPost(request, response);
-    }
-
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doPost(req, resp);
-    }
-    
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String cadena = request.getParameter("accion");
-
-        switch (cadena) {
-
-            case "listar":
-                listar(request, response);
-                break;
-            default:
-                break;
-        }
-
-    }
-
-    private void listar(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
 
@@ -50,6 +24,12 @@ public class AdministradoresServletController extends HttpServlet {
         request.setAttribute("listaAdministradores", listaAdministradores);
 
         dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
     }
 
 }

@@ -145,7 +145,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Administradores</h2>
-                            <a href="#" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}/AdministradoresServletController?" class="btn">Ver todos</a>
                         </div>
 
                         <table class="table table-striped">
@@ -169,7 +169,6 @@
                                 <c:forEach var="administradores" items="${listaAdministradores}">
                                     <tr>
                                         <td><c:out value="${administradores.idAdministrador}"></c:out> </td>
-
                                         <td><c:out value="${administradores.nombre1}"></c:out></td>
                                         <td><c:out value="${administradores.nombre2}"></c:out></td>
                                         <td> <c:out value="${administradores.apellido1}"></c:out></td>
