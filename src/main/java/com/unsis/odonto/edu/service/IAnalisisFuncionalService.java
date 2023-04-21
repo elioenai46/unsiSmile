@@ -6,14 +6,9 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AnalisisFuncional;
-import java.util.List;
 
-public interface IAnalisisFuncionalService {
-    public void crearRegistro(AnalisisFuncional analisisFuncional);
-    public List<AnalisisFuncional> obtenerRegistros();
-    public void eliminarRegistro(AnalisisFuncional analisisFuncional);
-    public AnalisisFuncional obtenerRegistro(int id_analisis_funcional); 
-    public void actualizarRegistro(AnalisisFuncional  analisisFuncional);
+import com.unsis.odonto.edu.service.base.IAnalisisFuncionaServiceBase;
+public interface IAnalisisFuncionalService extends IAnalisisFuncionaServiceBase<AnalisisFuncional>{
     
     
 }

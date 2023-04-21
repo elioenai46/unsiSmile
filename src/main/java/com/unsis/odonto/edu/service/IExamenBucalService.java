@@ -6,13 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.ExamenBucal;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IExamenBucalServiceBase;
 
-public interface IExamenBucalService {
-    public void crearRegistro(ExamenBucal examenBucal);
-    public List<ExamenBucal> obtenerRegistros();
-    public void eliminarRegistro(ExamenBucal examenBucal);
-    public ExamenBucal obtenerRegistro(int id_examen_bucal);
-    public void actualizarRegistro(ExamenBucal examenBucal);    
+public interface IExamenBucalService extends IExamenBucalServiceBase<ExamenBucal>{   
     
 }

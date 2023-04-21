@@ -6,12 +6,7 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AnalisisRadiografico;
-import java.util.List;
+import com.unsis.odonto.edu.service.base.IAnalisisRadiograficoServiceBase;
 
-public interface IAnalisisRadiograficoService {
-    public void crearRegistro(AnalisisRadiografico analisisRadiografico);
-    public List<AnalisisRadiografico> obtenerRegistros();
-    public void eliminarRegistro(AnalisisRadiografico analisisRadiografico);
-    public AnalisisRadiografico obtenerRegistro(int id_AnalisisRadiografico);//Corregir
-    public void actualizarRegistro(AnalisisRadiografico analisisRadiografico);
+public interface IAnalisisRadiograficoService extends IAnalisisRadiograficoServiceBase<AnalisisRadiografico>{
 }
