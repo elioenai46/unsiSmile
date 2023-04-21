@@ -46,8 +46,12 @@ public class AlumnosModellmpl implements IAlumnosModel {
             s = sf.openSession();
             System.out.println("3");
             
-            Query query = s.createSQLQuery("CALL spObtenerAlumnos()").addEntity(Alumnos.class);
-            listaAlumnos = query.list();
+            //Query query = s.createSQLQuery("CALL spObtenerAlumnos()").addEntity(Alumnos.class);
+            //listaAlumnos = query.list();
+          
+            
+            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            
                     
             //listaAlumnos = s.createCriteria(Alumnos.class).list();
             System.out.println("Tamaño: " + listaAlumnos.size());

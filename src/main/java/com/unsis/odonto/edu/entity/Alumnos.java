@@ -56,17 +56,17 @@ public class Alumnos implements Serializable {
     private String emailAlumno;
     @Column(name = "estatus")
     private Boolean estatus;
-    /*@OneToMany(mappedBy = "fkIdAlumno")
+    @OneToMany(mappedBy = "fkIdAlumno")
     private Collection<PacienteAlumno> pacienteAlumnoCollection;
     @JoinColumn(name = "f_id_catedratico_responsable", referencedColumnName = "id_catedratico")
     @ManyToOne(optional = false)
     private Catedraticos fIdCatedraticoResponsable;
     @JoinColumn(name = "fk_id_semestre_grupo", referencedColumnName = "id_semestre_grupo")
-    @ManyToOne*/
+    @ManyToOne
     private SemestreGrupo fkIdSemestreGrupo;
-    /*@JoinColumn(name = "f_id_usuario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "f_id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
-    private Usuarios fIdUsuario;*/
+    private Usuarios fIdUsuario;
 
     public Alumnos() {
     }
@@ -168,7 +168,7 @@ public class Alumnos implements Serializable {
         this.estatus = estatus;
     }
     //Llaves foraneas
-    /*@XmlTransient
+    @XmlTransient
     public Collection<PacienteAlumno> getPacienteAlumnoCollection() {
         return pacienteAlumnoCollection;
     }
@@ -183,7 +183,7 @@ public class Alumnos implements Serializable {
 
     public void setFIdCatedraticoResponsable(Catedraticos fIdCatedraticoResponsable) {
         this.fIdCatedraticoResponsable = fIdCatedraticoResponsable;
-    }*/
+    }
 
     public SemestreGrupo getFkIdSemestreGrupo() {
         return fkIdSemestreGrupo;
@@ -193,13 +193,13 @@ public class Alumnos implements Serializable {
         this.fkIdSemestreGrupo = fkIdSemestreGrupo;
     }
 
-   /* public Usuarios getFIdUsuario() {
+   public Usuarios getFIdUsuario() {
         return fIdUsuario;
     }
 
     public void setFIdUsuario(Usuarios fIdUsuario) {
         this.fIdUsuario = fIdUsuario;
-    }*/
+    }
 
     @Override
     public int hashCode() {

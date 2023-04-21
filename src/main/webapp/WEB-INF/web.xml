@@ -8,6 +8,35 @@
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>AlumnoController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.AlumnoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AlumnoController</servlet-name>
+        <url-pattern>/AlumnoController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdministradoresServletController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.AdministradoresServletController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdministradoresServletController</servlet-name>
+        <url-pattern>/AdministradoresServletController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ProfesorServlet</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.ProfesorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProfesorServlet</servlet-name>
+        <url-pattern>/ProfesorServlet</url-pattern>
+    </servlet-mapping>
+    
     <session-config>
         <session-timeout>
             30

@@ -36,7 +36,7 @@
             </li>
 
             <li>
-                <a href="/viewAdministrador/gestionarAdministradores.html">
+                <a href="${pageContext.request.contextPath}/AdministradoresServletController">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -54,7 +54,7 @@
             </li>
 
             <li>
-                <a href="/viewAdministrador/gestionarAlumno.html">
+                <a href="${pageContext.request.contextPath}/AlumnoController">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
