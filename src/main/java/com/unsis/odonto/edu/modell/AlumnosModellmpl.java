@@ -14,6 +14,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 public class AlumnosModellmpl implements IAlumnosModel {
 
@@ -39,13 +40,21 @@ public class AlumnosModellmpl implements IAlumnosModel {
     public List<Alumnos> obtenerRegistros() {
         List<Alumnos> listaAlumnos = new ArrayList<>();
         try {
+            System.out.println("1");
             sf = new Configuration().configure().buildSessionFactory();
+            System.out.println("2");
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
+            System.out.println("3");
+            
+            Query query = s.createSQLQuery("CALL spObtenerAlumnos()").addEntity(Alumnos.class);
+            listaAlumnos = query.list();
+                    
+            //listaAlumnos = s.createCriteria(Alumnos.class).list();
+            System.out.println("Tamaño: " + listaAlumnos.size());
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro: " + e.getMessage());
+            System.out.println("Error al obtener el registro---: " + e.getMessage());
         }
         return listaAlumnos;
     }
@@ -93,6 +102,11 @@ public class AlumnosModellmpl implements IAlumnosModel {
         } catch (HibernateException e) {
             System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
+    }
+    
+    public static void main(String[] args) {
+        AlumnosModellmpl a = new AlumnosModellmpl();
+        a.obtenerRegistros();
     }
 
 }

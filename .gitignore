@@ -11,3 +11,5 @@
 # configurations files#
 hibernate.cfg.xml
 
+/JavaApplication25/nbproject/private/
+/JavaApplication25/build/
