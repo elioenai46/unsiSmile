@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
-        <!-- ======= Styles ====== -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/pages/assets/css/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <!-- ======= Styles ====== -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+</head>
 
     <body>
         <!-- =============== Navigation ================ -->
@@ -273,8 +273,8 @@
             </div>
         </div>
 
-        <!-- =========== Scripts =========  -->
-        <script src="assets/js/main.js"></script>
+    <!-- =========== Scripts =========  -->
+    <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
 
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

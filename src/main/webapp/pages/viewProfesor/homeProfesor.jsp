@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administrador</title>
+    <title>Profesor</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
 </head>
 
 <body>
-    <!-- =============== Navigation ================ -->
+  <!-- =============== Navigation ================ -->
   <div class="container">
     <div class="navigation">
         <ul>
@@ -27,7 +27,7 @@
             </li>
 
             <li>
-                <a href="/viewAdministrador/homeAdministrador.html">
+                <a href="/viewProfesor/homeProfesor.html">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
@@ -36,25 +36,7 @@
             </li>
 
             <li>
-                <a href="/viewAdministrador/gestionarAdministradores.html">
-                    <span class="icon">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </span>
-                    <span class="title">Administradores</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="/viewAdministrador/gestionarProfesor.html">
-                    <span class="icon">
-                        <ion-icon name="people-outline"></ion-icon>
-                    </span>
-                    <span class="title">Profesores</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="/viewAdministrador/gestionarAlumno.html">
+                <a href="Pacientes.html">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -62,6 +44,34 @@
                 </a>
             </li>
 
+            <li>
+                <a href="gestionarAlumno.html">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Grupos</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="/viewAlumno/Pacientes.html">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Pacientes</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="gestionarProfesor.html">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Configuración</span>
+                </a>
+            </li>
+
+         
 
             <li>
                 <a href="#">
@@ -81,7 +91,6 @@
                 <ion-icon name="menu-outline"></ion-icon>
             </div>
 
-         
 
             <div class="user">
                 <img src="${pageContext.request.contextPath}/resources/img/customer01.jpg" alt="">
@@ -91,9 +100,9 @@
         <!-- ======================= Cards ================== -->
         <div class="cardBox">
             <div class="card">
-                <div class="iconBx"><img class="imgPerf" src="${pageContext.request.contextPath}/resources/img/customer01.jpg"" alt=""></div>
-                <div class="cardName">Juan Carlos Pérez García</div>
-                <div class="cardName">juancarlos@hotmail.com</div>
+                <div class="iconBx"><img class="imgPerf" src="${pageContext.request.contextPath}/resources/img/customer01.jpg"alt=""></div>
+                <div class="cardName">Joel Francisco Figueroa Martinez</div>
+                <div class="cardName">joelfrancisco@hotmail.com</div>
 
             </div>
         
@@ -103,11 +112,14 @@
                 <div>
                     <div id="sexo" class="dat">Sexo</div>
                     <div class="cardName">Masculino</div>
-             
                     <div id="Matricula" class="dat">Numero de trabajador</div>
-                    <div class="cardName">5316165151</div>
-               
-            
+                    <div class="cardName">23243423435gf</div>
+                    <div id="Curp" class="dat">CURP</div>
+                    <div class="cardName">SASD060701DSDFDSDC</div>
+                    <div id="Grupo" class="dat">Grupos</div>
+                    <div class="cardName">1004,3004</div>
+                    <div id="Telefono" class="dat">Telefono</div>
+                    <div class="cardName">9511358135146</div>
                     
                 </div>
 
@@ -118,23 +130,22 @@
         <div class="cardBox">   
             <div class="card">
                 <div>
-                    <div class="numbers">4</div>
-                    <div class="cardName">Profesores</div>
+                    <div class="numbers">2</div>
+                    <div class="cardName">Grupos</div>
                 </div>
 
                 
             </div>
             <div class="card">
                 <div>
-                    <div class="numbers">6</div>
+                    <div class="numbers">22</div>
                     <div class="cardName">Alumnos</div>
                 </div>
 
                 
             </div>
         </div>
-    
-    
+       
     </div>
 </div>
 </div>
