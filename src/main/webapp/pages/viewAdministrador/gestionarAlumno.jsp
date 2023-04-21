@@ -160,6 +160,7 @@
                                     <th scope="col">Segundo Nombre</th>  
                                     <th scope="col">Primer Apellido</th>
                                     <th scope="col">Segundo Apellido</th>
+                                    <th scope="col">Sexo</th>
                                     <th scope="col">Curp</th>
                                 <!--     <th scope="col">fk_id_semestre_grupo</th> -->
                                     <th scope="col">Matricula</th>

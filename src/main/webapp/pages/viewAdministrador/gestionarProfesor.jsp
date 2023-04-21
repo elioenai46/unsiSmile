@@ -141,6 +141,7 @@
                 </div>
 
                 <!-- ================ Order Details List ================= -->
+                  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
@@ -163,13 +164,12 @@
                                     <td>Num_trabajador</td>
                                     <th>email</th>
                                     <td>estatus</td>
-                                    <td>id_user</td>
                                 </tr>
                             </thead>
 
                             <c:forEach var="catedraticos" items="${listaCatedratico}">
                                 <tr>
-                                <td><c:out value="${catedraticos.id}"></c:out></td>
+                                <td><c:out value="${catedraticos.idCatedratico}"></c:out></td>
                                 <td><c:out value="${catedraticos.nombre}"></c:out></td>
                                 <td><c:out value="${catedraticos.nombre2}"></c:out></td>
                                 <td><c:out value='${catedraticos.apellido}'></c:out></td>
@@ -177,11 +177,10 @@
                                 <td><c:out value='${catedraticos.curp}'></c:out></td>
                                 <td><c:out value='${catedraticos.telefono}'></c:out></td>
                                 <td><c:out value='${catedraticos.sexo}'></c:out></td>
-                                <td><c:out value='${catedraticos.fecha_nacimiento}'></c:out></td>
-                                <td><c:out value='${catedraticos.numero_trabajador}'></c:out></td>
-                                <td><c:out value='${catedraticos.email_catedratico}'></c:out></td>
+                                <td><c:out value='${catedraticos.fechaNacimiento}'></c:out></td>
+                                <td><c:out value='${catedraticos.numeroTrabajador}'></c:out></td>
+                                <td><c:out value='${catedraticos.emailCatedratico}'></c:out></td>
                                 <td><c:out value='${catedraticos.estatus}'></c:out></td>
-                                <td><c:out value='${catedraticos.fk_id_usuario}'></c:out></td>
                                 
                                 </tr>
                             </c:forEach>

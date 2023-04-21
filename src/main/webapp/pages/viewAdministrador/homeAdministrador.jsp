@@ -45,7 +45,7 @@
             </li>
 
             <li>
-                <a href="/viewAdministrador/gestionarProfesor.html">
+                <a href="${pageContext.request.contextPath}/ProfesorServlet">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
