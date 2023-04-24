@@ -145,9 +145,9 @@
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Alumnos</h2>
+                            <h2>Profesor</h2>
                             <a href="" class="btn">Ver todos</a>
-                            <a href="${pageContext.request.contextPath}" class="btn">Agregar</a>
+                            <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarProfesor.jsp" class="btn">Agregar</a>
                         </div>
 
                         <table>
@@ -182,7 +182,7 @@
                                 <td><c:out value='${catedraticos.numeroTrabajador}'></c:out></td>
                                 <td><c:out value='${catedraticos.emailCatedratico}'></c:out></td>
                                 <td><c:out value='${catedraticos.estatus}'></c:out></td>                           
-                                <td><button><c:out value=""></c:out>Actualizar</button></td>
+                                <td><a href="${pageContext.request.contextPath}/pages/viewAdministrador/actualizarProfesor.jsp"><button>Actualizar</button></a></td>
                                 <td><button><c:out value=""></c:out>Eliminar</button></td>
 
                                 </tr>

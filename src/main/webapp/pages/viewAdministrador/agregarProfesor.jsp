@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <title>AgregarProfesor</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/cards.css">
-    <link rel="stylesheet" href="/assets/css/styleRegistro.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
+
+
 </head>
 
 <body>
@@ -29,7 +31,7 @@
                 </li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewAdministrador/homeAdministrador.jsp">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -38,7 +40,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAdministradores.html">
+                    <a href="${pageContext.request.contextPath}/AdministradoresServletController">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -47,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAlumno.html">
+                    <a href="${pageContext.request.contextPath}/AlumnoController">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -56,7 +58,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarProfesor.html">
+                    <a href="${pageContext.request.contextPath}/ProfesorServlet">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
