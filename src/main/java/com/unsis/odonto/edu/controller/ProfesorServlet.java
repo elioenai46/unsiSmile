@@ -45,7 +45,22 @@ public class ProfesorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+        Catedraticos catedratico = new Catedraticos();
+        //catedratico.setName(request.getParameter("name"));
+        //catedratico.setPassword(request.getParameter("password"));
+        
+        ICatedraticoService service = new CatedraticoServiceImpl();
 
+        
+        service.crearRegistro(catedratico);
+
+        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
+
+        request.setAttribute(
+                "listaCatedratico", listaCatedratico);
+
+        dispatcher.forward(request, response);
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
@@ -87,12 +102,12 @@ public class ProfesorServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doDelete(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        
     }
 
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPut(req, resp); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        
     }
 
     
