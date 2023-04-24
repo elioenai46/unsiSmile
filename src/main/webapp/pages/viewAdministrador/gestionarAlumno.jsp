@@ -190,9 +190,9 @@
                                     <td><c:out value="${alumno.matricula}"></c:out></td>
                                     <td><c:out value="${alumno.telefono}"></c:out></td>
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
-                                    <td><c:out value="${alumno.estatus}"></c:out></td>
-                                    <td><button><c:out value=""></c:out>Actualizar</button></td>
-                                    <td><button><c:out value=""></c:out>Eliminar</button></td>
+                                    <td><c:out value="${alumno.estatus}"></c:out></td>    
+                                    <!-- Boton para eliminar un alumno -->
+                                    <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
 
                                     </tr>
                             </c:forEach>
