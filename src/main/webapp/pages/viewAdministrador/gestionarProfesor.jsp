@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+        <title>Gestionar Profesor</title>
         <!-- ======= Styles ====== -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
     </head>
@@ -147,6 +147,7 @@
                         <div class="cardHeader">
                             <h2>Alumnos</h2>
                             <a href="" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}" class="btn">Agregar</a>
                         </div>
 
                         <table>
@@ -180,8 +181,7 @@
                                 <td><c:out value='${catedraticos.fechaNacimiento}'></c:out></td>
                                 <td><c:out value='${catedraticos.numeroTrabajador}'></c:out></td>
                                 <td><c:out value='${catedraticos.emailCatedratico}'></c:out></td>
-                                <td><c:out value='${catedraticos.estatus}'></c:out></td>
-                                <td><c:out value='${catedraticos.fk_id_usuario}'></c:out></td>
+                                <td><c:out value='${catedraticos.estatus}'></c:out></td>                           
                                 <td><button><c:out value=""></c:out>Actualizar</button></td>
                                 <td><button><c:out value=""></c:out>Eliminar</button></td>
 
@@ -192,85 +192,7 @@
                     </div>
 
                     <!-- ================= New Customers ================ -->
-                    <div class="recentCustomers">
-                        <div class="cardHeader">
-                            <h2>Modificaciones recientes</h2>
-                        </div>
-
-                        <table>
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Administrador</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>Administrador</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Alumno</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>Alumno</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Alumno</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>Alumno</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer01.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>David <br> <span>Italy</span></h4>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td width="60px">
-                                    <div class="imgBx"><img src="assets/imgs/customer02.jpg" alt=""></div>
-                                </td>
-                                <td>
-                                    <h4>Amit <br> <span>India</span></h4>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                   
                 </div>
             </div>
         </div>

@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Alumno</title>
+    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosAgregar.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/cards.css">
+    <link rel="stylesheet" href="/assets/css/styleRegistro.css">
 </head>
 
 <body>
@@ -27,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/pages/viewAdministrador/homeAdministrador.jsp">
+                    <a href="index.html">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -36,7 +38,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/AdministradoresServletController">
+                    <a href="gestionarAdministradores.html">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -45,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/AlumnoController">
+                    <a href="gestionarAlumno.html">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -54,7 +56,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/ProfesorServlet">
+                    <a href="gestionarProfesor.html">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -84,7 +86,7 @@
             <!-- ========================= Registrar ==================== -->
 
             <div class="containerRegistro">
-                <h2>Registrar Alumno</h2>
+                <h2>Registrar Profesor</h2>
                 <form>
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
@@ -103,47 +105,75 @@
                         <input type="text" class="form-control" placeholder="Apellido materno" id="apellido-materno">
                     </div>
                     <div class="form-group">
-                        <label for="sexo">Sexo:</label>
-                        <select id="sexo" name="sexo" class="select-custom">
-                            <option value="hombre">Hombre</option>
-                            <option value="mujer">Mujer</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
                         <label for="curp">CURP</label>
                         <input type="email" class="form-control" placeholder="CURP" id="curp">
-                    </div>
-                    <div class="form-group">
-                        <label for="semestre">Semestre</label>
-                        <select id="sexo" name="sexo" class="select-custom">
-                            <option value="hombre">Primero</option>
-                            <option value="mujer">Segundo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="semestre">Grupo</label>
-                        <select id="sexo" name="sexo" class="select-custom">
-                            <option value="hombre">506</option>
-                            <option value="mujer">706</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="matricula">Matricula</label>
-                        <input type="text" class="form-control" placeholder="Matricula" id="matricula">
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
                         <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
                     </div>
                     <div class="form-group">
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo" name="sexo" class="select-custom">
+                            <option value="">--</option>
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">Mujer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sexo">Fecha de nacimiento</label>
+                        <label class="custom-label">Día:</label>
+                        <select name="dia" class="select-custom-fecha custom-select select-custom">
+                            <option value="">--</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                            <option value="">6</option>
+                            <option value="">7</option>
+                            <option value="">8</option>
+                        </select>
+                        <label class="custom-label">Mes:</label>
+                        <select name="mes" name="fechanacimiento" class="select-custom-fecha custom-select select-custom">
+                            <option value="">--</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <label class="custom-label">Año:</label>
+                        <select name="anio" class="select-custom-fecha custom-select select-custom">
+                            <option value="">--</option>
+                            <option value="">2001</option>
+                            <option value="">2002</option>
+                            <option value="">2003</option>
+                            <option value="">2004</option>
+                            <option value="">2005</option>
+                            <option value="">2006</option>                            
+                        </select>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <label for="matricula">Numero trabajador</label>
+                        <input type="text" class="form-control" placeholder="Numero trabajador" id="matricula">
+                    </div>
+
+                    <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" class="form-control" placeholder="Email" id="email">
                     </div>
-                    <div class="form-group">
-                        <label for="id-catedratico">ID Catedratico responsable</label>
-                        <input type="text" class="form-control" placeholder="ID Catedratico responsable"
-                            id="id-catedratico">
-                    </div>
+                    
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>
@@ -154,7 +184,7 @@
 
 
     <!-- =========== Scripts =========  -->
-    <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+    <script src="/assets/js/main.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

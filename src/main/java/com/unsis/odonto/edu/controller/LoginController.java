@@ -1,14 +1,9 @@
 package com.unsis.odonto.edu.controller;
 
-import com.unsis.odonto.edu.entity.Administradores;
 import com.unsis.odonto.edu.entity.Usuarios;
-import com.unsis.odonto.edu.service.AdministradorServiceImpl;
-import com.unsis.odonto.edu.service.IAdministradorService;
 import com.unsis.odonto.edu.service.ILoginService;
 import com.unsis.odonto.edu.service.LoginServiceImpl;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -41,16 +36,16 @@ public class LoginController extends HttpServlet {
         usuarios = service.login(usuarios);
 
         String paginaDestino = "/pages/login/login.jsp";
-        /*if (usuarios.getNombreRol().compareTo("") != 0) {
+        if (usuarios.getNombreRol().compareTo("") != 0) {
            
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(20);
             session.setAttribute("usuarios", usuarios);
              switch (usuarios.getNombreRol()) {
-                case "Administrador":*/                  
+                case "Administrador":              
                     paginaDestino = "/pages/viewAdministrador/homeAdministrador.jsp";
 
-                   /* break;
+                   break;
                 case "Alumno":
                     paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
 
@@ -59,11 +54,11 @@ public class LoginController extends HttpServlet {
                 default:
                     throw new AssertionError();
             }
-         //   paginaDestino = "/pages/index.jsp";
+           //paginaDestino = "/pages/index.jsp";
         } else {
             String message = "usuario o contraseña incorrecta";
             request.setAttribute("message", message);
-        }*/
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher(paginaDestino);
         dispatcher.forward(request, response);
 
