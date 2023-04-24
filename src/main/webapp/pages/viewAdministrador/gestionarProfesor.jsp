@@ -183,7 +183,8 @@
                                 <td><c:out value='${catedraticos.emailCatedratico}'></c:out></td>
                                 <td><c:out value='${catedraticos.estatus}'></c:out></td>                           
                                 <td><button><c:out value=""></c:out>Actualizar</button></td>
-                                <td><button><c:out value=""></c:out>Eliminar</button></td>
+                                <td><button ><c:out value=""></c:out>Eliminar</button></td>.
+                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=eliminar&id=<c:out value="${catedraticos.idCatedratico}"></c:out>">Eliminar</a></td>
 
                                 </tr>
                             </c:forEach>
