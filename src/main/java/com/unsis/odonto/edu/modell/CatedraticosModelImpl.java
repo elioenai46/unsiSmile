@@ -39,17 +39,17 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
 
     @Override
     public List<Catedraticos> obtenerRegistros() {
-        List<Catedraticos> listaEjemplareses = new ArrayList<>();
+        List<Catedraticos> listaCatedraticos = new ArrayList<>();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(Catedraticos.class).list();
+            listaCatedraticos = s.createCriteria(Catedraticos.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al obtener las lista de registros: " + e.getMessage());
         }
-        return listaEjemplareses;
+        return listaCatedraticos;
     }
 
     @Override

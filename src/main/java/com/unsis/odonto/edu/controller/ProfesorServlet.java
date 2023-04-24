@@ -3,6 +3,7 @@ package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Catedraticos;
 import com.unsis.odonto.edu.service.CatedraticoServiceImpl;
+import com.unsis.odonto.edu.service.IAdministradorService;
 import com.unsis.odonto.edu.service.ICatedraticoService;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,31 +38,40 @@ public class ProfesorServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request,response);
+         System.out.println("---------------VITE------------------------------");
+        
+         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+
+        //IAdministradorService service = new CatedraticoServiceImpl();
+        ICatedraticoService service = new CatedraticoServiceImpl();
+        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
+        request.setAttribute("listaCatedratico", listaCatedratico);
+
+        dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String cadena = request.getParameter("accion");
-
-        switch (cadena) {
-            case "listar":
-                listar(request, response);
-                break;
+//         String cadena = request.getParameter("accion");
+//
+//        switch (cadena) {
+//            case "listar":
+//                listar(request, response);
+//                break;
         }
         
     }
-    private void listar(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
-        
-        ICatedraticoService service = new CatedraticoServiceImpl();
-        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
-        request.setAttribute("listaCatedratico", listaCatedratico);
-        
-        dispatcher.forward(request, response);
-    }
+//    private void listar(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+//        
+//        ICatedraticoService service = new CatedraticoServiceImpl();
+//        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
+//        request.setAttribute("listaCatedratico", listaCatedratico);
+//        
+//        dispatcher.forward(request, response);
+//    }
 
 //    @Override
 //    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -72,6 +82,4 @@ public class ProfesorServlet extends HttpServlet {
 //    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        
 //    }
-
-
-}
+// }

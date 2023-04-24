@@ -78,6 +78,7 @@ public class Catedraticos implements Serializable {
     private String emailCatedratico;
     @Column(name = "estatus")
     private Boolean estatus;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fIdCatedraticoResponsable")
     private Collection<Alumnos> alumnosCollection;
     @JoinColumn(name = "fk_id_usuario", referencedColumnName = "id_usuario")
