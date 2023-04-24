@@ -28,7 +28,7 @@
                     </li>
 
                     <li>
-                        <a href="homeAdministrador.jsp">
+                        <a href="${pageContext.request.contextPath}/pages/viewAdministrador/homeAdministrador.jsp">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </span>
@@ -37,7 +37,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarAdministradores.jsp">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -46,7 +46,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarAlumno.jsp">
+                        <a href="${pageContext.request.contextPath}/AlumnoController">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -55,7 +55,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarProfesor.jsp">
+                        <a href="${pageContext.request.contextPath}/ProfesorServlet">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -183,6 +183,10 @@
                                         <td><c:out value="${administradores.sexo}"></c:out></td>
                                         <td><c:out value="${administradores.emailAdmin}"></c:out></td>
                                         <td><c:out value="${administradores.estatus}"></c:out></td>
+                                        <td><button><c:out value=""></c:out>Actualizar</button></td>
+                                        <td><button><c:out value=""></c:out>Eliminar</button></td>
+
+                                        
                                         </tr>
                                 </c:forEach>
                             </tbody>

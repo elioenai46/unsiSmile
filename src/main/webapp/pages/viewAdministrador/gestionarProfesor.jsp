@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+        <!-- ======= Styles ====== -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+    </head>
 
     <body>
         <!-- =============== Navigation ================ -->
@@ -28,7 +28,7 @@
                     </li>
 
                     <li>
-                        <a href="homeAdministrador.jsp">
+                        <a href="${pageContext.request.contextPath}/pages/viewAdministrador/homeAdministrador.jsp">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </span>
@@ -37,7 +37,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarAdministradores.jsp">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -46,7 +46,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarAlumno.jsp">
+                        <a href="${pageContext.request.contextPath}/AlumnoController">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -55,7 +55,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarProfesor.jsp">
+                        <a href="${pageContext.request.contextPath}/ProfesorServlet">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -169,7 +169,7 @@
 
                             <c:forEach var="catedraticos" items="${listaCatedratico}">
                                 <tr>
-                                <td><c:out value="${catedraticos.id}"></c:out></td>
+                                    <td><c:out value="${catedraticos.id}"></c:out></td>
                                 <td><c:out value="${catedraticos.nombre}"></c:out></td>
                                 <td><c:out value="${catedraticos.nombre2}"></c:out></td>
                                 <td><c:out value='${catedraticos.apellido}'></c:out></td>
@@ -182,7 +182,9 @@
                                 <td><c:out value='${catedraticos.email_catedratico}'></c:out></td>
                                 <td><c:out value='${catedraticos.estatus}'></c:out></td>
                                 <td><c:out value='${catedraticos.fk_id_usuario}'></c:out></td>
-                                
+                                <td><button><c:out value=""></c:out>Actualizar</button></td>
+                                <td><button><c:out value=""></c:out>Eliminar</button></td>
+
                                 </tr>
                             </c:forEach>
                         </table>
@@ -273,8 +275,8 @@
             </div>
         </div>
 
-    <!-- =========== Scripts =========  -->
-    <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+        <!-- =========== Scripts =========  -->
+        <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
 
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

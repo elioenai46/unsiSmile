@@ -2,14 +2,14 @@
 <html lang="en">
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+        <!-- ======= Styles ====== -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+    </head>
 
 
     <body>
@@ -29,7 +29,7 @@
                     </li>
 
                     <li>
-                        <a href="homeAdministrador.jsp">
+                        <a href="${pageContext.request.contextPath}/pages/viewAdministrador/homeAdministrador.jsp">
                             <span class="icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </span>
@@ -38,7 +38,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarAdministradores.jsp">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -47,7 +47,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarAlumno.jsp">
+                        <a href="${pageContext.request.contextPath}/AlumnoController">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -56,7 +56,7 @@
                     </li>
 
                     <li>
-                        <a href="gestionarProfesor.jsp">
+                        <a href="${pageContext.request.contextPath}/ProfesorServlet">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -161,12 +161,12 @@
                                     <th scope="col">Primer Apellido</th>
                                     <th scope="col">Segundo Apellido</th>
                                     <th scope="col">Curp</th>
-                                <!--     <th scope="col">fk_id_semestre_grupo</th> -->
+                                    <!--     <th scope="col">fk_id_semestre_grupo</th> -->
                                     <th scope="col">Matricula</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Email_alumno</th>
                                     <th scope="col">Estatus</th>
-                                  <!--  <th scope="col">F_id_catedratico_responsable</th> -->
+                                    <!--  <th scope="col">F_id_catedratico_responsable</th> -->
                                     <th scope="col">F_id_usuario</th>                                        
                                 </tr>
                             </thead>
@@ -188,6 +188,8 @@
                                     <td><c:out value="${alumno.telefono}"></c:out></td>
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
                                     <td><c:out value="${alumno.estatus}"></c:out></td>
+                                    <td><button><c:out value=""></c:out>Actualizar</button></td>
+                                    <td><button><c:out value=""></c:out>Eliminar</button></td>
 
                                     </tr>
                             </c:forEach>
@@ -284,8 +286,8 @@
         </div>
 
 
-    <!-- =========== Scripts =========  -->
-    <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+        <!-- =========== Scripts =========  -->
+        <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
 
 
         <!-- ====== ionicons ======= -->
