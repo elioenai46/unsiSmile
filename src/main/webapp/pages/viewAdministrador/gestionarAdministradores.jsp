@@ -148,7 +148,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Administradores</h2>
-                            <a href="${pageContext.request.contextPath}/AdministradoresServletController?" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar" class="btn">Ver todos</a>
                             <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarAlumno.jsp" class="btn">Agregar</a>
                         </div>
 
@@ -184,8 +184,8 @@
                                         <td><c:out value="${administradores.sexo}"></c:out></td>
                                         <td><c:out value="${administradores.emailAdmin}"></c:out></td>
                                         <td><c:out value="${administradores.estatus}"></c:out></td>
-                                        <td><button><c:out value=""></c:out>Actualizar</button></td>
-                                        <td><button><c:out value=""></c:out>Eliminar</button></td>
+                                        <td><a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=actualizarFormulario&id=<c:out value="${administradores.idAdministrador}"></c:out>">Actualizar</a></td>
+                                        <td><a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=eliminar&id=<c:out value="${administradores.idAdministrador}"></c:out>">Eliminar</a></td>
 
                                         
                                         </tr>
