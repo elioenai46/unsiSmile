@@ -1,4 +1,11 @@
-
+/**
+ *Autor:Nancy Obed Martínez Miguel
+ *Fecha de creación:24 de abril 2023
+ *Fecha de Modificación:
+ *Descripción: se crea la clase del servlet para hacer uso de los métodos que
+ *             nos van a ayudar a crear, listar, eliminar y actualizar
+ *             administradores
+ */
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Administradores;
@@ -40,7 +47,7 @@ public class AdministradoresServletController extends HttpServlet {
                 //actualizarFormulario(request, response);
                 break;
             case "actualizar":
-               //actualizar(request, response);
+                //actualizar(request, response);
                 break;
             default:
                 break;
@@ -48,7 +55,6 @@ public class AdministradoresServletController extends HttpServlet {
 
     }
 
-    
     public void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
@@ -59,6 +65,7 @@ public class AdministradoresServletController extends HttpServlet {
 
         dispatcher.forward(request, response);
     }
+
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
@@ -68,22 +75,23 @@ public class AdministradoresServletController extends HttpServlet {
         IAdministradorService service = new AdministradorServiceImpl();
         Administradores administradores = service.obtenerRegistro(id);
         service.eliminarRegistro(administradores);
-        
+
         List<Administradores> listaAdministradores = service.obtenerRegistros();
         request.setAttribute("listaAdministradores", listaAdministradores);
-        
+
         dispatcher.forward(request, response);
-}
+    }
+
     private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
         int id = Integer.parseInt(request.getParameter("id"));
-       
+
         IAdministradorService service = new AdministradorServiceImpl();
         Administradores administradores = service.obtenerRegistro(id);
-        
+
         request.setAttribute("tenis", administradores);
-        
+
         dispatcher.forward(request, response);
     }
 }
