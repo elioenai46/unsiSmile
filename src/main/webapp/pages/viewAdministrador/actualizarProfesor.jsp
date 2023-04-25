@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgregarProfesor</title>
+    <title>Actualizar Profesor</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
@@ -88,7 +88,7 @@
             <!-- ========================= Registrar ==================== -->
 
             <div class="containerRegistro">
-                <h2>Registrar Profesor</h2>
+                <h2>Actualizar Profesor</h2>
                 <form>
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
@@ -176,7 +176,7 @@
                         <input type="text" class="form-control" placeholder="Email" id="email">
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>
             </div>
 
