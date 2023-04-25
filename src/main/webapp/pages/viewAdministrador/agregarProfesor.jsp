@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Admin Dashboard | Korsat X Parmaga</title>
+    <title>AgregarProfesor</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/cards.css">
-    <link rel="stylesheet" href="/assets/css/styleRegistro.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
+
+
 </head>
 
 <body>
@@ -29,7 +31,7 @@
                 </li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewAdministrador/homeAdministrador.jsp">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -38,7 +40,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAdministradores.html">
+                    <a href="${pageContext.request.contextPath}/AdministradoresServletController">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -47,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarAlumno.html">
+                    <a href="${pageContext.request.contextPath}/AlumnoController">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -56,7 +58,7 @@
                 </li>
 
                 <li>
-                    <a href="gestionarProfesor.html">
+                    <a href="${pageContext.request.contextPath}/ProfesorServlet">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -87,30 +89,30 @@
 
             <div class="containerRegistro">
                 <h2>Registrar Profesor</h2>
-                <form>
+                <form action="${pageContext.request.contextPath}/ProfesorServlet?accion=crear" method="GET">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
-                        <input type="text" class="form-control" placeholder="Primer nombre" id="primer-nombre">
+                        <input type="text" name="firstN" class="form-control" placeholder="Primer nombre" id="primer-nombre">
                     </div>
                     <div class="form-group">
                         <label for="segundo-nombre">Segundo nombre</label>
-                        <input type="text" class="form-control" placeholder="Segundo nombre" id="segundo-nombre">
+                        <input type="text" name="secondN" class="form-control" placeholder="Segundo nombre" id="segundo-nombre">
                     </div>
                     <div class="form-group">
                         <label for="apellido-paterno">Apellido paterno</label>
-                        <input type="text" class="form-control" placeholder="Apellido paterno" id="apellido-paterno">
+                        <input type="text" name="Apa" class="form-control" placeholder="Apellido paterno" id="apellido-paterno">
                     </div>
                     <div class="form-group">
                         <label for="apellido-materno">Apellido materno</label>
-                        <input type="text" class="form-control" placeholder="Apellido materno" id="apellido-materno">
+                        <input type="text" name="Ama" class="form-control" placeholder="Apellido materno" id="apellido-materno">
                     </div>
                     <div class="form-group">
                         <label for="curp">CURP</label>
-                        <input type="email" class="form-control" placeholder="CURP" id="curp">
+                        <input type="text" name="curp" class="form-control" placeholder="CURP" id="curp">
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
+                        <input type="tel" name="NumTel" class="form-control" placeholder="Teléfono" id="telefono">
                     </div>
                     <div class="form-group">
                         <label for="sexo">Sexo:</label>
@@ -126,14 +128,14 @@
                         <label class="custom-label">Día:</label>
                         <select name="dia" class="select-custom-fecha custom-select select-custom">
                             <option value="">--</option>
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4</option>
-                            <option value="">5</option>
-                            <option value="">6</option>
-                            <option value="">7</option>
-                            <option value="">8</option>
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
                         </select>
                         <label class="custom-label">Mes:</label>
                         <select name="mes" name="fechanacimiento" class="select-custom-fecha custom-select select-custom">
@@ -154,24 +156,24 @@
                         <label class="custom-label">Año:</label>
                         <select name="anio" class="select-custom-fecha custom-select select-custom">
                             <option value="">--</option>
-                            <option value="">2001</option>
-                            <option value="">2002</option>
-                            <option value="">2003</option>
-                            <option value="">2004</option>
-                            <option value="">2005</option>
-                            <option value="">2006</option>                            
+                            <option value="2001">2001</option>
+                            <option value="2002">2002</option>
+                            <option value="2003">2003</option>
+                            <option value="2004">2004</option>
+                            <option value="2005">2005</option>
+                            <option value="2006">2006</option>                            
                         </select>
                     </div>
                     
                     
                     <div class="form-group">
                         <label for="matricula">Numero trabajador</label>
-                        <input type="text" class="form-control" placeholder="Numero trabajador" id="matricula">
+                        <input type="text" name="NumT" class="form-control" placeholder="Numero trabajador" id="matricula">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" placeholder="Email" id="email">
+                        <input type="email" name="correo" class="form-control" placeholder="Email" id="email">
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Guardar</button>
