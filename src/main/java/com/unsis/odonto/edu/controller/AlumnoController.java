@@ -49,8 +49,8 @@ public class AlumnoController extends HttpServlet {
         int idAlumno = Integer.parseInt(request.getParameter("idAlumno"));
 
         IAlumnoService service = new AlumnosServiceImpl();
-        Alumnos alumnos = service.obtenerRegistro(idAlumno);
-        service.eliminarRegistro(alumnos);
+        Alumnos alumno = service.obtenerRegistro(idAlumno);
+        service.eliminarRegistro(alumno);
 
         List<Alumnos> listaAlumno = service.obtenerRegistros();
         request.setAttribute("listaAlumnos", listaAlumno);
