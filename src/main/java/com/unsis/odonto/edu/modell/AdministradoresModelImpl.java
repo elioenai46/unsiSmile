@@ -27,11 +27,15 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.save(administradores);
-            //s.createNamedQuery("guardar()");
-            //s.
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("insertarAdministrador");
+            sp.registerStoredProcedureParameter("id_administrador", Integer.class, ParameterMode.IN);
+            
+            
+//            s.beginTransaction();
+//            s.save(administradores);
+//            //s.createNamedQuery("guardar()");
+//            //s.
+//            s.getTransaction().commit();
             s.close();
             sf.close();
         } catch (HibernateException e) {

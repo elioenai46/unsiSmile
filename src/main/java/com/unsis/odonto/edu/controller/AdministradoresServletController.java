@@ -14,6 +14,8 @@ import com.unsis.odonto.edu.service.IAdministradorService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -84,22 +86,27 @@ public class AdministradoresServletController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
-        int id = Integer.parseInt(request.getParameter("id"));
-
-        IAdministradorService service = new AdministradorServiceImpl();
-        Administradores administradores = service.obtenerRegistro(id);
-
-        request.setAttribute("tenis", administradores);
-
-        dispatcher.forward(request, response);
-    }
+//    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
+//        int id = Integer.parseInt(request.getParameter("id"));
+//
+//        IAdministradorService service = new AdministradorServiceImpl();
+//        Administradores administradores = service.obtenerRegistro(id);
+//
+//        request.setAttribute("tenis", administradores);
+//
+//        dispatcher.forward(request, response);
+//    }
 
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
+        Integer anio;
+        Integer mes;
+        Integer dia;
+        char sexo;
+        
         Administradores administradores = new Administradores();
         administradores.setNombre1(request.getParameter("primerNombre"));
         administradores.setNombre2(request.getParameter("segundoNombre"));
@@ -108,14 +115,12 @@ public class AdministradoresServletController extends HttpServlet {
         administradores.setCurp(request.getParameter("curp"));
         administradores.setTelefono(request.getParameter("telefono"));
         administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
-        // administradores.setSexo(Char.parrequest.getParameter("sexo"));
-
-        Date now = new Date();
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
-        String mysqlDateString = formatter.format(now);
-
-        administradores.setFechaNacimiento(now);
+        anio = Integer.valueOf(request.getParameter("anio"));
+        mes = Integer.valueOf(request.getParameter("mes"));
+        dia = Integer.valueOf(request.getParameter("dia"));
+        sexo=request.getParameter("sexo").charAt(0);
+        administradores.setFechaNacimiento(LocalDate.of(anio, mes, dia));
+        administradores.setSexo(sexo);
         administradores.setEmailAdmin(request.getParameter("email"));
 
         IAdministradorService service = new AdministradorServiceImpl();
