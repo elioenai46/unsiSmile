@@ -88,7 +88,7 @@
 
                 <div class="containerRegistro">
                     <h2>Registrar Administrador</h2>
-                    <form>
+                    <form action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" name="primerNombre"class="form-control" placeholder="Primer nombre" id="primer-nombre">
@@ -133,7 +133,7 @@
                                 <option value="">8</option>
                             </select>
                             <label class="custom-label">Mes:</label>
-                            <select name="mes" name="fechanacimiento" class="select-custom-fecha custom-select select-custom">
+                            <select name="mes" class="select-custom-fecha custom-select select-custom">
                                 <option value="">--</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>

@@ -35,11 +35,14 @@ public class AdministradoresServletController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("controller");
+        
         String cadena = request.getParameter("accion");
-
+        System.out.println("controller 2" + cadena);
         switch (cadena) {
             case "crear":
-                //crear(request, response);
+                crear(request, response);
                 break;
             case "listar":
                 listar(request, response);
@@ -78,6 +81,7 @@ public class AdministradoresServletController extends HttpServlet {
 
         IAdministradorService service = new AdministradorServiceImpl();
         Administradores administradores = service.obtenerRegistro(id);
+        
         service.eliminarRegistro(administradores);
 
         List<Administradores> listaAdministradores = service.obtenerRegistros();
@@ -98,15 +102,13 @@ public class AdministradoresServletController extends HttpServlet {
 //
 //        dispatcher.forward(request, response);
 //    }
-
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
         Integer anio;
         Integer mes;
         Integer dia;
-        char sexo;
-        
+
         Administradores administradores = new Administradores();
         administradores.setNombre1(request.getParameter("primerNombre"));
         administradores.setNombre2(request.getParameter("segundoNombre"));
@@ -114,18 +116,28 @@ public class AdministradoresServletController extends HttpServlet {
         administradores.setApellido2(request.getParameter("apellidoMaterno"));
         administradores.setCurp(request.getParameter("curp"));
         administradores.setTelefono(request.getParameter("telefono"));
-        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
-        anio = Integer.valueOf(request.getParameter("anio"));
-        mes = Integer.valueOf(request.getParameter("mes"));
-        dia = Integer.valueOf(request.getParameter("dia"));
-        sexo=request.getParameter("sexo").charAt(0);
-        administradores.setFechaNacimiento(LocalDate.of(anio, mes, dia));
-        administradores.setSexo(sexo);
-        administradores.setEmailAdmin(request.getParameter("email"));
-
-        IAdministradorService service = new AdministradorServiceImpl();
-        service.crearRegistro(administradores);
         
+        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
+       
+        
+        anio = 2001;
+        mes = 10;
+        dia = 10; //Integer.valueOf(request.getParameter("dia"));
+        
+        
+        System.out.println(request.getParameter("sexo").charAt(0));
+        administradores.setSexo(request.getParameter("sexo").charAt(0));
+        
+        System.out.println(String.valueOf(dia + mes + anio + administradores.getSexo()));
+        administradores.setFechaNacimiento(LocalDate.of(anio, mes, dia));
+        administradores.setEmailAdmin(request.getParameter("email"));
+        
+        
+        
+        IAdministradorService service = new AdministradorServiceImpl();
+        System.out.println("crear registro");
+        service.crearRegistro(administradores);
+
         List<Administradores> listaAdministradores = service.obtenerRegistros();
         request.setAttribute("listaAdministradores", listaAdministradores);
 
