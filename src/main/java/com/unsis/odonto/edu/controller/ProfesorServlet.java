@@ -50,6 +50,9 @@ public class ProfesorServlet extends HttpServlet {
             throws ServletException, IOException {
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+        Integer dia;
+        Integer mes;
+        Integer anio;
         Catedraticos catedratico = new Catedraticos();
         catedratico.setNombre(request.getParameter("firstN"));
         catedratico.setNombre2(request.getParameter("secondN"));
@@ -58,12 +61,14 @@ public class ProfesorServlet extends HttpServlet {
         catedratico.setCurp(request.getParameter("curp"));
         catedratico.setTelefono(request.getParameter("NumTel"));
         catedratico.setSexo(request.getParameter("sexo").charAt(0));
-        Integer dia = Integer.parseInt(request.getParameter("dia"));
-        Integer mes = Integer.parseInt(request.getParameter("mes"));
-        Integer anio =  Integer.parseInt(request.getParameter("anio"));        
+         dia = 14;
+         mes = 05;
+         anio = 1968;        
         catedratico.setFechaNacimiento(LocalDate.of(anio, mes, dia));
         catedratico.setNumeroTrabajador(request.getParameter("NumT"));
         catedratico.setEmailCatedratico(request.getParameter("correo"));
+        
+        System.out.println(catedratico);
         
         
         ICatedraticoService service = new CatedraticoServiceImpl();
