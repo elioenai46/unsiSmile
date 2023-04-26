@@ -182,7 +182,7 @@
                                 <td><c:out value='${catedraticos.numeroTrabajador}'></c:out></td>
                                 <td><c:out value='${catedraticos.emailCatedratico}'></c:out></td>
                                 <td><c:out value='${catedraticos.estatus}'></c:out></td>                           
-                                <td><a href="${pageContext.request.contextPath}/pages/viewAdministrador/actualizarProfesor.jsp"><button>Actualizar</button></a></td>
+                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=actualizarFormulario&id="><button>Actualizar</button></a></td>
                                 <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=eliminar&id=<c:out value="${catedraticos.idCatedratico}"></c:out>"><button>Eliminar</button></a></td>
 
                                 </tr>

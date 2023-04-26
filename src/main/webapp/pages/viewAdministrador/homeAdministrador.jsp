@@ -114,6 +114,9 @@
 
                     </div>
 
+
+           
+
                 </div>
                 <div class="cardBox">   
                     <div class="card">
@@ -121,7 +124,6 @@
                             <div class="numbers">4</div>
                             <div class="cardName">Profesores</div>
                         </div>
-
 
                     </div>
                     <div class="card">

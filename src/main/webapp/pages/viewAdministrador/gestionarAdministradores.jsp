@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionar Administradores</title>
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestionar Administradores</title>
+        <!-- ======= Styles ====== -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+    </head>
 
     <body>
         <!-- =============== Navigation ================ -->
@@ -141,17 +141,20 @@
                 </div>
 
                 <!-- ================ Order Details List ================= -->
-                
+
                 <!-- datos del backend con jquery -->
-                
+
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Administradores</h2>
+
                             
+
                             <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarAdministrador.jsp" class="btn">Agregar</a>
+
                             <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar" class="btn">Ver todos</a>
-                            
+
                         </div>
 
                         <table class="table table-striped">
@@ -189,7 +192,8 @@
                                         <td><a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=actualizarFormulario&id=<c:out value="${administradores.idAdministrador}"></c:out>">Actualizar</a></td>
                                         <td><a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=eliminar&id=<c:out value="${administradores.idAdministrador}"></c:out>">Eliminar</a></td>
 
-                                        
+
+
                                         </tr>
                                 </c:forEach>
                             </tbody>
@@ -198,13 +202,13 @@
                     </div>
 
                     <!-- ================= New Customers ================ -->
-                   
+
                 </div>
             </div>
         </div>
 
-    <!-- =========== Scripts =========  -->
-    <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+        <!-- =========== Scripts =========  -->
+        <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
 
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

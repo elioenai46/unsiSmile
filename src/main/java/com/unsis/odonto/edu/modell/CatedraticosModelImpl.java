@@ -10,6 +10,8 @@ package com.unsis.odonto.edu.modell;
 import com.unsis.odonto.edu.entity.Catedraticos;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -56,12 +58,27 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
     public void eliminarRegistro(Catedraticos catedraticos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
+            
             s = sf.openSession();
-            s.beginTransaction();
-            s.delete(catedraticos);
-            s.getTransaction().commit();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarCatedratico");
+            sp.registerStoredProcedureParameter("idCatedraticos", Integer.class, ParameterMode.IN);
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("idCatedraticos", catedraticos.getIdCatedratico());
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
+//            sf = new Configuration().configure().buildSessionFactory();
+//            s = sf.openSession();
+//            s.beginTransaction();
+//            s.delete(catedraticos);
+//            s.getTransaction().commit();
+//            s.close();
+//            sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al eliminar el registro: " + e.getMessage());
         }

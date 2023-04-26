@@ -1,7 +1,7 @@
 /**
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:24 de abril 2023
- *Fecha de Modificación:
+ *Fecha de Modificación:26 de abril del 2023
  *Descripción: se crea la clase del servlet para hacer uso de los métodos que
  *             nos van a ayudar a crear, listar, eliminar y actualizar
  *             administradores
@@ -13,6 +13,10 @@ import com.unsis.odonto.edu.service.AdministradorServiceImpl;
 import com.unsis.odonto.edu.service.IAdministradorService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,11 +35,14 @@ public class AdministradoresServletController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        System.out.println("controller");
+        
         String cadena = request.getParameter("accion");
-
+        System.out.println("controller 2" + cadena);
         switch (cadena) {
             case "crear":
-                //crear(request, response);
+                crear(request, response);
                 break;
             case "listar":
                 listar(request, response);
@@ -74,6 +81,7 @@ public class AdministradoresServletController extends HttpServlet {
 
         IAdministradorService service = new AdministradorServiceImpl();
         Administradores administradores = service.obtenerRegistro(id);
+        
         service.eliminarRegistro(administradores);
 
         List<Administradores> listaAdministradores = service.obtenerRegistros();
@@ -82,15 +90,56 @@ public class AdministradoresServletController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
+//    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
+//        int id = Integer.parseInt(request.getParameter("id"));
+//
+//        IAdministradorService service = new AdministradorServiceImpl();
+//        Administradores administradores = service.obtenerRegistro(id);
+//
+//        request.setAttribute("tenis", administradores);
+//
+//        dispatcher.forward(request, response);
+//    }
+    private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
-        int id = Integer.parseInt(request.getParameter("id"));
+        Integer anio;
+        Integer mes;
+        Integer dia;
 
+        Administradores administradores = new Administradores();
+        administradores.setNombre1(request.getParameter("primerNombre"));
+        administradores.setNombre2(request.getParameter("segundoNombre"));
+        administradores.setApellido1(request.getParameter("apellidoPaterno"));
+        administradores.setApellido2(request.getParameter("apellidoMaterno"));
+        administradores.setCurp(request.getParameter("curp"));
+        administradores.setTelefono(request.getParameter("telefono"));
+        
+        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
+       
+        
+        anio = 2001;
+        mes = 10;
+        dia = 10; //Integer.valueOf(request.getParameter("dia"));
+        
+        
+        System.out.println(request.getParameter("sexo").charAt(0));
+        administradores.setSexo(request.getParameter("sexo").charAt(0));
+        
+        System.out.println(String.valueOf(dia + mes + anio + administradores.getSexo()));
+        administradores.setFechaNacimiento(LocalDate.of(anio, mes, dia));
+        administradores.setEmailAdmin(request.getParameter("email"));
+        
+        
+        
         IAdministradorService service = new AdministradorServiceImpl();
-        Administradores administradores = service.obtenerRegistro(id);
+        System.out.println("crear registro");
+        service.crearRegistro(administradores);
 
-        request.setAttribute("tenis", administradores);
+        List<Administradores> listaAdministradores = service.obtenerRegistros();
+        request.setAttribute("listaAdministradores", listaAdministradores);
 
         dispatcher.forward(request, response);
     }

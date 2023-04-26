@@ -5,6 +5,7 @@
 package com.unsis.odonto.edu.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -68,9 +69,9 @@ public class Catedraticos implements Serializable {
     private String telefono;
     @Column(name = "sexo")
     private Character sexo;
-    @Column(name = "fecha_nacimiento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaNacimiento;
+    @Column(name = "fecha_nacimiento", columnDefinition = "DATE")
+    //@Temporal(TemporalType.DATE)
+    private LocalDate fechaNacimiento;
     @Column(name = "numero_trabajador")
     private String numeroTrabajador;
     @Basic(optional = false)
@@ -163,11 +164,11 @@ public class Catedraticos implements Serializable {
         this.sexo = sexo;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
