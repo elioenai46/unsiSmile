@@ -89,7 +89,7 @@
 
             <div class="containerRegistro">
                 <h2>Registrar Profesor</h2>
-                <form action="${pageContext.request.contextPath}/ProfesorServlet?accion=crear" method="GET">
+                <form action="${pageContext.request.contextPath}/ProfesorServlet" method="POST">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
                         <input type="text" name="firstN" class="form-control" placeholder="Primer nombre" id="primer-nombre">
