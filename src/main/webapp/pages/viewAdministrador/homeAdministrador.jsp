@@ -36,7 +36,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AdministradoresServletController">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
