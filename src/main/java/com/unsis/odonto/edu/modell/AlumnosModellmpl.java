@@ -10,6 +10,8 @@ package com.unsis.odonto.edu.modell;
 import com.unsis.odonto.edu.entity.Alumnos;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -40,20 +42,9 @@ public class AlumnosModellmpl implements IAlumnosModel {
     public List<Alumnos> obtenerRegistros() {
         List<Alumnos> listaAlumnos = new ArrayList<>();
         try {
-            System.out.println("1");
             sf = new Configuration().configure().buildSessionFactory();
-            System.out.println("2");
             s = sf.openSession();
-            System.out.println("3");
-            
-            //Query query = s.createSQLQuery("CALL spObtenerAlumnos()").addEntity(Alumnos.class);
-            //listaAlumnos = query.list();
-          
-            
             listaAlumnos = s.createCriteria(Alumnos.class).list();
-            
-                    
-            //listaAlumnos = s.createCriteria(Alumnos.class).list();
             System.out.println("Tamaño: " + listaAlumnos.size());
             s.close();
             sf.close();
@@ -67,10 +58,18 @@ public class AlumnosModellmpl implements IAlumnosModel {
     public void eliminarRegistro(Alumnos alumnos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
+            
             s = sf.openSession();
-            s.beginTransaction();
-            s.delete(alumnos);
-            s.getTransaction().commit();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarAlumno");
+            sp.registerStoredProcedureParameter("id_alumno", Integer.class, ParameterMode.IN);
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("id_alumno", alumnos.getIdAlumno());
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -106,11 +105,6 @@ public class AlumnosModellmpl implements IAlumnosModel {
         } catch (HibernateException e) {
             System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
-    }
-    
-    public static void main(String[] args) {
-        AlumnosModellmpl a = new AlumnosModellmpl();
-        a.obtenerRegistros();
     }
 
 }

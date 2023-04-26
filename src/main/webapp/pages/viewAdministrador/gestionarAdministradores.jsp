@@ -148,8 +148,13 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Administradores</h2>
-                            <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar" class="btn">Ver todos</a>
+
+                            
+
                             <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarAdministrador.jsp" class="btn">Agregar</a>
+
+                            <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar" class="btn">Ver todos</a>
+
                         </div>
 
                         <table class="table table-striped">

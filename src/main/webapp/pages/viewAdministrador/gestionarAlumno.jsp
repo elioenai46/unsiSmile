@@ -192,7 +192,9 @@
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
                                     <td><c:out value="${alumno.estatus}"></c:out></td>
                                     <td><a href="${pageContext.request.contextPath}/pages/viewAdministrador/actualizarAlumno.jsp"><button>Actualizar</button></a></td>
-                                    <td><button><c:out value=""></c:out>Eliminar</button></td>
+                                    <td><button><c:out value=""></c:out>Eliminar</button></td>   
+                                    <!-- Boton para eliminar un alumno -->
+                                    <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
 
                                     </tr>
                             </c:forEach>
