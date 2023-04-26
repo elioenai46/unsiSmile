@@ -1,7 +1,7 @@
 /**
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:24 de abril 2023
- *Fecha de Modificación:
+ *Fecha de Modificación:26 de abril del 2023
  *Descripción: se crea la clase del servlet para hacer uso de los métodos que
  *             nos van a ayudar a crear, listar, eliminar y actualizar
  *             administradores
@@ -13,6 +13,8 @@ import com.unsis.odonto.edu.service.AdministradorServiceImpl;
 import com.unsis.odonto.edu.service.IAdministradorService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -91,6 +93,36 @@ public class AdministradoresServletController extends HttpServlet {
         Administradores administradores = service.obtenerRegistro(id);
 
         request.setAttribute("tenis", administradores);
+
+        dispatcher.forward(request, response);
+    }
+
+    private void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
+        Administradores administradores = new Administradores();
+        administradores.setNombre1(request.getParameter("primerNombre"));
+        administradores.setNombre2(request.getParameter("segundoNombre"));
+        administradores.setApellido1(request.getParameter("apellidoPaterno"));
+        administradores.setApellido2(request.getParameter("apellidoMaterno"));
+        administradores.setCurp(request.getParameter("curp"));
+        administradores.setTelefono(request.getParameter("telefono"));
+        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
+        // administradores.setSexo(Char.parrequest.getParameter("sexo"));
+
+        Date now = new Date();
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern);
+        String mysqlDateString = formatter.format(now);
+
+        administradores.setFechaNacimiento(now);
+        administradores.setEmailAdmin(request.getParameter("email"));
+
+        IAdministradorService service = new AdministradorServiceImpl();
+        service.crearRegistro(administradores);
+        
+        List<Administradores> listaAdministradores = service.obtenerRegistros();
+        request.setAttribute("listaAdministradores", listaAdministradores);
 
         dispatcher.forward(request, response);
     }

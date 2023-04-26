@@ -10,6 +10,8 @@ package com.unsis.odonto.edu.modell;
 import com.unsis.odonto.edu.entity.Administradores;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -57,9 +59,13 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.delete(administradores);
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarAdministrador");
+            sp.registerStoredProcedureParameter("id_administrador", Integer.class, ParameterMode.IN);
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("id_administrador", administradores.getIdAdministrador());
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
