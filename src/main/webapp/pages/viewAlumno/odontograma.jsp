@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <title>Odontograma con html5</title>
-    <script src='js/jquery-1.7.2.min.js'></script>
-    <link type="text/css" href="css/custom-theme/jquery-ui-1.8.13.custom.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
-    <script type="text/javascript" src="js/Dibujo.js"></script>
-    <script type="text/javascript" src="js/Acciones.js"></script>
+    <script src='${pageContext.request.contextPath}/resources/jq/jquery-1.7.2.min.js'></script>
+    <link type="text/css" href="${pageContext.request.contextPath}/resources/css/jquery-ui-1.8.13.custom.css" rel="stylesheet" />
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jq/jquery-ui-1.8.13.custom.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jq/Dibujo.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/jq/Acciones.js"></script>
     <style>
       #myCanvas {
         border: 1px solid #9C9898;

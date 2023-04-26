@@ -21,7 +21,7 @@
             <li><a data-toggle="tab" href="#tab4">ANTECEDENTES HEREDOFAMILIARES</a></li>
             <li><a data-toggle="tab" href="#tab5">ANTECEDENTES PERSONALES NO PATOLOGICOS</a></li>
             <li><a data-toggle="tab" href="#tab6">ANTECEDENTES PERSONALES PATOLOGICOS</a></li>
-            <li><a  href="${pageContext.request.contextPath}/pages/viewAlumno/homeAlumno.jsp">ODONTOGRAMA</a></li>
+            <li><a  href="${pageContext.request.contextPath}/pages/viewAlumno/odontograma.jsp">ODONTOGRAMA</a></li>
 
 
         </ul>
