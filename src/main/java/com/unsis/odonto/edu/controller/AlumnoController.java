@@ -61,15 +61,15 @@ public class AlumnoController extends HttpServlet {
         alumnos.setFkIdSemestreGrupo(sg);
         alumnos.setMatricula(request.getParameter("matricula"));
         alumnos.setTelefono(request.getParameter("telefono"));
-        alumnos.setEmailAlumno(request.getParameter("emailAlumno"));
+        alumnos.setEmailAlumno(request.getParameter("email"));
           //catedratico
         Catedraticos catedratico = new  Catedraticos(i);
         alumnos.setFIdCatedraticoResponsable(catedratico);
         
         IAlumnoService service = new AlumnosServiceImpl(); 
         service.crearRegistro(alumnos);
-      //  List<Alumnos> listaAlumno = service.crearRegistro(Alumnos);
-      //  request.setAttribute("listaAlumno", listaAlumno);
+       List<Alumnos> listaAlumno = service.obtenerRegistros();
+       request.setAttribute("listaAlumno", listaAlumno);
         
         dispatcher.forward(request, response);
     }
