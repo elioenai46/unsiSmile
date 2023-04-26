@@ -149,7 +149,7 @@
                         <div class="cardHeader">
                             <h2>Alumnos</h2>
                             <a href="${pageContext.request.contextPath}/AlumnoController" class="btn">Ver todos</a>
-                            <a href="${pageContext.request.contextPath}" class="btn">Agregar</a>
+                            <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarAlumno.jsp" class="btn">Agregar</a>
    
 
                         </div>
@@ -190,7 +190,9 @@
                                     <td><c:out value="${alumno.matricula}"></c:out></td>
                                     <td><c:out value="${alumno.telefono}"></c:out></td>
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
-                                    <td><c:out value="${alumno.estatus}"></c:out></td>    
+                                    <td><c:out value="${alumno.estatus}"></c:out></td>
+                                    <td><a href="${pageContext.request.contextPath}/pages/viewAdministrador/actualizarAlumno.jsp"><button>Actualizar</button></a></td>
+                                    <td><button><c:out value=""></c:out>Eliminar</button></td>   
                                     <!-- Boton para eliminar un alumno -->
                                     <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
 

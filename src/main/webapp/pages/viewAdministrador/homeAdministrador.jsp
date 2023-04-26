@@ -36,7 +36,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AdministradoresServletController">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -45,7 +45,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/ProfesorServlet">
+                        <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -110,9 +110,12 @@
 
 
                         </div>
-
+                        
 
                     </div>
+
+
+           
 
                 </div>
                 <div class="cardBox">   
@@ -121,7 +124,6 @@
                             <div class="numbers">4</div>
                             <div class="cardName">Profesores</div>
                         </div>
-
 
                     </div>
                     <div class="card">

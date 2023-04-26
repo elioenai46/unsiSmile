@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Administrador</title>
+    <title>Actualizar Profesor</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
+
 
 </head>
 
@@ -87,7 +88,7 @@
             <!-- ========================= Registrar ==================== -->
 
             <div class="containerRegistro">
-                <h2>Actualizar Administrador</h2>
+                <h2>Actualizar Profesor</h2>
                 <form>
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
@@ -113,11 +114,15 @@
                         <label for="telefono">Teléfono</label>
                         <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
                     </div>
-
                     <div class="form-group">
-                        <label for="matricula">Numero trabajador</label>
-                        <input type="text" class="form-control" placeholder="Numero trabajador" id="matricula">
+                        <label for="sexo">Sexo:</label>
+                        <select id="sexo" name="sexo" class="select-custom">
+                            <option value="">--</option>
+                            <option value="hombre">Hombre</option>
+                            <option value="mujer">Mujer</option>
+                        </select>
                     </div>
+
                     <div class="form-group">
                         <label for="sexo">Fecha de nacimiento</label>
                         <label class="custom-label">Día:</label>
@@ -160,19 +165,11 @@
                         </select>
                     </div>
                     
+                    
                     <div class="form-group">
-                        <label for="sexo">Sexo:</label>
-                        <select id="sexo" name="sexo" class="select-custom">
-                            <option value="">--</option>
-                            <option value="hombre">Hombre</option>
-                            <option value="mujer">Mujer</option>
-                        </select>
+                        <label for="matricula">Numero trabajador</label>
+                        <input type="text" class="form-control" placeholder="Numero trabajador" id="matricula">
                     </div>
-
-                    
-                    
-                    
-                   
 
                     <div class="form-group">
                         <label for="email">Email</label>

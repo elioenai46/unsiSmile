@@ -87,12 +87,18 @@ public class AlumnosModellmpl implements IAlumnosModel {
     public void eliminarRegistro(Alumnos alumnos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
+            
             s = sf.openSession();
-            s.beginTransaction();
-            System.out.println("ajjajjajajjajaja");
 
-            s.delete(alumnos);
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarAlumno");
+            sp.registerStoredProcedureParameter("id_alumno", Integer.class, ParameterMode.IN);
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("id_alumno", alumnos.getIdAlumno());
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -128,11 +134,6 @@ public class AlumnosModellmpl implements IAlumnosModel {
         } catch (HibernateException e) {
             System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
-    }
-
-    public static void main(String[] args) {
-        AlumnosModellmpl a = new AlumnosModellmpl();
-        a.obtenerRegistros();
     }
 
 }

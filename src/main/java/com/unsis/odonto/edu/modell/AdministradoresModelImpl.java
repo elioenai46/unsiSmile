@@ -8,8 +8,12 @@
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Administradores;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,11 +29,46 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.save(administradores);
-            //s.createNamedQuery("guardar()");
-            //s.
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("insertarAdministrador");
+            
+            sp.registerStoredProcedureParameter("nombre1", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido1", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("curp", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("telefono", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("numero_trabajador", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("fecha_nacimiento", LocalDate.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("sexo", Character.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("email_admin", String.class, ParameterMode.IN);
+            
+            
+            System.out.println("insertar ");
+             // Establecer parámetros del procedimiento almacenado
+             
+            
+            sp.setParameter("nombre1", administradores.getNombre1());
+            sp.setParameter("nombre2", administradores.getNombre2());
+            sp.setParameter("apellido1", administradores.getApellido1());
+            sp.setParameter("apellido2", administradores.getApellido2());
+            sp.setParameter("curp", administradores.getCurp());
+            sp.setParameter("telefono", administradores.getTelefono());
+            sp.setParameter("numero_trabajador", administradores.getNumeroTrabajador());
+            sp.setParameter("fecha_nacimiento", administradores.getFechaNacimiento());
+            sp.setParameter("sexo", administradores.getSexo());
+            sp.setParameter("email_admin", administradores.getEmailAdmin());
+            
+            
+            // Ejecutar procedimiento almacenado
+            
+            sp.execute();
+            
+            
+//            s.beginTransaction();
+//            s.save(administradores);
+//            //s.createNamedQuery("guardar()");
+//            //s.
+//            s.getTransaction().commit();
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -57,9 +96,13 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.delete(administradores);
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarAdministrador");
+            sp.registerStoredProcedureParameter("id_administrador", Integer.class, ParameterMode.IN);
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("id_administrador", administradores.getIdAdministrador());
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
