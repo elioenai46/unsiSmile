@@ -2,13 +2,11 @@ package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Catedraticos;
 import com.unsis.odonto.edu.service.CatedraticoServiceImpl;
-import com.unsis.odonto.edu.service.IAdministradorService;
 import com.unsis.odonto.edu.service.ICatedraticoService;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ProfesorServlet extends HttpServlet {
-    public Date fechaN=null;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -60,17 +58,10 @@ public class ProfesorServlet extends HttpServlet {
         catedratico.setCurp(request.getParameter("curp"));
         catedratico.setTelefono(request.getParameter("NumTel"));
         catedratico.setSexo(request.getParameter("sexo").charAt(0));
-        String dia = request.getParameter("dia");
-        String mes = request.getParameter("mes");
-        String anio = request.getParameter("anio");
-        String fecha = dia+"/"+mes+"/"+anio;
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            fechaN = formato.parse(fecha);
-        } catch (ParseException ex) {
-            Logger.getLogger(ProfesorServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catedratico.setFechaNacimiento(fechaN);
+        Integer dia = Integer.parseInt(request.getParameter("dia"));
+        Integer mes = Integer.parseInt(request.getParameter("mes"));
+        Integer anio =  Integer.parseInt(request.getParameter("anio"));        
+        catedratico.setFechaNacimiento(LocalDate.of(anio, mes, dia));
         catedratico.setNumeroTrabajador(request.getParameter("NumT"));
         catedratico.setEmailCatedratico(request.getParameter("correo"));
         
@@ -95,7 +86,7 @@ public class ProfesorServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
 
-        //IAdministradorService service = new CatedraticoServiceImpl();
+        
         ICatedraticoService service = new CatedraticoServiceImpl();
         List<Catedraticos> listaCatedratico = service.obtenerRegistros();
 
@@ -151,17 +142,10 @@ public class ProfesorServlet extends HttpServlet {
         catedratico.setCurp(request.getParameter("curp"));
         catedratico.setTelefono(request.getParameter("NumTel"));
         catedratico.setSexo(request.getParameter("sexo").charAt(0));
-        String dia = request.getParameter("dia");
-        String mes = request.getParameter("mes");
-        String anio = request.getParameter("anio");
-        String fecha = dia+"/"+mes+"/"+anio;
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-        try {
-            fechaN = formato.parse(fecha);
-        } catch (ParseException ex) {
-            Logger.getLogger(ProfesorServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        catedratico.setFechaNacimiento(fechaN);
+        Integer dia = Integer.parseInt(request.getParameter("dia"));
+        Integer mes = Integer.parseInt(request.getParameter("mes"));
+        Integer anio =  Integer.parseInt(request.getParameter("anio"));
+        catedratico.setFechaNacimiento(LocalDate.of(anio, mes, dia));
         catedratico.setNumeroTrabajador(request.getParameter("NumT"));
         catedratico.setEmailCatedratico(request.getParameter("correo"));
         
