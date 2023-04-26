@@ -85,7 +85,7 @@
 
             <div class="containerRegistro">
                 <h2>Registrar Alumno</h2>
-                <form>
+                <form action="${pageContext.request.contextPath}/AlumnoController?accion=crear" method="POST">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
                         <input type="text" class="form-control" placeholder="Primer nombre" name="nombre">

@@ -36,11 +36,11 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.registerStoredProcedureParameter("apellido2", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("sexo", char.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("curp", String.class, ParameterMode.IN);
-            sp.registerStoredProcedureParameter("fk_id_semestre_grupo", int.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("fk_id_semestre_grupo", Integer.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("matricula", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("telefono", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("email_alumno", String.class, ParameterMode.IN);
-            sp.registerStoredProcedureParameter("f_id_catedratico_responsable", int.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("f_id_catedratico_responsable", Integer.class, ParameterMode.IN);
             System.out.println("procedure 22222222222222");
 
             // Establecer parámetros del procedimiento almacenado
@@ -50,16 +50,16 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.setParameter("apellido2", alumnos.getApellido2());
             sp.setParameter("sexo", alumnos.getSexo());
             sp.setParameter("curp", alumnos.getCurp());
-            sp.setParameter("fk_id_semestre_grupo", alumnos.getFkIdSemestreGrupo());
+            sp.setParameter("fk_id_semestre_grupo", alumnos.getFkIdSemestreGrupo().getIdSemestreGrupo());
             sp.setParameter("matricula", alumnos.getMatricula());
             sp.setParameter("telefono", alumnos.getTelefono());
             sp.setParameter("email_alumno", alumnos.getEmailAlumno());
-            sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable());
+            sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
             
             
             
             
-            
+            sp.execute();
             s.close();
             sf.close();
         } catch (HibernateException e) {
