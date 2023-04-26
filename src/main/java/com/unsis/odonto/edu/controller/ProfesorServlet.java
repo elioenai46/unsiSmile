@@ -19,11 +19,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ProfesorServlet extends HttpServlet {
-
+    public Date fechaN=null;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        
         String cadena = request.getParameter("accion");
 
         switch (cadena) {
@@ -37,10 +37,10 @@ public class ProfesorServlet extends HttpServlet {
                 doDelete(request, response);
                 break;
             case "actualizarFormulario":
-                //actualizarFormulario(request, response);
+                actualizarFormulario(request, response);
                 break;
             case "actualizar":
-                //actualizar(request, response);
+                doPut(request, response);
                 break;
             default:
                 break;
@@ -50,7 +50,7 @@ public class ProfesorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Date fechaN=null;
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
         Catedraticos catedratico = new Catedraticos();
         catedratico.setNombre(request.getParameter("firstN"));
@@ -124,9 +124,54 @@ public class ProfesorServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    @Override
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/actualizarProfesor.jsp");
+        int id = Integer.parseInt(request.getParameter("id"));
+       
+        ICatedraticoService service = new CatedraticoServiceImpl();
+        Catedraticos catedratico = service.obtenerRegistro(id);
         
+        request.setAttribute("catedraticos", catedratico);
+        
+        dispatcher.forward(request, response);
+    }
+    
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+        
+        Catedraticos catedratico = new Catedraticos();
+        catedratico.setIdCatedratico(Integer.parseInt(request.getParameter("idCatedratico")));
+        catedratico.setNombre(request.getParameter("firstN"));
+        catedratico.setNombre2(request.getParameter("secondN"));
+        catedratico.setApellido(request.getParameter("Apa"));
+        catedratico.setApellido2(request.getParameter("Ama"));
+        catedratico.setCurp(request.getParameter("curp"));
+        catedratico.setTelefono(request.getParameter("NumTel"));
+        catedratico.setSexo(request.getParameter("sexo").charAt(0));
+        String dia = request.getParameter("dia");
+        String mes = request.getParameter("mes");
+        String anio = request.getParameter("anio");
+        String fecha = dia+"/"+mes+"/"+anio;
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            fechaN = formato.parse(fecha);
+        } catch (ParseException ex) {
+            Logger.getLogger(ProfesorServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catedratico.setFechaNacimiento(fechaN);
+        catedratico.setNumeroTrabajador(request.getParameter("NumT"));
+        catedratico.setEmailCatedratico(request.getParameter("correo"));
+        
+        ICatedraticoService service = new CatedraticoServiceImpl();
+        service.actualizarRegistro(catedratico);
+        
+        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
+        request.setAttribute("listaUsuario", listaCatedratico);
+        
+        dispatcher.forward(request, response);
     }
 
     
