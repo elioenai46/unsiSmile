@@ -8,6 +8,7 @@
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Catedraticos;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.ParameterMode;
@@ -26,12 +27,36 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
     public void crearRegistro(Catedraticos catedraticos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
+
             s = sf.openSession();
-            s.beginTransaction();
-            s.save(catedraticos);
-            //s.createNamedQuery("guardar()");
-            //s.
-            s.getTransaction().commit();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("insertarCatedratico");
+            sp.registerStoredProcedureParameter("nombre", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("curp", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("telefono", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("sexo", Character.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("fecha_nacimiento", LocalDate.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("numero_trabajador", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("mail", String.class, ParameterMode.IN);
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("nombre", catedraticos.getNombre());
+            sp.setParameter("nombre2", catedraticos.getNombre2());
+            sp.setParameter("apellido", catedraticos.getApellido());
+            sp.setParameter("apellido2", catedraticos.getApellido2());
+            sp.setParameter("curp", catedraticos.getCurp());
+            sp.setParameter("telefono", catedraticos.getTelefono());
+            sp.setParameter("sexo", catedraticos.getSexo());
+            sp.setParameter("fecha_nacimiento", catedraticos.getFechaNacimiento());
+            sp.setParameter("numero_trabajador", catedraticos.getNumeroTrabajador());
+            sp.setParameter("mail", catedraticos.getEmailCatedratico());
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -58,7 +83,7 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
     public void eliminarRegistro(Catedraticos catedraticos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
-            
+
             s = sf.openSession();
 
             StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarCatedratico");
@@ -72,13 +97,6 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
 
             s.close();
             sf.close();
-//            sf = new Configuration().configure().buildSessionFactory();
-//            s = sf.openSession();
-//            s.beginTransaction();
-//            s.delete(catedraticos);
-//            s.getTransaction().commit();
-//            s.close();
-//            sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al eliminar el registro: " + e.getMessage());
         }
