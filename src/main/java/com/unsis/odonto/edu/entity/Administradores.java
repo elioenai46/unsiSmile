@@ -65,8 +65,8 @@ public class Administradores implements Serializable {
     private String telefono;
     @Column(name = "numero_trabajador")
     private String numeroTrabajador;
-    @Column(name = "fecha_nacimiento")
-    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_nacimiento", columnDefinition = "DATE")
+    //@Temporal(TemporalType.DATE)
     private LocalDate fechaNacimiento;
     @Column(name = "sexo")
     private Character sexo;
