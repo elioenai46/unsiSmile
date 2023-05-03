@@ -27,7 +27,7 @@
             </li>
 
             <li>
-                <a href="/viewProfesor/homeProfesor.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewProfesor/homeProfesor.jsp">
                     <span class="icon">
                         <ion-icon name="home-outline"></ion-icon>
                     </span>
@@ -36,7 +36,7 @@
             </li>
 
             <li>
-                <a href="Pacientes.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewProfesor/homeProfesor.jsp">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -45,7 +45,7 @@
             </li>
 
             <li>
-                <a href="gestionarAlumno.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewProfesor/homeProfesor.jsp">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -54,7 +54,7 @@
             </li>
 
             <li>
-                <a href="/viewAlumno/Pacientes.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewProfesor/homeProfesor.jsp">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -63,7 +63,7 @@
             </li>
 
             <li>
-                <a href="gestionarProfesor.html">
+                    <a href="${pageContext.request.contextPath}/pages/viewProfesor/homeProfesor.jsp">
                     <span class="icon">
                         <ion-icon name="people-outline"></ion-icon>
                     </span>
@@ -74,7 +74,7 @@
          
 
             <li>
-                <a href="#">
+                    <a href="${pageContext.request.contextPath}/pages/viewProfesor/homeProfesor.jsp">
                     <span class="icon">
                         <ion-icon name="log-out-outline"></ion-icon>
                     </span>

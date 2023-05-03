@@ -50,10 +50,15 @@ public class LoginController extends HttpServlet {
                     paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
 
                     break;
+                      case "Profesor":
+                    paginaDestino = "/pages/viewProfesor/homeProfesor.jsp";
+
+                    break;
 
                 default:
-                    throw new AssertionError();
-            }
+                    paginaDestino="/pages/login/login.jsp";
+
+             }
            //paginaDestino = "/pages/index.jsp";
         } else {
             String message = "usuario o contraseña incorrecta";

@@ -102,6 +102,7 @@ public class AdministradoresServletController extends HttpServlet {
 //
 //        dispatcher.forward(request, response);
 //    }
+    
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
