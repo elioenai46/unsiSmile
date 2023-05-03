@@ -30,7 +30,7 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             StoredProcedureQuery sp = s.createStoredProcedureQuery("insertarAdministrador");
-            
+
             sp.registerStoredProcedureParameter("nombre1", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("apellido1", String.class, ParameterMode.IN);
@@ -41,12 +41,10 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sp.registerStoredProcedureParameter("fecha_nacimiento", LocalDate.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("sexo", Character.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("email_admin", String.class, ParameterMode.IN);
-            
-            
+
             System.out.println("insertar ");
-             // Establecer parámetros del procedimiento almacenado
-             
-            
+            // Establecer parámetros del procedimiento almacenado
+
             sp.setParameter("nombre1", administradores.getNombre1());
             sp.setParameter("nombre2", administradores.getNombre2());
             sp.setParameter("apellido1", administradores.getApellido1());
@@ -57,19 +55,10 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sp.setParameter("fecha_nacimiento", administradores.getFechaNacimiento());
             sp.setParameter("sexo", administradores.getSexo());
             sp.setParameter("email_admin", administradores.getEmailAdmin());
-            
-            
+
             // Ejecutar procedimiento almacenado
-            
             sp.execute();
-            
-            
-//            s.beginTransaction();
-//            s.save(administradores);
-//            //s.createNamedQuery("guardar()");
-//            //s.
-//            s.getTransaction().commit();
-            s.close();
+
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al crear el registro: " + e.getMessage());
@@ -116,7 +105,14 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            administradores = s.get(Administradores.class, idAdministrador);
+            //administradores = s.get(Administradores.class, idAdministrador);
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerTodosAdministradores");
+            sp.registerStoredProcedureParameter("id_administrador", Integer.class, ParameterMode.IN);
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("id_administrador", administradores.getIdAdministrador());
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
