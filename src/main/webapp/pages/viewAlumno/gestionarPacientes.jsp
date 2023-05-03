@@ -117,7 +117,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Profesor</h2>
-                            <a href="#" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}/PacienteServletController?accion=listar" class="btn">Ver todos</a>
                             <a href="${pageContext.request.contextPath}/pages/viewAlumno/agregarPacientes.jsp" class="btn">Agregar</a>
                         </div>
 
@@ -138,6 +138,25 @@
                                     <td>estatus</td>
                                 </tr>
                             </thead>
+                            <c:forEach var="paciente" items="${listaPaciente}">
+                                <tr>
+                                <td><c:out value="${paciente.idCatedratico}"></c:out></td>
+                                <td><c:out value="${paciente.nombre}"></c:out></td>
+                                <td><c:out value="${paciente.nombre2}"></c:out></td>
+                                <td><c:out value='${paciente.apellido}'></c:out></td>
+                                <td><c:out value='${paciente.apellido2}'></c:out></td>
+                                <td><c:out value='${paciente.curp}'></c:out></td>
+                                <td><c:out value='${paciente.telefono}'></c:out></td>
+                                <td><c:out value='${paciente.sexo}'></c:out></td>
+                                <td><c:out value='${paciente.fechaNacimiento}'></c:out></td>
+                                <td><c:out value='${paciente.numeroTrabajador}'></c:out></td>
+                                <td><c:out value='${paciente.emailCatedratico}'></c:out></td>
+                                <td><c:out value='${paciente.estatus}'></c:out></td>                           
+                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=actualizarFormulario&id="><button>Actualizar</button></a></td>
+                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=eliminar&id=<c:out value="${catedraticos.idCatedratico}"></c:out>"><button>Eliminar</button></a></td>
+
+                                </tr>
+                            </c:forEach>
                         </table>
 
                     </div>
