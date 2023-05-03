@@ -28,9 +28,38 @@ public class AlumnosModellmpl implements IAlumnosModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.save(alumnos);
-            s.getTransaction().commit();
+           StoredProcedureQuery sp = s.createStoredProcedureQuery("InsertarAlumno");
+
+            sp.registerStoredProcedureParameter("nombre", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("sexo", char.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("curp", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("fk_id_semestre_grupo", Integer.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("matricula", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("telefono", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("email_alumno", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("f_id_catedratico_responsable", Integer.class, ParameterMode.IN);
+            System.out.println("procedure 22222222222222");
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("nombre", alumnos.getNombre());
+            sp.setParameter("nombre2", alumnos.getNombre2());
+            sp.setParameter("apellido", alumnos.getApellido());
+            sp.setParameter("apellido2", alumnos.getApellido2());
+            sp.setParameter("sexo", alumnos.getSexo());
+            sp.setParameter("curp", alumnos.getCurp());
+            sp.setParameter("fk_id_semestre_grupo", alumnos.getFkIdSemestreGrupo().getIdSemestreGrupo());
+            sp.setParameter("matricula", alumnos.getMatricula());
+            sp.setParameter("telefono", alumnos.getTelefono());
+            sp.setParameter("email_alumno", alumnos.getEmailAlumno());
+            sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
+            
+            
+            
+            
+            sp.execute();
             s.close();
             sf.close();
         } catch (HibernateException e) {

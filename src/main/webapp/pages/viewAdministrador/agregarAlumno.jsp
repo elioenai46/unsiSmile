@@ -36,7 +36,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/AdministradoresServletController">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -45,7 +45,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/AlumnoController">
+                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -54,7 +54,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/ProfesorServlet">
+                        <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -85,22 +85,22 @@
 
             <div class="containerRegistro">
                 <h2>Registrar Alumno</h2>
-                <form>
+                <form action="${pageContext.request.contextPath}/AlumnoController?accion=crear" method="POST">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
-                        <input type="text" class="form-control" placeholder="Primer nombre" id="primer-nombre">
+                        <input type="text" class="form-control" placeholder="Primer nombre" name="nombre">
                     </div>
                     <div class="form-group">
                         <label for="segundo-nombre">Segundo nombre</label>
-                        <input type="text" class="form-control" placeholder="Segundo nombre" id="segundo-nombre">
+                        <input type="text" class="form-control" placeholder="Segundo nombre" name="nombre2">
                     </div>
                     <div class="form-group">
                         <label for="apellido-paterno">Apellido paterno</label>
-                        <input type="text" class="form-control" placeholder="Apellido paterno" id="apellido-paterno">
+                        <input type="text" class="form-control" placeholder="Apellido paterno" name="apellido">
                     </div>
                     <div class="form-group">
                         <label for="apellido-materno">Apellido materno</label>
-                        <input type="text" class="form-control" placeholder="Apellido materno" id="apellido-materno">
+                        <input type="text" class="form-control" placeholder="Apellido materno" name="apellido2">
                     </div>
                     <div class="form-group">
                         <label for="sexo">Sexo:</label>
@@ -111,11 +111,11 @@
                     </div>
                     <div class="form-group">
                         <label for="curp">CURP</label>
-                        <input type="email" class="form-control" placeholder="CURP" id="curp">
+                        <input type="text" class="form-control" placeholder="CURP" name="curp">
                     </div>
                     <div class="form-group">
                         <label for="semestre">Semestre</label>
-                        <select id="sexo" name="sexo" class="select-custom">
+                        <select id="sexo" name="semestre" class="select-custom">
                             <option value="hombre">Primero</option>
                             <option value="mujer">Segundo</option>
                         </select>
@@ -129,20 +129,20 @@
                     </div>
                     <div class="form-group">
                         <label for="matricula">Matricula</label>
-                        <input type="text" class="form-control" placeholder="Matricula" id="matricula">
+                        <input type="text" class="form-control" placeholder="Matricula" name="matricula">
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
+                        <input type="text" class="form-control" placeholder="Teléfono" name="telefono">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" placeholder="Email" id="email">
+                        <input type="text" class="form-control" placeholder="Email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="id-catedratico">ID Catedratico responsable</label>
                         <input type="text" class="form-control" placeholder="ID Catedratico responsable"
-                            id="id-catedratico">
+                            name="id-catedratico">
                     </div>
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
