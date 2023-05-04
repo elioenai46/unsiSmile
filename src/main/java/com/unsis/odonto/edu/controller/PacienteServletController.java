@@ -1,4 +1,10 @@
-
+/**
+ * Autor     : Vite 
+ * Fecha de creación : 20 abr 2023, 16:05
+ * Fecha de modificación:
+ * Descripción : PacienteServletController de gestionar pacientes, enlace con Paciente. 
+ */
+ 
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Paciente;
@@ -45,10 +51,8 @@ public class PacienteServletController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
-        Integer dia;
-        Integer mes;
-        Integer anio;
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarPacientes.jsp");
+        
         Paciente paciente = new Paciente();
         //paciente;
         
@@ -74,7 +78,7 @@ public class PacienteServletController extends HttpServlet {
         System.out.println(
                 "---------------VITE------------------------------");
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAlumno/gestionarPacientes.jsp");
 
         
         IPacienteService service = new PacienteServiceImpl();
@@ -88,7 +92,7 @@ public class PacienteServletController extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarPacientes.jsp");
 
         int id = Integer.parseInt(request.getParameter("id"));
         

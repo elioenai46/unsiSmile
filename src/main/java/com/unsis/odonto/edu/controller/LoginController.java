@@ -48,6 +48,7 @@ public class LoginController extends HttpServlet {
                    break;
                 case "Alumno":
                     paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
+                    
 
                     break;
                       case "Profesor":
