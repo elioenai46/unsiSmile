@@ -91,7 +91,7 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
 
             <div class="containerRegistro">
                 <h2>Registrar Alumno</h2>
-                <form action="${pageContext.request.contextPath}/AlumnoController?accion=crear" method="GET">
+                <form id="formulario-agregar-alumno">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
                         <input type="text" class="form-control" placeholder="Primer nombre" name="nombre">
