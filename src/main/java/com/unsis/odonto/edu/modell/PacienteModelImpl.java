@@ -10,6 +10,8 @@ package com.unsis.odonto.edu.modell;
 import com.unsis.odonto.edu.entity.Paciente;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.ParameterMode;
+import javax.persistence.StoredProcedureQuery;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -41,7 +43,14 @@ public class PacienteModelImpl implements IPacienteModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listapPacientes = s.createCriteria(Paciente.class).list();
+            
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerPacientePorAlumno");
+            sp.registerStoredProcedureParameter("id_alum", Integer.class, ParameterMode.IN);
+            
+            sp.setParameter("id_alum", 1);
+            
+            sp.execute();
+            //listapPacientes = s.createCriteria(Paciente.class).list();
             s.close();
             sf.close();
         } catch (HibernateException e) {
