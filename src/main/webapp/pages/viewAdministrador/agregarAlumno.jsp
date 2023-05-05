@@ -1,3 +1,9 @@
+<!--Autor: Getzemani Alejandro Gonzales Cruz
+Fecha de creación: 25 de abril de 2023
+Fecha de actualización: 05 de mayo de 2023
+Modificado por: Oscar Fuentes Alvarado
+Descripción: JSP para modelar la vista de agregado del alumno-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +91,7 @@
 
             <div class="containerRegistro">
                 <h2>Registrar Alumno</h2>
-                <form action="${pageContext.request.contextPath}/AlumnoController?accion=crear" method="POST">
+                <form action="${pageContext.request.contextPath}/AlumnoController?accion=crear" method="GET">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
                         <input type="text" class="form-control" placeholder="Primer nombre" name="nombre">
@@ -115,16 +121,17 @@
                     </div>
                     <div class="form-group">
                         <label for="semestre">Semestre</label>
-                        <select id="sexo" name="semestre" class="select-custom">
-                            <option value="hombre">Primero</option>
-                            <option value="mujer">Segundo</option>
+                        <select id="Semestre1" name="Semestre1" class="select-custom">
+                            <option value="113">113</option>
+                            <option value="213">213</option>
+                            
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="semestre">Grupo</label>
-                        <select id="sexo" name="sexo" class="select-custom">
-                            <option value="hombre">506</option>
-                            <option value="mujer">706</option>
+                        <select id="Grupo1" name="Grupo1" class="select-custom">
+                            <option value="default">--Selecciona-una-opción--</option>
+                            
                         </select>
                     </div>
                     <div class="form-group">
@@ -155,7 +162,8 @@
 
     <!-- =========== Scripts =========  -->
     <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
-
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/cargarGrupos.js"></script>
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
