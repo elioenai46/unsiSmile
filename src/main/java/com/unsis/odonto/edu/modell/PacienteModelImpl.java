@@ -50,7 +50,9 @@ public class PacienteModelImpl implements IPacienteModel {
             sp.setParameter("id_alum", 1);
             
             sp.execute();
-            //listapPacientes = s.createCriteria(Paciente.class).list();
+            
+            listapPacientes =  sp.getResultList();//s.createCriteria(Paciente.class).list();
+            System.out.println(sp.getResultList());
             s.close();
             sf.close();
         } catch (HibernateException e) {
