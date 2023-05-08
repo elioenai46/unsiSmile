@@ -92,30 +92,24 @@
                 <div class="cardBox">
                     <div class="card">
                         <div class="iconBx"><img class="imgPerf" src="${pageContext.request.contextPath}/resources/img/customer01.jpg"" alt=""></div>
-                        <div class="cardName">Juan Carlos Pérez García</div>
-                        <div class="cardName">juancarlos@hotmail.com</div>
-
+                        <div class="cardName">${admin.nombre1} ${admin.nombre2} ${admin.apellido1} ${admin.apellido2}</div>
+                        <div class="cardName">${admin.emailAdmin}</div>
                     </div>
-
-
 
                     <div class="card">
                         <div>
                             <div id="sexo" class="dat">Sexo</div>
-                            <div class="cardName">Masculino</div>
+                            <div class="cardName">${admin.sexo}</div>
 
-                            <div id="Matricula" class="dat">Numero de trabajador</div>
-                            <div class="cardName">5316165151</div>
-
-
-
+                            <div id="Matricula" class="dat">Numero de trabajador</div>                       
+                            <div class="cardName">${admin.numeroTrabajador}</div>
                         </div>
-                        
+
 
                     </div>
 
 
-           
+
 
                 </div>
                 <div class="cardBox">   
@@ -143,6 +137,8 @@
 
     <!-- =========== Scripts =========  -->
     <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+    <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/enviarIdUsuario.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

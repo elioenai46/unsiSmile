@@ -40,6 +40,7 @@ public class PacienteModelImpl implements IPacienteModel {
     @Override
     public List<Paciente> obtenerRegistros() {
         List<Paciente> listapPacientes = new ArrayList<>();
+        Paciente p1 = new Paciente();
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
@@ -47,11 +48,38 @@ public class PacienteModelImpl implements IPacienteModel {
             StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerPacientePorAlumno");
             sp.registerStoredProcedureParameter("id_alum", Integer.class, ParameterMode.IN);
             
+            // Establecer parámetros del procedimiento almacenado
             sp.setParameter("id_alum", 1);
             
+            // Ejecutar procedimiento almacenado
             sp.execute();
             
-            listapPacientes =  sp.getResultList();//s.createCriteria(Paciente.class).list();
+            // Obtener los resultados de la consulta
+            List<Object[]> registroP =  sp.getResultList();
+            
+            // Recorrer los registros y agregarlos a la lista listapPacientes
+            for(Object[] rP : registroP){
+                
+                //System.out.println("Datos: " + rP[1].toString());
+                //Object[] row = registroP.get(0);
+                p1.setIdPaciente((rP[0] == null) ? Integer.valueOf("1") : Integer.parseInt((rP[0]).toString()));
+                p1.setNombre1((rP[1] == null) ? "" : (rP[1]).toString());
+                p1.setNombre2((rP[2] == null) ? "" : (rP[2]).toString());
+                p1.setApellido1((rP[3] == null) ? "" : (rP[3]).toString());
+                p1.setApellido2((rP[4] == null) ? "" : (rP[4]).toString());
+                p1.setSexo((rP[5] == null) ? '\0' : (rP[5]).toString().charAt(0));
+                p1.setGrupoEtnico((rP[6] == null) ? "" : (rP[6]).toString());
+                p1.setOcupacion((rP[7] == null) ? "" : (rP[7]).toString());
+                //p1.setFechaNacimiento((rP[8] == null) ? LocalDate.of("2000-05-15") : (rP[8]).toString());
+                p1.setEstadoCivil((rP[10] == null) ? "" : (rP[10]).toString());
+                //p1.setFechaIngreso((rP[12] == null) ? "2000-05-15" : (rP[12]).toString());
+                p1.setNacionalidad((rP[13] == null) ? "" : (rP[13]).toString());
+                p1.setLocalidad((rP[14] == null) ? "" : (rP[14]).toString());
+                boolean x = Boolean.valueOf((rP[15]).toString());
+                p1.setEstatus((rP[15] == null) ? true : x);
+                listapPacientes.add(p1);
+            }
+            
             System.out.println(sp.getResultList());
             s.close();
             sf.close();
@@ -60,6 +88,7 @@ public class PacienteModelImpl implements IPacienteModel {
         }
         return listapPacientes;
     }
+   
 
     @Override
     public void eliminarRegistro(Paciente paciente) {

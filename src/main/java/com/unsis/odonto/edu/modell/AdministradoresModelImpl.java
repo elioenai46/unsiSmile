@@ -30,7 +30,7 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             StoredProcedureQuery sp = s.createStoredProcedureQuery("insertarAdministrador");
-            
+
             sp.registerStoredProcedureParameter("nombre1", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("apellido1", String.class, ParameterMode.IN);
@@ -41,12 +41,10 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sp.registerStoredProcedureParameter("fecha_nacimiento", LocalDate.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("sexo", Character.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("email_admin", String.class, ParameterMode.IN);
-            
-            
+
             System.out.println("insertar ");
-             // Establecer parámetros del procedimiento almacenado
-             
-            
+            // Establecer parámetros del procedimiento almacenado
+
             sp.setParameter("nombre1", administradores.getNombre1());
             sp.setParameter("nombre2", administradores.getNombre2());
             sp.setParameter("apellido1", administradores.getApellido1());
@@ -57,13 +55,10 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sp.setParameter("fecha_nacimiento", administradores.getFechaNacimiento());
             sp.setParameter("sexo", administradores.getSexo());
             sp.setParameter("email_admin", administradores.getEmailAdmin());
-            
-            
+
             // Ejecutar procedimiento almacenado
-            
             sp.execute();
-            
-            
+
 //            s.beginTransaction();
 //            s.save(administradores);
 //            //s.createNamedQuery("guardar()");
@@ -116,13 +111,39 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            administradores = s.get(Administradores.class, idAdministrador);
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerAdministradores");
+            sp.registerStoredProcedureParameter("id_admin", int.class, ParameterMode.IN);
+
+            // Cargar los datos de entrada al procedure
+            sp.setParameter("id_admin", idAdministrador);
+
+            // Ejecutar el procedimiento
+            sp.execute();
+
+            List<Object[]> registros = sp.getResultList();
+            administradores = new Administradores();
+
+            // Verificar si la lista de registros no está vacía
+            if (!registros.isEmpty()) {
+                Object[] row = registros.get(0);
+
+                administradores.setNombre1((row[0] == null) ? "" : (row[0]).toString());
+                administradores.setNombre2((row[1] == null) ? "" : (row[1]).toString());
+                administradores.setApellido1((row[2] == null) ? "" : (row[2]).toString());
+                administradores.setApellido2((row[3] == null) ? "" : (row[3]).toString());
+                administradores.setNumeroTrabajador((row[4] == null) ? "" : (row[4]).toString());
+                administradores.setSexo((row[5] == null) ? '\0' : (row[5].toString().charAt(0)));
+                administradores.setEmailAdmin((row[6] == null) ? "" : (row[6]).toString());    
+            }
             s.close();
             sf.close();
+            return administradores;
+
         } catch (HibernateException e) {
-            System.out.println("Error al obtener un registro: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-        return administradores;
+        return null;
     }
 
     @Override

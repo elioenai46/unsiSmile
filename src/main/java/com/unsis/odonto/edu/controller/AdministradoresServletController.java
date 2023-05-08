@@ -36,8 +36,9 @@ public class AdministradoresServletController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        System.out.println("controller");
-        
+        //int id = Integer.parseInt(request.getParameter("idDelUsuario"));
+        //System.out.println("El idDelUsuario es: " + id);
+
         String cadena = request.getParameter("accion");
         System.out.println("controller 2" + cadena);
         switch (cadena) {
@@ -81,7 +82,7 @@ public class AdministradoresServletController extends HttpServlet {
 
         IAdministradorService service = new AdministradorServiceImpl();
         Administradores administradores = service.obtenerRegistro(id);
-        
+
         service.eliminarRegistro(administradores);
 
         List<Administradores> listaAdministradores = service.obtenerRegistros();
@@ -102,7 +103,6 @@ public class AdministradoresServletController extends HttpServlet {
 //
 //        dispatcher.forward(request, response);
 //    }
-    
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
@@ -117,24 +117,20 @@ public class AdministradoresServletController extends HttpServlet {
         administradores.setApellido2(request.getParameter("apellidoMaterno"));
         administradores.setCurp(request.getParameter("curp"));
         administradores.setTelefono(request.getParameter("telefono"));
-        
+
         administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
-       
-        
+
         anio = 2001;
         mes = 10;
         dia = 10; //Integer.valueOf(request.getParameter("dia"));
-        
-        
+
         System.out.println(request.getParameter("sexo").charAt(0));
         administradores.setSexo(request.getParameter("sexo").charAt(0));
-        
+
         System.out.println(String.valueOf(dia + mes + anio + administradores.getSexo()));
         administradores.setFechaNacimiento(LocalDate.of(anio, mes, dia));
         administradores.setEmailAdmin(request.getParameter("email"));
-        
-        
-        
+
         IAdministradorService service = new AdministradorServiceImpl();
         System.out.println("crear registro");
         service.crearRegistro(administradores);
