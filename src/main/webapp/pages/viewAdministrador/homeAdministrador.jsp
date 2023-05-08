@@ -138,8 +138,6 @@
     <!-- =========== Scripts =========  -->
     <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
     <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/enviarIdUsuario.js"></script>
-
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
