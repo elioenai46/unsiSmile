@@ -25,14 +25,16 @@ public class LoginModelImpl implements ILoginModel {
             StoredProcedureQuery sp = s.createStoredProcedureQuery("spValidarUsuarioRol");
             sp.registerStoredProcedureParameter("nombre_usuario", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("pass_usuario", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("iD", int.class, ParameterMode.OUT);
             sp.registerStoredProcedureParameter("nombre_rol", String.class, ParameterMode.OUT);
 
             //Datos del formulario login
             sp.setParameter("nombre_usuario", usuarios.getNombreUsuario());
             sp.setParameter("pass_usuario", usuarios.getPassUsuario());
-
+            //guardamos el id del alumno, administrador o catedratico al cual le
+            //pertenece dicho usuario, esto lo guardamos en la variable id_usuario
+            usuarios.setIdUsuario(Integer.valueOf(sp.getOutputParameterValue("iD").toString()));
             usuarios.setNombreRol(sp.getOutputParameterValue("nombre_rol").toString());
-            System.out.println("rol: " + usuarios.getNombreRol());
 
             s.close();
             sf.close();
