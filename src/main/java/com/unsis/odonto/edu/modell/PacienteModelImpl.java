@@ -1,13 +1,15 @@
 /**
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:13 de abril 2023
- *Fecha de Modificación:
+ *Fecha de Modificación: 9 de mayo 2023 (Vite)
  *Descripción:clase model para Paciente, modelamos el crud de dicho objeto
  *             implementando la clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Paciente;
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.ParameterMode;
@@ -41,6 +43,7 @@ public class PacienteModelImpl implements IPacienteModel {
     public List<Paciente> obtenerRegistros() {
         List<Paciente> listapPacientes = new ArrayList<>();
         Paciente p1 = new Paciente();
+        String date, date2;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
@@ -70,12 +73,17 @@ public class PacienteModelImpl implements IPacienteModel {
                 p1.setSexo((rP[5] == null) ? '\0' : (rP[5]).toString().charAt(0));
                 p1.setGrupoEtnico((rP[6] == null) ? "" : (rP[6]).toString());
                 p1.setOcupacion((rP[7] == null) ? "" : (rP[7]).toString());
-                //p1.setFechaNacimiento((rP[8] == null) ? LocalDate.of("2000-05-15") : (rP[8]).toString());
+                System.out.println("fecha"+rP[8].toString());
+                date = rP[8].toString();
+                LocalDate ld = LocalDate.parse(date);
+                p1.setFechaNacimiento((rP[8] == null) ? LocalDate.of(2000,05,15) : ld);
                 p1.setEstadoCivil((rP[10] == null) ? "" : (rP[10]).toString());
-                //p1.setFechaIngreso((rP[12] == null) ? "2000-05-15" : (rP[12]).toString());
+                date2 = rP[12].toString();
+                LocalDate ld2 = LocalDate.parse(date2);
+                p1.setFechaIngreso((rP[12] == null) ? LocalDate.of(0, Month.MARCH, 0) : ld2);
                 p1.setNacionalidad((rP[13] == null) ? "" : (rP[13]).toString());
                 p1.setLocalidad((rP[14] == null) ? "" : (rP[14]).toString());
-                boolean x = Boolean.valueOf((rP[15]).toString());
+                boolean x = Boolean.parseBoolean((rP[15]).toString());
                 p1.setEstatus((rP[15] == null) ? true : x);
                 listapPacientes.add(p1);
             }
