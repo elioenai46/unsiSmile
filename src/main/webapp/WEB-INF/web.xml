@@ -4,12 +4,14 @@
         <servlet-name>LoginController</servlet-name>
         <servlet-class>com.unsis.odonto.edu.controller.LoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SemestreGrupoServletController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SemestreGrupoServletController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
-    
-    
     <servlet>
         <servlet-name>AlumnoController</servlet-name>
         <servlet-class>com.unsis.odonto.edu.controller.AlumnoController</servlet-class>
@@ -18,7 +20,6 @@
         <servlet-name>AlumnoController</servlet-name>
         <url-pattern>/AlumnoController</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>AdministradoresServletController</servlet-name>
         <servlet-class>com.unsis.odonto.edu.controller.AdministradoresServletController</servlet-class>
@@ -27,7 +28,6 @@
         <servlet-name>AdministradoresServletController</servlet-name>
         <url-pattern>/AdministradoresServletController</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>ProfesorServlet</servlet-name>
         <servlet-class>com.unsis.odonto.edu.controller.ProfesorServlet</servlet-class>
@@ -36,7 +36,10 @@
         <servlet-name>ProfesorServlet</servlet-name>
         <url-pattern>/ProfesorServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>SemestreGrupoServletController</servlet-name>
+        <url-pattern>/SemestreGrupoServletController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
