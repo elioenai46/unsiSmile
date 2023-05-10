@@ -1,6 +1,9 @@
 package com.unsis.odonto.edu.controller;
 
+import com.unsis.odonto.edu.entity.Administradores;
 import com.unsis.odonto.edu.entity.Usuarios;
+import com.unsis.odonto.edu.service.AdministradorServiceImpl;
+import com.unsis.odonto.edu.service.IAdministradorService;
 import com.unsis.odonto.edu.service.ILoginService;
 import com.unsis.odonto.edu.service.LoginServiceImpl;
 import java.io.IOException;
@@ -31,10 +34,12 @@ public class LoginController extends HttpServlet {
         usuarios.setPassUsuario(password);
 
         ILoginService service = new LoginServiceImpl();
+        IAdministradorService adminService= new AdministradorServiceImpl();
+        Administradores admin = new Administradores();
         // injectar 
 
         usuarios = service.login(usuarios);
-
+        
         String paginaDestino = "/pages/login/login.jsp";
         if (usuarios.getNombreRol().compareTo("") != 0) {
            
@@ -44,14 +49,23 @@ public class LoginController extends HttpServlet {
              switch (usuarios.getNombreRol()) {
                 case "Administrador":              
                     paginaDestino = "/pages/viewAdministrador/homeAdministrador.jsp";
+                    admin=adminService.obtenerRegistro(usuarios.getIdUsuario());
+                    session.setAttribute("admin",admin);
+//                    /**
+//                     * enviamos el id del usuario al jsp, hacemos lo mismo
+//                     * para alumnos y profesor
+//                     */
+//                    request.setAttribute("iduser", usuarios.getIdUsuario());
 
                    break;
                 case "Alumno":
                     paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
+//                    request.setAttribute("iduser", usuarios.getIdUsuario());
 
                     break;
                       case "Profesor":
                     paginaDestino = "/pages/viewProfesor/homeProfesor.jsp";
+//                    request.setAttribute("iduser", usuarios.getIdUsuario());
 
                     break;
 

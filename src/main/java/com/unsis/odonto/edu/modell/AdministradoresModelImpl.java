@@ -59,6 +59,12 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             // Ejecutar procedimiento almacenado
             sp.execute();
 
+//            s.beginTransaction();
+//            s.save(administradores);
+//            //s.createNamedQuery("guardar()");
+//            //s.
+//            s.getTransaction().commit();
+            s.close();
             sf.close();
         } catch (HibernateException e) {
             System.out.println("Error al crear el registro: " + e.getMessage());
@@ -105,20 +111,39 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            //administradores = s.get(Administradores.class, idAdministrador);
-            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerTodosAdministradores");
-            sp.registerStoredProcedureParameter("id_administrador", Integer.class, ParameterMode.IN);
-            // Establecer parámetros del procedimiento almacenado
-            sp.setParameter("id_administrador", administradores.getIdAdministrador());
-            // Ejecutar procedimiento almacenado
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerAdministradores");
+            sp.registerStoredProcedureParameter("id_admin", int.class, ParameterMode.IN);
+
+            // Cargar los datos de entrada al procedure
+            sp.setParameter("id_admin", idAdministrador);
+
+            // Ejecutar el procedimiento
             sp.execute();
 
+            List<Object[]> registros = sp.getResultList();
+            administradores = new Administradores();
+
+            // Verificar si la lista de registros no está vacía
+            if (!registros.isEmpty()) {
+                Object[] row = registros.get(0);
+
+                administradores.setNombre1((row[0] == null) ? "" : (row[0]).toString());
+                administradores.setNombre2((row[1] == null) ? "" : (row[1]).toString());
+                administradores.setApellido1((row[2] == null) ? "" : (row[2]).toString());
+                administradores.setApellido2((row[3] == null) ? "" : (row[3]).toString());
+                administradores.setNumeroTrabajador((row[4] == null) ? "" : (row[4]).toString());
+                administradores.setSexo((row[5] == null) ? '\0' : (row[5].toString().charAt(0)));
+                administradores.setEmailAdmin((row[6] == null) ? "" : (row[6]).toString());    
+            }
             s.close();
             sf.close();
+            return administradores;
+
         } catch (HibernateException e) {
-            System.out.println("Error al obtener un registro: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-        return administradores;
+        return null;
     }
 
     @Override
