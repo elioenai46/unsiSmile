@@ -1,7 +1,7 @@
 /**
  * Autor: Oscar Fuentes Alvarado
  * Fecha de creación: 04 de mayo de 2023
- * Fecha de actualización: 05 de mayo de 2023
+ * Fecha de actualización: 09 de mayo de 2023
  * Descripción: archivo js para actulizar el combobox de grupos de manera 
  *              dinámica cuando cambia el valor contenido en el combobox de
  *              semestres
@@ -14,7 +14,7 @@ $(document).ready(function () {
         var val = $("#Semestre1").val();
         // Enviar valor al servlet
         $.ajax({
-            url: '../../AlumnoController',
+            url: '../../SemestreGrupoServletController',
             type: 'post',
             data: {
                 val: val

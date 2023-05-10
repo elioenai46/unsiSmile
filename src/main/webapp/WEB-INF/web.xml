@@ -5,6 +5,10 @@
         <servlet-class>com.unsis.odonto.edu.controller.LoginController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SemestreGrupoServletController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SemestreGrupoServletController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>PacienteServletController</servlet-name>
         <servlet-class>com.unsis.odonto.edu.controller.PacienteServletController</servlet-class>
     </servlet>
@@ -35,6 +39,10 @@
     <servlet-mapping>
         <servlet-name>ProfesorServlet</servlet-name>
         <url-pattern>/ProfesorServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SemestreGrupoServletController</servlet-name>
+        <url-pattern>/SemestreGrupoServletController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PacienteServletController</servlet-name>
