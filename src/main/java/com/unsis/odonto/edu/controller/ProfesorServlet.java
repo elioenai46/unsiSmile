@@ -1,3 +1,10 @@
+/**
+ * Autor     : Vite 
+ * Fecha de creación : 20 abr 2023, 16:05
+ * Fecha de modificación:26 abr 2023, 15:55
+ * Descripción : ProfesorServlet controller de gestionar profesores, enlace con Catedraticos. 
+ */
+
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Catedraticos;
