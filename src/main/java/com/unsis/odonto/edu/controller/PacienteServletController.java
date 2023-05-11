@@ -80,9 +80,10 @@ public class PacienteServletController extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAlumno/gestionarPacientes.jsp");
 
-        
+        Integer id = Integer.valueOf(request.getParameter("idUsuario"));
+        System.out.println(id);
         IPacienteService service = new PacienteServiceImpl();
-        List<Paciente> listaPaciente = service.obtenerRegistros();
+        List<Paciente> listaPaciente = service.obtenerRegistros(id);
 
         request.setAttribute(
                 "listaPaciente", listaPaciente);

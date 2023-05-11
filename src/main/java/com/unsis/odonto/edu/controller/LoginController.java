@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
            
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(20);
-            session.setAttribute("usuarios", usuarios);
+            session.setAttribute("idUsuario", usuarios.getIdUsuario());
              switch (usuarios.getNombreRol()) {
                 case "Administrador":              
                     paginaDestino = "/pages/viewAdministrador/homeAdministrador.jsp";
