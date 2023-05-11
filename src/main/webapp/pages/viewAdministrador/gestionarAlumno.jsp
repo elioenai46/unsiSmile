@@ -8,7 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Gestionar Alumno</title>
         <!-- ======= Styles ====== -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+       
+<!--        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/5.2.3/css/bootstrap.min.css">-->
+         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dataTables.bootstrap5.min.css">
+
     </head>
 
 
@@ -94,7 +98,7 @@
                     </div>
                 </div>
 
-                
+
                 <!-- ================ Order Details List ================= -->
                 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -104,11 +108,11 @@
                             <h2>Alumnos</h2>
                             <a href="${pageContext.request.contextPath}/AlumnoController" class="btn">Ver todos</a>
                             <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarAlumno.jsp" class="btn">Agregar</a>
-   
+
 
                         </div>
 
-                        <table>
+                        <table id="example" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Id</th>
@@ -118,20 +122,16 @@
                                     <th scope="col">Segundo Apellido</th>
                                     <th scope="col">Sexo</th>
                                     <th scope="col">Curp</th>
-                                    <!--     <th scope="col">fk_id_semestre_grupo</th> -->
                                     <th scope="col">Matricula</th>
                                     <th scope="col">Teléfono</th>
                                     <th scope="col">Email_alumno</th>
                                     <th scope="col">Estatus</th>
-                                    <!--  <th scope="col">F_id_catedratico_responsable</th> -->
-                                    <th scope="col">F_id_usuario</th>                                        
+                                    <th scope="col">Editar</th>
+                                    <th scope="col">Eliminar</th>
                                 </tr>
                             </thead>
 
-                            <tbody>
-
-
-                            <th>                                       
+                            <tbody>                                   
                                 <c:forEach var="alumno" items="${listaAlumnos}">
                                 <tr>
                                     <td><c:out value="${alumno.idAlumno}"></c:out></td>
@@ -146,13 +146,12 @@
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
                                     <td><c:out value="${alumno.estatus}"></c:out></td>
                                     <td><a href="${pageContext.request.contextPath}/pages/viewAdministrador/actualizarAlumno.jsp"><button>Actualizar</button></a></td>
-                                    <td><button><c:out value=""></c:out>Eliminar</button></td>   
+
                                     <!-- Boton para eliminar un alumno -->
                                     <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
 
                                     </tr>
                             </c:forEach>
-                            </tr>
 
 
                             </tbody>
@@ -168,6 +167,12 @@
 
 
         <!-- =========== Scripts =========  -->
+
+
+
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap5.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
 
 
