@@ -16,8 +16,7 @@ event.preventDefault();
         var idCatedratico = $('#idCatedratico').val();
         alert('N: ' + nombre + 'r:' + sexo + 'g ' + semestre1 + '');
         $.ajax({
-        url: window.location.origin + '/ruta-del-servlet'
-                ,
+        url: '../../AlumnoController',
                 type: 'POST',
                 
                 data: {
