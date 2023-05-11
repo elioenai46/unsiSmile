@@ -5,6 +5,7 @@
 package com.unsis.odonto.edu.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -72,18 +73,18 @@ public class Paciente implements Serializable {
     private String grupoEtnico;
     @Column(name = "ocupacion")
     private String ocupacion;
-    @Column(name = "fecha_nacimiento")
-    @Temporal(TemporalType.DATE)
-    private Date fechaNacimiento;
+    @Column(name = "fecha_nacimiento" , columnDefinition = "DATE")
+    //@Temporal(TemporalType.DATE)
+    private LocalDate fechaNacimiento;
     @Column(name = "domicilio")
     private String domicilio;
     @Column(name = "estado_civil")
     private String estadoCivil;
     @Column(name = "religion")
     private String religion;
-    @Column(name = "fecha_ingreso")
-    @Temporal(TemporalType.DATE)
-    private Date fechaIngreso;
+    @Column(name = "fecha_ingreso", columnDefinition = "DATE")
+    //@Temporal(TemporalType.DATE)
+    private LocalDate fechaIngreso;
     @Column(name = "nacionalidad")
     private String nacionalidad;
     @Column(name = "localidad")
@@ -195,11 +196,11 @@ public class Paciente implements Serializable {
         this.ocupacion = ocupacion;
     }
 
-    public Date getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -227,11 +228,11 @@ public class Paciente implements Serializable {
         this.religion = religion;
     }
 
-    public Date getFechaIngreso() {
+    public LocalDate getFechaIngreso() {
         return fechaIngreso;
     }
 
-    public void setFechaIngreso(Date fechaIngreso) {
+    public void setFechaIngreso(LocalDate fechaIngreso) {
         this.fechaIngreso = fechaIngreso;
     }
 

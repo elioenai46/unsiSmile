@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +38,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/pages/viewAlumno/gestionarPacientes.jsp">
+                    <a href="${pageContext.request.contextPath}/PacienteServletController?accion=listar">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -67,7 +69,7 @@
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Configuración</span>
+                        <span class="title">ConfiguraciÃ³n</span>
                     </a>
                 </li>
 
@@ -109,7 +111,7 @@
             <div class="cardBox">
                 <div class="card">
                     <div class="iconBx"><img class="imgPerf" src="${pageContext.request.contextPath}/resources/img/customer01.jpg"" alt=""></div>
-                    <div class="cardName">Juan Carlos Pérez García</div>
+                    <div class="cardName">Juan Carlos PÃ©rez GarcÃ­a</div>
                     <div class="cardName">juancarlos@hotmail.com</div>
 
                 </div>
