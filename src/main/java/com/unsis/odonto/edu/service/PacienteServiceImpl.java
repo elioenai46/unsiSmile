@@ -21,8 +21,8 @@ IPacienteModel model =new PacienteModelImpl();
     }
 
     @Override
-    public List<Paciente> obtenerRegistros() {
-        return model.obtenerRegistros();
+    public List<Paciente> obtenerRegistros(Integer id) {
+        return model.obtenerRegistros(id);
     }
 
     @Override
@@ -38,6 +38,11 @@ IPacienteModel model =new PacienteModelImpl();
     @Override
     public void actualizarRegistro(Paciente paciente) {
         model.actualizarRegistro(paciente);
+    }
+
+    @Override
+    public List<Paciente> obtenerRegistros() {
+        return model.obtenerRegistros();
     }
     
 }

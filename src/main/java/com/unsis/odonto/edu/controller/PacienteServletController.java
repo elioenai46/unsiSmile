@@ -54,7 +54,7 @@ public class PacienteServletController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarPacientes.jsp");
         
         Paciente paciente = new Paciente();
-        //paciente;
+        
         
         
         System.out.println(paciente);
