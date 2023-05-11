@@ -86,11 +86,13 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         Paciente.setNombre2(request.getParameter("nombre2"));
         Paciente.setApellido1(request.getParameter("apellido1"));
         Paciente.setApellido2(request.getParameter("apellido2"));
-                
-        //Edad en la base de datos FEHCA DE Nacimineto 
+        //Edad lo pase como Fecha de Nacimineto 
+        SimpleDateFormat fechaNacimiento = new SimpleDateFormat("yyyy-MM-dd");
+        String fecha = request.getParameter("fechaNacimiento");
+        System.out.println("fecha :" + fecha);
+
         //Grado escolar en la base de datos
         //Teléfono en la base de datos
-
         Paciente.setDomicilio(request.getParameter("domicilio"));
         Paciente.setEstadoCivil(request.getParameter(
                 "estadoCivil"));
@@ -109,15 +111,21 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         Paciente.setSexo(request.getParameter("sexo").charAt(0));
         Paciente.setGrupoEtnico(request.getParameter(
                 "grupo_etnico"));
-        //Motivo de la consulta
-        //Ultima consulta dental
-
-        //---- Datos si es menor de 18 años 
+        //Motivo de la consulta la base de datos
+        //Ultima consulta dental la base de datos
+        
+        // ------------ Datos personales del tuto__ Datos si es menor de 18 años
         //nombre del padre en la base de datos
-        Paciente.setOcupacion(request.getParameter("ocupacion"));
+        tutor.setNombre1(request.getParameter("nombre1"));//Nombre del padre
+        tutor.setNombre2(request.getParameter("nombre2"));//Nombre del padre
+        tutor.setOcupacion(request.getParameter("ocupacion"));//padre
         //nombre del madre en la base de datos
-        //Estado civil de los padres
-        //Nombre del médico familiar
+        //tutor.setNombre1(request.getParameter("nombre1"));//Nombre del madre falta en la base de datos
+        //tutor.setNombre2(request.getParameter("nombre2"));//Nombre del madre falta en la base de datos
+        //tutor.setOcupacion(request.getParameter("ocupacion"));//madre falta en la base de datos
+        tutor.setEstadoCivil(request.getParameter("estadoCivil"));
+        //Nombre del médico familiar la base de datos
+        //tutor.setNombre1(request.getParameter("NombreMed"));
 
         // --------------- SignosVitales -Completa------------------------------
         double peso = Double.parseDouble(request.getParameter("peso"));
@@ -147,6 +155,12 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         ExamenFacial.setSeniasParticulares(request.getParameter(
                 "seniasParticulares"));
         //Cóncavo, Convexo, Normofacial, Dolicofacial en la base de datos.
+        /*
+        ExamenFacial.setPerfil(request.getParameter("concavo"));
+        ExamenFacial.setPerfil(request.getParameter("Convexo"));
+        ExamenFacial.setPerfil(request.getParameter("normofacial"));
+        ExamenFacial.setPerfil(request.getParameter("dolicofacial"));
+         */
 
         // --------------- AntecedentesHeredofamiliares Completa ----------------
         boolean neoplacia = Boolean.parseBoolean(request.getParameter(
@@ -300,12 +314,18 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         // Parte 2----------Antecedentes personales patologicos ------------
         antecedentesPersonalesPatologicos.setHaSidoHospitalizado("haSidoHospitalizado");
         antecedentesPersonalesPatologicos.setHaTomadoUnMedicamentoRecientemente("haTomadoUnMedicamentoRecientemente");
+
         // cual ?
+        //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("cual");
         // motivo ?
+        //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("motivo");
         antecedentesPersonalesPatologicos.setHaTenidoAlgunProblemaConAnestesia("haTenidoAlgunProblemaConAnestesia");
         // cual ?
+        //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("cual");
+
         antecedentesPersonalesPatologicos.setAlergiaMedicamentoSustancia("alergiaMedicamentoSustancia");
         // cual ?
+        //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("cual");
         antecedentesPersonalesPatologicos.setEmbarazo("embarazo");
         antecedentesPersonalesPatologicos.setObservaciones("observaciones");//observaciones del los meses de embarazo
 
