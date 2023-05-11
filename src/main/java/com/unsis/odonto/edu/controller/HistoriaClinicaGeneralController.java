@@ -14,6 +14,7 @@ import com.unsis.odonto.edu.entity.AntecedentesPersonalesPatologicos;
 import com.unsis.odonto.edu.entity.ExamenFacial;
 import com.unsis.odonto.edu.entity.Paciente;
 import com.unsis.odonto.edu.entity.SignosVitales;
+import com.unsis.odonto.edu.entity.Tutor;
 import com.unsis.odonto.edu.service.IPacienteService;
 import com.unsis.odonto.edu.service.PacienteServiceImpl;
 import java.io.IOException;
@@ -76,16 +77,17 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
                 = new AntecedentesHeredofamiliares();
         AntecedentesPersonalesNoPatologicos antecedentesPersonalesNoPatologicos
                 = new AntecedentesPersonalesNoPatologicos();
-        AntecedentesPersonalesPatologicos antecedentesPersonalesPatologicos 
+        AntecedentesPersonalesPatologicos antecedentesPersonalesPatologicos
                 = new AntecedentesPersonalesPatologicos();
-        
+        Tutor tutor = new Tutor();
 
         // --------------- Datos personales ------------------------------------
         Paciente.setNombre1(request.getParameter("nombre1"));
         Paciente.setNombre2(request.getParameter("nombre2"));
         Paciente.setApellido1(request.getParameter("apellido1"));
         Paciente.setApellido2(request.getParameter("apellido2"));
-        //Edad en la base de datos
+                
+        //Edad en la base de datos FEHCA DE Nacimineto 
         //Grado escolar en la base de datos
         //Teléfono en la base de datos
 
@@ -220,82 +222,81 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
 
         int cepilladoXDia = Integer.parseInt(request.getParameter(
                 "cepilladoXDia"));
-        
+
         // --------------- Antecedentes Personales Patologicos -----------------
         boolean tabaquismo = Boolean.parseBoolean(request.getParameter("tabaquismo"));
         antecedentesPersonalesPatologicos.setTabaquismo(tabaquismo);
-        
+
         boolean alcoholismo = Boolean.parseBoolean(request.getParameter("alcoholismo"));
         antecedentesPersonalesPatologicos.setAlcoholismo(alcoholismo);
-        
+
         boolean otrasSustanciasPsicoactivasRecreativas = Boolean.parseBoolean(request.getParameter("otrasSustanciasPsicoactivasRecreativas"));
         antecedentesPersonalesPatologicos.setOtrasSustanciasPsicoactivasRecreativas(otrasSustanciasPsicoactivasRecreativas);
-        
+
         boolean perforaciones = Boolean.parseBoolean(request.getParameter("perforaciones"));
         antecedentesPersonalesPatologicos.setPerforaciones(perforaciones);
-        
+
         boolean tatuajes = Boolean.parseBoolean(request.getParameter("tatuajes"));
         antecedentesPersonalesPatologicos.setTatuajes(tatuajes);
-        
+
         boolean neoplastia = Boolean.parseBoolean(request.getParameter("neoplastia"));
         antecedentesPersonalesPatologicos.setNeoplastia(neoplastia);
-        
+
         boolean diabetis = Boolean.parseBoolean(request.getParameter("diabetis"));
         antecedentesPersonalesPatologicos.setDiabetes(diabetes);
-        
+
         boolean hipertensionArterial = Boolean.parseBoolean(request.getParameter("hipertensionArterial"));
         antecedentesPersonalesPatologicos.setHipertensionArterial(hipertensionArterial);
-        
+
         boolean pedecimientosMentales = Boolean.parseBoolean(request.getParameter("pedecimientosMentales"));
         antecedentesPersonalesPatologicos.setPedecimientosMentales(pedecimientosMentales);
-        
+
         boolean obesidadDiagnosticada = Boolean.parseBoolean(request.getParameter("obesidadDiagnosticada"));
         antecedentesPersonalesPatologicos.setObesidadDiagnosticada(obesidadDiagnosticada);
-        
+
         boolean padecimientosHematologicosLeucemia = Boolean.parseBoolean(request.getParameter("padecimientosHematologicos"));
         antecedentesPersonalesPatologicos.setPadecimientosHematologicos(padecimientosHematologicosLeucemia);
-                
-           boolean malformacionesCongenitasSindromes = Boolean.parseBoolean(request.getParameter("malformacionesCongenitasSindromes"));
+
+        boolean malformacionesCongenitasSindromes = Boolean.parseBoolean(request.getParameter("malformacionesCongenitasSindromes"));
         antecedentesPersonalesPatologicos.setMalformacionesCongenitasSindromes(malformacionesCongenitasSindromes);
-        
-           boolean problemasInfarto = Boolean.parseBoolean(request.getParameter("problemasCardiacos"));
+
+        boolean problemasInfarto = Boolean.parseBoolean(request.getParameter("problemasCardiacos"));
         antecedentesPersonalesPatologicos.setProblemasCardiacos(problemasInfarto);
-        
-           boolean radioterapiaQuimioterapia = Boolean.parseBoolean(request.getParameter("radioterapiaQuimioterapia"));
+
+        boolean radioterapiaQuimioterapia = Boolean.parseBoolean(request.getParameter("radioterapiaQuimioterapia"));
         antecedentesPersonalesPatologicos.setRadioterapiaQuimioterapia(radioterapiaQuimioterapia);
-        
-           boolean padecimientosReumatologicos = Boolean.parseBoolean(request.getParameter("padecimientosReumatologicos"));
+
+        boolean padecimientosReumatologicos = Boolean.parseBoolean(request.getParameter("padecimientosReumatologicos"));
         antecedentesPersonalesPatologicos.setPadecimientosReumatologicos(padecimientosReumatologicos);
-        
-           boolean enfermedadesDelRinion = Boolean.parseBoolean(request.getParameter("enfermedadesDelRinion"));
+
+        boolean enfermedadesDelRinion = Boolean.parseBoolean(request.getParameter("enfermedadesDelRinion"));
         antecedentesPersonalesPatologicos.setEnfermedadesDelRinion(enfermedadesDelRinion);
-        
+
         // falta en la base de datos Enfermedades hepáticas/Hepatitis.
-        
-           boolean ets = Boolean.parseBoolean(request.getParameter("ets"));
+        boolean ets = Boolean.parseBoolean(request.getParameter("ets"));
         antecedentesPersonalesPatologicos.setEts(ets);
-        
-           boolean hipertiroidismoHipotiroidismo = Boolean.parseBoolean(request.getParameter("hipertiroidismoHipotiroidismo"));
+
+        boolean hipertiroidismoHipotiroidismo = Boolean.parseBoolean(request.getParameter("hipertiroidismoHipotiroidismo"));
         antecedentesPersonalesPatologicos.setHipertiroidismoHipotiroidismo(hipertiroidismoHipotiroidismo);
-        
-           boolean enfermedadesDeViasAereas = Boolean.parseBoolean(request.getParameter("enfermedadesDeViasAereas"));
+
+        boolean enfermedadesDeViasAereas = Boolean.parseBoolean(request.getParameter("enfermedadesDeViasAereas"));
         antecedentesPersonalesPatologicos.setEnfermedadesDeViasAereas(enfermedadesDeViasAereas);
-        
-           boolean probleamasOculares = Boolean.parseBoolean(request.getParameter("probleamasOculares"));
+
+        boolean probleamasOculares = Boolean.parseBoolean(request.getParameter("probleamasOculares"));
         antecedentesPersonalesPatologicos.setProbleamasOculares(probleamasOculares);
-        
+
         boolean enfermedadesDigestivas = Boolean.parseBoolean(request.getParameter("enfermedadesDigestivas"));
         antecedentesPersonalesPatologicos.setEnfermedadesDigestivas(enfermedadesDigestivas);
-        
+
         boolean tuberculosis = Boolean.parseBoolean(request.getParameter("tuberculosis"));
         antecedentesPersonalesPatologicos.setTuberculosis(tuberculosis);
-        
+
         boolean enfermedadesDeLaPiel = Boolean.parseBoolean(request.getParameter("enfermedadesDeLaPiel"));
         antecedentesPersonalesPatologicos.setEnfermedadesDeLaPiel(enfermedadesDeLaPiel);
-        
+
         boolean trasplantesDeOrganos = Boolean.parseBoolean(request.getParameter("trasplantesDeOrganos"));
         antecedentesPersonalesPatologicos.setTrasplantesDeOrganos(trasplantesDeOrganos);
-        
+
         // Parte 2----------Antecedentes personales patologicos ------------
         antecedentesPersonalesPatologicos.setHaSidoHospitalizado("haSidoHospitalizado");
         antecedentesPersonalesPatologicos.setHaTomadoUnMedicamentoRecientemente("haTomadoUnMedicamentoRecientemente");
@@ -307,7 +308,6 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         // cual ?
         antecedentesPersonalesPatologicos.setEmbarazo("embarazo");
         antecedentesPersonalesPatologicos.setObservaciones("observaciones");//observaciones del los meses de embarazo
-        
 
     }
 
