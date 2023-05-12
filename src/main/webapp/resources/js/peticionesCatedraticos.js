@@ -2,21 +2,21 @@
 $(document).ready(function(){
 $('#formulario-agregar-catedratico').submit(function(event){
 event.preventDefault();
-        var nombre = $('#nombre').val();
-        var nombre2 = $('#nombre').val();
-        var apellido = $('#apellido').val();
-        var apellido2 = $('#apellido2').val();
+        var firsN = $('#firsN').val();
+        var secondN = $('#secondN').val();
+        var Apa = $('#Apa').val();
+        var Ama = $('#Ama').val();
         var sexo = $('#sexo').val();
         var curp = $('#curp').val();
-        var semestre1 = $('#semestre1').val();
-        var grupo1 = $('#grupo1').val();
-        var matricula = $('#matricula').val();
-        var telefono = $('#telefono').val();
+        var NumTel = $('#NumTel').val();
         var email = $('#email').val();
-        var idCatedratico = $('#idCatedratico').val();
-        alert('N: ' + nombre + 'r:' + sexo + 'g ' + semestre1 + '');
+        var NumT = $('#NumT').val();
+        var correo = $('#correo').val();
+        var fecha = $('#fecha').val();
+        
+        alert('N: ' + firsN + 'r:' + sexo + 'g ' + semestre1 + 'fecha' + fecha);
         $.ajax({
-        url: '../../ProfesorServlet',
+        url: '../../AlumnoController',
                 type: 'POST',
                 
                 data: {

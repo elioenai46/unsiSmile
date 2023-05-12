@@ -89,7 +89,7 @@
 
                 <div class="containerRegistro">
                     <h2>Registrar Profesor</h2>
-                    <form action="${pageContext.request.contextPath}/ProfesorServlet" method="POST">
+                    <form id="formulario-agregar-catedratico">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" name="firstN" class="form-control" placeholder="Primer nombre" id="primer-nombre">
@@ -154,6 +154,7 @@
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/peticionesCatedraticos.js"></script>
     </body>
 
 </html>
