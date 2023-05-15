@@ -1,7 +1,7 @@
 /*
  *Autor: Baldomero Sainos Hernandez
  *Fecha creación: 04/Mayo/2023
- *Fecha modificación: 04/Mayo/2023
+ *Fecha modificación: 13/Mayo/2023
  *Descripcion: Clases para el crud del cuestionario de los datos del paciente, 
  *donde los alumnos rellenaran el cuestionario con los datos recabados.
  */
