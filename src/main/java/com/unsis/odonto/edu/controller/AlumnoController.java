@@ -49,28 +49,10 @@ public class AlumnoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String valor1 = request.getParameter("val");
-        List<String> html = obtenerHTMLCombobox2(valor1);
-        html.add(0, "--Selecciona-una-opción--");
-
-        // Convertir el ArrayList a formato JSON
-        Gson gson = new Gson();
-        String json = gson.toJson(html);
-
-        // Enviar la respuesta como texto plano con formato JSON
-        response.setContentType("text/plain");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
-
-    }
-
-    private void crear(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
-        Integer i = 1;
+         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
+       
         Alumnos alumnos = new Alumnos();
-
+        System.out.println(request.getParameter("nombre"));
         alumnos.setNombre(request.getParameter("nombre"));
         alumnos.setNombre2(request.getParameter("nombre2"));
         alumnos.setApellido(request.getParameter("apellido"));
@@ -78,22 +60,26 @@ public class AlumnoController extends HttpServlet {
         alumnos.setSexo('M');
         alumnos.setCurp(request.getParameter("curp"));
         //Semestre
-        SemestreGrupo sg = new SemestreGrupo(i);
-        alumnos.setFkIdSemestreGrupo(sg);
+        
         alumnos.setMatricula(request.getParameter("matricula"));
         alumnos.setTelefono(request.getParameter("telefono"));
         alumnos.setEmailAlumno(request.getParameter("email"));
         //catedratico
-        Catedraticos catedratico = new Catedraticos(i);
-        alumnos.setFIdCatedraticoResponsable(catedratico);
+        //Catedraticos catedratico = new Catedraticos(i);
+       // alumnos.setFIdCatedraticoResponsable(catedratico);
 
-        IAlumnoService service = new AlumnosServiceImpl();
-        service.crearRegistro(alumnos);
+        //IAlumnoService service = new AlumnosServiceImpl();
+//        service.crearRegistro(alumnos);
 
-        List<Alumnos> listaAlumno = service.obtenerRegistros();
-        request.setAttribute("listaAlumno", listaAlumno);
+      //  List<Alumnos> listaAlumno = service.obtenerRegistros();
+       // request.setAttribute("listaAlumno", listaAlumno);
 
         dispatcher.forward(request, response);
+    }
+
+    private void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
@@ -139,15 +125,6 @@ public class AlumnoController extends HttpServlet {
         List<Alumnos> listaAlumno = service.obtenerRegistros();
         request.setAttribute("listaAlumnos", listaAlumno);
 
-    }
-
-    private List<String> obtenerHTMLCombobox2(String valor1) {
-        // Aquí obtienes los nuevos valores para el combobox2 utilizando una base de datos o cualquier otra fuente de datos
-        // Luego, construyes el HTML con los nuevos valores y lo devuelves como un String
-        ObtenerGrupoServiceImpl sg = new ObtenerGrupoServiceImpl();
-        List<String> grupos = sg.obtenerRegistros(valor1);
-
-        return grupos;
     }
 
 }

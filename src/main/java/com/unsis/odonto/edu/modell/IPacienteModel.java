@@ -14,6 +14,8 @@ public interface IPacienteModel {
 
     public void crearRegistro(Paciente paciente);
 
+    public List<Paciente> obtenerRegistros(Integer id);
+    
     public List<Paciente> obtenerRegistros();
 
     public void eliminarRegistro(Paciente paciente);

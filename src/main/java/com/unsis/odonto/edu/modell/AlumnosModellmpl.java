@@ -28,7 +28,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-           StoredProcedureQuery sp = s.createStoredProcedureQuery("InsertarAlumno");
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("InsertarAlumno");
 
             sp.registerStoredProcedureParameter("nombre", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
@@ -55,10 +55,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.setParameter("telefono", alumnos.getTelefono());
             sp.setParameter("email_alumno", alumnos.getEmailAlumno());
             sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
-            
-            
-            
-            
+
             sp.execute();
             s.close();
             sf.close();
@@ -87,7 +84,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
     public void eliminarRegistro(Alumnos alumnos) {
         try {
             sf = new Configuration().configure().buildSessionFactory();
-            
+
             s = sf.openSession();
 
             StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarAlumno");
@@ -112,6 +109,28 @@ public class AlumnosModellmpl implements IAlumnosModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerAlumno");
+            sp.registerStoredProcedureParameter("id_alumno", int.class, ParameterMode.IN);
+            //cargar los datos de entrada al procedure
+            sp.setParameter("id_alumno", idAlumnos);
+            //Ejecuta el procedimiento
+            sp.execute();
+
+            List<Object[]> registros = sp.getResultList();
+            alumnos = new Alumnos();
+
+            //Verificar si las lista de registros no está vacia
+            if (!registros.isEmpty()) {
+                Object[] row = registros.get(0);
+                alumnos.setNombre((row[0] == null) ? "" : (row[0]).toString());
+                alumnos.setNombre2((row[1] == null) ? "" : (row[1]).toString());
+                alumnos.setApellido((row[2] == null) ? "" : (row[2]).toString());
+                alumnos.setApellido2((row[3] == null) ? "" : (row[3]).toString());
+                alumnos.setEmailAlumno((row[4] == null) ? "" : (row[4]).toString()); 
+                alumnos.setSexo((row[5] == null) ? '\0' : (row[5].toString().charAt(0)));
+                //alumnos.set((row[6] == null) ? "" : (row[6]).toString());    
+            }
+
             alumnos = s.get(Alumnos.class, idAlumnos);
             s.close();
             sf.close();

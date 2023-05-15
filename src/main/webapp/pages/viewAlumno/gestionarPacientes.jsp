@@ -37,7 +37,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/pages/viewAlumno/gestionarPacientes.jsp">
+                    <a href="${pageContext.request.contextPath}/PacienteServletController?accion=listar&idUsuario=${idUsuario}">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -117,7 +117,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Profesor</h2>
-                            <a href="#" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}/PacienteServletController?accion=listar" class="btn">Ver todos</a>
                             <a href="${pageContext.request.contextPath}/pages/viewAlumno/agregarPacientes.jsp" class="btn">Agregar</a>
                         </div>
 
@@ -129,15 +129,39 @@
                                     <th>Nombre2</th>
                                     <th>Apellido</th>
                                     <th>Apellido2</th>
-                                    <th>Curp</th>
-                                    <th>Telefono</th>
-                                    <td>sexo</td>
+                                    <th>Sexo</th>
+                                    <th>grupo étnico</th>
+                                    <td>ocupación</td>
                                     <td>fecha_nac</td>
-                                    <td>Num_trabajador</td>
-                                    <th>email</th>
+                                    <td>est.civil</td>
+                                    <th>F_Ingreso</th>
+                                    <th>nacionalidad</th>
+                                    <th>localidad</th>
                                     <td>estatus</td>
                                 </tr>
                             </thead>
+                            <c:forEach var="paciente" items="${listaPaciente}">
+                                <tr>
+                                <td><c:out value="${paciente.idPaciente}"></c:out></td>
+                                <td><c:out value="${paciente.nombre1}"></c:out></td>
+                                <td><c:out value="${paciente.nombre2}"></c:out></td>
+                                <td><c:out value='${paciente.apellido1}'></c:out></td>
+                                <td><c:out value='${paciente.apellido2}'></c:out></td>
+                                <td><c:out value='${paciente.sexo}'></c:out></td>
+                                <td><c:out value='${paciente.grupoEtnico}'></c:out></td>
+                                <td><c:out value='${paciente.ocupacion}'></c:out></td>
+                                <td><c:out value='${paciente.fechaNacimiento}'></c:out></td>
+                                <td><c:out value='${paciente.domicilio}'></c:out></td>
+                                <td><c:out value='${paciente.estadoCivil}'></c:out></td>
+                                <td><c:out value='${paciente.fechaIngreso}'></c:out></td>
+                                <td><c:out value='${paciente.nacionalidad}'></c:out></td>
+                                <td><c:out value='${paciente.localidad}'></c:out></td>
+                                <td><c:out value='${paciente.estatus}'></c:out></td>
+                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=actualizarFormulario&id="><button>Actualizar</button></a></td>
+                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=eliminar&id=<c:out value="${pacientre.idPaciente}"></c:out>"><button>Eliminar</button></a></td>
+
+                                </tr>
+                            </c:forEach>
                         </table>
 
                     </div>

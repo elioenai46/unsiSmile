@@ -9,6 +9,7 @@
         <title>Gestionar Profesor</title>
         <!-- ======= Styles ====== -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/logo-pestaña.png">
     </head>
 
     <body>

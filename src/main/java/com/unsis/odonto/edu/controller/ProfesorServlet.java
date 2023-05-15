@@ -1,3 +1,10 @@
+/**
+ * Autor     : Vite 
+ * Fecha de creación : 20 abr 2023, 16:05
+ * Fecha de modificación:26 abr 2023, 15:55
+ * Descripción : ProfesorServlet controller de gestionar profesores, enlace con Catedraticos. 
+ */
+
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Catedraticos;
@@ -50,38 +57,38 @@ public class ProfesorServlet extends HttpServlet {
             throws ServletException, IOException {
         
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarProfesor.jsp");
-        Integer dia;
-        Integer mes;
-        Integer anio;
-        Catedraticos catedratico = new Catedraticos();
-        catedratico.setNombre(request.getParameter("firstN"));
-        catedratico.setNombre2(request.getParameter("secondN"));
-        catedratico.setApellido(request.getParameter("Apa"));
-        catedratico.setApellido2(request.getParameter("Ama"));
-        catedratico.setCurp(request.getParameter("curp"));
-        catedratico.setTelefono(request.getParameter("NumTel"));
-        catedratico.setSexo(request.getParameter("sexo").charAt(0));
-         dia = 14;
-         mes = 05;
-         anio = 1968;        
-        catedratico.setFechaNacimiento(LocalDate.of(anio, mes, dia));
-        catedratico.setNumeroTrabajador(request.getParameter("NumT"));
-        catedratico.setEmailCatedratico(request.getParameter("correo"));
-        
-        System.out.println(catedratico);
-        
-        
-        ICatedraticoService service = new CatedraticoServiceImpl();
-
-        
-        service.crearRegistro(catedratico);
-
-        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
-
-        request.setAttribute(
-                "listaCatedratico", listaCatedratico);
-
-        dispatcher.forward(request, response);
+//        Integer dia;
+//        Integer mes;
+//        Integer anio;
+//        Catedraticos catedratico = new Catedraticos();
+//        catedratico.setNombre(request.getParameter("firstN"));
+//        catedratico.setNombre2(request.getParameter("secondN"));
+//        catedratico.setApellido(request.getParameter("Apa"));
+//        catedratico.setApellido2(request.getParameter("Ama"));
+//        catedratico.setCurp(request.getParameter("curp"));
+//        catedratico.setTelefono(request.getParameter("NumTel"));
+//        catedratico.setSexo(request.getParameter("sexo").charAt(0));
+//         dia = 14;
+//         mes = 05;
+//         anio = 1968;        
+//        catedratico.setFechaNacimiento(LocalDate.of(anio, mes, dia));
+//        catedratico.setNumeroTrabajador(request.getParameter("NumT"));
+//        catedratico.setEmailCatedratico(request.getParameter("correo"));
+//        
+//        System.out.println(catedratico);
+//        
+//        
+//        ICatedraticoService service = new CatedraticoServiceImpl();
+//
+//        
+//        service.crearRegistro(catedratico);
+//
+//        List<Catedraticos> listaCatedratico = service.obtenerRegistros();
+//
+//        request.setAttribute(
+//                "listaCatedratico", listaCatedratico);
+//
+//        dispatcher.forward(request, response);
     }
 
     private void listar(HttpServletRequest request, HttpServletResponse response)
