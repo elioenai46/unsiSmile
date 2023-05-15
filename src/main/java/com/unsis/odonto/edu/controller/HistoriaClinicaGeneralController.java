@@ -81,7 +81,7 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
                 = new AntecedentesPersonalesPatologicos();
         Tutor tutor = new Tutor();
 
-        // --------------- Datos personales ------------------------------------
+        // --------------- Datos personales ___---------------------------------
         Paciente.setNombre1(request.getParameter("nombre1"));
         Paciente.setNombre2(request.getParameter("nombre2"));
         Paciente.setApellido1(request.getParameter("apellido1"));
