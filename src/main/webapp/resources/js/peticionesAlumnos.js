@@ -3,7 +3,7 @@ $(document).ready(function(){
 $('#formulario-agregar-catedratico').submit(function(event){
 event.preventDefault();
         var nombre = $('#nombre').val();
-        var nombre2 = $('#nombre').val();
+        var nombre2 = $('#nombre2').val();
         var apellido = $('#apellido').val();
         var apellido2 = $('#apellido2').val();
         var sexo = $('#sexo').val();
