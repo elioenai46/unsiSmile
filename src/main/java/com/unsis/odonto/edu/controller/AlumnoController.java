@@ -49,15 +49,10 @@ public class AlumnoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-    }
-
-    private void crear(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
-        Integer i = 1;
+         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
+       
         Alumnos alumnos = new Alumnos();
-
+        System.out.println(request.getParameter("nombre"));
         alumnos.setNombre(request.getParameter("nombre"));
         alumnos.setNombre2(request.getParameter("nombre2"));
         alumnos.setApellido(request.getParameter("apellido"));
@@ -65,22 +60,26 @@ public class AlumnoController extends HttpServlet {
         alumnos.setSexo('M');
         alumnos.setCurp(request.getParameter("curp"));
         //Semestre
-        SemestreGrupo sg = new SemestreGrupo(i);
-        alumnos.setFkIdSemestreGrupo(sg);
+        
         alumnos.setMatricula(request.getParameter("matricula"));
         alumnos.setTelefono(request.getParameter("telefono"));
         alumnos.setEmailAlumno(request.getParameter("email"));
         //catedratico
-        Catedraticos catedratico = new Catedraticos(i);
-        alumnos.setFIdCatedraticoResponsable(catedratico);
+        //Catedraticos catedratico = new Catedraticos(i);
+       // alumnos.setFIdCatedraticoResponsable(catedratico);
 
-        IAlumnoService service = new AlumnosServiceImpl();
-        service.crearRegistro(alumnos);
+        //IAlumnoService service = new AlumnosServiceImpl();
+//        service.crearRegistro(alumnos);
 
-        List<Alumnos> listaAlumno = service.obtenerRegistros();
-        request.setAttribute("listaAlumno", listaAlumno);
+      //  List<Alumnos> listaAlumno = service.obtenerRegistros();
+       // request.setAttribute("listaAlumno", listaAlumno);
 
         dispatcher.forward(request, response);
+    }
+
+    private void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       
     }
 
     private void eliminar(HttpServletRequest request, HttpServletResponse response)
