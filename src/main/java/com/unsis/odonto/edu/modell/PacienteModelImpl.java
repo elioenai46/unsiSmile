@@ -40,7 +40,7 @@ public class PacienteModelImpl implements IPacienteModel {
     }
 
     @Override
-    public List<Paciente> obtenerRegistros() {
+    public List<Paciente> obtenerRegistros(Integer id) {
         List<Paciente> listapPacientes = new ArrayList<>();
         Paciente p1 = new Paciente();
         String date, date2;
@@ -52,7 +52,7 @@ public class PacienteModelImpl implements IPacienteModel {
             sp.registerStoredProcedureParameter("id_alum", Integer.class, ParameterMode.IN);
             
             // Establecer parámetros del procedimiento almacenado
-            sp.setParameter("id_alum", 1);
+            sp.setParameter("id_alum", id);
             
             // Ejecutar procedimiento almacenado
             sp.execute();
@@ -139,6 +139,20 @@ public class PacienteModelImpl implements IPacienteModel {
         } catch (HibernateException e) {
             System.out.println("Error al actualizar el registro: " + e.getMessage());
         }
+    }
+
+    @Override
+    public List<Paciente> obtenerRegistros() {
+        List<Paciente> listapPacientes = new ArrayList<>();
+        try {
+            sf = new Configuration().configure().buildSessionFactory();
+            s = sf.openSession();
+            listapPacientes = s.createCriteria(Paciente.class).list();
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
+        }        return listapPacientes;
     }
 
 }
