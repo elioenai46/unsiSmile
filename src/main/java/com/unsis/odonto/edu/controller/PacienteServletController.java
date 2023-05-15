@@ -8,6 +8,7 @@
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Paciente;
+import com.unsis.odonto.edu.entity.Usuarios;
 import com.unsis.odonto.edu.service.IPacienteService;
 import com.unsis.odonto.edu.service.PacienteServiceImpl;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class PacienteServletController extends HttpServlet {
 
@@ -85,6 +87,11 @@ public class PacienteServletController extends HttpServlet {
         String idUsuario = request.getParameter("idUsuario");
         Integer id = Integer.valueOf(idUsuario);
         System.out.println(id);
+        
+        //reenviar el id al jsp para evitar errores
+        //Usuarios usuarios = new Usuarios();
+        HttpSession session = request.getSession();
+        session.setAttribute("idUsuario", id);
         
         //llamado al service
         IPacienteService service = new PacienteServiceImpl();

@@ -37,7 +37,7 @@
                 </li>
 
                 <li>
-                    <a href="${pageContext.request.contextPath}/pages/viewAlumno/gestionarPacientes.jsp">
+                    <a href="${pageContext.request.contextPath}/PacienteServletController?accion=listar&idUsuario=${idUsuario}">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
