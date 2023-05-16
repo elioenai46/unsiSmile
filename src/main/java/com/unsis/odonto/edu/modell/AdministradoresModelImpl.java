@@ -1,7 +1,7 @@
 /**
  * Autor: Oscar Funtes Alvarado
  * Fecha creación: 14 de abril de 2023
- * Fecha modificación: 14 de abril de 2023
+ * Fecha modificación: 16 de mayo de 2023
  * Descripción: clase model para administradores, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
