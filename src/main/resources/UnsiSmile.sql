@@ -242,7 +242,7 @@ come_carne boolean,
 come_cereales boolean,
 come_alimentos_chatarra boolean,
 toma_dos_litros_de_agua_x_dia boolean,
-uno_mas_refrescos_dia boolean,
+uno_o_mas_refrescos_dia boolean,
 horas_duerme_dia int,
 baño_veces_x_semana int,
 cepillado_x_dia int,
@@ -297,8 +297,7 @@ Observaciones text
 
 create table postura_del_paciente(
 id_postura_del_paciente int not null auto_increment primary key,
-atm_palpacion text,
-fk_id_paciente int
+atm_palpacion text
 );
 
 create table examen_bucal(
@@ -322,8 +321,7 @@ create table modelos_de_estudio_fotografias(
 id_modelos_de_estudio_fotografias int not null auto_increment primary key,
 Modelos_de_estudio text,
 Tipo_de_arcada text,
-Fotografias text,
-fk_id_paciente int
+Fotografias text
 );
 
 
@@ -336,42 +334,6 @@ laboratorio_donde_se_envia_el_estudio text
 );
 
 
- 
-
--- inicio tablas de medicion de bolsas inicial (INCOMPLETO)
-create table codigo_medicion_de_bolsas( -- entidad caltalogo
-id_codigo_medicion_de_bolsas int not null auto_increment primary key,
-codigo varchar(3)
-);
-
-
-create table region_medicion_de_bolsas(
-id_region_medicion_de_bolsas int not null auto_increment primary key,
-region varchar(2)
-);
-
-create table vestibulares_superiores(
-id_vestibulares_superiores int not null auto_increment primary key
-);
-
-create table palatinas(
-id_palatinas int not null auto_increment primary key
-);
-
-
-create table vestibulares_inferiores(
-id_vestibulares_inferiores int not null auto_increment primary key
-);
-
-create table linguales(
-id_linguales int not null auto_increment primary key
-);
-
-
-create table medicion_de_bolsas(
-id_medicion_de_bolsas int not null auto_increment primary key
-);
--- fin tabla medicion de bolsas inicial
 
 create table interconsulta_medica(
 id_interconsulta_medica int not null auto_increment primary key,
@@ -395,8 +357,7 @@ Glándulas_salivales text,
 Encía text,
 Frenillos text,
 Saliva text,
-Otras_señas_particulares text,
-fk_id_paciente int
+Otras_señas_particulares text
 );
 
 
@@ -408,10 +369,11 @@ descripcion text,
 fecha date
 );
 
-create table piezas_dentales( -- tabla que contendra cada una de las piezas dentales representadas por un codigo (entidad catalogo)
-id_pieza_dental varchar(2) not null primary key,
-nombre varchar(50) -- codigo del diente
+create table codigo_pieza_dental( -- tabla que contendra cada una de las piezas dentales representadas por un codigo (entidad catalogo)
+id_codigo_pieza_dental int not null auto_increment primary key,
+codigo varchar(3) -- codigo del diente
 );
+
 
 create table estado_diente( -- tabla que contendra los posibles estados en los que se podria econtrar un diente (entidad catalogo)
 id_estado_diente int not null auto_increment primary key,
@@ -425,16 +387,57 @@ descripcion varchar(50)
 
 create table diente_detalle( -- tabla que engloba a la pieza dental con todos los detalles de esta
 id_diente_detalle int not null auto_increment primary key,
-fk_id_pieza_dental varchar(2),
-fk_id_estado_diente int,
+fk_id_codigo_pieza_dental int, -- codigo de la pieza dental
+fk_id_estado_diente int, -- estado del diente
+fk_id_region_diente int, -- region del diente (izquierda, derecha, centro, etc)
 fk_id_odontograma int, -- id del odontograma al que pertenece esta pieza dental
-fk_id_region_diente int,
-FOREIGN KEY(fk_id_pieza_dental) references piezas_dentales(id_pieza_dental),
+FOREIGN KEY(fk_id_codigo_pieza_dental) references codigo_pieza_dental(id_codigo_pieza_dental),
 FOREIGN KEY(fk_id_estado_diente) references estado_diente(id_estado_diente),
 FOREIGN KEY(fk_id_odontograma) references odontograma(id_odontograma),
 FOREIGN KEY(fk_id_region_diente) references region_diente(id_region)
 );
 	
+-- fin esquemas de odontograma
+
+
+-- ** inicio tablas de periodontogrma (medicion de bolsas inicial)
+
+-- tabla de periodontograma
+create table periodontograma(
+id_periodontograma int not null auto_increment primary key,
+descripcion text,
+fecha date
+);
+
+-- tabla que contiene la region (distal, mesial, etc)
+create table regiones_diente_periodontograma( -- entidad catalogo
+id_regiones_diente_periodontograma int not null auto_increment primary key,
+region varchar(2)
+);
+
+-- esquema que contendrá las regiones: vestibulares_superiores, palatinas, vestibulares_inferiores y linguales
+create table regiones_medicion_bolsas( -- entidad catalogo 
+id_regiones_medicion_bolsas int not null auto_increment primary key,
+region varchar(30)
+);
+
+
+create table medicion_bolsas_detalle( -- tabla que contendrá la medición de bolsas de un diente en particular
+id_medicion_bolsas_detalle int not null auto_increment primary key,
+fk_id_regiones_diente_periodontograma int,
+fk_id_codigo_pieza_dental int,
+fk_id_regiones_medicion_bolsas int,
+fk_id_periodontograma int,
+medicion float,
+FOREIGN KEY(fk_id_regiones_diente_periodontograma) references regiones_diente_periodontograma(id_regiones_diente_periodontograma),
+FOREIGN KEY(fk_id_codigo_pieza_dental) references codigo_pieza_dental(id_codigo_pieza_dental),
+FOREIGN KEY(fk_id_regiones_medicion_bolsas) references regiones_medicion_bolsas(id_regiones_medicion_bolsas),
+FOREIGN KEY(fk_id_periodontograma) references periodontograma(id_periodontograma)
+);
+
+
+
+-- fin tabla medicion de bolsas inicial
 
 
 
