@@ -139,7 +139,7 @@
                         <input type="text" class="form-control" placeholder="Email" id="email">
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <button type="submit" class="btn btn-primary" id="btn-Actualizar-Admin">Actualizar</button>
                 </form>
             </div>
 
