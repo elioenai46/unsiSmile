@@ -66,18 +66,25 @@ public class AlumnosModellmpl implements IAlumnosModel {
 
     @Override
     public List<Alumnos> obtenerRegistros() {
+        
         List<Alumnos> listaAlumnos = new ArrayList<>();
+        
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
-            System.out.println("Tamaño: " + listaAlumnos.size());
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerTodosAlumnos", Alumnos.class);
+            sp.execute();
+
+            listaAlumnos = sp.getResultList();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro---: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         return listaAlumnos;
+
     }
 
     @Override
