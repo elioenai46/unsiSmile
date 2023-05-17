@@ -94,6 +94,7 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
                     <form id="formulario-agregar-alumno">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
+                            //No tiene name todo los input
                             <input type="text" class="form-control" placeholder="Primer nombre" id="nombre">
                         </div>
                         <div class="form-group">

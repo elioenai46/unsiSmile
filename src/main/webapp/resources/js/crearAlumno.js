@@ -2,24 +2,22 @@
  *Autor: Baldomero Sainos Hernandez
  *Fecha creación: 17/Mayo/2023
  *Fecha modificación: 18/Mayo/2023
- *Descripcion: Se va a crear el formulario del administrador.
+ *Descripcion: Se va a crear el formulario para crear el alumno.
  */
 
 $(document).ready(function () {
-    //Sainos se hizo el cambio de java controller a js.
     $('formulario-agregar-alumno').submit(function (event) {
         event.preventDefault();
         //firstN viene del ProfesorServlet controller y primer-nombre viene del jsp actualizar añumno.
-        var firstN = $('#primer-nombre').val();
-        var secondN = $('#segundo-nombre').val();
-        var Apa = $('#apellido-paterno').val();
-        var Ama = $('#apellido-materno').val();
-        var curp = $('#curp').val();
-        var NumTel = $('#telefono').val();
+        var nombre = $('#nombre').val();
+        var nombre2 = $('#nombre2').val();
+        var apellido = $('#apellido').val();
+        var apellido2 = $('#apellido2').val();
         var sexo = $('#sexo').val();
-        var fecha = $('#fecha').val();
-        var NumT = $('#matricula').val();
-        var correo = $('#email').val();
+        var curp = $('#curp').val();
+        var Semestre = $('#Semestre1').val();        
+        var Grupo = $('#Grupo1').val();
+        var matricula = $('#matricula').val();        
         var idCatedratico = $('#idCatedratico').val();
         alert('N: ' + firsN + 'r:' + sexo + 'fecha' + fecha);
         $.ajax({
