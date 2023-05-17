@@ -1,4 +1,4 @@
-use unsisi_smile;
+use unsis_smile;
 
 -- **********MOSTRAR ADMINISTRADORES************
 -- lista todos los administradores

@@ -26,7 +26,7 @@ BEGIN
     set idUsuario = spInsertarUsuario(matricula,curp,3);    
     set idSemGrupo = filtrarIdSemestreGrupo(semestre,grupo);    
     -- insertamos al nuevo alumno
-	insert into alumnos(nombre,nombre2,apellido,apellido2,curp,fk_id_semestre_grupo,matricula,telefono,email_alumno,estatus,f_id_catedratico_responsable,f_id_usuario)
+	insert into alumnos(nombre,nombre2,apellido,apellido2,curp,fk_id_semestre_grupo,matricula,telefono,email_alumno,estatus,f_id_usuario)
     values(nombre,nombre2,apellido,apellido2,curp,idSemGrupo,matricula,telefono,mail,estatus,idUsuario);
 end
 $$
