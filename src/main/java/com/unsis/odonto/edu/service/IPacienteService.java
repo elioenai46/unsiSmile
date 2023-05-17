@@ -9,7 +9,8 @@ package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Paciente;
 import com.unsis.odonto.edu.service.base.IServiceBase;
+import java.util.List;
 
 public interface IPacienteService extends IServiceBase<Paciente> {
-
+    public List<Paciente> obtenerRegistros(Integer id);
 }

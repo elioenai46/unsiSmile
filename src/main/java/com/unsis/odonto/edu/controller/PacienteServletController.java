@@ -1,13 +1,14 @@
 /**
  * Autor     : Vite 
  * Fecha de creación : 20 abr 2023, 16:05
- * Fecha de modificación:
+ * Fecha de modificación:12 may 2023, 16:55
  * Descripción : PacienteServletController de gestionar pacientes, enlace con Paciente. 
  */
  
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Paciente;
+import com.unsis.odonto.edu.entity.Usuarios;
 import com.unsis.odonto.edu.service.IPacienteService;
 import com.unsis.odonto.edu.service.PacienteServiceImpl;
 import java.io.IOException;
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class PacienteServletController extends HttpServlet {
 
@@ -54,7 +56,7 @@ public class PacienteServletController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarPacientes.jsp");
         
         Paciente paciente = new Paciente();
-        //paciente;
+        
         
         
         System.out.println(paciente);
@@ -73,16 +75,27 @@ public class PacienteServletController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    //Método para listar pacientes mediante la valuación del id de alumno
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         System.out.println(
                 "---------------VITE------------------------------");
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAlumno/gestionarPacientes.jsp");
-
         
+        //obtener id
+        String idUsuario = request.getParameter("idUsuario");
+        Integer id = Integer.valueOf(idUsuario);
+        System.out.println(id);
+        
+        //reenviar el id al jsp para evitar errores
+        //Usuarios usuarios = new Usuarios();
+        HttpSession session = request.getSession();
+        session.setAttribute("idUsuario", id);
+        
+        //llamado al service
         IPacienteService service = new PacienteServiceImpl();
-        List<Paciente> listaPaciente = service.obtenerRegistros();
+        List<Paciente> listaPaciente = service.obtenerRegistros(id);
 
         request.setAttribute(
                 "listaPaciente", listaPaciente);
