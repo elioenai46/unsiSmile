@@ -86,22 +86,22 @@
 
                 <div class="containerRegistro">
                     <h2>Actualizar Alumno</h2>
-                    <form>
+                    <form id="formulario-actualizar-alumno">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
-                            <input type="text" class="form-control" placeholder="Primer nombre" id="primer-nombre">
+                            <input type="text" class="form-control" placeholder="Primer nombre" id="primerNombre">
                         </div>
                         <div class="form-group">
                             <label for="segundo-nombre">Segundo nombre</label>
-                            <input type="text" class="form-control" placeholder="Segundo nombre" id="segundo-nombre">
+                            <input type="text" class="form-control" placeholder="Segundo nombre" id="segundoNombre">
                         </div>
                         <div class="form-group">
                             <label for="apellido-paterno">Apellido paterno</label>
-                            <input type="text" class="form-control" placeholder="Apellido paterno" id="apellido-paterno">
+                            <input type="text" class="form-control" placeholder="Apellido paterno" id="apellidoPaterno">
                         </div>
                         <div class="form-group">
                             <label for="apellido-materno">Apellido materno</label>
-                            <input type="text" class="form-control" placeholder="Apellido materno" id="apellido-materno">
+                            <input type="text" class="form-control" placeholder="Apellido materno" id="apellidoMaterno">
                         </div>
                         <div class="form-group">
                             <label for="sexo">Sexo:</label>
@@ -116,14 +116,14 @@
                         </div>
                         <div class="form-group">
                             <label for="semestre">Semestre</label>
-                            <select id="sexo" name="sexo" class="select-custom">
+                            <select id="semestre1" name="semestre" class="select-custom">
                                 <option value="hombre">Primero</option>
                                 <option value="mujer">Segundo</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="semestre">Grupo</label>
-                            <select id="sexo" name="sexo" class="select-custom">
+                            <select id="grupo1" name="grupo" class="select-custom">
                                 <option value="hombre">506</option>
                                 <option value="mujer">706</option>
                             </select>
@@ -143,7 +143,7 @@
                         <div class="form-group">
                             <label for="id-catedratico">ID Catedratico responsable</label>
                             <input type="text" class="form-control" placeholder="ID Catedratico responsable"
-                                   id="id-catedratico">
+                                   id="idCatedratico">
                         </div>
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </form>
