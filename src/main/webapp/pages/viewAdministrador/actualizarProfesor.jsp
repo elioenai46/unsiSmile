@@ -89,7 +89,7 @@
 
             <div class="containerRegistro">
                 <h2>Actualizar Profesor</h2>
-                <form>
+                  <form id="formulario-actualizar-profesor">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
                         <input type="text" class="form-control" placeholder="Primer nombre" id="primer-nombre">
@@ -151,6 +151,7 @@
 
     <!-- =========== Scripts =========  -->
     <script src="/assets/js/main.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/actualizarProfesor.js"></script>
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
