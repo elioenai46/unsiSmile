@@ -88,7 +88,7 @@
 
                 <div class="containerRegistro">
                     <h2>Registrar Administrador</h2>
-                    <form action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
+                    <form id="formulario_agregar_administrador" action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" name="primerNombre"class="form-control" placeholder="Primer nombre" id="primer-nombre">
