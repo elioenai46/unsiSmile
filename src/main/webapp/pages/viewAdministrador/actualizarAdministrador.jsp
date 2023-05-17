@@ -88,7 +88,7 @@
 
             <div class="containerRegistro">
                 <h2>Actualizar Administrador</h2>
-                <form>
+                <form id="Form-Actualizar-Admin">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
                         <input type="text" class="form-control" placeholder="Primer nombre" id="primer-nombre">
@@ -139,7 +139,7 @@
                         <input type="text" class="form-control" placeholder="Email" id="email">
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" id="btn-Actualizar-Admin">Actualizar</button>
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
                 </form>
             </div>
 

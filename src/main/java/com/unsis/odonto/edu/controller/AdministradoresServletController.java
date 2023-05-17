@@ -116,13 +116,11 @@ public class AdministradoresServletController extends HttpServlet {
         administradores.setApellido2(request.getParameter("apellido2"));
         administradores.setCurp(request.getParameter("curp"));
         administradores.setTelefono(request.getParameter("telefono"));
-        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
         LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
         administradores.setFechaNacimiento(fechaNacimiento);
         administradores.setSexo(request.getParameter("sexo").toUpperCase().charAt(0));
         administradores.setEmailAdmin(request.getParameter("emailAdmin"));
-        boolean status = Boolean.parseBoolean(request.getParameter("estatus"));
-        administradores.setEstatus(status);
+        
         
         IAdministradorService service = new AdministradorServiceImpl();
         service.actualizarRegistro(administradores);
