@@ -1,13 +1,13 @@
 /*
  *Autor: Baldomero Sainos Hernandez
- *Fecha creación: 15/Mayo/2023
- *Fecha modificación: 17/Mayo/2023
+ *Fecha creación: 17/Mayo/2023
+ *Fecha modificación: 18/Mayo/2023
  *Descripcion: Se va a crear el formulario del administrador.
  */
 
 $(document).ready(function () {
     //Sainos se hizo el cambio de java controller a js.
-    $('#formulario-actualizar-profesor').submit(function (event) {
+    $('formulario-agregar-alumno').submit(function (event) {
         event.preventDefault();
         //firstN viene del ProfesorServlet controller y primer-nombre viene del jsp actualizar añumno.
         var firstN = $('#primer-nombre').val();
@@ -50,7 +50,6 @@ $(document).ready(function () {
         });
     });
 });
-
 
 
 
