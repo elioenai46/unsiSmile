@@ -16,12 +16,12 @@ delimiter $$
 drop procedure if exists obtenerAdministradores$$
   create procedure obtenerAdministradores(IN id_admin INT)
 begin
-	select nombre1,nombre2,apellido1,apellido2,numero_trabajador,sexo, email_admin from administradores where id_administrador=id_admin and estatus=1;
+	select nombre1,nombre2,apellido1,apellido2,numero_trabajador, fecha_nacimiento,sexo, email_admin from administradores where id_administrador=id_admin and estatus=1;
 end
 $$
 DELIMITER ;
 
-
+select * from administradores;
 -- **********MOSTRAR ALUMNOS************
 -- lista todos los alumnos
 delimiter $$
@@ -39,9 +39,9 @@ drop procedure if exists obtenerAlumno$$
   create procedure obtenerAlumno(IN id_alumno INT)
 begin
 with
-	alum as(select id_alumno,nombre,nombre2,apellido,apellido2,sexo,fk_id_grupo as id_grupo,f_id_catedratico_responsable as id_profe from alumnos inner join semestre_grupo on alumnos.fk_id_semestre_grupo=semestre_grupo.id_semestre_grupo where alumnos.id_alumno=id_alumno and estatus=1),
-    alum_grupo as (select id_alumno,nombre,nombre2,apellido,apellido2,sexo,grupo,id_profe from alum inner join grupo on alum.id_grupo=grupo.id_grupos)
-    select a.id_alumno,a.nombre,a.nombre2,a.apellido,a.apellido2,a.sexo,grupo, c.nombre,c.nombre2,c.apellido, c.apellido2 from alum_grupo as a inner join catedraticos as c on a.id_profe=c.id_catedratico;
+	alum as(select id_alumno,nombre,nombre2,apellido,apellido2,sexo,curp,matricula,telefono,email_alumno,fk_id_semestre as id_semestre, fk_id_grupo as id_grupo from alumnos inner join semestre_grupo on alumnos.fk_id_semestre_grupo=semestre_grupo.id_semestre_grupo where alumnos.id_alumno=id_alumno and estatus=1)
+    select id_alumno,nombre,nombre2,apellido,apellido2,sexo,curp,semestre,grupo,matricula,telefono,email_alumno from alum inner join grupo inner join semestres where alum.id_grupo=grupo.id_grupos and alum.id_semestre=semestres.id_semestre;
+    -- select a.id_alumno,a.nombre,a.nombre2,a.apellido,a.apellido2,a.sexo,grupo, c.nombre,c.nombre2,c.apellido, c.apellido2 from alum_grupo as a inner join catedraticos as c on a.id_profe=c.id_catedratico;
 end
 $$
 DELIMITER ;
@@ -56,6 +56,7 @@ begin
 	select * from catedraticos where estatus=1;
 end
 $$
+
 DELIMITER ;
 
 -- obtiene datos particulares de un alumno a traves del id
@@ -63,11 +64,11 @@ delimiter $$
 drop procedure if exists obtenerCatedratico$$
   create procedure obtenerCatedratico(IN id_cat INT)
 begin
-    select nombre,nombre2,apellido,apellido2,curp,telefono,sexo,numero_trabajador,email_catedratico from catedraticos where id_catedratico=id_cat;
+    select nombre,nombre2,apellido,apellido2,curp,telefono,sexo,fecha_nacimiento,numero_trabajador,email_catedratico from catedraticos where id_catedratico=id_cat;
 end
 $$
 DELIMITER ;
-
+select * from catedraticos;
 delimiter $$
 drop procedure if exists obtenerGrupoDeCatedratico$$
   create procedure obtenerGrupoDeCatedratico(IN id_cat INT)
