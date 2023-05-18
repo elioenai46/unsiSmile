@@ -54,7 +54,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.setParameter("matricula", alumnos.getMatricula());
             sp.setParameter("telefono", alumnos.getTelefono());
             sp.setParameter("email_alumno", alumnos.getEmailAlumno());
-            sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
+           // sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
 
             sp.execute();
             s.close();
@@ -66,18 +66,25 @@ public class AlumnosModellmpl implements IAlumnosModel {
 
     @Override
     public List<Alumnos> obtenerRegistros() {
+        
         List<Alumnos> listaAlumnos = new ArrayList<>();
+        
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaAlumnos = s.createCriteria(Alumnos.class).list();
-            System.out.println("Tamaño: " + listaAlumnos.size());
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerTodosAlumnos", Alumnos.class);
+            sp.execute();
+
+            listaAlumnos = sp.getResultList();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener el registro---: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         return listaAlumnos;
+
     }
 
     @Override

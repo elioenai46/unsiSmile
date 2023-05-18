@@ -5,9 +5,7 @@
 package com.unsis.odonto.edu.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,14 +15,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "usuarios")
@@ -51,18 +47,9 @@ public class Usuarios implements Serializable {
     private String passUsuario;
     @Column(name = "estatus")
     private Boolean estatus;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fIdUsuario")
-    private Collection<Alumnos> alumnosCollection;
     @JoinColumn(name = "f_id_rol", referencedColumnName = "id_rol")
     @ManyToOne(optional = false)
     private RolesTiposUsuario fIdRol;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkIdAlumno")
-    private Collection<Consulta> consultaCollection;
-    @OneToMany(mappedBy = "fkUsuario")
-    private Collection<Administradores> administradoresCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkIdUsuario")
-    private Collection<Catedraticos> catedraticosCollection;
-    //Simular un rol dentro de usuario
     private String nombreRol;
 
     public Usuarios() {
@@ -110,15 +97,6 @@ public class Usuarios implements Serializable {
         this.estatus = estatus;
     }
 
-    @XmlTransient
-    public Collection<Alumnos> getAlumnosCollection() {
-        return alumnosCollection;
-    }
-
-    public void setAlumnosCollection(Collection<Alumnos> alumnosCollection) {
-        this.alumnosCollection = alumnosCollection;
-    }
-
     public RolesTiposUsuario getFIdRol() {
         return fIdRol;
     }
@@ -127,32 +105,15 @@ public class Usuarios implements Serializable {
         this.fIdRol = fIdRol;
     }
 
-    @XmlTransient
-    public Collection<Consulta> getConsultaCollection() {
-        return consultaCollection;
+    public String getNombreRol() {
+        return nombreRol;
     }
 
-    public void setConsultaCollection(Collection<Consulta> consultaCollection) {
-        this.consultaCollection = consultaCollection;
+    public void setNombreRol(String nombreRol) {
+        this.nombreRol = nombreRol;
     }
-
-    @XmlTransient
-    public Collection<Administradores> getAdministradoresCollection() {
-        return administradoresCollection;
-    }
-
-    public void setAdministradoresCollection(Collection<Administradores> administradoresCollection) {
-        this.administradoresCollection = administradoresCollection;
-    }
-
-    @XmlTransient
-    public Collection<Catedraticos> getCatedraticosCollection() {
-        return catedraticosCollection;
-    }
-
-    public void setCatedraticosCollection(Collection<Catedraticos> catedraticosCollection) {
-        this.catedraticosCollection = catedraticosCollection;
-    }
+    
+    
 
     @Override
     public int hashCode() {
@@ -178,15 +139,5 @@ public class Usuarios implements Serializable {
     public String toString() {
         return "com.unsis.odonto.edu.entity.Usuarios[ idUsuario=" + idUsuario + " ]";
     }
-
-    public String getNombreRol() {
-        return nombreRol;
-    }
-
-    public void setNombreRol(String nombreRol) {
-        this.nombreRol = nombreRol;
-    }
-    
-    
     
 }

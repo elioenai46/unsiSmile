@@ -20,49 +20,61 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "historia_clinica_general")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "HistoriaClinicaGeneral.findAll", query = "SELECT h FROM HistoriaClinicaGeneral h"),
-    @NamedQuery(name = "HistoriaClinicaGeneral.findById", query = "SELECT h FROM HistoriaClinicaGeneral h WHERE h.id = :id")})
+    @NamedQuery(name = "HistoriaClinicaGeneral.findByIdHistoriaClinicaGeneral", query = "SELECT h FROM HistoriaClinicaGeneral h WHERE h.idHistoriaClinicaGeneral = :idHistoriaClinicaGeneral")})
 public class HistoriaClinicaGeneral implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    @JoinColumn(name = "fk_id_antecedentes_heredofamiliares", referencedColumnName = "id_antecedentes_heredofamiliares")
+    @Column(name = "id_historia_clinica_general")
+    private Integer idHistoriaClinicaGeneral;
+    @JoinColumn(name = "fk_id_antecedentes_personales_patologicos", referencedColumnName = "id_antecedentes_personales_patologicos")
     @ManyToOne
-    private AntecedentesHeredofamiliares fkIdAntecedentesHeredofamiliares;
+    private AntecedentesPersonalesPatologicos fkIdAntecedentesPersonalesPatologicos;
     @JoinColumn(name = "fk_id_analisis_funcional", referencedColumnName = "id_analisis_funcional")
     @ManyToOne
     private AnalisisFuncional fkIdAnalisisFuncional;
     @JoinColumn(name = "fk_id_analisis_radiografico", referencedColumnName = "id_analisis_radiografico")
     @ManyToOne
     private AnalisisRadiografico fkIdAnalisisRadiografico;
+    @JoinColumn(name = "fk_id_antecedentes_heredofamiliares", referencedColumnName = "id_antecedentes_heredofamiliares")
+    @ManyToOne
+    private AntecedentesHeredofamiliares fkIdAntecedentesHeredofamiliares;
+    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
+    @ManyToOne
+    private Paciente fkIdPaciente;
     @JoinColumn(name = "fk_id_antecedentes_personales_no_patologicos", referencedColumnName = "id_antecedentes_personales_no_patologicos")
     @ManyToOne
     private AntecedentesPersonalesNoPatologicos fkIdAntecedentesPersonalesNoPatologicos;
-    @JoinColumn(name = "fk_id_antecedentes_personales_patologicos", referencedColumnName = "id_antecedentes_personales_patologicos")
+    @JoinColumn(name = "fk_id_catedratico_responsable", referencedColumnName = "id_catedratico")
+    @ManyToOne(optional = false)
+    private Catedraticos fkIdCatedraticoResponsable;
+    @JoinColumn(name = "fk_id_odontograma_inicial", referencedColumnName = "id_odontograma")
     @ManyToOne
-    private AntecedentesPersonalesPatologicos fkIdAntecedentesPersonalesPatologicos;
-    @JoinColumn(name = "fk_id_postura_del_paciente", referencedColumnName = "id_postura_del_paciente")
-    @ManyToOne
-    private PosturaDelPaciente fkIdPosturaDelPaciente;
+    private Odontograma fkIdOdontogramaInicial;
     @JoinColumn(name = "fk_id_estudio_de_laboratorio_biopsia", referencedColumnName = "id_estudio_de_laboratorio_biopsia")
     @ManyToOne
     private EstudioDeLaboratorioBiopsia fkIdEstudioDeLaboratorioBiopsia;
-    @JoinColumn(name = "fk_id_signos_vitales", referencedColumnName = "id_signos_vitales")
-    @ManyToOne
-    private SignosVitales fkIdSignosVitales;
     @JoinColumn(name = "fk_id_examen_bucal", referencedColumnName = "id_examen_bucal")
     @ManyToOne
     private ExamenBucal fkIdExamenBucal;
+    @JoinColumn(name = "fk_id_odontograma_final", referencedColumnName = "id_odontograma")
+    @ManyToOne
+    private Odontograma fkIdOdontogramaFinal;
+    @JoinColumn(name = "fk_id_postura_del_paciente", referencedColumnName = "id_postura_del_paciente")
+    @ManyToOne
+    private PosturaDelPaciente fkIdPosturaDelPaciente;
+    @JoinColumn(name = "fk_id_signos_vitales", referencedColumnName = "id_signos_vitales")
+    @ManyToOne
+    private SignosVitales fkIdSignosVitales;
     @JoinColumn(name = "fk_id_examen_clinico", referencedColumnName = "id_examen_clinico")
     @ManyToOne
     private ExamenClinico fkIdExamenClinico;
@@ -72,12 +84,6 @@ public class HistoriaClinicaGeneral implements Serializable {
     @JoinColumn(name = "fk_id_interconsulta_medica", referencedColumnName = "id_interconsulta_medica")
     @ManyToOne
     private InterconsultaMedica fkIdInterconsultaMedica;
-    @JoinColumn(name = "fk_id_odontograma_inicial", referencedColumnName = "id_odontograma")
-    @ManyToOne
-    private Odontograma fkIdOdontogramaInicial;
-    @JoinColumn(name = "fk_id_odontograma_final", referencedColumnName = "id_odontograma")
-    @ManyToOne
-    private Odontograma fkIdOdontogramaFinal;
     @JoinColumn(name = "fk_id_modelos_de_estudio_fotografias", referencedColumnName = "id_modelos_de_estudio_fotografias")
     @ManyToOne
     private ModelosDeEstudioFotografias fkIdModelosDeEstudioFotografias;
@@ -85,24 +91,24 @@ public class HistoriaClinicaGeneral implements Serializable {
     public HistoriaClinicaGeneral() {
     }
 
-    public HistoriaClinicaGeneral(Integer id) {
-        this.id = id;
+    public HistoriaClinicaGeneral(Integer idHistoriaClinicaGeneral) {
+        this.idHistoriaClinicaGeneral = idHistoriaClinicaGeneral;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getIdHistoriaClinicaGeneral() {
+        return idHistoriaClinicaGeneral;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdHistoriaClinicaGeneral(Integer idHistoriaClinicaGeneral) {
+        this.idHistoriaClinicaGeneral = idHistoriaClinicaGeneral;
     }
 
-    public AntecedentesHeredofamiliares getFkIdAntecedentesHeredofamiliares() {
-        return fkIdAntecedentesHeredofamiliares;
+    public AntecedentesPersonalesPatologicos getFkIdAntecedentesPersonalesPatologicos() {
+        return fkIdAntecedentesPersonalesPatologicos;
     }
 
-    public void setFkIdAntecedentesHeredofamiliares(AntecedentesHeredofamiliares fkIdAntecedentesHeredofamiliares) {
-        this.fkIdAntecedentesHeredofamiliares = fkIdAntecedentesHeredofamiliares;
+    public void setFkIdAntecedentesPersonalesPatologicos(AntecedentesPersonalesPatologicos fkIdAntecedentesPersonalesPatologicos) {
+        this.fkIdAntecedentesPersonalesPatologicos = fkIdAntecedentesPersonalesPatologicos;
     }
 
     public AnalisisFuncional getFkIdAnalisisFuncional() {
@@ -121,6 +127,22 @@ public class HistoriaClinicaGeneral implements Serializable {
         this.fkIdAnalisisRadiografico = fkIdAnalisisRadiografico;
     }
 
+    public AntecedentesHeredofamiliares getFkIdAntecedentesHeredofamiliares() {
+        return fkIdAntecedentesHeredofamiliares;
+    }
+
+    public void setFkIdAntecedentesHeredofamiliares(AntecedentesHeredofamiliares fkIdAntecedentesHeredofamiliares) {
+        this.fkIdAntecedentesHeredofamiliares = fkIdAntecedentesHeredofamiliares;
+    }
+
+    public Paciente getFkIdPaciente() {
+        return fkIdPaciente;
+    }
+
+    public void setFkIdPaciente(Paciente fkIdPaciente) {
+        this.fkIdPaciente = fkIdPaciente;
+    }
+
     public AntecedentesPersonalesNoPatologicos getFkIdAntecedentesPersonalesNoPatologicos() {
         return fkIdAntecedentesPersonalesNoPatologicos;
     }
@@ -129,20 +151,20 @@ public class HistoriaClinicaGeneral implements Serializable {
         this.fkIdAntecedentesPersonalesNoPatologicos = fkIdAntecedentesPersonalesNoPatologicos;
     }
 
-    public AntecedentesPersonalesPatologicos getFkIdAntecedentesPersonalesPatologicos() {
-        return fkIdAntecedentesPersonalesPatologicos;
+    public Catedraticos getFkIdCatedraticoResponsable() {
+        return fkIdCatedraticoResponsable;
     }
 
-    public void setFkIdAntecedentesPersonalesPatologicos(AntecedentesPersonalesPatologicos fkIdAntecedentesPersonalesPatologicos) {
-        this.fkIdAntecedentesPersonalesPatologicos = fkIdAntecedentesPersonalesPatologicos;
+    public void setFkIdCatedraticoResponsable(Catedraticos fkIdCatedraticoResponsable) {
+        this.fkIdCatedraticoResponsable = fkIdCatedraticoResponsable;
     }
 
-    public PosturaDelPaciente getFkIdPosturaDelPaciente() {
-        return fkIdPosturaDelPaciente;
+    public Odontograma getFkIdOdontogramaInicial() {
+        return fkIdOdontogramaInicial;
     }
 
-    public void setFkIdPosturaDelPaciente(PosturaDelPaciente fkIdPosturaDelPaciente) {
-        this.fkIdPosturaDelPaciente = fkIdPosturaDelPaciente;
+    public void setFkIdOdontogramaInicial(Odontograma fkIdOdontogramaInicial) {
+        this.fkIdOdontogramaInicial = fkIdOdontogramaInicial;
     }
 
     public EstudioDeLaboratorioBiopsia getFkIdEstudioDeLaboratorioBiopsia() {
@@ -153,20 +175,36 @@ public class HistoriaClinicaGeneral implements Serializable {
         this.fkIdEstudioDeLaboratorioBiopsia = fkIdEstudioDeLaboratorioBiopsia;
     }
 
-    public SignosVitales getFkIdSignosVitales() {
-        return fkIdSignosVitales;
-    }
-
-    public void setFkIdSignosVitales(SignosVitales fkIdSignosVitales) {
-        this.fkIdSignosVitales = fkIdSignosVitales;
-    }
-
     public ExamenBucal getFkIdExamenBucal() {
         return fkIdExamenBucal;
     }
 
     public void setFkIdExamenBucal(ExamenBucal fkIdExamenBucal) {
         this.fkIdExamenBucal = fkIdExamenBucal;
+    }
+
+    public Odontograma getFkIdOdontogramaFinal() {
+        return fkIdOdontogramaFinal;
+    }
+
+    public void setFkIdOdontogramaFinal(Odontograma fkIdOdontogramaFinal) {
+        this.fkIdOdontogramaFinal = fkIdOdontogramaFinal;
+    }
+
+    public PosturaDelPaciente getFkIdPosturaDelPaciente() {
+        return fkIdPosturaDelPaciente;
+    }
+
+    public void setFkIdPosturaDelPaciente(PosturaDelPaciente fkIdPosturaDelPaciente) {
+        this.fkIdPosturaDelPaciente = fkIdPosturaDelPaciente;
+    }
+
+    public SignosVitales getFkIdSignosVitales() {
+        return fkIdSignosVitales;
+    }
+
+    public void setFkIdSignosVitales(SignosVitales fkIdSignosVitales) {
+        this.fkIdSignosVitales = fkIdSignosVitales;
     }
 
     public ExamenClinico getFkIdExamenClinico() {
@@ -193,22 +231,6 @@ public class HistoriaClinicaGeneral implements Serializable {
         this.fkIdInterconsultaMedica = fkIdInterconsultaMedica;
     }
 
-    public Odontograma getFkIdOdontogramaInicial() {
-        return fkIdOdontogramaInicial;
-    }
-
-    public void setFkIdOdontogramaInicial(Odontograma fkIdOdontogramaInicial) {
-        this.fkIdOdontogramaInicial = fkIdOdontogramaInicial;
-    }
-
-    public Odontograma getFkIdOdontogramaFinal() {
-        return fkIdOdontogramaFinal;
-    }
-
-    public void setFkIdOdontogramaFinal(Odontograma fkIdOdontogramaFinal) {
-        this.fkIdOdontogramaFinal = fkIdOdontogramaFinal;
-    }
-
     public ModelosDeEstudioFotografias getFkIdModelosDeEstudioFotografias() {
         return fkIdModelosDeEstudioFotografias;
     }
@@ -220,7 +242,7 @@ public class HistoriaClinicaGeneral implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (idHistoriaClinicaGeneral != null ? idHistoriaClinicaGeneral.hashCode() : 0);
         return hash;
     }
 
@@ -231,7 +253,7 @@ public class HistoriaClinicaGeneral implements Serializable {
             return false;
         }
         HistoriaClinicaGeneral other = (HistoriaClinicaGeneral) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.idHistoriaClinicaGeneral == null && other.idHistoriaClinicaGeneral != null) || (this.idHistoriaClinicaGeneral != null && !this.idHistoriaClinicaGeneral.equals(other.idHistoriaClinicaGeneral))) {
             return false;
         }
         return true;
@@ -239,7 +261,7 @@ public class HistoriaClinicaGeneral implements Serializable {
 
     @Override
     public String toString() {
-        return "com.unsis.odonto.edu.entity.HistoriaClinicaGeneral[ id=" + id + " ]";
+        return "com.unsis.odonto.edu.entity.HistoriaClinicaGeneral[ idHistoriaClinicaGeneral=" + idHistoriaClinicaGeneral + " ]";
     }
     
 }

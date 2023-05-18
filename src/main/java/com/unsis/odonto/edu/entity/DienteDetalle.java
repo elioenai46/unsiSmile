@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "diente_detalle")
@@ -36,15 +36,15 @@ public class DienteDetalle implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_diente_detalle")
     private Integer idDienteDetalle;
+    @JoinColumn(name = "fk_id_codigo_pieza_dental", referencedColumnName = "id_codigo_pieza_dental")
+    @ManyToOne
+    private CodigoPiezaDental fkIdCodigoPiezaDental;
     @JoinColumn(name = "fk_id_estado_diente", referencedColumnName = "id_estado_diente")
     @ManyToOne
     private EstadoDiente fkIdEstadoDiente;
     @JoinColumn(name = "fk_id_odontograma", referencedColumnName = "id_odontograma")
     @ManyToOne
     private Odontograma fkIdOdontograma;
-    @JoinColumn(name = "fk_id_pieza_dental", referencedColumnName = "id_pieza_dental")
-    @ManyToOne
-    private PiezasDentales fkIdPiezaDental;
     @JoinColumn(name = "fk_id_region_diente", referencedColumnName = "id_region")
     @ManyToOne
     private RegionDiente fkIdRegionDiente;
@@ -64,6 +64,14 @@ public class DienteDetalle implements Serializable {
         this.idDienteDetalle = idDienteDetalle;
     }
 
+    public CodigoPiezaDental getFkIdCodigoPiezaDental() {
+        return fkIdCodigoPiezaDental;
+    }
+
+    public void setFkIdCodigoPiezaDental(CodigoPiezaDental fkIdCodigoPiezaDental) {
+        this.fkIdCodigoPiezaDental = fkIdCodigoPiezaDental;
+    }
+
     public EstadoDiente getFkIdEstadoDiente() {
         return fkIdEstadoDiente;
     }
@@ -78,14 +86,6 @@ public class DienteDetalle implements Serializable {
 
     public void setFkIdOdontograma(Odontograma fkIdOdontograma) {
         this.fkIdOdontograma = fkIdOdontograma;
-    }
-
-    public PiezasDentales getFkIdPiezaDental() {
-        return fkIdPiezaDental;
-    }
-
-    public void setFkIdPiezaDental(PiezasDentales fkIdPiezaDental) {
-        this.fkIdPiezaDental = fkIdPiezaDental;
     }
 
     public RegionDiente getFkIdRegionDiente() {
