@@ -1,3 +1,4 @@
+-- drop database unsis_smile;
 drop database if exists unsis_smile;
 create database unsis_smile;
 use unsis_smile;
@@ -109,14 +110,10 @@ matricula varchar(10),
 telefono varchar(10),
 email_alumno varchar (100) not NULL,
 estatus boolean default true,
-f_id_catedratico_responsable int not null,
 f_id_usuario int not null,
-foreign key(f_id_catedratico_responsable) references catedraticos(id_catedratico),
 FOREIGN KEY(f_id_usuario) references usuarios(id_usuario),
 FOREIGN KEY(fk_id_semestre_grupo) references semestre_grupo(id_semestre_grupo)
 );
-
-
 
 
 -- rol de los alumnos
@@ -142,20 +139,6 @@ direccion varchar(100)
 -- *********************************esquemas para los pacientes**************************************
 
 
--- tutores
-create table tutor( -- se necesitará de un tutor si se es menor de edad
-id_tutor int not null auto_increment primary key,
-nombre1 varchar(50),
-nombre2 varchar(50),
-apellido1 varchar(50),
-apellido2 varchar(50),
-sexo char,
-fecha_nacimiento date,
-ocupacion varchar(100),
-estado_civil varchar(50)
-);
-
-
 -- datos para pacientes
 create table paciente(
 id_paciente int not null auto_increment primary key,
@@ -173,12 +156,23 @@ religion varchar(50),
 fecha_ingreso date,
 nacionalidad varchar(50),
 localidad varchar(100),
-estatus boolean default true,
-fk_id_tutor int,
-FOREIGN KEY(fk_id_tutor) references tutor(id_tutor)
+estatus boolean default true
 );
 
-
+-- tutores
+create table tutor( -- se necesitará de un tutor si se es menor de edad
+id_tutor int not null auto_increment primary key,
+nombre1 varchar(50),
+nombre2 varchar(50),
+apellido1 varchar(50),
+apellido2 varchar(50),
+sexo char,
+fecha_nacimiento date,
+ocupacion varchar(100),
+estado_civil varchar(50),
+fk_id_paciente int,
+FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+);
 
 
 create table paciente_alumno(
@@ -213,11 +207,9 @@ pulso double
 
 create table examen_facial(
 id_examen_facial int not null primary key,
-perfil text,
-frente text,
-senias_particulares text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+perfil text, -- posible entidad catalogo
+frente text, -- posible entidad catalogo
+senias_particulares text
 );
 
 CREATE TABLE antecedentes_heredofamiliares (
@@ -237,9 +229,7 @@ CREATE TABLE antecedentes_heredofamiliares (
     malformaciones_congenitas BOOLEAN,
     malformaciones_congenitas_amplio TEXT,
     problemas_cardiacos BOOLEAN,
-    problemas_cardiacos_amplio TEXT,
-	fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+    problemas_cardiacos_amplio TEXT
 );
 
 
@@ -251,14 +241,12 @@ come_carne boolean,
 come_cereales boolean,
 come_alimentos_chatarra boolean,
 toma_dos_litros_de_agua_x_dia boolean,
-uno_mas_refrescos_dia boolean,
+uno_o_mas_refrescos_dia boolean,
 horas_duerme_dia int,
 baño_veces_x_semana int,
 cepillado_x_dia int,
 su_vivienda_tiene_piso int,
-material_de_vivienda varchar(30),
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+material_de_vivienda varchar(30)
 );
 
 
@@ -293,9 +281,7 @@ ha_tomado_un_medicamento_recientemente text,
 ha_tenido_algun_problema_con_anestesia text,
 alergia_medicamento_sustancia text,
 embarazo text,
-observaciones text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+observaciones text
 );
 
 
@@ -304,27 +290,22 @@ id_analisis_funcional int not null auto_increment primary key,
 Deglución text,
 Fonación_masticación text,
 Respiración text,
-Observaciones text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+Observaciones text
 );
 
 
 create table postura_del_paciente(
 id_postura_del_paciente int not null auto_increment primary key,
-atm_palpacion text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+atm_palpacion text
 );
 
 create table examen_bucal(
+-- clasificacion de angle
 id_examen_bucal int not null auto_increment primary key,
 Relación_molar_Derecha text,
 Relación_molar_Izquierda text,
 Relación_canina_Derecha text,
-Relación_canina_Izquierda text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+Relación_canina_Izquierda text
 );
 
 
@@ -332,18 +313,14 @@ create table analisis_radiografico(
 id_analisis_radiografico int not null auto_increment primary key,
 Periapical text,
 cefalica_lateral text,
-Panoramica text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+Panoramica text
 );
 
 create table modelos_de_estudio_fotografias(
 id_modelos_de_estudio_fotografias int not null auto_increment primary key,
 Modelos_de_estudio text,
 Tipo_de_arcada text,
-Fotografias text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+Fotografias text
 );
 
 
@@ -351,23 +328,19 @@ create table estudio_de_laboratorio_biopsia(
 id_estudio_de_laboratorio_biopsia int not null auto_increment primary key,
 tipo_de_estudio text,
 tipo_de_biopsia text,
-region_de_biopsia text,
 región_donde_se_realizó_biopsia text,
-laboratorio_donde_se_envia_el_estudio text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+laboratorio_donde_se_envia_el_estudio text
 );
+
 
 
 create table interconsulta_medica(
 id_interconsulta_medica int not null auto_increment primary key,
-nombre_medico text,
+nombre_medico varchar(100),
 razon text,
-motivo_de_diagnostico_presuntivo text,
-Motivo_de_envio text,
-servicio_al_que_se_envia text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+motivo_diagnostico_presuntivo text,
+motivo_de_envio text,
+servicio_al_que_se_envia text
 );
 
 create table examen_clinico(
@@ -383,9 +356,7 @@ Glándulas_salivales text,
 Encía text,
 Frenillos text,
 Saliva text,
-Otras_señas_particulares text,
-fk_id_paciente int,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+Otras_señas_particulares text
 );
 
 
@@ -393,46 +364,87 @@ FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
         
 create table odontograma(
 id_odontograma int not null auto_increment primary key,
-fk_id_paciente int,
 descripcion text,
-fecha date,
-FOREIGN KEY(fk_id_paciente) references paciente(id_paciente)
+fecha date
 );
 
-create table piezas_dentales( -- tabla que contendra cada una de las piezas dentales representadas por un codigo
-id_pieza_dental varchar(2) not null primary key,
-nombre varchar(50) -- codigo del diente
+create table codigo_pieza_dental( -- tabla que contendra cada una de las piezas dentales representadas por un codigo (entidad catalogo)
+id_codigo_pieza_dental int not null auto_increment primary key,
+codigo varchar(3) -- codigo del diente
 );
 
-create table estado_diente( -- tabla que contendra los posibles estados en los que se podria econtrar un diente
+
+create table estado_diente( -- tabla que contendra los posibles estados en los que se podria econtrar un diente (entidad catalogo)
 id_estado_diente int not null auto_increment primary key,
 descripcion varchar(50)
 );
 
-create table region_diente( -- tabla que contendra las regiones de la pieza dental 
+create table region_diente( -- tabla que contendra las regiones de la pieza dental (entidad catalogo)
 id_region int not null auto_increment primary key,
 descripcion varchar(50)
 );
 
 create table diente_detalle( -- tabla que engloba a la pieza dental con todos los detalles de esta
 id_diente_detalle int not null auto_increment primary key,
-fk_id_pieza_dental varchar(2),
-fk_id_estado_diente int,
-fk_id_odontograma int,
-fk_id_region_diente int,
-FOREIGN KEY(fk_id_pieza_dental) references piezas_dentales(id_pieza_dental),
+fk_id_codigo_pieza_dental int, -- codigo de la pieza dental
+fk_id_estado_diente int, -- estado del diente
+fk_id_region_diente int, -- region del diente (izquierda, derecha, centro, etc)
+fk_id_odontograma int, -- id del odontograma al que pertenece esta pieza dental
+FOREIGN KEY(fk_id_codigo_pieza_dental) references codigo_pieza_dental(id_codigo_pieza_dental),
 FOREIGN KEY(fk_id_estado_diente) references estado_diente(id_estado_diente),
 FOREIGN KEY(fk_id_odontograma) references odontograma(id_odontograma),
 FOREIGN KEY(fk_id_region_diente) references region_diente(id_region)
 );
 	
+-- fin esquemas de odontograma
+
+
+-- ** inicio tablas de periodontogrma (medicion de bolsas inicial)
+
+-- tabla de periodontograma
+create table periodontograma(
+id_periodontograma int not null auto_increment primary key,
+descripcion text,
+fecha date
+);
+
+-- tabla que contiene la region (distal, mesial, etc)
+create table regiones_diente_periodontograma( -- entidad catalogo
+id_regiones_diente_periodontograma int not null auto_increment primary key,
+region varchar(2)
+);
+
+-- esquema que contendrá las regiones: vestibulares_superiores, palatinas, vestibulares_inferiores y linguales
+create table regiones_medicion_bolsas( -- entidad catalogo 
+id_regiones_medicion_bolsas int not null auto_increment primary key,
+region varchar(30)
+);
+
+
+create table medicion_bolsas_detalle( -- tabla que contendrá la medición de bolsas de un diente en particular
+id_medicion_bolsas_detalle int not null auto_increment primary key,
+fk_id_regiones_diente_periodontograma int,
+fk_id_codigo_pieza_dental int,
+fk_id_regiones_medicion_bolsas int,
+fk_id_periodontograma int,
+medicion float,
+FOREIGN KEY(fk_id_regiones_diente_periodontograma) references regiones_diente_periodontograma(id_regiones_diente_periodontograma),
+FOREIGN KEY(fk_id_codigo_pieza_dental) references codigo_pieza_dental(id_codigo_pieza_dental),
+FOREIGN KEY(fk_id_regiones_medicion_bolsas) references regiones_medicion_bolsas(id_regiones_medicion_bolsas),
+FOREIGN KEY(fk_id_periodontograma) references periodontograma(id_periodontograma)
+);
+
+
+
+-- fin tabla medicion de bolsas inicial
 
 
 
 -- ********************************** Historias clínicas **********************************************************
 -- tabla de la historia clinica general con llaves foraneas de sus respectivas regiones
 create table historia_clinica_general( 
-id int not null auto_increment primary key,
+id_historia_clinica_general int not null auto_increment primary key,
+fk_id_paciente int,
 fk_id_signos_vitales int,
 fk_id_examen_facial int,
 fk_id_antecedentes_heredofamiliares int,
@@ -448,6 +460,8 @@ fk_id_interconsulta_medica int,
 fk_id_examen_clinico int,
 fk_id_odontograma_inicial int null,
 fk_id_odontograma_final int null,
+fk_id_catedratico_responsable int not null,
+FOREIGN KEY(fk_id_paciente) references paciente(id_paciente),
 FOREIGN KEY(fk_id_signos_vitales) references signos_vitales(id_signos_vitales),
 FOREIGN KEY(fk_id_examen_facial) references examen_facial(id_examen_facial),
 FOREIGN KEY(fk_id_antecedentes_heredofamiliares) references antecedentes_heredofamiliares(id_antecedentes_heredofamiliares),
@@ -462,7 +476,8 @@ FOREIGN KEY(fk_id_estudio_de_laboratorio_biopsia) references estudio_de_laborato
 FOREIGN KEY(fk_id_interconsulta_medica) references interconsulta_medica(id_interconsulta_medica),
 FOREIGN KEY(fk_id_examen_clinico) references examen_clinico(id_examen_clinico),
 FOREIGN KEY(fk_id_odontograma_inicial) references odontograma(id_odontograma),
-FOREIGN KEY(fk_id_odontograma_final) references odontograma(id_odontograma)
+FOREIGN KEY(fk_id_odontograma_final) references odontograma(id_odontograma),
+foreign key(fk_id_catedratico_responsable) references catedraticos(id_catedratico)
 );
 
 
@@ -486,7 +501,7 @@ enfermedades_infecciosas text
 
 create table interrogatorios_por_aparatos_y_sistemas(
 id_interrogatorios_por_aparatos_y_sistemas int not null auto_increment primary key,
-aparato_cardivascular text,
+aparato_cardiovascular text,
 aparato_digestivo text,
 aparato_renal text,
 sistema_nervioso text,
@@ -501,7 +516,9 @@ fecha_ultima_consulta_dental date,
 motivo_dental text,
 embarazada boolean,
 lactancia boolean,
-tipo_sangrado integer,
+tipo_sangrado integer, -- necesita entidad catalogo
+
+-- campos para calcular el precio a pagar del procedimiento (no confirmado)
 examen_radiologico text,
 tecnicas_de_anestecia text,
 instrumental text,
@@ -514,10 +531,9 @@ estado_del_paciente text
 
 create table historia_clinica_de_cirugia_bucal(
 id_historia_clinica_de_cirugia_bucal int not null auto_increment primary key,
-numero_de_expediente int not null,
 fecha_de_realizacion datetime,
 
-id_ficha_de_identificacion int not null,
+id_ficha_de_identificacion int not null, -- id del paciente
 id_signos_vitales int not null,
 id_antecedentes_personales_familiares int not null,
 id_interrogatorios_por_aparatos_y_sistemas int not null,
@@ -756,8 +772,8 @@ Acerca_de_sus_consultas_odontológicas_previas text,
 En_caso_de_ser_mujer_usted_está_embarazada text,
 Mes text
 ); */
-
-/*create table Interrogatorio(
+/*
+create table Interrogatorio(
 id_Interrogatorio int not null auto_increment primary key,
 Motivo_consulta text,
 Padecimiento_Actual text,
@@ -774,7 +790,8 @@ Otra_información_que_deba_ser_conocida_acerca_de_su_salud text,
 Acerca_de_sus_consultas_odontológicas_previas text,
 En_caso_de_ser_mujer_usted_está_embarazada text,
 Mes text
-);*/
+);
+*/
 
 create table Antecedentes_Patologicos(
 id_Antecedentes_Patologicos int not null auto_increment primary key,
