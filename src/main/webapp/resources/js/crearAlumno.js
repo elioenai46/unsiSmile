@@ -6,42 +6,39 @@
  */
 
 $(document).ready(function () {
-    $('Agragra_Alumno').click(function (event) {
+    $('Agregar_Alumno').click(function (event) {
         event.preventDefault();
-        //firstN viene del ProfesorServlet controller y primer-nombre viene del jsp actualizar añumno.
         var nombre = $('#nombre').val();
         var nombre2 = $('#nombre2').val();
         var apellido = $('#apellido').val();
         var apellido2 = $('#apellido2').val();
         var sexo = $('#sexo').val();
         var curp = $('#curp').val();
-        var Semestre = $('#Semestre1').val();        
-        var Grupo = $('#Grupo1').val();
+       // var Semestre = $('#Semestre1').val();
         var matricula = $('#matricula').val();
         var telefono = $('#telefono').val();
         var email = $('#email').val();
         var idCatedratico = $('#idCatedratico').val();
         
-        alert('nombre: ' + nombre + 'nombre2:' + nombre2 + 'apellido' + apellido + 
-                'apellido2' + apellido2 + 'sexo' + sexo + 'curp' + curp + 'Semestre' + Semestre + 
-                'Grupo' + Grupo + 'matricula' + matricula + 'telefono' + telefono + 
-                'email' + email);
-      /*
+        alert('' + nombre + ', ' + nombre2 + ', ' + apellido + ', ' + apellido2
+                + ', ' + sexo + ', ' + curp + ', '
+                + Semestre + ', ' + Grupo + ', ' + matricula + ', ' + telefono
+                + ', ' + email);
         $.ajax({
-            url: '../../ProfesorServlet',
+            url: '../../AlumnoController?accion=crear',
             type: 'POST',
 
             data: {
-                firstN: firstN,
-                secondN: secondN,
-                Apa: Apa,
-                Ama: Ama,
-                curp: curp,
-                NumTel: NumTel,
+                nombre: nombre,
+                nombre2: nombre2,
+                apellido: apellido,
+                apellido2: apellido2,
                 sexo: sexo,
-                fecha: fecha,
-                NumT: NumT,
-                correo: correo,
+                curp: curp,
+                Semestre: Semestre,
+                matricula: matricula,
+                telefono: telefono,
+                email: email,
                 idCatedratico: idCatedratico
             },
             success: function (response) {
@@ -52,7 +49,7 @@ $(document).ready(function () {
                 // código a ejecutar cuando la petición falla
                 console.log("Error: " + error);
             }
-        });*/
+        });
     });
 });
 
