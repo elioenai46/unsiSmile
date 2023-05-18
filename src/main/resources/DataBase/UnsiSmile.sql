@@ -370,7 +370,8 @@ fecha date
 
 create table codigo_pieza_dental( -- tabla que contendra cada una de las piezas dentales representadas por un codigo (entidad catalogo)
 id_codigo_pieza_dental int not null auto_increment primary key,
-codigo varchar(3) -- codigo del diente
+codigo varchar(3), -- codigo del diente
+adulto boolean -- este campo marca si el codigo pertenece a los dientes de un adulto si es true y false si pertenecen a un joven
 );
 
 
@@ -481,7 +482,7 @@ foreign key(fk_id_catedratico_responsable) references catedraticos(id_catedratic
 );
 
 
-
+/*
 
 -- ********************************** Historia clínica de cirugía bucal **********************************************************
 
@@ -752,7 +753,7 @@ Pulso double,
 Temperatura double, 
 Glucosa double
 );
-
+*/
 /*
 create table Interrogatorio(
 id_Interrogatorio int not null auto_increment primary key,
