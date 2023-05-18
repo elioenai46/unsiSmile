@@ -115,7 +115,7 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         //Ultima consulta dental la base de datos
         
         // ------------ Datos personales del tuto__ Datos si es menor de 18 años
-        //nombre del padre en la base de datos
+        //nombre del padre 
         tutor.setNombre1(request.getParameter("nombre1"));//Nombre del padre
         tutor.setNombre2(request.getParameter("nombre2"));//Nombre del padre
         tutor.setOcupacion(request.getParameter("ocupacion"));//padre
@@ -217,8 +217,8 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
 
         boolean unoMasRefrescosDia = Boolean.parseBoolean(request.getParameter(
                 "unoMasRefrescosDia"));
-        antecedentesPersonalesNoPatologicos.setUnoMasRefrescosDia(
-                unoMasRefrescosDia);
+        antecedentesPersonalesNoPatologicos.setUnoOMasRefrescosDia(unoMasRefrescosDia);
+       
         //  ------ integer              
         int SuViviendaTienePiso = Integer.parseInt(request.getParameter(
                 "SuViviendaTienePiso"));
@@ -313,14 +313,15 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
 
         // Parte 2----------Antecedentes personales patologicos ------------
         antecedentesPersonalesPatologicos.setHaSidoHospitalizado("haSidoHospitalizado");
+        //motivo de la hospitalacion
         antecedentesPersonalesPatologicos.setHaTomadoUnMedicamentoRecientemente("haTomadoUnMedicamentoRecientemente");
-
         // cual ?
         //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("cual");
-        // motivo ?
+        // motivo del mediamento ?
         //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("motivo");
+        
         antecedentesPersonalesPatologicos.setHaTenidoAlgunProblemaConAnestesia("haTenidoAlgunProblemaConAnestesia");
-        // cual ?
+        // cual es el motivo ?
         //antecedentesPersonalesPatologicos.setHaSidoHospitalizado("cual");
 
         antecedentesPersonalesPatologicos.setAlergiaMedicamentoSustancia("alergiaMedicamentoSustancia");

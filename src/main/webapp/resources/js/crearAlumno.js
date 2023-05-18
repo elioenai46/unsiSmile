@@ -6,7 +6,7 @@
  */
 
 $(document).ready(function () {
-    $('formulario-agregar-alumno').submit(function (event) {
+    $('Agragra_Alumno').click(function (event) {
         event.preventDefault();
         //firstN viene del ProfesorServlet controller y primer-nombre viene del jsp actualizar añumno.
         var nombre = $('#nombre').val();
@@ -17,9 +17,16 @@ $(document).ready(function () {
         var curp = $('#curp').val();
         var Semestre = $('#Semestre1').val();        
         var Grupo = $('#Grupo1').val();
-        var matricula = $('#matricula').val();        
+        var matricula = $('#matricula').val();
+        var telefono = $('#telefono').val();
+        var email = $('#email').val();
         var idCatedratico = $('#idCatedratico').val();
-        alert('N: ' + firsN + 'r:' + sexo + 'fecha' + fecha);
+        
+        alert('nombre: ' + nombre + 'nombre2:' + nombre2 + 'apellido' + apellido + 
+                'apellido2' + apellido2 + 'sexo' + sexo + 'curp' + curp + 'Semestre' + Semestre + 
+                'Grupo' + Grupo + 'matricula' + matricula + 'telefono' + telefono + 
+                'email' + email);
+      /*
         $.ajax({
             url: '../../ProfesorServlet',
             type: 'POST',
@@ -45,7 +52,7 @@ $(document).ready(function () {
                 // código a ejecutar cuando la petición falla
                 console.log("Error: " + error);
             }
-        });
+        });*/
     });
 });
 
