@@ -1,0 +1,99 @@
+.tabs-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  
+  .tab {
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+  }
+  
+  .tab.active {
+    background-color: #fff;
+    border-bottom: 2px solid #333;
+  }
+  
+  .tab-content {
+    padding: 10px;
+    border-radius: 0 5px 5px 5px;
+    border: 2px solid #333;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  .accordion-form {
+  width: 100%;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.accordion-header {
+  display: block;
+  background-color: #ddd;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.accordion-header:hover {
+  background-color: #ccc;
+}
+
+.accordion-content {
+  display: none;
+  padding: 10px;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
+}
+  
+  .tab-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .prev-tab-button,
+  .next-tab-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .prev-tab-button:disabled,
+  .next-tab-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .next-tab-button {
+    margin-left: auto;
+  }
+  
