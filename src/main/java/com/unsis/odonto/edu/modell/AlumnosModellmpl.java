@@ -8,6 +8,7 @@
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Alumnos;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.ParameterMode;
@@ -54,7 +55,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.setParameter("matricula", alumnos.getMatricula());
             sp.setParameter("telefono", alumnos.getTelefono());
             sp.setParameter("email_alumno", alumnos.getEmailAlumno());
-           // sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
+            // sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
 
             sp.execute();
             s.close();
@@ -66,9 +67,9 @@ public class AlumnosModellmpl implements IAlumnosModel {
 
     @Override
     public List<Alumnos> obtenerRegistros() {
-        
+
         List<Alumnos> listaAlumnos = new ArrayList<>();
-        
+
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
@@ -133,7 +134,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
                 alumnos.setNombre2((row[1] == null) ? "" : (row[1]).toString());
                 alumnos.setApellido((row[2] == null) ? "" : (row[2]).toString());
                 alumnos.setApellido2((row[3] == null) ? "" : (row[3]).toString());
-                alumnos.setEmailAlumno((row[4] == null) ? "" : (row[4]).toString()); 
+                alumnos.setEmailAlumno((row[4] == null) ? "" : (row[4]).toString());
                 alumnos.setSexo((row[5] == null) ? '\0' : (row[5].toString().charAt(0)));
                 //alumnos.set((row[6] == null) ? "" : (row[6]).toString());    
             }
@@ -152,9 +153,34 @@ public class AlumnosModellmpl implements IAlumnosModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.update(alumnos);
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("actualizarAlumno");
+
+            sp.registerStoredProcedureParameter("nombre", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("nombre2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido2", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("sexo", Character.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("curp", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("fk_id_semestre_grupo", Integer.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("matricula", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("telefono", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("mail", String.class, ParameterMode.IN);
+            
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("nombre", alumnos.getNombre());
+            sp.setParameter("nombre2", alumnos.getNombre2());
+            sp.setParameter("apellido", alumnos.getApellido());
+            sp.setParameter("apellido2", alumnos.getApellido2());
+            sp.setParameter("sexo", alumnos.getSexo());
+            sp.setParameter("curp", alumnos.getCurp());
+            sp.setParameter("fk_id_semestre_grupo", alumnos.getFkIdSemestreGrupo());
+            sp.setParameter("telefono", alumnos.getTelefono());
+            sp.setParameter("matricula", alumnos.getMatricula());
+            sp.setParameter("telefono", alumnos.getTelefono());
+            sp.setParameter("mail", alumnos.getTelefono());
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
             s.close();
             sf.close();
         } catch (HibernateException e) {

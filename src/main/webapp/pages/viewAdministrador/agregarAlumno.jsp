@@ -151,7 +151,7 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
                             <input type="text" class="form-control" placeholder="ID Catedratico responsable"
                                    id="idCatedratico">
                         </div>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary" id="Agragra_Alumno" >Guardar</button>
                     </form>
                 </div>
 

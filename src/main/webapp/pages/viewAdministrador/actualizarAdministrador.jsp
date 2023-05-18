@@ -88,41 +88,47 @@
 
             <div class="containerRegistro">
                 <h2>Actualizar Administrador</h2>
-                <form>
+                <form id="Form-Actualizar-Admin">
                     <div class="form-group">
                         <label for="primer-nombre">Primer nombre</label>
-                        <input type="text" class="form-control" placeholder="Primer nombre" id="primer-nombre">
+                        <input type="text" class="form-control" value="${administradores.nombre1}" placeholder='Primer nombre' id="primer-nombre">
                     </div>
                     <div class="form-group">
                         <label for="segundo-nombre">Segundo nombre</label>
-                        <input type="text" class="form-control" placeholder="Segundo nombre" id="segundo-nombre">
+                        <input type="text" class="form-control" value='${administradores.nombre2}' placeholder="Segundo nombre" id="segundo-nombre">
                     </div>
                     <div class="form-group">
                         <label for="apellido-paterno">Apellido paterno</label>
-                        <input type="text" class="form-control" placeholder="Apellido paterno" id="apellido-paterno">
+                        <input type="text" class="form-control" value='${administradores.apellido1}' placeholder="Apellido paterno" id="apellido-paterno">
                     </div>
                     <div class="form-group">
                         <label for="apellido-materno">Apellido materno</label>
-                        <input type="text" class="form-control" placeholder="Apellido materno" id="apellido-materno">
+                        <input type="text" class="form-control" value="${administradores.apellido2}" placeholder="Apellido materno" id="apellido-materno">
                     </div>
                     <div class="form-group">
                         <label for="curp">CURP</label>
-                        <input type="email" class="form-control" placeholder="CURP" id="curp">
+                        <input type="text" class="form-control" value='${administradores.curp}' placeholder="CURP" id="curp">
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
+                        <input type="text" class="form-control" value="${administradores.telefono}" placeholder="Teléfono" id="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="numero-Trabajador">Número Trabajador</label>
+                        <input type="text" class="form-control" value="${administradores.numeroTrabajador}" placeholder="Número Trabajador" id="numero-Trabajador">
+                            
+                        </input>
                     </div>
 
                      <div class="form-group">
                             <label for="sexo">Fecha de nacimiento</label>
-                            <input type="date" name="fecha" class="form-control" id="fecha">
+                            <input type="date" name="fecha" class="form-control" value="${administradores.fechaNacimiento}" id="fecha">
                         </div>
 
                     
                     <div class="form-group">
                         <label for="sexo">Sexo</label>
-                        <select id="sexo" name="sexo" class="select-custom">
+                        <select id="sexo" name="sexo" class="select-custom" >
                             <option value="">--</option>
                             <option value="hombre">Hombre</option>
                             <option value="mujer">Mujer</option>
@@ -136,7 +142,7 @@
 
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" placeholder="Email" id="email">
+                        <input type="text" class="form-control" value="${administradores.emailAdmin}" placeholder="Email" id="email">
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Actualizar</button>
