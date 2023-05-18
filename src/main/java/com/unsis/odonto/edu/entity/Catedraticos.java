@@ -28,7 +28,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "catedraticos")
@@ -79,9 +79,8 @@ public class Catedraticos implements Serializable {
     private String emailCatedratico;
     @Column(name = "estatus")
     private Boolean estatus;
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fIdCatedraticoResponsable")
-    private Collection<Alumnos> alumnosCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkIdCatedraticoResponsable")
+    private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
     @JoinColumn(name = "fk_id_usuario", referencedColumnName = "id_usuario")
     @ManyToOne(optional = false)
     private Usuarios fkIdUsuario;
@@ -197,12 +196,12 @@ public class Catedraticos implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Alumnos> getAlumnosCollection() {
-        return alumnosCollection;
+    public Collection<HistoriaClinicaGeneral> getHistoriaClinicaGeneralCollection() {
+        return historiaClinicaGeneralCollection;
     }
 
-    public void setAlumnosCollection(Collection<Alumnos> alumnosCollection) {
-        this.alumnosCollection = alumnosCollection;
+    public void setHistoriaClinicaGeneralCollection(Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection) {
+        this.historiaClinicaGeneralCollection = historiaClinicaGeneralCollection;
     }
 
     public Usuarios getFkIdUsuario() {

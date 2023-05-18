@@ -12,9 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "postura_del_paciente")
@@ -43,9 +41,6 @@ public class PosturaDelPaciente implements Serializable {
     @Lob
     @Column(name = "atm_palpacion")
     private String atmPalpacion;
-    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
-    @ManyToOne
-    private Paciente fkIdPaciente;
     @OneToMany(mappedBy = "fkIdPosturaDelPaciente")
     private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
 
@@ -70,14 +65,6 @@ public class PosturaDelPaciente implements Serializable {
 
     public void setAtmPalpacion(String atmPalpacion) {
         this.atmPalpacion = atmPalpacion;
-    }
-
-    public Paciente getFkIdPaciente() {
-        return fkIdPaciente;
-    }
-
-    public void setFkIdPaciente(Paciente fkIdPaciente) {
-        this.fkIdPaciente = fkIdPaciente;
     }
 
     @XmlTransient

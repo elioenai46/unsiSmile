@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="3.0" xmlns="https://jakarta.ee/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
-    <!-- Define Persistence Unit -->
-    <persistence-unit name="my_persistence_unit">
-        
-    </persistence-unit>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="com.unsis.odonto.edu_unsiSmile_war_1.0-SNAPSHOTPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.unsis.odonto.edu.entity.RolAlumno</class>
+    <class>com.unsis.odonto.edu.entity.RegionDiente</class>
+    <class>com.unsis.odonto.edu.entity.AnalisisRadiografico</class>
+    <class>com.unsis.odonto.edu.entity.PosturaDelPaciente</class>
+    <class>com.unsis.odonto.edu.entity.HistoriaClinicaGeneral</class>
+    <class>com.unsis.odonto.edu.entity.SignosVitales</class>
+    <class>com.unsis.odonto.edu.entity.MovimientosUsuarios</class>
+    <class>com.unsis.odonto.edu.entity.EstudioDeLaboratorioBiopsia</class>
+    <class>com.unsis.odonto.edu.entity.SemestreGrupo</class>
+    <class>com.unsis.odonto.edu.entity.DienteDetalle</class>
+    <class>com.unsis.odonto.edu.entity.ExamenFacial</class>
+    <class>com.unsis.odonto.edu.entity.Semestres</class>
+    <class>com.unsis.odonto.edu.entity.InterconsultaMedica</class>
+    <class>com.unsis.odonto.edu.entity.Catedraticos</class>
+    <class>com.unsis.odonto.edu.entity.RegionesMedicionBolsas</class>
+    <class>com.unsis.odonto.edu.entity.ExamenClinico</class>
+    <class>com.unsis.odonto.edu.entity.RolesTiposUsuario</class>
+    <class>com.unsis.odonto.edu.entity.CodigoPiezaDental</class>
+    <class>com.unsis.odonto.edu.entity.MedicionBolsasDetalle</class>
+    <class>com.unsis.odonto.edu.entity.ProcedimientoTipo</class>
+    <class>com.unsis.odonto.edu.entity.RegionesDientePeriodontograma</class>
+    <class>com.unsis.odonto.edu.entity.AntecedentesPatologicos</class>
+    <class>com.unsis.odonto.edu.entity.AntecedentesPersonalesPatologicos</class>
+    <class>com.unsis.odonto.edu.entity.EstadoDiente</class>
+    <class>com.unsis.odonto.edu.entity.Consulta</class>
+    <class>com.unsis.odonto.edu.entity.AntecedentesPersonalesNoPatologicos</class>
+    <class>com.unsis.odonto.edu.entity.Administradores</class>
+    <class>com.unsis.odonto.edu.entity.Alumnos</class>
+    <class>com.unsis.odonto.edu.entity.Tutor</class>
+    <class>com.unsis.odonto.edu.entity.ExploraciónDeLaCavidadBucalYAnexos</class>
+    <class>com.unsis.odonto.edu.entity.Periodontograma</class>
+    <class>com.unsis.odonto.edu.entity.Grupo</class>
+    <class>com.unsis.odonto.edu.entity.Paciente</class>
+    <class>com.unsis.odonto.edu.entity.ExamenBucal</class>
+    <class>com.unsis.odonto.edu.entity.AntecedentesHeredofamiliares</class>
+    <class>com.unsis.odonto.edu.entity.Odontograma</class>
+    <class>com.unsis.odonto.edu.entity.PacienteAlumno</class>
+    <class>com.unsis.odonto.edu.entity.CatedraticoGrupo</class>
+    <class>com.unsis.odonto.edu.entity.AnalisisFuncional</class>
+    <class>com.unsis.odonto.edu.entity.ModelosDeEstudioFotografias</class>
+    <class>com.unsis.odonto.edu.entity.Clinica</class>
+    <class>com.unsis.odonto.edu.entity.Usuarios</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/unsis_smile?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
+      <property name="javax.persistence.jdbc.user" value="root"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="root"/>
+    </properties>
+  </persistence-unit>
 </persistence>

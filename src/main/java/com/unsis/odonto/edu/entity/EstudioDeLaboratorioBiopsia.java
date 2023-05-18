@@ -12,9 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "estudio_de_laboratorio_biopsia")
@@ -47,17 +45,11 @@ public class EstudioDeLaboratorioBiopsia implements Serializable {
     @Column(name = "tipo_de_biopsia")
     private String tipoDeBiopsia;
     @Lob
-    @Column(name = "region_de_biopsia")
-    private String regionDeBiopsia;
-    @Lob
     @Column(name = "regi\u00f3n_donde_se_realiz\u00f3_biopsia")
     private String regiónDondeSeRealizóBiopsia;
     @Lob
     @Column(name = "laboratorio_donde_se_envia_el_estudio")
     private String laboratorioDondeSeEnviaElEstudio;
-    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
-    @ManyToOne
-    private Paciente fkIdPaciente;
     @OneToMany(mappedBy = "fkIdEstudioDeLaboratorioBiopsia")
     private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
 
@@ -92,14 +84,6 @@ public class EstudioDeLaboratorioBiopsia implements Serializable {
         this.tipoDeBiopsia = tipoDeBiopsia;
     }
 
-    public String getRegionDeBiopsia() {
-        return regionDeBiopsia;
-    }
-
-    public void setRegionDeBiopsia(String regionDeBiopsia) {
-        this.regionDeBiopsia = regionDeBiopsia;
-    }
-
     public String getRegiónDondeSeRealizóBiopsia() {
         return regiónDondeSeRealizóBiopsia;
     }
@@ -114,14 +98,6 @@ public class EstudioDeLaboratorioBiopsia implements Serializable {
 
     public void setLaboratorioDondeSeEnviaElEstudio(String laboratorioDondeSeEnviaElEstudio) {
         this.laboratorioDondeSeEnviaElEstudio = laboratorioDondeSeEnviaElEstudio;
-    }
-
-    public Paciente getFkIdPaciente() {
-        return fkIdPaciente;
-    }
-
-    public void setFkIdPaciente(Paciente fkIdPaciente) {
-        this.fkIdPaciente = fkIdPaciente;
     }
 
     @XmlTransient

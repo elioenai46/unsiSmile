@@ -5,12 +5,12 @@ DELIMITER $$
 DROP PROCEDURE IF EXISTS eliminarAlumno$$
 CREATE PROCEDURE eliminarAlumno
 (
-in id_alumno int
+in id_alumnoAux int
 )
 BEGIN   
 	declare id_user int;
-    select f_id_usuario from alumnos where id_alumno=id_alumno into id_user;
-    update alumnos set estatus=0 where id_alumno=id_alumno;
+    select f_id_usuario from alumnos where id_alumno=id_alumnoAux into id_user;
+    update alumnos set estatus=0 where id_alumno=id_alumnoAux;
     update usuarios set estatus=0 where id_usuario=id_user;
 end
 $$

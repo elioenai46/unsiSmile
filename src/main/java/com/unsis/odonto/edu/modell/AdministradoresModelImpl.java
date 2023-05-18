@@ -1,13 +1,14 @@
 /**
  * Autor: Oscar Funtes Alvarado
  * Fecha creación: 14 de abril de 2023
- * Fecha modificación: 14 de abril de 2023
+ * Fecha modificación: 16 de mayo de 2023
  * Descripción: clase model para administradores, modelamos el crud de dicho objeto
  *              implementando una clase interfaz
  */
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Administradores;
+import com.unsis.odonto.edu.service.AdministradorServiceImpl;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
@@ -70,21 +71,35 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             System.out.println("Error al crear el registro: " + e.getMessage());
         }
     }
-
+    
+    
+    /**
+     * método que retorna una lista de administradores, usuando HQL y un
+     * procedimiento almacenado llamado 'obtenerTodosAdministradores'
+     * @return 
+     */
     @Override
     public List<Administradores> obtenerRegistros() {
-        List<Administradores> listaEjemplareses = new ArrayList<>();
+        
+        List<Administradores> listaAdministradores = null;
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaEjemplareses = s.createCriteria(Administradores.class).list();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerTodosAdministradores", Administradores.class);
+            sp.execute();
+
+            listaAdministradores = sp.getResultList();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
-        return listaEjemplareses;
+        return listaAdministradores;
+
     }
+    
 
     @Override
     public void eliminarRegistro(Administradores administradores) {
@@ -92,7 +107,9 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
             StoredProcedureQuery sp = s.createStoredProcedureQuery("eliminarAdministrador");
-            sp.registerStoredProcedureParameter("id_administrador", Integer.class, ParameterMode.IN);
+            sp
+                    .registerStoredProcedureParameter("id_administrador", Integer.class,
+                             ParameterMode.IN);
             // Establecer parámetros del procedimiento almacenado
             sp.setParameter("id_administrador", administradores.getIdAdministrador());
             // Ejecutar procedimiento almacenado
@@ -113,7 +130,9 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
             s = sf.openSession();
 
             StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerAdministradores");
-            sp.registerStoredProcedureParameter("id_admin", int.class, ParameterMode.IN);
+            sp
+                    .registerStoredProcedureParameter("id_admin", int.class,
+                             ParameterMode.IN);
 
             // Cargar los datos de entrada al procedure
             sp.setParameter("id_admin", idAdministrador);
@@ -134,7 +153,7 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
                 administradores.setApellido2((row[3] == null) ? "" : (row[3]).toString());
                 administradores.setNumeroTrabajador((row[4] == null) ? "" : (row[4]).toString());
                 administradores.setSexo((row[5] == null) ? '\0' : (row[5].toString().charAt(0)));
-                administradores.setEmailAdmin((row[6] == null) ? "" : (row[6]).toString());    
+                administradores.setEmailAdmin((row[6] == null) ? "" : (row[6]).toString());
             }
             s.close();
             sf.close();

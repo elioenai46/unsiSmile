@@ -5,7 +5,6 @@
 package com.unsis.odonto.edu.entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,18 +12,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "tutor")
@@ -65,8 +64,9 @@ public class Tutor implements Serializable {
     private String ocupacion;
     @Column(name = "estado_civil")
     private String estadoCivil;
-    @OneToMany(mappedBy = "fkIdTutor")
-    private Collection<Paciente> pacienteCollection;
+    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
+    @ManyToOne
+    private Paciente fkIdPaciente;
 
     public Tutor() {
     }
@@ -147,13 +147,12 @@ public class Tutor implements Serializable {
         this.estadoCivil = estadoCivil;
     }
 
-    @XmlTransient
-    public Collection<Paciente> getPacienteCollection() {
-        return pacienteCollection;
+    public Paciente getFkIdPaciente() {
+        return fkIdPaciente;
     }
 
-    public void setPacienteCollection(Collection<Paciente> pacienteCollection) {
-        this.pacienteCollection = pacienteCollection;
+    public void setFkIdPaciente(Paciente fkIdPaciente) {
+        this.fkIdPaciente = fkIdPaciente;
     }
 
     @Override

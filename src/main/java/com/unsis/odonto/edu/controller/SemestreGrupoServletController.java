@@ -1,4 +1,10 @@
-
+/**
+ * Autor: Oscar Funtes Alvarado
+ * Fecha creación: 09 de mayo de 2023
+ * Fecha modificación: 15 de mayo de 2023
+ * Descripción: servlet para obtener y cargar los datos de un combobox
+ *              después de cambiar los valores de un combobox anterior
+ */
 package com.unsis.odonto.edu.controller;
 
 import com.google.gson.Gson;
@@ -39,7 +45,7 @@ public class SemestreGrupoServletController extends HttpServlet {
     
     private List<String> obtenerHTMLCombobox2(String valor1) {
         // Aquí obtienes los nuevos valores para el combobox2 utilizando una base de datos o cualquier otra fuente de datos
-        // Luego, construyes el HTML con los nuevos valores y lo devuelves como un String
+        // Luego, construimos el HTML con los nuevos valores y lo devuelves como un String
         ObtenerGrupoServiceImpl sg = new ObtenerGrupoServiceImpl();
         List<String> grupos = sg.obtenerRegistros(valor1);
 
