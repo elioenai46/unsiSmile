@@ -127,4 +127,11 @@ public class AlumnoController extends HttpServlet {
 
     }
 
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       RequestDispatcher dispatcher=request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
+    }
+    
+    
+
 }

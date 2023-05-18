@@ -60,7 +60,7 @@ $(document).ready(function () {
         var telefono = $('#telefono').val();
         var email = $('#email').val();
         var idCatedratico = $('#idCatedratico').val();
-        alert('N: ' + nombre + 'r:' + sexo + 'g ' + semestre1 + '');
+        alert("entra a ");
         $.ajax({
             url: '../../AlumnoController',
             type: 'PUT',

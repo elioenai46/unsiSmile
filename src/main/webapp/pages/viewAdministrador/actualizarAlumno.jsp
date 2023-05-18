@@ -9,7 +9,9 @@
         <!-- ======= Styles ====== -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css"></head>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+    </head>
 
     <body>
         <!-- =============== Navigation ================ -->
@@ -156,6 +158,7 @@
 
         <!-- =========== Scripts =========  -->
         <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/peticionesAlumnos.js"></script>
 
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
