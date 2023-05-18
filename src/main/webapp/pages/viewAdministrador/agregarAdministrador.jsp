@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
-
+         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
     </head>
 
     <body>
@@ -88,7 +88,7 @@
 
                 <div class="containerRegistro">
                     <h2>Registrar Administrador</h2>
-                    <form action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
+                    <form id="formulario_agregar_administrador" action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" name="primerNombre"class="form-control" placeholder="Primer nombre" id="primer-nombre">
@@ -144,9 +144,9 @@
                             <input type="email" name="email"class="form-control" placeholder="Email" id="email">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" class="btn btn-primary" >Guardar</button>
                     </form>
-                </div>
+                </div> 
 
             </div>
         </div>
@@ -155,7 +155,7 @@
 
         <!-- =========== Scripts =========  -->
         <script src="/assets/js/main.js"></script>
-
+       <script src="${pageContext.request.contextPath}/resources/js/agregarAdministrador.js"></script>
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
