@@ -12,9 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,7 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "analisis_funcional")
@@ -52,9 +50,6 @@ public class AnalisisFuncional implements Serializable {
     @Lob
     @Column(name = "Observaciones")
     private String observaciones;
-    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
-    @ManyToOne
-    private Paciente fkIdPaciente;
     @OneToMany(mappedBy = "fkIdAnalisisFuncional")
     private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
 
@@ -103,14 +98,6 @@ public class AnalisisFuncional implements Serializable {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
-    }
-
-    public Paciente getFkIdPaciente() {
-        return fkIdPaciente;
-    }
-
-    public void setFkIdPaciente(Paciente fkIdPaciente) {
-        this.fkIdPaciente = fkIdPaciente;
     }
 
     @XmlTransient

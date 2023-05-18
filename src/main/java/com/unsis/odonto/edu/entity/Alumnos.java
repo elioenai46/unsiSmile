@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.unsis.odonto.edu.entity;
 
 import java.io.Serializable;
@@ -17,8 +21,26 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+/**
+ *
+ * @author froste
+ */
 @Entity
 @Table(name = "alumnos")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "Alumnos.findAll", query = "SELECT a FROM Alumnos a"),
+    @NamedQuery(name = "Alumnos.findByIdAlumno", query = "SELECT a FROM Alumnos a WHERE a.idAlumno = :idAlumno"),
+    @NamedQuery(name = "Alumnos.findByNombre", query = "SELECT a FROM Alumnos a WHERE a.nombre = :nombre"),
+    @NamedQuery(name = "Alumnos.findByNombre2", query = "SELECT a FROM Alumnos a WHERE a.nombre2 = :nombre2"),
+    @NamedQuery(name = "Alumnos.findByApellido", query = "SELECT a FROM Alumnos a WHERE a.apellido = :apellido"),
+    @NamedQuery(name = "Alumnos.findByApellido2", query = "SELECT a FROM Alumnos a WHERE a.apellido2 = :apellido2"),
+    @NamedQuery(name = "Alumnos.findBySexo", query = "SELECT a FROM Alumnos a WHERE a.sexo = :sexo"),
+    @NamedQuery(name = "Alumnos.findByCurp", query = "SELECT a FROM Alumnos a WHERE a.curp = :curp"),
+    @NamedQuery(name = "Alumnos.findByMatricula", query = "SELECT a FROM Alumnos a WHERE a.matricula = :matricula"),
+    @NamedQuery(name = "Alumnos.findByTelefono", query = "SELECT a FROM Alumnos a WHERE a.telefono = :telefono"),
+    @NamedQuery(name = "Alumnos.findByEmailAlumno", query = "SELECT a FROM Alumnos a WHERE a.emailAlumno = :emailAlumno"),
+    @NamedQuery(name = "Alumnos.findByEstatus", query = "SELECT a FROM Alumnos a WHERE a.estatus = :estatus")})
 public class Alumnos implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,9 +72,6 @@ public class Alumnos implements Serializable {
     private Boolean estatus;
     @OneToMany(mappedBy = "fkIdAlumno")
     private Collection<PacienteAlumno> pacienteAlumnoCollection;
-    @JoinColumn(name = "f_id_catedratico_responsable", referencedColumnName = "id_catedratico")
-    @ManyToOne(optional = false)
-    private Catedraticos fIdCatedraticoResponsable;
     @JoinColumn(name = "fk_id_semestre_grupo", referencedColumnName = "id_semestre_grupo")
     @ManyToOne
     private SemestreGrupo fkIdSemestreGrupo;
@@ -160,7 +179,6 @@ public class Alumnos implements Serializable {
         this.estatus = estatus;
     }
 
-    //Llaves foraneas
     @XmlTransient
     public Collection<PacienteAlumno> getPacienteAlumnoCollection() {
         return pacienteAlumnoCollection;
@@ -168,14 +186,6 @@ public class Alumnos implements Serializable {
 
     public void setPacienteAlumnoCollection(Collection<PacienteAlumno> pacienteAlumnoCollection) {
         this.pacienteAlumnoCollection = pacienteAlumnoCollection;
-    }
-
-    public Catedraticos getFIdCatedraticoResponsable() {
-        return fIdCatedraticoResponsable;
-    }
-
-    public void setFIdCatedraticoResponsable(Catedraticos fIdCatedraticoResponsable) {
-        this.fIdCatedraticoResponsable = fIdCatedraticoResponsable;
     }
 
     public SemestreGrupo getFkIdSemestreGrupo() {
@@ -218,5 +228,5 @@ public class Alumnos implements Serializable {
     public String toString() {
         return "com.unsis.odonto.edu.entity.Alumnos[ idAlumno=" + idAlumno + " ]";
     }
-
+    
 }

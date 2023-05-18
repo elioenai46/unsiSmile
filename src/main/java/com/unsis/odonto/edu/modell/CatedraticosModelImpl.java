@@ -70,11 +70,16 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            listaCatedraticos = s.createCriteria(Catedraticos.class).list();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerTodosCatedraticos", Catedraticos.class);
+            sp.execute();
+
+            listaCatedraticos = sp.getResultList();
+
             s.close();
             sf.close();
         } catch (HibernateException e) {
-            System.out.println("Error al obtener las lista de registros: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
         }
         return listaCatedraticos;
     }

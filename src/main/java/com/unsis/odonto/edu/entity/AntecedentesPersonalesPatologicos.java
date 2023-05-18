@@ -10,9 +10,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -22,7 +20,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "antecedentes_personales_patologicos")
@@ -127,9 +125,6 @@ public class AntecedentesPersonalesPatologicos implements Serializable {
     @Lob
     @Column(name = "observaciones")
     private String observaciones;
-    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
-    @ManyToOne
-    private Paciente fkIdPaciente;
     @OneToMany(mappedBy = "fkIdAntecedentesPersonalesPatologicos")
     private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
 
@@ -386,14 +381,6 @@ public class AntecedentesPersonalesPatologicos implements Serializable {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
-    }
-
-    public Paciente getFkIdPaciente() {
-        return fkIdPaciente;
-    }
-
-    public void setFkIdPaciente(Paciente fkIdPaciente) {
-        this.fkIdPaciente = fkIdPaciente;
     }
 
     @XmlTransient
