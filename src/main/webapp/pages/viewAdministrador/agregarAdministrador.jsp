@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
-
+         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
     </head>
 
     <body>

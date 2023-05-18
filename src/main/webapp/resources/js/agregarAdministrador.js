@@ -12,12 +12,12 @@ event.preventDefault();
         var numTrabajador = $('#matricula').val();
         var fecha = $('#fecha').val();
         
-        alert('Nombre: '+primerNombre+'Segundo Nombre'+ segundoNombre+
-              'Apellido paterno '+apellidoPaterno+'Apellido Materno'
-              +apellidoMaterno+'Sexo'+sexo+'Curp'+curp+'Telefono'
-              +telefono+'Email'+email+'Numero de trabajador'+numTrabajador+
-              'Fecha'+fecha );
-    /*    
+        alert('Nombre: '+primerNombre+' '+ segundoNombre+
+              ' '+apellidoPaterno+' '
+              +apellidoMaterno+'\nSexo: '+sexo+'\nCurp: '+curp+'\nTelefono: '
+              +telefono+'\nEmail: '+email+'\nNumero de trabajador: '+numTrabajador+
+              '\nFecha: '+fecha );
+        
     $.ajax({
         url: '../../AdministradoresServletController',
                 type: 'POST',
@@ -42,7 +42,7 @@ event.preventDefault();
                 // código a ejecutar cuando la petición falla
                 console.log("Error: " + error);
                 }
-        });*/
+        });
 });
         });
 
