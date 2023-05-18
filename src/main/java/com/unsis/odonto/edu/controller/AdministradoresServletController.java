@@ -80,7 +80,7 @@ public class AdministradoresServletController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
 
         IAdministradorService service = new AdministradorServiceImpl();
-        Administradores administradores = service.obtenerRegistro(id);
+        Administradores administradores = new Administradores(id);
 
         service.eliminarRegistro(administradores);
 

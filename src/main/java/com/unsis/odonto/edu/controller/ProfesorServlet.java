@@ -116,7 +116,7 @@ public class ProfesorServlet extends HttpServlet {
         
         ICatedraticoService service = new CatedraticoServiceImpl();
 
-        Catedraticos catedraticos = service.obtenerRegistro(id);
+        Catedraticos catedraticos = new Catedraticos(id);
         service.eliminarRegistro(catedraticos);
 
         List<Catedraticos> listaCatedratico = service.obtenerRegistros();
