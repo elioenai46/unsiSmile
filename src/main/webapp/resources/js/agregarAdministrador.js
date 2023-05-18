@@ -1,36 +1,32 @@
 $(document).ready(function(){
 $('#formulario_agregar_administrador').submit(function(event){
 event.preventDefault();
-        var firsN = $('#firsN').val();
-        var secondN = $('#secondN').val();
-        var Apa = $('#Apa').val();
-        var Ama = $('#Ama').val();
+        var primerNombre = $('#primer-nombre').val();
+        var segundoNombre = $('#segundo-nombre').val();
+        var apellidoPaterno = $('#apellido-paterno').val();
+        var apellidoMaterno = $('#apellido-materno').val();
         var sexo = $('#sexo').val();
         var curp = $('#curp').val();
-        var NumTel = $('#NumTel').val();
+        var telefono = $('#telefono').val();
         var email = $('#email').val();
-        var NumT = $('#NumT').val();
-        var correo = $('#correo').val();
+        var numTrabajador = $('#matricula').val();
         var fecha = $('#fecha').val();
         
-        alert('N: ' + firsN + 'r:' + sexo + 'g ' + semestre1 + 'fecha' + fecha);
+        alert('Nombre: ' + primerNombre + 'sexo:' + sexo + 'numero de trabajador ' + numTrabajador + 'fecha' + fecha);
         $.ajax({
-        url: '../../AlumnoController',
+        url: '../../AdministradoresServletController',
                 type: 'POST',
                 
                 data: {
-                nombre: nombre,
-                nombre2: nombre2,
-                apellido: apellido,
-                apellido2: apellido2,
+                primerNombre: primerNombre,
+                segundoNombre: segundoNombre,
+                apellidoPaterno: apellidoPaterno,
+                apellidoMaterno: apellidoMaterno,
                 sexo: sexo,
                 curp: curp,
-                semestre1: semestre1,
-                grupo1: grupo1,
-                matricula: matricula,
+                numeroTrabajador: numTrabajador,
                 telefono: telefono,
-                email: email,
-                idCatedratico: idCatedratico
+                email: email
                 },
                 success: function(response) {
                 // código a ejecutar cuando la petición es exitosa
