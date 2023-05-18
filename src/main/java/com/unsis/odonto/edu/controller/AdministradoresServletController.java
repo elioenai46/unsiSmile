@@ -35,10 +35,9 @@ public class AdministradoresServletController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         //int id = Integer.parseInt(request.getParameter("idDelUsuario"));
         //System.out.println("El idDelUsuario es: " + id);
-
         String cadena = request.getParameter("accion");
         System.out.println("controller 2" + cadena);
         switch (cadena) {
@@ -52,10 +51,10 @@ public class AdministradoresServletController extends HttpServlet {
                 eliminar(request, response);
                 break;
             case "actualizarFormulario":
-                //actualizarFormulario(request, response);
+                actualizarFormulario(request, response);
                 break;
             case "actualizar":
-                //actualizar(request, response);
+                doPut(request, response);
                 break;
             default:
                 break;
@@ -91,18 +90,49 @@ public class AdministradoresServletController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-//    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException {
-//        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
-//        int id = Integer.parseInt(request.getParameter("id"));
-//
-//        IAdministradorService service = new AdministradorServiceImpl();
-//        Administradores administradores = service.obtenerRegistro(id);
-//
-//        request.setAttribute("tenis", administradores);
-//
-//        dispatcher.forward(request, response);
-//    }
+    private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/actualizarAdministrador.jsp");
+        int id = Integer.parseInt(request.getParameter("id"));
+
+        IAdministradorService service = new AdministradorServiceImpl();
+        Administradores administradores = service.obtenerRegistro(id);
+        System.out.println("recibe: "+administradores.getApellido1());
+
+        request.setAttribute("administradores", administradores);
+
+        dispatcher.forward(request, response);
+    }
+
+    @Override
+    protected void doPut(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
+        
+        Administradores administradores = new Administradores();
+        //administradores.setIdAdministrador(Integer.parseInt(request.getParameter("idAdministrador")));
+        administradores.setNombre1(request.getParameter("nombre1"));
+        administradores.setNombre2(request.getParameter("nombre2"));
+        administradores.setApellido1(request.getParameter("apellido1"));
+        administradores.setApellido2(request.getParameter("apellido2"));
+        administradores.setCurp(request.getParameter("curp"));
+        administradores.setTelefono(request.getParameter("telefono"));
+        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
+        LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
+        administradores.setFechaNacimiento(fechaNacimiento);
+        administradores.setSexo(request.getParameter("sexo").toUpperCase().charAt(0));
+        administradores.setEmailAdmin(request.getParameter("emailAdmin"));
+        
+        
+        IAdministradorService service = new AdministradorServiceImpl();
+        service.actualizarRegistro(administradores);
+
+        List<Administradores> listaAdministradores = service.obtenerRegistros();
+        request.setAttribute("listaAdministradores", listaAdministradores);
+
+        dispatcher.forward(request, response);
+    }
+
     private void crear(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
