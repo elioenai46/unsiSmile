@@ -97,7 +97,7 @@ public class AdministradoresServletController extends HttpServlet {
 
         IAdministradorService service = new AdministradorServiceImpl();
         Administradores administradores = service.obtenerRegistro(id);
-        System.out.println("recibe: "+administradores.getApellido1());
+        System.out.println("recibe: "+administradores.getCurp());
 
         request.setAttribute("administradores", administradores);
 
@@ -118,6 +118,7 @@ public class AdministradoresServletController extends HttpServlet {
         administradores.setCurp(request.getParameter("curp"));
         administradores.setTelefono(request.getParameter("telefono"));
         administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
+        System.out.println(request.getParameter("fechaNacimiento"));
         LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
         administradores.setFechaNacimiento(fechaNacimiento);
         administradores.setSexo(request.getParameter("sexo").toUpperCase().charAt(0));

@@ -170,9 +170,40 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            s.beginTransaction();
-            s.update(administradores);
-            s.getTransaction().commit();
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("actualizarAdministrador");
+            
+            sp.registerStoredProcedureParameter("id_adminAux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("nombre1Aux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("nombre2Aux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido1Aux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("apellido2Aux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("curpAux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("telefonoAux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("numero_trabajadorAux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("fecha_nacimientoAux", LocalDate.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("sexoAux", Character.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("email_adminAux", String.class, ParameterMode.IN);
+
+            System.out.println("insertar ");
+            // Establecer parámetros del procedimiento almacenado
+
+            sp.setParameter("id_adminAux", administradores.getIdAdministrador());
+            sp.setParameter("nombre1Aux", administradores.getNombre1());
+            sp.setParameter("nombre2Aux", administradores.getNombre2());
+            sp.setParameter("apellido1Aux", administradores.getApellido1());
+            sp.setParameter("apellido2Aux", administradores.getApellido2());
+            sp.setParameter("curpAux", administradores.getCurp());
+            sp.setParameter("telefonoAux", administradores.getTelefono());
+            sp.setParameter("numero_trabajadorAux", administradores.getNumeroTrabajador());
+            sp.setParameter("fecha_nacimientoAux", administradores.getFechaNacimiento());
+            sp.setParameter("sexoAux", administradores.getSexo());
+            sp.setParameter("email_adminAux", administradores.getEmailAdmin());
+            
+            //ejecutar el proceso
+            sp.execute();
+//            s.beginTransaction();
+//            s.update(administradores);
+//            s.getTransaction().commit();
             s.close();
             sf.close();
         } catch (HibernateException e) {
