@@ -6,8 +6,11 @@
  */
 package com.unsis.odonto.edu.modell;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface ISemestreGrupo {
     public List<String> obtenerRegistros(String semestre);
+    public int obtenerIdSG(String semestre, String grupo);
+    public ArrayList<String> obtenerSemGrup(int id); 
 }
