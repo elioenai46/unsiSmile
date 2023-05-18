@@ -9,11 +9,39 @@ $(document).ready(function () {
         var apellido2 = $('#apellido2').val();
         var curp = $('#curp').val();
         var telefono = $('#telefono').val();
+        var numeroTrabajador = $('#numeroTrabajador').val();
         var fechaNacimiento = $('#fechaNacimiento').val();
         var sexo = $('#sexo').val();
         var emailAdmin = $('#emailAdmin').val();
 
-        alert('Variables cachadas: ' + idAdministrador + ', ' + nombre1 + ', ' + nombre2 + ', ' + apellido1 + ', ' + apellido2 + ', ' + curp + ', ' + telefono + ', ' + fechaNacimiento + ', ' + sexo + ', ' + emailAdmin);
+        alert('Variables cachadas: ' + idAdministrador + ', ' + nombre1 + ', ' + nombre2 + ', ' + apellido1 + ', ' + apellido2 + ', ' + curp + ', '
+                + telefono + ', ' + fechaNacimiento + ', ' + sexo + ', ' + emailAdmin);
+        $.ajax({
+        url: '../../AdministradoresServletController',
+                type: 'PUT',
+                
+                data: {
+                    idAdministrador: idAdministrador,
+                    nombre1 : nombre1,
+                    nombre2 : nombre2,
+                    apellido1 : apellido1,
+                    apellido2 : apellido2,
+                    curp : curp,
+                    telefono : telefono,
+                    numeroTrabajador : numeroTrabajador,
+                    fechaNacimiento : fechaNacimiento,
+                    sexo : sexo,
+                    emailAdmin : emailAdmin
+                },
+                success: function(response) {
+                // código a ejecutar cuando la petición es exitosa
+                console.log(response);
+                },
+                error: function(xhr, status, error) {
+                // código a ejecutar cuando la petición falla
+                console.log("Error: " + error);
+                }
+                });
     });
 
 });
