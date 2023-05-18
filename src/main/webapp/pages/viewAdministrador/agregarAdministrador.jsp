@@ -1,3 +1,17 @@
+<!-- 
+ Actualizo:Carlos Aurelio Alcantara Perez
+ Notas:Se agregó el documento js para guardar en la base de datos 
+
+
+
+
+
+-->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +24,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
-         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+         
     </head>
 
     <body>
@@ -144,7 +158,7 @@
                             <input type="email" name="email"class="form-control" placeholder="Email" id="email">
                         </div>
 
-                        <button type="submit" class="btn btn-primary" >Guardar</button>
+                        <button type="submit" class="btn btn-primary" ><a href="${pageContext.request.contextPath}/pages/viewAdministrador/gestionarAdministradores.jsp">Guardar</a></button>
                     </form>
                 </div> 
 
@@ -154,6 +168,7 @@
 
 
         <!-- =========== Scripts =========  -->
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
         <script src="/assets/js/main.js"></script>
        <script src="${pageContext.request.contextPath}/resources/js/agregarAdministrador.js"></script>
         <!-- ====== ionicons ======= -->

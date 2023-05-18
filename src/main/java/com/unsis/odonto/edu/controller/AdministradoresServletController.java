@@ -42,6 +42,7 @@ public class AdministradoresServletController extends HttpServlet {
         System.out.println("controller 2" + cadena);
         switch (cadena) {
             case "crear":
+        System.out.println("crenadoa min}---");
                 crear(request, response);
                 break;
             case "listar":
