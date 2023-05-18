@@ -54,7 +54,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.setParameter("matricula", alumnos.getMatricula());
             sp.setParameter("telefono", alumnos.getTelefono());
             sp.setParameter("email_alumno", alumnos.getEmailAlumno());
-            sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
+           // sp.setParameter("f_id_catedratico_responsable", alumnos.getFIdCatedraticoResponsable().getIdCatedratico());
 
             sp.execute();
             s.close();

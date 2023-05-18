@@ -15,8 +15,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -28,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "paciente")
@@ -73,7 +71,7 @@ public class Paciente implements Serializable {
     private String grupoEtnico;
     @Column(name = "ocupacion")
     private String ocupacion;
-    @Column(name = "fecha_nacimiento" , columnDefinition = "DATE")
+    @Column(name = "fecha_nacimiento", columnDefinition = "DATE")
     //@Temporal(TemporalType.DATE)
     private LocalDate fechaNacimiento;
     @Column(name = "domicilio")
@@ -84,6 +82,7 @@ public class Paciente implements Serializable {
     private String religion;
     @Column(name = "fecha_ingreso", columnDefinition = "DATE")
     //@Temporal(TemporalType.DATE)
+    //@Temporal(javax.persistence.TemporalType.DATE)
     private LocalDate fechaIngreso;
     @Column(name = "nacionalidad")
     private String nacionalidad;
@@ -93,37 +92,12 @@ public class Paciente implements Serializable {
     private Boolean estatus;
     @OneToMany(mappedBy = "fkIdPaciente")
     private Collection<PacienteAlumno> pacienteAlumnoCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<ExamenClinico> examenClinicoCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<ExamenFacial> examenFacialCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<EstudioDeLaboratorioBiopsia> estudioDeLaboratorioBiopsiaCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<AnalisisFuncional> analisisFuncionalCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<AntecedentesPersonalesPatologicos> antecedentesPersonalesPatologicosCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<AntecedentesHeredofamiliares> antecedentesHeredofamiliaresCollection;
-    @JoinColumn(name = "fk_id_tutor", referencedColumnName = "id_tutor")
-    @ManyToOne
-    private Tutor fkIdTutor;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<ExamenBucal> examenBucalCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<AntecedentesPersonalesNoPatologicos> antecedentesPersonalesNoPatologicosCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "fkIdPaciente")
     private Collection<Consulta> consultaCollection;
     @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<PosturaDelPaciente> posturaDelPacienteCollection;
+    private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
     @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<InterconsultaMedica> interconsultaMedicaCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<ModelosDeEstudioFotografias> modelosDeEstudioFotografiasCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<AnalisisRadiografico> analisisRadiograficoCollection;
-    @OneToMany(mappedBy = "fkIdPaciente")
-    private Collection<Odontograma> odontogramaCollection;
+    private Collection<Tutor> tutorCollection;
 
     public Paciente() {
     }
@@ -270,86 +244,6 @@ public class Paciente implements Serializable {
     }
 
     @XmlTransient
-    public Collection<ExamenClinico> getExamenClinicoCollection() {
-        return examenClinicoCollection;
-    }
-
-    public void setExamenClinicoCollection(Collection<ExamenClinico> examenClinicoCollection) {
-        this.examenClinicoCollection = examenClinicoCollection;
-    }
-
-    @XmlTransient
-    public Collection<ExamenFacial> getExamenFacialCollection() {
-        return examenFacialCollection;
-    }
-
-    public void setExamenFacialCollection(Collection<ExamenFacial> examenFacialCollection) {
-        this.examenFacialCollection = examenFacialCollection;
-    }
-
-    @XmlTransient
-    public Collection<EstudioDeLaboratorioBiopsia> getEstudioDeLaboratorioBiopsiaCollection() {
-        return estudioDeLaboratorioBiopsiaCollection;
-    }
-
-    public void setEstudioDeLaboratorioBiopsiaCollection(Collection<EstudioDeLaboratorioBiopsia> estudioDeLaboratorioBiopsiaCollection) {
-        this.estudioDeLaboratorioBiopsiaCollection = estudioDeLaboratorioBiopsiaCollection;
-    }
-
-    @XmlTransient
-    public Collection<AnalisisFuncional> getAnalisisFuncionalCollection() {
-        return analisisFuncionalCollection;
-    }
-
-    public void setAnalisisFuncionalCollection(Collection<AnalisisFuncional> analisisFuncionalCollection) {
-        this.analisisFuncionalCollection = analisisFuncionalCollection;
-    }
-
-    @XmlTransient
-    public Collection<AntecedentesPersonalesPatologicos> getAntecedentesPersonalesPatologicosCollection() {
-        return antecedentesPersonalesPatologicosCollection;
-    }
-
-    public void setAntecedentesPersonalesPatologicosCollection(Collection<AntecedentesPersonalesPatologicos> antecedentesPersonalesPatologicosCollection) {
-        this.antecedentesPersonalesPatologicosCollection = antecedentesPersonalesPatologicosCollection;
-    }
-
-    @XmlTransient
-    public Collection<AntecedentesHeredofamiliares> getAntecedentesHeredofamiliaresCollection() {
-        return antecedentesHeredofamiliaresCollection;
-    }
-
-    public void setAntecedentesHeredofamiliaresCollection(Collection<AntecedentesHeredofamiliares> antecedentesHeredofamiliaresCollection) {
-        this.antecedentesHeredofamiliaresCollection = antecedentesHeredofamiliaresCollection;
-    }
-
-    public Tutor getFkIdTutor() {
-        return fkIdTutor;
-    }
-
-    public void setFkIdTutor(Tutor fkIdTutor) {
-        this.fkIdTutor = fkIdTutor;
-    }
-
-    @XmlTransient
-    public Collection<ExamenBucal> getExamenBucalCollection() {
-        return examenBucalCollection;
-    }
-
-    public void setExamenBucalCollection(Collection<ExamenBucal> examenBucalCollection) {
-        this.examenBucalCollection = examenBucalCollection;
-    }
-
-    @XmlTransient
-    public Collection<AntecedentesPersonalesNoPatologicos> getAntecedentesPersonalesNoPatologicosCollection() {
-        return antecedentesPersonalesNoPatologicosCollection;
-    }
-
-    public void setAntecedentesPersonalesNoPatologicosCollection(Collection<AntecedentesPersonalesNoPatologicos> antecedentesPersonalesNoPatologicosCollection) {
-        this.antecedentesPersonalesNoPatologicosCollection = antecedentesPersonalesNoPatologicosCollection;
-    }
-
-    @XmlTransient
     public Collection<Consulta> getConsultaCollection() {
         return consultaCollection;
     }
@@ -359,48 +253,21 @@ public class Paciente implements Serializable {
     }
 
     @XmlTransient
-    public Collection<PosturaDelPaciente> getPosturaDelPacienteCollection() {
-        return posturaDelPacienteCollection;
+    public Collection<HistoriaClinicaGeneral> getHistoriaClinicaGeneralCollection() {
+        return historiaClinicaGeneralCollection;
     }
 
-    public void setPosturaDelPacienteCollection(Collection<PosturaDelPaciente> posturaDelPacienteCollection) {
-        this.posturaDelPacienteCollection = posturaDelPacienteCollection;
-    }
-
-    @XmlTransient
-    public Collection<InterconsultaMedica> getInterconsultaMedicaCollection() {
-        return interconsultaMedicaCollection;
-    }
-
-    public void setInterconsultaMedicaCollection(Collection<InterconsultaMedica> interconsultaMedicaCollection) {
-        this.interconsultaMedicaCollection = interconsultaMedicaCollection;
+    public void setHistoriaClinicaGeneralCollection(Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection) {
+        this.historiaClinicaGeneralCollection = historiaClinicaGeneralCollection;
     }
 
     @XmlTransient
-    public Collection<ModelosDeEstudioFotografias> getModelosDeEstudioFotografiasCollection() {
-        return modelosDeEstudioFotografiasCollection;
+    public Collection<Tutor> getTutorCollection() {
+        return tutorCollection;
     }
 
-    public void setModelosDeEstudioFotografiasCollection(Collection<ModelosDeEstudioFotografias> modelosDeEstudioFotografiasCollection) {
-        this.modelosDeEstudioFotografiasCollection = modelosDeEstudioFotografiasCollection;
-    }
-
-    @XmlTransient
-    public Collection<AnalisisRadiografico> getAnalisisRadiograficoCollection() {
-        return analisisRadiograficoCollection;
-    }
-
-    public void setAnalisisRadiograficoCollection(Collection<AnalisisRadiografico> analisisRadiograficoCollection) {
-        this.analisisRadiograficoCollection = analisisRadiograficoCollection;
-    }
-
-    @XmlTransient
-    public Collection<Odontograma> getOdontogramaCollection() {
-        return odontogramaCollection;
-    }
-
-    public void setOdontogramaCollection(Collection<Odontograma> odontogramaCollection) {
-        this.odontogramaCollection = odontogramaCollection;
+    public void setTutorCollection(Collection<Tutor> tutorCollection) {
+        this.tutorCollection = tutorCollection;
     }
 
     @Override

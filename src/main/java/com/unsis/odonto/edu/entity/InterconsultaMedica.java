@@ -12,9 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -24,14 +22,15 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "interconsulta_medica")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "InterconsultaMedica.findAll", query = "SELECT i FROM InterconsultaMedica i"),
-    @NamedQuery(name = "InterconsultaMedica.findByIdInterconsultaMedica", query = "SELECT i FROM InterconsultaMedica i WHERE i.idInterconsultaMedica = :idInterconsultaMedica")})
+    @NamedQuery(name = "InterconsultaMedica.findByIdInterconsultaMedica", query = "SELECT i FROM InterconsultaMedica i WHERE i.idInterconsultaMedica = :idInterconsultaMedica"),
+    @NamedQuery(name = "InterconsultaMedica.findByNombreMedico", query = "SELECT i FROM InterconsultaMedica i WHERE i.nombreMedico = :nombreMedico")})
 public class InterconsultaMedica implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,26 +39,22 @@ public class InterconsultaMedica implements Serializable {
     @Basic(optional = false)
     @Column(name = "id_interconsulta_medica")
     private Integer idInterconsultaMedica;
-    @Lob
     @Column(name = "nombre_medico")
     private String nombreMedico;
     @Lob
     @Column(name = "razon")
     private String razon;
     @Lob
-    @Column(name = "motivo_de_diagnostico_presuntivo")
-    private String motivoDeDiagnosticoPresuntivo;
+    @Column(name = "motivo_diagnostico_presuntivo")
+    private String motivoDiagnosticoPresuntivo;
     @Lob
-    @Column(name = "Motivo_de_envio")
-    private String motivodeenvio;
+    @Column(name = "motivo_de_envio")
+    private String motivoDeEnvio;
     @Lob
     @Column(name = "servicio_al_que_se_envia")
     private String servicioAlQueSeEnvia;
     @OneToMany(mappedBy = "fkIdInterconsultaMedica")
     private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
-    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
-    @ManyToOne
-    private Paciente fkIdPaciente;
 
     public InterconsultaMedica() {
     }
@@ -92,20 +87,20 @@ public class InterconsultaMedica implements Serializable {
         this.razon = razon;
     }
 
-    public String getMotivoDeDiagnosticoPresuntivo() {
-        return motivoDeDiagnosticoPresuntivo;
+    public String getMotivoDiagnosticoPresuntivo() {
+        return motivoDiagnosticoPresuntivo;
     }
 
-    public void setMotivoDeDiagnosticoPresuntivo(String motivoDeDiagnosticoPresuntivo) {
-        this.motivoDeDiagnosticoPresuntivo = motivoDeDiagnosticoPresuntivo;
+    public void setMotivoDiagnosticoPresuntivo(String motivoDiagnosticoPresuntivo) {
+        this.motivoDiagnosticoPresuntivo = motivoDiagnosticoPresuntivo;
     }
 
-    public String getMotivodeenvio() {
-        return motivodeenvio;
+    public String getMotivoDeEnvio() {
+        return motivoDeEnvio;
     }
 
-    public void setMotivodeenvio(String motivodeenvio) {
-        this.motivodeenvio = motivodeenvio;
+    public void setMotivoDeEnvio(String motivoDeEnvio) {
+        this.motivoDeEnvio = motivoDeEnvio;
     }
 
     public String getServicioAlQueSeEnvia() {
@@ -123,14 +118,6 @@ public class InterconsultaMedica implements Serializable {
 
     public void setHistoriaClinicaGeneralCollection(Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection) {
         this.historiaClinicaGeneralCollection = historiaClinicaGeneralCollection;
-    }
-
-    public Paciente getFkIdPaciente() {
-        return fkIdPaciente;
-    }
-
-    public void setFkIdPaciente(Paciente fkIdPaciente) {
-        this.fkIdPaciente = fkIdPaciente;
     }
 
     @Override
