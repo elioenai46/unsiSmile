@@ -96,16 +96,16 @@ use unsis_smile;*/
 
 
 -- agregamos datos de alumnos
-INSERT INTO alumnos(nombre, nombre2, apellido, apellido2, sexo, curp, fk_id_semestre_grupo, matricula, telefono, email_alumno, f_id_catedratico_responsable, f_id_usuario)
+INSERT INTO alumnos(nombre, nombre2, apellido, apellido2, sexo, curp, fk_id_semestre_grupo, matricula, telefono, email_alumno, f_id_usuario)
 VALUES 
-('Ana', 'María', 'García', 'Sánchez', 'F', 'GASA920416MCLRLNA6', 4, '2023000011', '5551234567', 'anamaria@gmail.com', 1, 21),
-('Juan', 'Carlos', 'Pérez', 'García', 'M', 'PECG930517HCLRRN07', 6, '2023000012', '5552345678', 'juancarlos@hotmail.com', 2, 22),
-('María', 'José', 'Hernández', 'González', 'F', 'HEGM870101MCLRNR00', 8, '2023000013', '5553456789', 'mariajose@yahoo.com', 3, 23),
-('Pedro', 'Antonio', 'Sánchez', 'López', 'M', 'SALP990605HCLRRD02', 6, '2023000014', '5554567890', 'pedroantonio@gmail.com', 4, 24),
-('Ana', 'Luisa', 'Martínez', 'Vázquez', 'F', 'MAVA780502MCLRZN09', 2, '2023000015', '5555678901', 'analuisa@hotmail.com', 5, 25),
-('Luis', 'Miguel', 'Gómez', 'Pérez', 'M', 'GOPP850310HCLRSL02', 4, '2023000016', '5556789012', 'luismiguel@gmail.com', 6, 26),
-('Mónica', 'Patricia', 'González', 'Ruiz', 'F', 'GORM810611MCLRZN05', 6, '2023000017', '5557890123', 'monicapatricia@yahoo.com', 7, 27),
-('Jorge', 'Alberto', 'Rodríguez', 'Sánchez', 'M', 'ROSS900102HCLRRR04', 8, '2023000018', '5558901234', 'jorgealberto@hotmail.com', 8, 28),
-('María', 'Elena', 'Díaz', 'Hernández', 'F', 'DIHM880818MCLRNL02', 4, '2023000019', '5559012345', 'mariaelena@gmail.com', 9, 29),
-('Fernando', 'Antonio', 'Mendoza', 'García', 'M', 'MEGF830513HCLRNN07', 2, '2023000020', '5550123456', 'fernandoantonio@yahoo.com', 10, 30);
+('Ana', 'María', 'García', 'Sánchez', 'F', 'GASA920416MCLRLNA6', 4, '2023000011', '5551234567', 'anamaria@gmail.com', 21),
+('Juan', 'Carlos', 'Pérez', 'García', 'M', 'PECG930517HCLRRN07', 6, '2023000012', '5552345678', 'juancarlos@hotmail.com', 22),
+('María', 'José', 'Hernández', 'González', 'F', 'HEGM870101MCLRNR00', 8, '2023000013', '5553456789', 'mariajose@yahoo.com', 23),
+('Pedro', 'Antonio', 'Sánchez', 'López', 'M', 'SALP990605HCLRRD02', 6, '2023000014', '5554567890', 'pedroantonio@gmail.com', 24),
+('Ana', 'Luisa', 'Martínez', 'Vázquez', 'F', 'MAVA780502MCLRZN09', 2, '2023000015', '5555678901', 'analuisa@hotmail.com', 25),
+('Luis', 'Miguel', 'Gómez', 'Pérez', 'M', 'GOPP850310HCLRSL02', 4, '2023000016', '5556789012', 'luismiguel@gmail.com', 26),
+('Mónica', 'Patricia', 'González', 'Ruiz', 'F', 'GORM810611MCLRZN05', 6, '2023000017', '5557890123', 'monicapatricia@yahoo.com', 27),
+('Jorge', 'Alberto', 'Rodríguez', 'Sánchez', 'M', 'ROSS900102HCLRRR04', 8, '2023000018', '5558901234', 'jorgealberto@hotmail.com', 28),
+('María', 'Elena', 'Díaz', 'Hernández', 'F', 'DIHM880818MCLRNL02', 4, '2023000019', '5559012345', 'mariaelena@gmail.com', 29),
+('Fernando', 'Antonio', 'Mendoza', 'García', 'M', 'MEGF830513HCLRNN07', 2, '2023000020', '5550123456', 'fernandoantonio@yahoo.com', 30);
 

@@ -10,8 +10,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -21,7 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author labingsw02
+ * @author froste
  */
 @Entity
 @Table(name = "antecedentes_personales_no_patologicos")
@@ -34,7 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByComeCereales", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.comeCereales = :comeCereales"),
     @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByComeAlimentosChatarra", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.comeAlimentosChatarra = :comeAlimentosChatarra"),
     @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByTomaDosLitrosDeAguaXDia", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.tomaDosLitrosDeAguaXDia = :tomaDosLitrosDeAguaXDia"),
-    @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByUnoMasRefrescosDia", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.unoMasRefrescosDia = :unoMasRefrescosDia"),
+    @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByUnoOMasRefrescosDia", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.unoOMasRefrescosDia = :unoOMasRefrescosDia"),
     @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByHorasDuermeDia", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.horasDuermeDia = :horasDuermeDia"),
     @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByBa\u00f1oVecesXSemana", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.ba\u00f1oVecesXSemana = :ba\u00f1oVecesXSemana"),
     @NamedQuery(name = "AntecedentesPersonalesNoPatologicos.findByCepilladoXDia", query = "SELECT a FROM AntecedentesPersonalesNoPatologicos a WHERE a.cepilladoXDia = :cepilladoXDia"),
@@ -57,8 +55,8 @@ public class AntecedentesPersonalesNoPatologicos implements Serializable {
     private Boolean comeAlimentosChatarra;
     @Column(name = "toma_dos_litros_de_agua_x_dia")
     private Boolean tomaDosLitrosDeAguaXDia;
-    @Column(name = "uno_mas_refrescos_dia")
-    private Boolean unoMasRefrescosDia;
+    @Column(name = "uno_o_mas_refrescos_dia")
+    private Boolean unoOMasRefrescosDia;
     @Column(name = "horas_duerme_dia")
     private Integer horasDuermeDia;
     @Column(name = "ba\u00f1o_veces_x_semana")
@@ -69,9 +67,6 @@ public class AntecedentesPersonalesNoPatologicos implements Serializable {
     private Integer suViviendaTienePiso;
     @Column(name = "material_de_vivienda")
     private String materialDeVivienda;
-    @JoinColumn(name = "fk_id_paciente", referencedColumnName = "id_paciente")
-    @ManyToOne
-    private Paciente fkIdPaciente;
     @OneToMany(mappedBy = "fkIdAntecedentesPersonalesNoPatologicos")
     private Collection<HistoriaClinicaGeneral> historiaClinicaGeneralCollection;
 
@@ -130,12 +125,12 @@ public class AntecedentesPersonalesNoPatologicos implements Serializable {
         this.tomaDosLitrosDeAguaXDia = tomaDosLitrosDeAguaXDia;
     }
 
-    public Boolean getUnoMasRefrescosDia() {
-        return unoMasRefrescosDia;
+    public Boolean getUnoOMasRefrescosDia() {
+        return unoOMasRefrescosDia;
     }
 
-    public void setUnoMasRefrescosDia(Boolean unoMasRefrescosDia) {
-        this.unoMasRefrescosDia = unoMasRefrescosDia;
+    public void setUnoOMasRefrescosDia(Boolean unoOMasRefrescosDia) {
+        this.unoOMasRefrescosDia = unoOMasRefrescosDia;
     }
 
     public Integer getHorasDuermeDia() {
@@ -176,14 +171,6 @@ public class AntecedentesPersonalesNoPatologicos implements Serializable {
 
     public void setMaterialDeVivienda(String materialDeVivienda) {
         this.materialDeVivienda = materialDeVivienda;
-    }
-
-    public Paciente getFkIdPaciente() {
-        return fkIdPaciente;
-    }
-
-    public void setFkIdPaciente(Paciente fkIdPaciente) {
-        this.fkIdPaciente = fkIdPaciente;
     }
 
     @XmlTransient
