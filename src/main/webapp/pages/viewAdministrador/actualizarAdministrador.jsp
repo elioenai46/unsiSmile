@@ -88,22 +88,23 @@
                 <!-- action="${pageContext.request.contextPath}/AdministradoresServletController?accion=actualizar" method="POST" -->
                 <div class="containerRegistro">
                     <h2>Actualizar Administrador</h2>
-                    <form  id="Form-Actualizar-Admin" method="PUT">
+                    <form  id="form-Actualizar-Admin">
+                        
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
-                            <input type="text" class="form-control" value="${administradores.nombre1}" placeholder='Primer nombre' id="primer-nombre">
+                            <input type="text" class="form-control" value="${administradores.nombre1}" placeholder='Primer nombre' id="nombre1">
                         </div>
                         <div class="form-group">
                             <label for="segundo-nombre">Segundo nombre</label>
-                            <input type="text" class="form-control" value='${administradores.nombre2}' placeholder="Segundo nombre" id="segundo-nombre">
+                            <input type="text" class="form-control" value='${administradores.nombre2}' placeholder="Segundo nombre" id="nombre2">
                         </div>
                         <div class="form-group">
                             <label for="apellido-paterno">Apellido paterno</label>
-                            <input type="text" class="form-control" value='${administradores.apellido1}' placeholder="Apellido paterno" id="apellido-paterno">
+                            <input type="text" class="form-control" value='${administradores.apellido1}' placeholder="Apellido paterno" id="apellido1">
                         </div>
                         <div class="form-group">
                             <label for="apellido-materno">Apellido materno</label>
-                            <input type="text" class="form-control" value="${administradores.apellido2}" placeholder="Apellido materno" id="apellido-materno">
+                            <input type="text" class="form-control" value="${administradores.apellido2}" placeholder="Apellido materno" id="apellido2">
                         </div>
                         <div class="form-group">
                             <label for="curp">CURP</label>
@@ -115,14 +116,14 @@
                         </div>
                         <div class="form-group">
                             <label for="numero-Trabajador">Número Trabajador</label>
-                            <input type="text" class="form-control" value="${administradores.numeroTrabajador}" placeholder="Número Trabajador" id="numero-Trabajador">
+                            <input type="text" class="form-control" value="${administradores.numeroTrabajador}" placeholder="Número Trabajador" id="numeroTrabajador">
 
                             </input>
                         </div>
 
                         <div class="form-group">
                             <label for="sexo">Fecha de nacimiento</label>
-                            <input type="date" name="fecha" class="form-control" value="${administradores.fechaNacimiento}" id="fecha">
+                            <input type="date" name="fecha" class="form-control" value="${administradores.fechaNacimiento}" id="fechaNacimiento">
                         </div>
 
 

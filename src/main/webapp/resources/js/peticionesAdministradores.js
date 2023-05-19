@@ -1,8 +1,8 @@
 
 $(document).ready(function () {
-    $('#Form-Actualizar-Admin').sumbit(function (event) {
+    $('#form-Actualizar-Admin').submit(function (event) {
         event.preventDefault();
-        var idAdministrador = $('#idAdministrador').val();
+        var idAdministrador = $('#id').val();
         var nombre1 = $('#nombre1').val();
         var nombre2 = $('#nombre2').val();
         var apellido1 = $('#apellido1').val();
@@ -12,10 +12,10 @@ $(document).ready(function () {
         var numeroTrabajador = $('#numeroTrabajador').val();
         var fechaNacimiento = $('#fechaNacimiento').val();
         var sexo = $('#sexo').val();
-        var emailAdmin = $('#emailAdmin').val();
+        var emailAdmin = $('#email').val();
 
         alert('Variables cachadas: ' + idAdministrador + ', n' + nombre1 + ', n' + nombre2 + ', a' + apellido1 + ', a' + apellido2 + ', c' + curp + ', t'
-                + telefono + ', f' + fechaNacimiento + ', s' + sexo + ', e' + emailAdmin);
+                + telefono + ', f' + fechaNacimiento + ', s' + sexo + ', e' + email);
         $.ajax({
         url: '../../AdministradoresServletController',
                 type: 'PUT',
@@ -31,7 +31,7 @@ $(document).ready(function () {
                     numeroTrabajador : numeroTrabajador,
                     fechaNacimiento : fechaNacimiento,
                     sexo : sexo,
-                    emailAdmin : emailAdmin
+                    emailAdmin : email
                 },
                 success: function(response) {
                 // código a ejecutar cuando la petición es exitosa
