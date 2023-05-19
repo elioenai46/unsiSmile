@@ -11,8 +11,9 @@ in apellido varchar(50),
 in apellido2 varchar(50),
 in sexo char,
 in curp varchar(20),
-in semestre varchar(4),
-in grupo varchar(1),
+in idSemestreGrupo int,
+-- in semestre varchar(4),
+-- in grupo varchar(1),
 in matricula varchar(10),
 in telefono varchar(10),
 in mail varchar(100)
@@ -24,10 +25,10 @@ BEGIN
     -- primero se crea un usuario y una contraseña para el administrador a insertar.
     -- sus credenciales seran su numero de trabajador y curp para user y pass, respectivamente.
     set idUsuario = spInsertarUsuario(matricula,curp,3);    
-    set idSemGrupo = filtrarIdSemestreGrupo(semestre,grupo);    
+    -- set idSemGrupo = filtrarIdSemestreGrupo(semestre,grupo);    
     -- insertamos al nuevo alumno
 	insert into alumnos(nombre,nombre2,apellido,apellido2,curp,fk_id_semestre_grupo,matricula,telefono,email_alumno,estatus,f_id_usuario)
-    values(nombre,nombre2,apellido,apellido2,curp,idSemGrupo,matricula,telefono,mail,estatus,idUsuario);
+    values(nombre,nombre2,apellido,apellido2,curp,idSemestreGrupo,matricula,telefono,mail,estatus,idUsuario);
 end
 $$
 DELIMITER ;
