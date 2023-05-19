@@ -1,9 +1,15 @@
 package com.unsis.odonto.edu.controller;
 
 import com.unsis.odonto.edu.entity.Administradores;
+import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.Catedraticos;
 import com.unsis.odonto.edu.entity.Usuarios;
 import com.unsis.odonto.edu.service.AdministradorServiceImpl;
+import com.unsis.odonto.edu.service.AlumnosServiceImpl;
+import com.unsis.odonto.edu.service.CatedraticoServiceImpl;
 import com.unsis.odonto.edu.service.IAdministradorService;
+import com.unsis.odonto.edu.service.IAlumnoService;
+import com.unsis.odonto.edu.service.ICatedraticoService;
 import com.unsis.odonto.edu.service.ILoginService;
 import com.unsis.odonto.edu.service.LoginServiceImpl;
 import java.io.IOException;
@@ -27,54 +33,60 @@ public class LoginController extends HttpServlet {
 
         String username = request.getParameter("usuario");
         String password = request.getParameter("contrasena");
-        
 
         Usuarios usuarios = new Usuarios();
         usuarios.setNombreUsuario(username);
         usuarios.setPassUsuario(password);
 
         ILoginService service = new LoginServiceImpl();
-        IAdministradorService adminService= new AdministradorServiceImpl();
-        Administradores admin = new Administradores();
-        // injectar 
 
+        // injectar 
         usuarios = service.login(usuarios);
-        
+
         String paginaDestino = "/pages/login/login.jsp";
         if (usuarios.getNombreRol().compareTo("") != 0) {
-           
+
             HttpSession session = request.getSession();
             session.setMaxInactiveInterval(20);
-            System.out.println("id--: " +usuarios.getIdUsuario());
+            System.out.println("id--: " + usuarios.getIdUsuario());
             session.setAttribute("idUsuario", usuarios.getIdUsuario());
-             switch (usuarios.getNombreRol()) {
-                case "Administrador":              
+            switch (usuarios.getNombreRol()) {
+                case "Administrador":
+                    IAdministradorService adminService = new AdministradorServiceImpl();
+                    Administradores admin = new Administradores();
                     paginaDestino = "/pages/viewAdministrador/homeAdministrador.jsp";
-                    admin=adminService.obtenerRegistro(usuarios.getIdUsuario());
-                    session.setAttribute("admin",admin);
+                    admin = adminService.obtenerRegistro(usuarios.getIdUsuario());
+                    session.setAttribute("admin", admin);
 //                    /**
 //                     * enviamos el id del usuario al jsp, hacemos lo mismo
 //                     * para alumnos y profesor
 //                     */
 //                    request.setAttribute("iduser", usuarios.getIdUsuario());
 
-                   break;
+                    break;
                 case "Alumno":
+                    IAlumnoService alumnoService = new AlumnosServiceImpl();
+                    Alumnos alumno = new Alumnos();
                     paginaDestino = "/pages/viewAlumno/homeAlumno.jsp";
-//                    request.setAttribute("iduser", usuarios.getIdUsuario());
+                    alumno = alumnoService.obtenerRegistro(usuarios.getIdUsuario());
+                    request.setAttribute("alumno", alumno);
+                    System.out.println("id= "+alumno.getIdAlumno());
 
                     break;
-                      case "Profesor":
+                case "Profesor":
+                    ICatedraticoService profesorService =  new CatedraticoServiceImpl();
+                    Catedraticos profesor = new Catedraticos();
                     paginaDestino = "/pages/viewProfesor/homeProfesor.jsp";
-//                    request.setAttribute("iduser", usuarios.getIdUsuario());
+                    profesor =  profesorService.obtenerRegistro(usuarios.getIdUsuario());
+                    request.setAttribute("catedratico",profesor);
 
                     break;
 
                 default:
-                    paginaDestino="/pages/login/login.jsp";
+                    paginaDestino = "/pages/login/login.jsp";
 
-             }
-           //paginaDestino = "/pages/index.jsp";
+            }
+            //paginaDestino = "/pages/index.jsp";
         } else {
             String message = "usuario o contraseña incorrecta";
             request.setAttribute("message", message);
