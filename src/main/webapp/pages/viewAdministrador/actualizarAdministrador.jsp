@@ -91,6 +91,10 @@
                     <form  id="form-Actualizar-Admin">
                         
                         <div class="form-group">
+                            <label for="primer-nombre">Id Administrador</label>
+                            <input type="text" class="form-control" readonly="readonly" value="${administradores.idAdministrador}" placeholder='Id Administrador' id="idAdministrador">
+                        </div>
+                        <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" class="form-control" value="${administradores.nombre1}" placeholder='Primer nombre' id="nombre1">
                         </div>
@@ -130,7 +134,7 @@
                         <div class="form-group">
                             <label for="sexo">Sexo</label>
                             <select id="sexo" name="sexo" class="select-custom" >
-                                <option value="">--</option>
+                                <option value="${administradores.sexo}">${administradores.sexo}</option>
                                 <option value="hombre">Hombre</option>
                                 <option value="mujer">Mujer</option>
                             </select>
@@ -143,7 +147,7 @@
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" value="${administradores.emailAdmin}" placeholder="Email" id="email">
+                            <input type="text" class="form-control" value="${administradores.emailAdmin}" placeholder="Email" id="emailA">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Actualizar</button>

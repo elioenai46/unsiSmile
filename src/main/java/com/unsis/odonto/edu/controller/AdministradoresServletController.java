@@ -93,11 +93,11 @@ public class AdministradoresServletController extends HttpServlet {
     private void actualizarFormulario(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/actualizarAdministrador.jsp");
-        int id = Integer.parseInt(request.getParameter("id"));
+        int idAdministrador = Integer.parseInt(request.getParameter("id"));
 
         IAdministradorService service = new AdministradorServiceImpl();
-        Administradores administradores = service.obtenerRegistro(id);
-        System.out.println("recibe: "+administradores.getCurp());
+        Administradores administradores = service.obtenerRegistro(idAdministrador);
+        System.out.println("recibe: "+administradores.getIdAdministrador() + idAdministrador);
 
         request.setAttribute("administradores", administradores);
 
