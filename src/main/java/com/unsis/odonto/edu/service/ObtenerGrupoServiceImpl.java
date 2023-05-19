@@ -9,6 +9,7 @@ package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.modell.ISemestreGrupo;
 import com.unsis.odonto.edu.modell.SemestreGrupoImpl;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ObtenerGrupoServiceImpl implements IObtenerGrupoService {
@@ -19,5 +20,16 @@ public class ObtenerGrupoServiceImpl implements IObtenerGrupoService {
     public List<String> obtenerRegistros(String semestre) {
         return model.obtenerRegistros(semestre);
     }
+
+    @Override
+    public ArrayList<String> obtenerSemGrup(int id) {
+        return model.obtenerSemGrup(id);
+    }
+
+    @Override
+    public int obtenerIdSG(String semestre, String grupo) {
+        return model.obtenerIdSG(semestre, grupo);
+    }
+    
 
 }

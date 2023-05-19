@@ -57,7 +57,9 @@ public class SemestreGrupoImpl implements ISemestreGrupo {
 
         return resultados;
     }
-
+    /**
+     * Método para obtener el id de la relación semestre grupo 
+     */
     @Override
     public int obtenerIdSG(String semestre, String grupo) {
         int id = 0;
@@ -78,7 +80,13 @@ public class SemestreGrupoImpl implements ISemestreGrupo {
             sp.execute();
 
             // Obtener los resultados de la consulta
-            List<Object> registros = sp.getResultList();
+            List<Object[]> registros = sp.getResultList();
+            // Recorrer los registros y agregarlos a la lista de resultados
+            for (Object registro : registros) {
+                Object[] row = registros.get(0);
+                //aux=((row[0] == null) ? "" : ((row[0]).toString()));
+                id=Integer.parseInt((row[0]).toString());
+            }
 
             // Recorrer los registros y agregarlos a la lista de resultados
             

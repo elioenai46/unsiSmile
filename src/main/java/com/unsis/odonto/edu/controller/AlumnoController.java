@@ -17,8 +17,10 @@ import com.unsis.odonto.edu.service.AdministradorServiceImpl;
 import com.unsis.odonto.edu.service.AlumnosServiceImpl;
 import com.unsis.odonto.edu.service.IAdministradorService;
 import com.unsis.odonto.edu.service.IAlumnoService;
+import com.unsis.odonto.edu.service.IObtenerGrupoService;
 import com.unsis.odonto.edu.service.ObtenerGrupoServiceImpl;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -136,7 +138,7 @@ public class AlumnoController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
         Alumnos alumno = new Alumnos();
 
-        alumno.setNombre(request.getParameter("primerNombre"));
+        alumno.setNombre(request.getParameter("nombre"));
         alumno.setNombre2(request.getParameter("segundoNombre"));
         alumno.setApellido(request.getParameter("apellidoPaterno"));
         alumno.setApellido2(request.getParameter("apellidoMaterno"));
@@ -151,10 +153,19 @@ public class AlumnoController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/actualizarAlumno.jsp");
         int id = Integer.parseInt(request.getParameter("id"));
         
-        System.out.println("actualizar--->: " + id);
-
+        
+        //obtenemos los datos del alumno desde la base de datos mediante el id
         IAlumnoService service = new AlumnosServiceImpl();
         Alumnos alumno= service.obtenerRegistro(id);
+        
+        //obtenemos el semestre y grupo usando el id_semestre_grupo que tiene
+        //el objeto alumno, y l guardamos en un array list de tipo String
+        IObtenerGrupoService grupo= new ObtenerGrupoServiceImpl();
+        ArrayList<String> lista=grupo.obtenerSemGrup(alumno.getFkIdSemestreGrupo().getIdSemestreGrupo());
+        
+        
+        System.out.println(lista.get(0));
+        System.out.println(lista.get(1));
 
         request.setAttribute("alumno", alumno);
 
