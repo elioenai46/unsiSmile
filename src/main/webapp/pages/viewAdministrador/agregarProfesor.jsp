@@ -149,7 +149,9 @@
 
 
         <!-- =========== Scripts =========  -->
+         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
         <script src="/assets/js/main.js"></script>
+       <script src="${pageContext.request.contextPath}/resources/js/agregarProfesor.js"></script>
 
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
