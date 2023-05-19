@@ -6,35 +6,41 @@
  */
 
 $(document).ready(function () {
-    $('Agregar_Alumno').click(function (event) {
+    
+    $('#formulario_agregar_alumno').submit(function (event) {
         event.preventDefault();
-        var nombre = $('#nombre').val();
-        var nombre2 = $('#nombre2').val();
-        var apellido = $('#apellido').val();
-        var apellido2 = $('#apellido2').val();
+        var PrimerNombre = $('#nombre').val();
+        var SegundoNombre = $('#nombre2').val();
+        var ApellidoPaterno = $('#apellido').val();
+        var ApellidoMaterno = $('#apellido2').val();
         var sexo = $('#sexo').val();
         var curp = $('#curp').val();
-       // var Semestre = $('#Semestre1').val();
+        var grupo = $('#grupo').val();
+        var Semestre = $('#Semestre').val();
         var matricula = $('#matricula').val();
         var telefono = $('#telefono').val();
         var email = $('#email').val();
         var idCatedratico = $('#idCatedratico').val();
         
-        alert('' + nombre + ', ' + nombre2 + ', ' + apellido + ', ' + apellido2
-                + ', ' + sexo + ', ' + curp + ', '
-                + Semestre + ', ' + Grupo + ', ' + matricula + ', ' + telefono
-                + ', ' + email);
-        $.ajax({
-            url: '../../AlumnoController?accion=crear',
+        alert('\nPrimerNombre:'+PrimerNombre + '\nSegundoNombre:' + SegundoNombre + 
+                '\nApellidoPaterno:' + ApellidoPaterno + '\nApellidoMaterno.' + ApellidoMaterno +      
+                '\nsexo:' + sexo + '\ncurp:' +  curp +  '\ngrupo:' + grupo + '\nSemestre:' + Semestre + 
+                '\nMatricula:' + matricula + '\nTeléfono:' + telefono + '\nEmail:' + email + '\nIdCatedratico:' + idCatedratico );
+
+        
+       $.ajax({
+            url: '../../AlumnoController',
+
             type: 'POST',
 
             data: {
-                nombre: nombre,
-                nombre2: nombre2,
-                apellido: apellido,
-                apellido2: apellido2,
-                sexo: sexo,
+                nombre: PrimerNombre,
+                nombre2: SegundoNombre,
+                apellido: ApellidoPaterno,
+                apellido2: ApellidoMaterno,
+                M: sexo,
                 curp: curp,
+                grupo: grupo,
                 Semestre: Semestre,
                 matricula: matricula,
                 telefono: telefono,
