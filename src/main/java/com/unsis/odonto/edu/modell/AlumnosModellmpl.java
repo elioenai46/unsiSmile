@@ -8,6 +8,7 @@
 package com.unsis.odonto.edu.modell;
 
 import com.unsis.odonto.edu.entity.Alumnos;
+import com.unsis.odonto.edu.entity.SemestreGrupo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -126,20 +127,28 @@ public class AlumnosModellmpl implements IAlumnosModel {
 
             List<Object[]> registros = sp.getResultList();
             alumnos = new Alumnos();
+            SemestreGrupo sg= new SemestreGrupo();
 
             //Verificar si las lista de registros no está vacia
             if (!registros.isEmpty()) {
                 Object[] row = registros.get(0);
-                alumnos.setNombre((row[0] == null) ? "" : (row[0]).toString());
-                alumnos.setNombre2((row[1] == null) ? "" : (row[1]).toString());
-                alumnos.setApellido((row[2] == null) ? "" : (row[2]).toString());
-                alumnos.setApellido2((row[3] == null) ? "" : (row[3]).toString());
-                alumnos.setEmailAlumno((row[4] == null) ? "" : (row[4]).toString());
+                alumnos.setIdAlumno((row[0] == null) ? 0 : Integer.parseInt((row[0]).toString()));
+                alumnos.setNombre((row[1] == null) ? "" : (row[1]).toString());
+                alumnos.setNombre2((row[2] == null) ? "" : (row[2]).toString());
+                alumnos.setApellido((row[3] == null) ? "" : (row[3]).toString());
+                alumnos.setApellido2((row[4] == null) ? "" : (row[4]).toString());
                 alumnos.setSexo((row[5] == null) ? '\0' : (row[5].toString().charAt(0)));
-                //alumnos.set((row[6] == null) ? "" : (row[6]).toString());    
+                alumnos.setCurp((row[6] == null) ? "" : (row[6]).toString());
+                alumnos.setMatricula((row[7] == null) ? "" : (row[7]).toString());
+                alumnos.setTelefono((row[8] == null) ? "" : (row[8]).toString());
+                alumnos.setEmailAlumno((row[9] == null) ? "" : (row[9]).toString());
+                sg.setIdSemestreGrupo((row[10] == null) ? 0 : Integer.parseInt((row[10]).toString()));
+                alumnos.setFkIdSemestreGrupo(sg);
+                
+
             }
 
-            alumnos = s.get(Alumnos.class, idAlumnos);
+            
             s.close();
             sf.close();
         } catch (HibernateException e) {
@@ -165,7 +174,7 @@ public class AlumnosModellmpl implements IAlumnosModel {
             sp.registerStoredProcedureParameter("matricula", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("telefono", String.class, ParameterMode.IN);
             sp.registerStoredProcedureParameter("mail", String.class, ParameterMode.IN);
-            
+
             // Establecer parámetros del procedimiento almacenado
             sp.setParameter("nombre", alumnos.getNombre());
             sp.setParameter("nombre2", alumnos.getNombre2());

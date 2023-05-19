@@ -59,7 +59,7 @@ $(document).ready(function () {
         var matricula = $('#matricula').val();
         var telefono = $('#telefono').val();
         var email = $('#email').val();
-        var idCatedratico = $('#idCatedratico').val();
+        //var idCatedratico = $('#idCatedratico').val();
         alert("entra a ");
         $.ajax({
             url: '../../AlumnoController',
@@ -76,7 +76,7 @@ $(document).ready(function () {
                 matricula: matricula,
                 telefono: telefono,
                 email: email,
-                idCatedratico: idCatedratico
+                //idCatedratico: idCatedratico
             },
             success: function (response) {
                 // código a ejecutar cuando la petición es exitosa

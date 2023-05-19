@@ -91,30 +91,30 @@
                     <form id="formulario-actualizar-alumno">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
-                            <input type="text" class="form-control" placeholder="Primer nombre" id="primerNombre">
+                            <input type="text" class="form-control" value="${alumno.nombre}" placeholder="Primer nombre" id="primerNombre">
                         </div>
                         <div class="form-group">
                             <label for="segundo-nombre">Segundo nombre</label>
-                            <input type="text" class="form-control" placeholder="Segundo nombre" id="segundoNombre">
+                            <input type="text" class="form-control" value="${alumno.nombre2}"placeholder="Segundo nombre" id="segundoNombre">
                         </div>
                         <div class="form-group">
                             <label for="apellido-paterno">Apellido paterno</label>
-                            <input type="text" class="form-control" placeholder="Apellido paterno" id="apellidoPaterno">
+                            <input type="text" class="form-control" value="${alumno.apellido}"placeholder="Apellido paterno" id="apellidoPaterno">
                         </div>
                         <div class="form-group">
                             <label for="apellido-materno">Apellido materno</label>
-                            <input type="text" class="form-control" placeholder="Apellido materno" id="apellidoMaterno">
+                            <input type="text" class="form-control" value="${alumno.apellido2}"placeholder="Apellido materno" id="apellidoMaterno">
                         </div>
                         <div class="form-group">
                             <label for="sexo">Sexo:</label>
                             <select id="sexo" name="sexo" class="select-custom">
-                                <option value="hombre">Hombre</option>
-                                <option value="mujer">Mujer</option>
+                                <option value="hombre">${alumno.sexo}</option>
+                                <option value="mujer">${alumno.sexo}</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="curp">CURP</label>
-                            <input type="email" class="form-control" placeholder="CURP" id="curp">
+                            <input type="text" class="form-control" value="${alumno.curp}" placeholder="CURP" id="curp">
                         </div>
                         <div class="form-group">
                             <label for="semestre">Semestre</label>
@@ -132,21 +132,22 @@
                         </div>
                         <div class="form-group">
                             <label for="matricula">Matricula</label>
-                            <input type="text" class="form-control" placeholder="Matricula" id="matricula">
+                            <input type="text" class="form-control" value="${alumno.matricula}" placeholder="Matricula" id="matricula">
                         </div>
                         <div class="form-group">
                             <label for="telefono">Teléfono</label>
-                            <input type="text" class="form-control" placeholder="Teléfono" id="telefono">
+                            <input type="text" class="form-control" value="${alumno.telefono}"placeholder="Teléfono" id="telefono">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" placeholder="Email" id="email">
+                            <input type="email" class="form-control" value="${alumno.emailAlumno}" placeholder="Email" id="email">
                         </div>
-                        <div class="form-group">
+                        <!-- ========================= se va eliminar ==================== -->
+<!--                        <div class="form-group">
                             <label for="id-catedratico">ID Catedratico responsable</label>
                             <input type="text" class="form-control" placeholder="ID Catedratico responsable"
                                    id="idCatedratico">
-                        </div>
+                        </div>-->
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </form>
                 </div>

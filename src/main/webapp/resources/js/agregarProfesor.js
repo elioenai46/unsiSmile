@@ -1,12 +1,12 @@
 /**
  * Autor:Carlos Aurelio Alcantara Perez
- * Fecha de creacion:17/05/23
+ * Fecha de creacion:19/05/23
  * Fecha de actualizacion: 19/05/23
  * Comentarios:ninguno 
  */
 
 $(document).ready(function () {
-    $('#formulario_agregar_administrador').submit(function (event) {
+    $('#formulario-agregar-catedratico').submit(function (event) {
         event.preventDefault();
         /**
          * 
@@ -24,7 +24,7 @@ $(document).ready(function () {
         var numTrabajador = $('#matricula').val();
         var fecha = $('#fecha').val();
 
-        /*alert('Nombre: ' + primerNombre + ' ' + segundoNombre +
+       /* alert('Nombre: ' + primerNombre + ' ' + segundoNombre +
                 ' ' + apellidoPaterno + ' '
                 + apellidoMaterno + '\nSexo: ' + sexo + '\nCurp: ' + curp +
                 '\nTelefono: '
@@ -33,7 +33,7 @@ $(document).ready(function () {
                 '\nFecha: ' + fecha);*/
 
         $.ajax({
-            url: '../../AdministradoresServletController',
+            url: '../../ProfesorServlet',
             type: 'POST',
             /**
              * Lo guardamos en un ajax para mmandarlo al Controller de nombre 

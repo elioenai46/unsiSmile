@@ -51,4 +51,10 @@ public class SemestreGrupoServletController extends HttpServlet {
 
         return grupos;
     }
+    
+    private void cargarSemestreGrupo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        System.out.println("hola estoy en cargarSemestreGrupo");
+        
+    }
 }

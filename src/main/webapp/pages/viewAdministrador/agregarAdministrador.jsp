@@ -1,3 +1,14 @@
+<!-- 
+ Actualizo:Carlos Aurelio Alcantara Perez
+ Fecha de creacion: 
+ Ultima actualizacion:19/05/23
+ Notas:Se agregó el documento js para guardar en la base de datos 
+-->
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +21,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleR.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cards.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleRegistro.css">
-         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+         
     </head>
 
     <body>
@@ -88,6 +99,7 @@
 
                 <div class="containerRegistro">
                     <h2>Registrar Administrador</h2>
+                    <!--Se nombro el formulario como formulario_agregar_administrador -->
                     <form id="formulario_agregar_administrador" action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
@@ -154,7 +166,9 @@
 
 
         <!-- =========== Scripts =========  -->
-        <script src="/assets/js/main.js"></script>
+        <!-- se agregaron los scripts para que tome el JS de agregar administrador -->
+        <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+       
        <script src="${pageContext.request.contextPath}/resources/js/agregarAdministrador.js"></script>
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

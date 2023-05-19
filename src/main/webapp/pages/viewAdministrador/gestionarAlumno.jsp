@@ -145,7 +145,7 @@
                                     <td><c:out value="${alumno.telefono}"></c:out></td>
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
                                     <td><c:out value="${alumno.estatus}"></c:out></td>
-                                    <td><a href="${pageContext.request.contextPath}/pages/viewAdministrador/actualizarAlumno.jsp"><button>Actualizar</button></a></td>
+                                    <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=actualizarFormulario&id=<c:out value='${alumno.idAlumno}' ></c:out>">Actualizar</a></td>
 
                                     <!-- Boton para eliminar un alumno -->
                                     <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
