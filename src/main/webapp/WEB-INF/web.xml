@@ -12,6 +12,10 @@
         <servlet-name>PacienteServletController</servlet-name>
         <servlet-class>com.unsis.odonto.edu.controller.PacienteServletController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PacienteController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.PacienteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/LoginController</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>PacienteServletController</servlet-name>
         <url-pattern>/PacienteServletController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PacienteController</servlet-name>
+        <url-pattern>/PacienteController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
