@@ -20,6 +20,7 @@ public class SemestreGrupoImpl implements ISemestreGrupo {
 
     private SessionFactory sf;
     private Session s;
+
     /**
      * Método para obtener todos los grupos que le pertenecen a un semestre dado
      */
@@ -56,6 +57,84 @@ public class SemestreGrupoImpl implements ISemestreGrupo {
 
         return resultados;
     }
+    /**
+     * Método para obtener el id de la relación semestre grupo 
+     */
+    @Override
+    public int obtenerIdSG(String semestre, String grupo) {
+        int id = 0;
+        try {
+            sf = new Configuration().configure().buildSessionFactory();
 
- 
+            s = sf.openSession();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("filtrarIdSemestreGrupo");
+            sp.registerStoredProcedureParameter("semestreAux", String.class, ParameterMode.IN);
+            sp.registerStoredProcedureParameter("grupoAux", String.class, ParameterMode.IN);
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("semestreAux", semestre);
+            sp.setParameter("grupoAux", grupo);
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
+            // Obtener los resultados de la consulta
+            List<Object[]> registros = sp.getResultList();
+            // Recorrer los registros y agregarlos a la lista de resultados
+            for (Object registro : registros) {
+                Object[] row = registros.get(0);
+                //aux=((row[0] == null) ? "" : ((row[0]).toString()));
+                id=Integer.parseInt((row[0]).toString());
+            }
+
+            // Recorrer los registros y agregarlos a la lista de resultados
+            
+
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al ejecutar el procedimiento almacenado: " + e.getMessage());
+        }
+
+        return id;
+    }
+
+    @Override
+    public ArrayList<String> obtenerSemGrup(int id) {
+        System.out.println("hola");
+        ArrayList<String> resultados = new ArrayList<String>();
+        try {
+            sf = new Configuration().configure().buildSessionFactory();
+
+            s = sf.openSession();
+
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("spFiltrarSemGrup");
+            sp.registerStoredProcedureParameter("id", int.class, ParameterMode.IN);
+
+            // Establecer parámetros del procedimiento almacenado
+            sp.setParameter("id", id);
+
+            // Ejecutar procedimiento almacenado
+            sp.execute();
+
+            // Obtener los resultados de la consulta
+            List<Object[]> registros = sp.getResultList();
+            //String aux= "";
+            // Recorrer los registros y agregarlos a la lista de resultados
+            for (Object registro : registros) {
+                Object[] row = registros.get(0);
+                //aux=((row[0] == null) ? "" : ((row[0]).toString()));
+                resultados.add((row[0]).toString());
+                resultados.add((row[1]).toString());
+            }
+
+            s.close();
+            sf.close();
+        } catch (HibernateException e) {
+            System.out.println("Error al ejecutar el procedimiento almacenado: " + e.getMessage());
+        }
+        return resultados;
+    }
+
 }
