@@ -24,7 +24,7 @@ $(document).ready(function () {
         var numTrabajador = $('#matricula').val();
         var fecha = $('#fecha').val();
 
-       /* alert('Nombre: ' + primerNombre + ' ' + segundoNombre +
+        /*alert('Nombre: ' + primerNombre + ' ' + segundoNombre +
                 ' ' + apellidoPaterno + ' '
                 + apellidoMaterno + '\nSexo: ' + sexo + '\nCurp: ' + curp +
                 '\nTelefono: '
