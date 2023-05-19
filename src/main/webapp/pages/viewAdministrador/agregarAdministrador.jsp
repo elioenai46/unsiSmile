@@ -158,7 +158,7 @@
                             <input type="email" name="email"class="form-control" placeholder="Email" id="email">
                         </div>
 
-                        <button type="submit" class="btn btn-primary" ><a href="${pageContext.request.contextPath}/pages/viewAdministrador/gestionarAdministradores.jsp">Guardar</a></button>
+                        <button type="submit" class="btn btn-primary" >Guardar</button>
                     </form>
                 </div> 
 

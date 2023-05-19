@@ -1,6 +1,18 @@
+/**
+ * Autor:Carlos Aurelio Alcantara Perez
+ * Fecha de creacion:17/05/23
+ * Fecha de actualizacion: 19/05/23
+ * Comentarios:ninguno 
+ */
+
 $(document).ready(function () {
     $('#formulario_agregar_administrador').submit(function (event) {
         event.preventDefault();
+        /**
+         * 
+         * Recibimos todos los parametros del jsp agregarAdministrados y le 
+         * asignamos una variable dependiendo de su tipo de dato
+         */
         var primerNombre = $('#primer-nombre').val();
         var segundoNombre = $('#segundo-nombre').val();
         var apellidoPaterno = $('#apellido-paterno').val();
@@ -12,18 +24,21 @@ $(document).ready(function () {
         var numTrabajador = $('#matricula').val();
         var fecha = $('#fecha').val();
 
-        alert('Nombre: ' + primerNombre + ' ' + segundoNombre +
+       /* alert('Nombre: ' + primerNombre + ' ' + segundoNombre +
                 ' ' + apellidoPaterno + ' '
                 + apellidoMaterno + '\nSexo: ' + sexo + '\nCurp: ' + curp +
                 '\nTelefono: '
                 + telefono + '\nEmail: ' + email + '\nNumero de trabajador: '
                 + numTrabajador +
-                '\nFecha: ' + fecha);
+                '\nFecha: ' + fecha);*/
 
         $.ajax({
-            url: '../../AdministradoresServletController?accion=crear',
+            url: '../../AdministradoresServletController',
             type: 'POST',
-
+            /**
+             * Lo guardamos en un ajax para mmandarlo al Controller de nombre 
+             * AdministradorServletController
+             */
             data: {
                 primerNombre: primerNombre,
                 segundoNombre: segundoNombre,
