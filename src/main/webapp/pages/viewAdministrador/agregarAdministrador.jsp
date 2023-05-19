@@ -1,11 +1,8 @@
 <!-- 
  Actualizo:Carlos Aurelio Alcantara Perez
+ Fecha de creacion: 
+ Ultima actualizacion:19/05/23
  Notas:Se agregó el documento js para guardar en la base de datos 
-
-
-
-
-
 -->
 
 
@@ -102,6 +99,7 @@
 
                 <div class="containerRegistro">
                     <h2>Registrar Administrador</h2>
+                    <!--Se nombro el formulario como formulario_agregar_administrador -->
                     <form id="formulario_agregar_administrador" action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
@@ -168,6 +166,7 @@
 
 
         <!-- =========== Scripts =========  -->
+        <!-- se agregaron los scripts para que tome el JS de agregar administrador -->
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
        
        <script src="${pageContext.request.contextPath}/resources/js/agregarAdministrador.js"></script>
