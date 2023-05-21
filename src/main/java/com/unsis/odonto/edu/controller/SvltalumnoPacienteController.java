@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class PacienteController extends HttpServlet {
+public class SvltalumnoPacienteController extends HttpServlet {
 
    
     @Override
