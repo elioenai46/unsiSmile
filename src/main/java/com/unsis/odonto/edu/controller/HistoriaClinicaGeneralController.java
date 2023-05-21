@@ -85,7 +85,7 @@ public class HistoriaClinicaGeneralController extends HttpServlet {
         Paciente.setNombre1(request.getParameter("nombre1"));
         Paciente.setNombre2(request.getParameter("nombre2"));
         Paciente.setApellido1(request.getParameter("apellido1"));
-        Paciente.setApellido2(request.getParameter("apellido2"));
+        Paciente.setApellido2(request.getParameter("apellido2"));       
         //Edad lo pase como Fecha de Nacimineto 
         SimpleDateFormat fechaNacimiento = new SimpleDateFormat("yyyy-MM-dd");
         String fecha = request.getParameter("fechaNacimiento");

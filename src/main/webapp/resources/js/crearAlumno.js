@@ -6,42 +6,45 @@
  */
 
 $(document).ready(function () {
-    $('Agragra_Alumno').click(function (event) {
+    
+    $('#formulario_agregar_alumno').submit(function (event) {
         event.preventDefault();
-        //firstN viene del ProfesorServlet controller y primer-nombre viene del jsp actualizar añumno.
-        var nombre = $('#nombre').val();
-        var nombre2 = $('#nombre2').val();
-        var apellido = $('#apellido').val();
-        var apellido2 = $('#apellido2').val();
+        var PrimerNombre = $('#nombre').val();
+        var SegundoNombre = $('#nombre2').val();
+        var ApellidoPaterno = $('#apellido').val();
+        var ApellidoMaterno = $('#apellido2').val();
         var sexo = $('#sexo').val();
         var curp = $('#curp').val();
-        var Semestre = $('#Semestre1').val();        
-        var Grupo = $('#Grupo1').val();
+        var grupo = $('#grupo').val();
+        var Semestre = $('#Semestre').val();
         var matricula = $('#matricula').val();
         var telefono = $('#telefono').val();
         var email = $('#email').val();
         var idCatedratico = $('#idCatedratico').val();
         
-        alert('nombre: ' + nombre + 'nombre2:' + nombre2 + 'apellido' + apellido + 
-                'apellido2' + apellido2 + 'sexo' + sexo + 'curp' + curp + 'Semestre' + Semestre + 
-                'Grupo' + Grupo + 'matricula' + matricula + 'telefono' + telefono + 
-                'email' + email);
-      /*
-        $.ajax({
-            url: '../../ProfesorServlet',
+        alert('\nPrimerNombre:'+PrimerNombre + '\nSegundoNombre:' + SegundoNombre + 
+                '\nApellidoPaterno:' + ApellidoPaterno + '\nApellidoMaterno.' + ApellidoMaterno +      
+                '\nsexo:' + sexo + '\ncurp:' +  curp +  '\ngrupo:' + grupo + '\nSemestre:' + Semestre + 
+                '\nMatricula:' + matricula + '\nTeléfono:' + telefono + '\nEmail:' + email + '\nIdCatedratico:' + idCatedratico );
+
+        
+       $.ajax({
+            url: '../../AlumnoController',
+
             type: 'POST',
 
             data: {
-                firstN: firstN,
-                secondN: secondN,
-                Apa: Apa,
-                Ama: Ama,
+                nombre: PrimerNombre,
+                nombre2: SegundoNombre,
+                apellido: ApellidoPaterno,
+                apellido2: ApellidoMaterno,
+                M: sexo,
                 curp: curp,
-                NumTel: NumTel,
-                sexo: sexo,
-                fecha: fecha,
-                NumT: NumT,
-                correo: correo,
+                grupo: grupo,
+                Semestre: Semestre,
+                matricula: matricula,
+                telefono: telefono,
+                email: email,
                 idCatedratico: idCatedratico
             },
             success: function (response) {
@@ -52,7 +55,7 @@ $(document).ready(function () {
                 // código a ejecutar cuando la petición falla
                 console.log("Error: " + error);
             }
-        });*/
+        });
     });
 });
 

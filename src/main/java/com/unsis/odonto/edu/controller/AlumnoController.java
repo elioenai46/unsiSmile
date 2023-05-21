@@ -59,26 +59,30 @@ public class AlumnoController extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAlumno.jsp");
 
         Alumnos alumnos = new Alumnos();
-        System.out.println(request.getParameter("nombre"));
+        // System.out.println(request.getParameter("nombre"));
         alumnos.setNombre(request.getParameter("nombre"));
         alumnos.setNombre2(request.getParameter("nombre2"));
         alumnos.setApellido(request.getParameter("apellido"));
         alumnos.setApellido2(request.getParameter("apellido2"));
         alumnos.setSexo('M');
         alumnos.setCurp(request.getParameter("curp"));
-        //Semestre
-
+        String grupo, semestre;
+        grupo = request.getParameter("grupo");
+        semestre = request.getParameter("semestre");
+        //Semestre        
         alumnos.setMatricula(request.getParameter("matricula"));
         alumnos.setTelefono(request.getParameter("telefono"));
         alumnos.setEmailAlumno(request.getParameter("email"));
         //catedratico
         //Catedraticos catedratico = new Catedraticos(i);
         // alumnos.setFIdCatedraticoResponsable(catedratico);
+        
+        IAlumnoService service = new AlumnosServiceImpl();
+        service.crearRegistro(alumnos);
 
-        //IAlumnoService service = new AlumnosServiceImpl();
-//        service.crearRegistro(alumnos);
-        //  List<Alumnos> listaAlumno = service.obtenerRegistros();
-        // request.setAttribute("listaAlumno", listaAlumno);
+        List<Alumnos> listaAlumno = service.obtenerRegistros();
+        request.setAttribute("listaAlumno", listaAlumno);
+
         dispatcher.forward(request, response);
     }
 

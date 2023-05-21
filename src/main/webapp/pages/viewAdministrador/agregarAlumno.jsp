@@ -13,7 +13,8 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Agregar Alumno</title>
         <!-- ======= Styles ====== -->
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosAgregar.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosAgregar.css">        
+        
     </head>
 
     <body>
@@ -91,7 +92,7 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
 
                 <div class="containerRegistro">
                     <h2>Registrar Alumno</h2>
-                    <form id="formulario-agregar-alumno">
+                    <form id="formulario_agregar_alumno">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" class="form-control" placeholder="Primer nombre" id="nombre">
@@ -131,6 +132,8 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
                             <label for="semestre">Grupo</label>
                             <select id="Grupo1" class="select-custom">
                                 <option value="default">--Selecciona-una-opción--</option>
+                                <option value="A">A</option>
+                                <option value="B">B</option>
 
                             </select>
                         </div>
@@ -151,20 +154,18 @@ Descripción: JSP para modelar la vista de agregado del alumno-->
                             <input type="text" class="form-control" placeholder="ID Catedratico responsable"
                                    id="idCatedratico">
                         </div>
-                        <button type="submit" class="btn btn-primary" id="Agragra_Alumno" >Guardar</button>
+                        <button type="submit" class="btn btn-primary" id="Agregar_Alumno" >Guardar</button>
                     </form>
                 </div>
-
             </div>
         </div>
 
 
 
         <!-- =========== Scripts =========  -->
-        <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/crearAlumno.js"></script> 
         <script src="${pageContext.request.contextPath}/resources/js/cargarGrupos.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/js/peticionesAlumnos.js"></script>
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
