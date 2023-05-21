@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Grupo;
-import com.unsis.odonto.edu.modell.GrupoModelImpl;
-import com.unsis.odonto.edu.modell.IGrupoModel;
+import com.unsis.odonto.edu.model.GrupoModelImpl;
+import com.unsis.odonto.edu.model.IGrupoModel;
 import java.util.List;
 
 /**

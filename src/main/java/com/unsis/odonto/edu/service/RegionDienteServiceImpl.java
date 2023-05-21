@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.RegionDiente;
-import com.unsis.odonto.edu.modell.IRegionDienteModel;
-import com.unsis.odonto.edu.modell.RegionDienteModelImpl;
+import com.unsis.odonto.edu.model.IRegionDienteModel;
+import com.unsis.odonto.edu.model.RegionDienteModelImpl;
 import java.util.List;
 
 

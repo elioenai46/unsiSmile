@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.EstudioDeLaboratorioBiopsia;
-import com.unsis.odonto.edu.modell.EstudioDeLaboratorioBiopsiaModelImpl;
-import com.unsis.odonto.edu.modell.IEstudioDeLaboratorioBiopsiaModel;
+import com.unsis.odonto.edu.model.EstudioDeLaboratorioBiopsiaModelImpl;
+import com.unsis.odonto.edu.model.IEstudioDeLaboratorioBiopsiaModel;
 import java.util.List;
 
 

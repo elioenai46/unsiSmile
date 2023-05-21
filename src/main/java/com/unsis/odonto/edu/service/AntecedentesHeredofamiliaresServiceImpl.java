@@ -6,8 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AntecedentesHeredofamiliares;
-import com.unsis.odonto.edu.modell.AntecedentesHeredofamiliaresModelImpl;
-import com.unsis.odonto.edu.modell.IAntecedentesHeredofamiliaresModel;
+import com.unsis.odonto.edu.model.AntecedentesHeredofamiliaresModelImpl;
+import com.unsis.odonto.edu.model.IAntecedentesHeredofamiliaresModel;
 import java.util.List;
 
 public class AntecedentesHeredofamiliaresServiceImpl implements IAntecedentesHeredofamiliaresService{

@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Odontograma;
-import com.unsis.odonto.edu.modell.IOdontogramaModel;
-import com.unsis.odonto.edu.modell.OdontogramaModelImpl;
+import com.unsis.odonto.edu.model.IOdontogramaModel;
+import com.unsis.odonto.edu.model.OdontogramaModelImpl;
 import java.util.List;
 
 

@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.CatedraticoGrupo;
-import com.unsis.odonto.edu.modell.CatedraticoGrupoModelImpl;
-import com.unsis.odonto.edu.modell.ICatedraticoGrupoModel;
+import com.unsis.odonto.edu.model.CatedraticoGrupoModelImpl;
+import com.unsis.odonto.edu.model.ICatedraticoGrupoModel;
 import java.util.List;
 
 /**

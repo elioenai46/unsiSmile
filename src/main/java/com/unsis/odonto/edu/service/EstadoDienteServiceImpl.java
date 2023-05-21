@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.EstadoDiente;
-import com.unsis.odonto.edu.modell.EstadoDienteModelImpl;
-import com.unsis.odonto.edu.modell.IEstadoDienteModel;
+import com.unsis.odonto.edu.model.EstadoDienteModelImpl;
+import com.unsis.odonto.edu.model.IEstadoDienteModel;
 import java.util.List;
 
 

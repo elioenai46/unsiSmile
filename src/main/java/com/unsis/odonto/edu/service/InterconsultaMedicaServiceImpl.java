@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.InterconsultaMedica;
-import com.unsis.odonto.edu.modell.IInterconsultaMedicaModel;
-import com.unsis.odonto.edu.modell.InterconsultaMedicaModelImpl;
+import com.unsis.odonto.edu.model.IInterconsultaMedicaModel;
+import com.unsis.odonto.edu.model.InterconsultaMedicaModelImpl;
 import java.util.List;
 
 

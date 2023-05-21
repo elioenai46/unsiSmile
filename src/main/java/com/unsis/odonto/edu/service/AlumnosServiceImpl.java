@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Alumnos;
-import com.unsis.odonto.edu.modell.AlumnosModellmpl;
-import com.unsis.odonto.edu.modell.IAlumnosModel;
+import com.unsis.odonto.edu.model.AlumnosModellmpl;
+import com.unsis.odonto.edu.model.IAlumnosModel;
 import java.util.List;
 
 public class AlumnosServiceImpl implements IAlumnoService {

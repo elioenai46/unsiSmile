@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Clinica;
-import com.unsis.odonto.edu.modell.ClinicaModelImpl;
-import com.unsis.odonto.edu.modell.IClinicaModel;
+import com.unsis.odonto.edu.model.ClinicaModelImpl;
+import com.unsis.odonto.edu.model.IClinicaModel;
 import java.util.List;
 
 public class ClinicaServiceImpl implements IClinicaService{

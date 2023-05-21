@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Administradores;
-import com.unsis.odonto.edu.modell.AdministradoresModelImpl;
-import com.unsis.odonto.edu.modell.IAdministradoresModel;
+import com.unsis.odonto.edu.model.AdministradoresModelImpl;
+import com.unsis.odonto.edu.model.IAdministradoresModel;
 import java.util.List;
 
 /**

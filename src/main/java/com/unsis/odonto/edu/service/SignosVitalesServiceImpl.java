@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.SignosVitales;
-import com.unsis.odonto.edu.modell.ISignosVitalesModel;
-import com.unsis.odonto.edu.modell.SignosVitalesModelImpl;
+import com.unsis.odonto.edu.model.ISignosVitalesModel;
+import com.unsis.odonto.edu.model.SignosVitalesModelImpl;
 import java.util.List;
 
 

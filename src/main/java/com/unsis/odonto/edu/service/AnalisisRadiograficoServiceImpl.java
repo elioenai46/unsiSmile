@@ -6,8 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AnalisisRadiografico;
-import com.unsis.odonto.edu.modell.AnalisisRadiograficoModelImpl;
-import com.unsis.odonto.edu.modell.IAnalisisRadiograficoModel;
+import com.unsis.odonto.edu.model.AnalisisRadiograficoModelImpl;
+import com.unsis.odonto.edu.model.IAnalisisRadiograficoModel;
 import java.util.List;
 
 public class AnalisisRadiograficoServiceImpl implements IAnalisisRadiograficoService{

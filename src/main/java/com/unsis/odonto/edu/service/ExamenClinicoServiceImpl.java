@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.ExamenClinico;
-import com.unsis.odonto.edu.modell.ExamenClinicoModelImpl;
-import com.unsis.odonto.edu.modell.IExamenClinicoModel;
+import com.unsis.odonto.edu.model.ExamenClinicoModelImpl;
+import com.unsis.odonto.edu.model.IExamenClinicoModel;
 import java.util.List;
 
 

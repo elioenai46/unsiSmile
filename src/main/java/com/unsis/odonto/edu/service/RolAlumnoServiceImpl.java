@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.RolAlumno;
-import com.unsis.odonto.edu.modell.IRolAlumnosModel;
-import com.unsis.odonto.edu.modell.RolAlumnosModelImpl;
+import com.unsis.odonto.edu.model.IRolAlumnosModel;
+import com.unsis.odonto.edu.model.RolAlumnosModelImpl;
 import java.util.List;
 
 public class RolAlumnoServiceImpl implements IRolAlumnoService {

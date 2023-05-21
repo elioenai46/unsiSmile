@@ -6,8 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AnalisisFuncional;
-import com.unsis.odonto.edu.modell.AnalisisFuncionalModelImpl;
-import com.unsis.odonto.edu.modell.IAnalisisFuncionalModel;
+import com.unsis.odonto.edu.model.AnalisisFuncionalModelImpl;
+import com.unsis.odonto.edu.model.IAnalisisFuncionalModel;
 import java.util.List;
 
 

@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Tutor;
-import com.unsis.odonto.edu.modell.ITutorModel;
-import com.unsis.odonto.edu.modell.TutorModelImpl;
+import com.unsis.odonto.edu.model.ITutorModel;
+import com.unsis.odonto.edu.model.TutorModelImpl;
 import java.util.List;
 
 public class TutorServiceImpl implements ITutorService{

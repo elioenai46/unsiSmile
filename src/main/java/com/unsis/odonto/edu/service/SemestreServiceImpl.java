@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Semestres;
-import com.unsis.odonto.edu.modell.SemestresModelImpl;
-import com.unsis.odonto.edu.modell.ISemestresModel;
+import com.unsis.odonto.edu.model.SemestresModelImpl;
+import com.unsis.odonto.edu.model.ISemestresModel;
 import java.util.List;
 
 /**

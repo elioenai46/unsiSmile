@@ -2,8 +2,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Usuarios;
-import com.unsis.odonto.edu.modell.ILoginModel;
-import com.unsis.odonto.edu.modell.LoginModelImpl;
+import com.unsis.odonto.edu.model.ILoginModel;
+import com.unsis.odonto.edu.model.LoginModelImpl;
 
 
 

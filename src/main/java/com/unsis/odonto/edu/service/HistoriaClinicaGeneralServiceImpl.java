@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.HistoriaClinicaGeneral;
-import com.unsis.odonto.edu.modell.HistoriaClinicaGeneralModelImpl;
-import com.unsis.odonto.edu.modell.IHistoriaClinicaGeneralModel;
+import com.unsis.odonto.edu.model.HistoriaClinicaGeneralModelImpl;
+import com.unsis.odonto.edu.model.IHistoriaClinicaGeneralModel;
 import java.util.List;
 
 

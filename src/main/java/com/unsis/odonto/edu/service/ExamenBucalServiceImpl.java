@@ -6,8 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.ExamenBucal;
-import com.unsis.odonto.edu.modell.ExamenBucalModelImpl;
-import com.unsis.odonto.edu.modell.IExamenBucalModel;
+import com.unsis.odonto.edu.model.ExamenBucalModelImpl;
+import com.unsis.odonto.edu.model.IExamenBucalModel;
 import java.util.List;
 
 public class ExamenBucalServiceImpl implements IExamenBucalService{

@@ -6,8 +6,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.AntecedentesPersonalesPatologicos;
-import com.unsis.odonto.edu.modell.AntecedentesPersonalesPatologicosModelImpl;
-import com.unsis.odonto.edu.modell.IAntecedentesPersonalesPatologicosModel;
+import com.unsis.odonto.edu.model.AntecedentesPersonalesPatologicosModelImpl;
+import com.unsis.odonto.edu.model.IAntecedentesPersonalesPatologicosModel;
 import java.util.List;
 
 

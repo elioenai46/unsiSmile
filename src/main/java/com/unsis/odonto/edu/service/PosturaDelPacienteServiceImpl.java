@@ -2,9 +2,9 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.PosturaDelPaciente;
-import com.unsis.odonto.edu.modell.AnalisisFuncionalModelImpl;
-import com.unsis.odonto.edu.modell.IPosturaDelPacienteModel;
-import com.unsis.odonto.edu.modell.PosturaDelPacienteModelImpl;
+import com.unsis.odonto.edu.model.AnalisisFuncionalModelImpl;
+import com.unsis.odonto.edu.model.IPosturaDelPacienteModel;
+import com.unsis.odonto.edu.model.PosturaDelPacienteModelImpl;
 import java.util.List;
 
 public class PosturaDelPacienteServiceImpl implements IPosturaDelPacienteService{

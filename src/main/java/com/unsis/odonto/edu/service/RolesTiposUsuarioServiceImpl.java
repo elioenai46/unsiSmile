@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.RolesTiposUsuario;
-import com.unsis.odonto.edu.modell.RolesTiposUsuarioModelImpl;
-import com.unsis.odonto.edu.modell.IRolesTiposUsuarioModel;
+import com.unsis.odonto.edu.model.RolesTiposUsuarioModelImpl;
+import com.unsis.odonto.edu.model.IRolesTiposUsuarioModel;
 import java.util.List;
 
 /**

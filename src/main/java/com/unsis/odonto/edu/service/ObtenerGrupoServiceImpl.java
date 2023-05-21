@@ -7,8 +7,8 @@
  */
 package com.unsis.odonto.edu.service;
 
-import com.unsis.odonto.edu.modell.ISemestreGrupo;
-import com.unsis.odonto.edu.modell.SemestreGrupoImpl;
+import com.unsis.odonto.edu.model.ISemestreGrupo;
+import com.unsis.odonto.edu.model.SemestreGrupoImpl;
 import java.util.ArrayList;
 import java.util.List;
 

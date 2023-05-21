@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.ExamenFacial;
-import com.unsis.odonto.edu.modell.ExamenFacialModelImpl;
-import com.unsis.odonto.edu.modell.IExamenFacialModel;
+import com.unsis.odonto.edu.model.ExamenFacialModelImpl;
+import com.unsis.odonto.edu.model.IExamenFacialModel;
 import java.util.List;
 
 

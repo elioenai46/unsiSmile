@@ -7,8 +7,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.DienteDetalle;
-import com.unsis.odonto.edu.modell.DienteDetalleModelImpl;
-import com.unsis.odonto.edu.modell.IDienteDetalleModel;
+import com.unsis.odonto.edu.model.DienteDetalleModelImpl;
+import com.unsis.odonto.edu.model.IDienteDetalleModel;
 import java.util.List;
 
 public class DienteDetalleServiceImpl implements IDienteDetalleService{

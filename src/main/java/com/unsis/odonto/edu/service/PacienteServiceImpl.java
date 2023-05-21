@@ -8,8 +8,8 @@
 package com.unsis.odonto.edu.service;
 
 import com.unsis.odonto.edu.entity.Paciente;
-import com.unsis.odonto.edu.modell.IPacienteModel;
-import com.unsis.odonto.edu.modell.PacienteModelImpl;
+import com.unsis.odonto.edu.model.IPacienteModel;
+import com.unsis.odonto.edu.model.PacienteModelImpl;
 import java.util.List;
 
 
