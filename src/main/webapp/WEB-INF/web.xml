@@ -1,60 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
     <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.LoginController</servlet-class>
+        <servlet-name>SvltLoginController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltLoginController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SemestreGrupoServletController</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.SemestreGrupoServletController</servlet-class>
+        <servlet-name>SvltadminSemestreGrupoController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltadminSemestreGrupoController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PacienteServletController</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.PacienteServletController</servlet-class>
+        <servlet-name>SvltadminPacientesController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltadminPacientesController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PacienteController</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.PacienteController</servlet-class>
+        <servlet-name>SvltalumnoPacienteController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltalumnoPacienteController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController</url-pattern>
+        <servlet-name>SvltLoginController</servlet-name>
+        <url-pattern>/SvltLoginController</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>AlumnoController</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.AlumnoController</servlet-class>
+        <servlet-name>SvltadminAlumnosController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltadminAlumnosController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AlumnoController</servlet-name>
-        <url-pattern>/AlumnoController</url-pattern>
+        <servlet-name>SvltadminAlumnosController</servlet-name>
+        <url-pattern>/SvltadminAlumnosController</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>AdministradoresServletController</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.AdministradoresServletController</servlet-class>
+        <servlet-name>SvltadminAdministradoresController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltadminAdministradoresController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AdministradoresServletController</servlet-name>
-        <url-pattern>/AdministradoresServletController</url-pattern>
+        <servlet-name>SvltadminAdministradoresController</servlet-name>
+        <url-pattern>/SvltadminAdministradoresController</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ProfesorServlet</servlet-name>
-        <servlet-class>com.unsis.odonto.edu.controller.ProfesorServlet</servlet-class>
+        <servlet-name>SvltadminCatedraticosController</servlet-name>
+        <servlet-class>com.unsis.odonto.edu.controller.SvltadminCatedraticosController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ProfesorServlet</servlet-name>
-        <url-pattern>/ProfesorServlet</url-pattern>
+        <servlet-name>SvltadminCatedraticosController</servlet-name>
+        <url-pattern>/SvltadminCatedraticosController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SemestreGrupoServletController</servlet-name>
-        <url-pattern>/SemestreGrupoServletController</url-pattern>
+        <servlet-name>SvltadminSemestreGrupoController</servlet-name>
+        <url-pattern>/SvltadminSemestreGrupoController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PacienteServletController</servlet-name>
-        <url-pattern>/PacienteServletController</url-pattern>
+        <servlet-name>SvltadminPacientesController</servlet-name>
+        <url-pattern>/SvltadminPacientesController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PacienteController</servlet-name>
-        <url-pattern>/PacienteController</url-pattern>
+        <servlet-name>SvltalumnoPacienteController</servlet-name>
+        <url-pattern>/SvltalumnoPacienteController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
