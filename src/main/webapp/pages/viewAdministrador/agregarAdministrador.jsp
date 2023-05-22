@@ -50,7 +50,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
+                        <a href="${pageContext.request.contextPath}/SvltadminAdministradoresController?accion=listar"">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -59,7 +59,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AlumnoController?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -68,7 +68,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminCatedraticosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -100,7 +100,7 @@
                 <div class="containerRegistro">
                     <h2>Registrar Administrador</h2>
                     <!--Se nombro el formulario como formulario_agregar_administrador -->
-                    <form id="formulario_agregar_administrador" action="${pageContext.request.contextPath}/AdministradoresServletController?accion=crear" method="POST">
+                    <form id="formulario_agregar_administrador" action="${pageContext.request.contextPath}/SvltadminAdministradoresController?accion=crear" method="POST">
                         <div class="form-group">
                             <label for="primer-nombre">Primer nombre</label>
                             <input type="text" name="primerNombre"class="form-control" placeholder="Primer nombre" id="primer-nombre">

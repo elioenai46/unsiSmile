@@ -40,7 +40,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
+                        <a href="${pageContext.request.contextPath}/SvltadminAdministradoresController?accion=listar"">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -49,7 +49,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AlumnoController?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -58,7 +58,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminCatedraticosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>

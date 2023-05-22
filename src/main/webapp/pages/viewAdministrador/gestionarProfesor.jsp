@@ -38,7 +38,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
+                        <a href="${pageContext.request.contextPath}/SvltadminAdministradoresController?accion=listar"">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -47,7 +47,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AlumnoController?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -56,7 +56,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminCatedraticosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -100,7 +100,7 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Profesor</h2>
-                            <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}/SvltadminCatedraticosController?accion=listar" class="btn">Ver todos</a>
                             <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarProfesor.jsp" class="btn">Agregar</a>
                         </div>
 

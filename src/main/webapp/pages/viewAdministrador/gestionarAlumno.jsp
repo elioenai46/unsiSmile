@@ -42,7 +42,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AdministradoresServletController?accion=listar"">
+                        <a href="${pageContext.request.contextPath}/SvltadminAdministradoresController?accion=listar"">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -51,7 +51,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/AlumnoController?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -60,7 +60,7 @@
                     </li>
 
                     <li>
-                        <a href="${pageContext.request.contextPath}/ProfesorServlet?accion=listar">
+                        <a href="${pageContext.request.contextPath}/SvltadminCatedraticosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
@@ -106,8 +106,8 @@
                     <div class="recentOrders">
                         <div class="cardHeader">
                             <h2>Alumnos</h2>
-                            <a href="${pageContext.request.contextPath}/AlumnoController" class="btn">Ver todos</a>
-                            <a href="${pageContext.request.contextPath}/pages/viewAdministrador/agregarAlumno.jsp" class="btn">Agregar</a>
+                            <a href="${pageContext.request.contextPath}/SvltadminAlumnosController" class="btn">Ver todos</a>
+                            <a href="${pageContext.request.contextPath}/pages/viewAdministradores/agregarAlumno.jsp" class="btn">Agregar</a>
 
 
                         </div>
@@ -145,10 +145,10 @@
                                     <td><c:out value="${alumno.telefono}"></c:out></td>
                                     <td><c:out value="${alumno.emailAlumno}"></c:out></td>
                                     <td><c:out value="${alumno.estatus}"></c:out></td>
-                                    <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=actualizarFormulario&id=<c:out value='${alumno.idAlumno}' ></c:out>">Actualizar</a></td>
+                                    <td><a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=actualizarFormulario&id=<c:out value='${alumno.idAlumno}' ></c:out>">Actualizar</a></td>
 
                                     <!-- Boton para eliminar un alumno -->
-                                    <td><a href="${pageContext.request.contextPath}/AlumnoController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
+                                    <td><a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=eliminar&idAlumno=<c:out value="${alumno.idAlumno}"></c:out>">Eliminar</td></a>
 
                                     </tr>
                             </c:forEach>
