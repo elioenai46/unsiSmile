@@ -12,12 +12,12 @@ $(document).ready(function () {
         var numeroTrabajador = $('#numeroTrabajador').val();
         var fechaNacimiento = $('#fechaNacimiento').val();
         var sexo = $('#sexo').val();
-        var emailAdmin = $('#emailA').val().toString();
+        var emailAdmin = $('#email').val();
 
         alert('Variables cachadas: ' + idAdministrador + ', n' + nombre1 + ', n' + nombre2 + ', a' + apellido1 + ', a' + apellido2 + ', c' + curp + ', t'
-                + telefono + ', f' + fechaNacimiento + ', s' + sexo + ', e' + email);
+                + telefono + ', f' + fechaNacimiento + ', s' + sexo + ', e' + emailAdmin);
         $.ajax({
-        url: '../../AdministradoresServletController',
+        url: '../../SvltadminAdministradoresController',
                 type: 'PUT',
                 
                 data: {

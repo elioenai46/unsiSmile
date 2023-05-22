@@ -108,31 +108,31 @@ public class SvltadminAdministradoresController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/actualizarAdministrador.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAdministrador/gestionarAdministradores.jsp");
         
         Administradores administradores = new Administradores();
-//        administradores.setIdAdministrador(Integer.parseInt(request.getParameter("idAdministrador")));
-//        administradores.setNombre1(request.getParameter("nombre1"));
-//        administradores.setNombre2(request.getParameter("nombre2"));
-//        administradores.setApellido1(request.getParameter("apellido1"));
-//        administradores.setApellido2(request.getParameter("apellido2"));
-//        administradores.setCurp(request.getParameter("curp"));
-//        administradores.setTelefono(request.getParameter("telefono"));
-//        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
-//        System.out.println(request.getParameter("fechaNacimiento"));
-//        LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
-//        administradores.setFechaNacimiento(fechaNacimiento);
-//        administradores.setSexo(request.getParameter("sexo").toUpperCase().charAt(0));
-//        administradores.setEmailAdmin(request.getParameter("email"));
-//        System.out.println(administradores.getFechaNacimiento().toString());
+        administradores.setIdAdministrador(Integer.valueOf(request.getParameter("idAdministrador")));
+        administradores.setNombre1(request.getParameter("nombre1"));
+        administradores.setNombre2(request.getParameter("nombre2"));
+        administradores.setApellido1(request.getParameter("apellido1"));
+        administradores.setApellido2(request.getParameter("apellido2"));
+        administradores.setCurp(request.getParameter("curp"));
+        administradores.setTelefono(request.getParameter("telefono"));
+        administradores.setNumeroTrabajador(request.getParameter("numeroTrabajador"));
+        System.out.println(request.getParameter("fechaNacimiento"));
+        LocalDate fechaNacimiento = LocalDate.parse(request.getParameter("fechaNacimiento"));
+        administradores.setFechaNacimiento(fechaNacimiento);
+        administradores.setSexo(request.getParameter("sexo").toUpperCase().charAt(0));
+        administradores.setEmailAdmin(request.getParameter("email"));
+        System.out.println(administradores.getFechaNacimiento().toString());
         
-//        IAdministradorService service = new AdministradorServiceImpl();
-//        service.actualizarRegistro(administradores);
-//
-//        List<Administradores> listaAdministradores = service.obtenerRegistros();
-//        request.setAttribute("listaAdministradores", listaAdministradores);
-//
-//        dispatcher.forward(request, response);
+        IAdministradorService service = new AdministradorServiceImpl();
+        service.actualizarRegistro(administradores);
+
+        List<Administradores> listaAdministradores = service.obtenerRegistros();
+        request.setAttribute("listaAdministradores", listaAdministradores);
+
+        dispatcher.forward(request, response);
     }
 
     private void crear(HttpServletRequest request, HttpServletResponse response)

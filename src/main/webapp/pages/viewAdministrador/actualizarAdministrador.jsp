@@ -147,7 +147,7 @@
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" value="${administradores.emailAdmin}" placeholder="Email" id="emailA">
+                            <input type="text" class="form-control" value="${administradores.emailAdmin}" placeholder="Email" id="email">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Actualizar</button>
