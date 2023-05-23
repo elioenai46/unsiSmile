@@ -9,7 +9,7 @@
         <title>Gestionar Alumno</title>
         <!-- ======= Styles ====== -->
        
-<!--        <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/5.2.3/css/bootstrap.min.css">-->
+<!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/webjars/bootstrap/5.2.3/css/bootstrap.min.css"> -->
          <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/estilosHome.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/dataTables.bootstrap5.min.css">
 

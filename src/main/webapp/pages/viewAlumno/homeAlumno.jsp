@@ -111,8 +111,8 @@
             <div class="cardBox">
                 <div class="card">
                     <div class="iconBx"><img class="imgPerf" src="${pageContext.request.contextPath}/resources/img/customer01.jpg"" alt=""></div>
-                    <div class="cardName">Juan Carlos Pérez García</div>
-                    <div class="cardName">juancarlos@hotmail.com</div>
+                    <div class="cardName">${alumno.nombre} ${alumno.nombre2} ${alumno.apellido} ${alumno.apellido2}</div>
+                    <div class="cardName">${alumno.emailAlumno}</div>
 
                 </div>
 
@@ -121,13 +121,13 @@
                 <div class="card">
                     <div>
                         <div id="sexo" class="dat">Sexo</div>
-                        <div class="cardName">Masculino</div>
+                        <div class="cardName">${alumno.sexo}</div>
                         <div id="Profenc" class="dat">Profesor encargado</div>
                         <div class="cardName">Joel Francisco Figueroa Martinez</div>
                         <div id="Matricula" class="dat">Matricula</div>
-                        <div class="cardName">20200600052</div>
+                        <div class="cardName">${alumno.matricula}</div>
                         <div id="Grupo" class="dat">Grupo</div>
-                        <div class="cardName">1004</div>
+                        <div class="cardName">${alumno.fkIdSemestreGrupo}</div>
 
 
                     </div>

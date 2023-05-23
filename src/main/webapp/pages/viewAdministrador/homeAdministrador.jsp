@@ -53,8 +53,8 @@
                         </a>
                     </li>
 
-                    <li>
-                        <a href="${pageContext.request.contextPath}/SvltadminAlumnoController?accion=listar">
+                    <li>                                            
+                        <a href="${pageContext.request.contextPath}/SvltadminAlumnosController?accion=listar">
                             <span class="icon">
                                 <ion-icon name="people-outline"></ion-icon>
                             </span>
