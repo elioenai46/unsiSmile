@@ -113,7 +113,34 @@ public class CatedraticosModelImpl implements ICatedraticosModel {
         try {
             sf = new Configuration().configure().buildSessionFactory();
             s = sf.openSession();
-            catedraticos = s.get(Catedraticos.class, idCatedratico);
+            StoredProcedureQuery sp = s.createStoredProcedureQuery("obtenerCatedratico");
+            sp.registerStoredProcedureParameter("id_cat", int.class, ParameterMode.IN);
+            //cargar los datos de entrada al procedure
+            sp.setParameter("id_cat", idCatedratico);
+            //Ejecuta el procedimiento
+            sp.execute();
+            //catedraticos = s.get(Catedraticos.class, idCatedratico);
+            List<Object[]> registros = sp.getResultList();
+            catedraticos = new Catedraticos();
+            //Verificar si las lista de registros no está vacia
+            if (!registros.isEmpty()) {
+                Object[] row = registros.get(0);
+                //catedraticos.setIdCatedratico((row[0] == null) ? 0 : Integer.parseInt((row[0]).toString()));
+                catedraticos.setNombre((row[0] == null) ? "" : (row[0]).toString());
+                catedraticos.setNombre2((row[1] == null) ? "" : (row[1]).toString());
+                catedraticos.setApellido((row[2] == null) ? "" : (row[2]).toString());
+                catedraticos.setApellido2((row[3] == null) ? "" : (row[3]).toString());
+                catedraticos.setCurp((row[4] == null) ? "" : (row[4]).toString());
+                catedraticos.setTelefono((row[5] == null) ? "" : (row[5]).toString());
+                catedraticos.setSexo((row[6] == null) ? '\0' : (row[6].toString().charAt(0)));
+                String fecha = (row[7]).toString();
+                LocalDate fechanac = LocalDate.parse(fecha);
+                catedraticos.setFechaNacimiento((row[7] == null) ? LocalDate.of(0,0,0) : fechanac);
+                catedraticos.setNumeroTrabajador((row[8] == null) ? "" : (row[8]).toString());
+                catedraticos.setEmailCatedratico((row[9] == null) ? "" : (row[9]).toString());
+                
+            }
+
             s.close();
             sf.close();
         } catch (HibernateException e) {

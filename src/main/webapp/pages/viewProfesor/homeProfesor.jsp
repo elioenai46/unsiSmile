@@ -101,8 +101,8 @@
         <div class="cardBox">
             <div class="card">
                 <div class="iconBx"><img class="imgPerf" src="${pageContext.request.contextPath}/resources/img/customer01.jpg"alt=""></div>
-                <div class="cardName">Joel Francisco Figueroa Martinez</div>
-                <div class="cardName">joelfrancisco@hotmail.com</div>
+                <div class="cardName">${catedratico.nombre} ${catedratico.nombre2} ${catedratico.apellido} ${catedratico.apellido2}</div>
+                <div class="cardName">${catedratico.emailCatedratico}</div>
 
             </div>
         
@@ -111,15 +111,15 @@
             <div class="card">
                 <div>
                     <div id="sexo" class="dat">Sexo</div>
-                    <div class="cardName">Masculino</div>
+                    <div class="cardName">${catedratico.sexo}</div>
                     <div id="Matricula" class="dat">Numero de trabajador</div>
-                    <div class="cardName">23243423435gf</div>
+                    <div class="cardName">${catedratico.numeroTrabajador}</div>
                     <div id="Curp" class="dat">CURP</div>
-                    <div class="cardName">SASD060701DSDFDSDC</div>
+                    <div class="cardName">${catedratico.curp}</div>
                     <div id="Grupo" class="dat">Grupos</div>
                     <div class="cardName">1004,3004</div>
                     <div id="Telefono" class="dat">Telefono</div>
-                    <div class="cardName">9511358135146</div>
+                    <div class="cardName">${catedratico.telefono}</div>
                     
                 </div>
 

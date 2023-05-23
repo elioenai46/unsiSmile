@@ -75,10 +75,10 @@ public class SvltLoginController extends HttpServlet {
                     break;
                 case "Profesor":
                     ICatedraticoService profesorService =  new CatedraticoServiceImpl();
-                    Catedraticos profesor = new Catedraticos();
+                    Catedraticos catedrarico = new Catedraticos();
                     paginaDestino = "/pages/viewProfesor/homeProfesor.jsp";
-                    profesor =  profesorService.obtenerRegistro(usuarios.getIdUsuario());
-                    request.setAttribute("catedratico",profesor);
+                    catedrarico =  profesorService.obtenerRegistro(usuarios.getIdUsuario());
+                    request.setAttribute("catedratico",catedrarico);
 
                     break;
 
