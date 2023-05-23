@@ -157,7 +157,7 @@ public class SvltadminAdministradoresController extends HttpServlet {
         dia = 10; //Integer.valueOf(request.getParameter("dia"));
 
         System.out.println(request.getParameter("sexo").charAt(0));
-        administradores.setSexo(request.getParameter("sexo").charAt(0));
+        administradores.setSexo(request.getParameter("sexo").toUpperCase().charAt(0));
 
         System.out.println(String.valueOf(dia + mes + anio + administradores.getSexo()));
         administradores.setFechaNacimiento(LocalDate.of(anio, mes, dia));

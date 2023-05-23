@@ -148,18 +148,18 @@ public class AdministradoresModelImpl implements IAdministradoresModel {
                 Object[] row = registros.get(0);
 
                 administradores.setIdAdministrador(idAdministrador);
-                administradores.setNombre1((row[0] == null) ? "" : (row[0]).toString());
-                administradores.setNombre2((row[1] == null) ? "" : (row[1]).toString());
-                administradores.setApellido1((row[2] == null) ? "" : (row[2]).toString());
-                administradores.setApellido2((row[3] == null) ? "" : (row[3]).toString());
-                administradores.setCurp((row[4] == null) ? "" : (row[4]).toString());
-                administradores.setTelefono((row[5] == null) ? "" : (row[5]).toString());
-                administradores.setNumeroTrabajador((row[6] == null) ? "" : (row[6]).toString());
-                String fecha = (row[7]).toString();
+                administradores.setNombre1((row[1] == null) ? "" : (row[1]).toString());
+                administradores.setNombre2((row[2] == null) ? "" : (row[2]).toString());
+                administradores.setApellido1((row[3] == null) ? "" : (row[3]).toString());
+                administradores.setApellido2((row[4] == null) ? "" : (row[4]).toString());
+                administradores.setCurp((row[5] == null) ? "" : (row[5]).toString());
+                administradores.setTelefono((row[6] == null) ? "" : (row[6]).toString());
+                administradores.setNumeroTrabajador((row[7] == null) ? "" : (row[7]).toString());
+                String fecha = (row[8]).toString();
                 LocalDate fechanac = LocalDate.parse(fecha);
-                administradores.setFechaNacimiento((row[7] == null) ? LocalDate.of(0,0,0) : fechanac);
-                administradores.setSexo((row[8] == null) ? '\0' : (row[8].toString().charAt(0)));
-                administradores.setEmailAdmin((row[9] == null) ? "" : (row[9]).toString());
+                administradores.setFechaNacimiento((row[8] == null) ? LocalDate.of(0,0,0) : fechanac);
+                administradores.setSexo((row[9] == null) ? '\0' : (row[9].toString().charAt(0)));
+                administradores.setEmailAdmin((row[10] == null) ? "" : (row[10]).toString());
             }
             s.close();
             sf.close();
