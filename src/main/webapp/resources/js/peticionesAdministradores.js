@@ -19,31 +19,31 @@ $(document).ready(function () {
                 + telefono + ', f' + fechaNacimiento + ', s' + sexo + ', e' + email);
         //Se envian los datos al Servlet
         $.ajax({
-        url: '../../SvltadminAdministradoresController',
-                type: 'PUT',
-               //en morado variables enviadas al Put / En blanco variables del script 
-                data: {
-                    idAdministrador: idAdministrador,
-                    nombre1 : nombre1,
-                    nombre2 : nombre2,
-                    apellido1 : apellido1,
-                    apellido2 : apellido2,
-                    curp : curp,
-                    telefono : telefono,
-                    numeroTrabajador : numeroTrabajador,
-                    fechaNacimiento : fechaNacimiento,
-                    sexo : sexo,
-                    email : email
-                },
-                success: function(response) {
+            url: '../../SvltadminAdministradoresController',
+            type: 'PUT',
+            //en morado variables enviadas al Put / En blanco variables del script 
+            data: {
+                idAdministrador: idAdministrador,
+                nombre1: nombre1,
+                nombre2: nombre2,
+                apellido1: apellido1,
+                apellido2: apellido2,
+                curp: curp,
+                telefono: telefono,
+                numeroTrabajador: numeroTrabajador,
+                fechaNacimiento: fechaNacimiento,
+                sexo: sexo,
+                email: email
+            },
+            success: function (response) {
                 // código a ejecutar cuando la petición es exitosa
                 console.log(response);
-                },
-                error: function(xhr, status, error) {
+            },
+            error: function (xhr, status, error) {
                 // código a ejecutar cuando la petición falla
                 console.log("Error: " + error);
-                }
-                });
+            }
+        });
     });
 
 });
