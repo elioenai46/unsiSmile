@@ -160,9 +160,12 @@
 
 
         <!-- =========== Scripts =========  -->
-        <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
+        
         <script src="${pageContext.request.contextPath}/webjars/jquery/3.6.3/dist/jquery.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/jquery.dataTables.min.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap5.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/js/peticionesAdministradores.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
 
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

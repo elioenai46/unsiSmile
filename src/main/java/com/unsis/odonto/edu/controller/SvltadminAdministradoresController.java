@@ -1,7 +1,7 @@
 /**
  *Autor:Nancy Obed Martínez Miguel
  *Fecha de creación:24 de abril 2023
- *Fecha de Modificación:26 de abril del 2023
+ *Fecha de Modificación:24 de mayo 2023
  *Descripción: se crea la clase del servlet para hacer uso de los métodos que
  *             nos van a ayudar a crear, listar, eliminar y actualizar
  *             administradores
@@ -12,11 +12,7 @@ import com.unsis.odonto.edu.entity.Administradores;
 import com.unsis.odonto.edu.service.AdministradorServiceImpl;
 import com.unsis.odonto.edu.service.IAdministradorService;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Month;
-import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
