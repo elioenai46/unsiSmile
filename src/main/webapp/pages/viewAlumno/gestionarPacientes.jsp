@@ -116,7 +116,7 @@
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
-                            <h2>Profesor</h2>
+                            <h2>Pacientes</h2>
                             <a href="${pageContext.request.contextPath}/PacienteServletController?accion=listar" class="btn">Ver todos</a>
                             <a href="${pageContext.request.contextPath}/pages/viewAlumno/agregarPacientes.jsp" class="btn">Agregar</a>
                         </div>
@@ -157,8 +157,8 @@
                                 <td><c:out value='${paciente.nacionalidad}'></c:out></td>
                                 <td><c:out value='${paciente.localidad}'></c:out></td>
                                 <td><c:out value='${paciente.estatus}'></c:out></td>
-                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=actualizarFormulario&id="><button>Actualizar</button></a></td>
-                                <td><a href="${pageContext.request.contextPath}/ProfesorServlet?accion=eliminar&id=<c:out value="${pacientre.idPaciente}"></c:out>"><button>Eliminar</button></a></td>
+                                <td><a href="${pageContext.request.contextPath}/PacienteServletController?accion=actualizarFormulario&id="><button>Actualizar</button></a></td>
+                                <td><a href="${pageContext.request.contextPath}/PacienteServletController?accion=eliminar&id=<c:out value="${pacientre.idPaciente}"></c:out>"><button>Eliminar</button></a></td>
 
                                 </tr>
                             </c:forEach>
@@ -172,7 +172,7 @@
 
         <!-- =========== Scripts =========  -->
         <script src="${pageContext.request.contextPath}/resources/js/scriptHome.js"></script>
-
+        
         <!-- ====== ionicons ======= -->
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

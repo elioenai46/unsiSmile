@@ -1,6 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+/**
+ * Autor: Carlos Aurelio Alcantara Perez
+ * fecha de creacion:19-05-23
+ * fecha de actualizacion:22-05-23
+ * notas: ninguna
  */
 package com.unsis.odonto.edu.controller;
 

@@ -79,7 +79,7 @@ public class PacienteServletController extends HttpServlet {
     private void listar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         System.out.println(
-                "---------------VITE------------------------------");
+                "---------------Pacientes------------------------------");
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/viewAlumno/gestionarPacientes.jsp");
         
@@ -96,7 +96,7 @@ public class PacienteServletController extends HttpServlet {
         //llamado al service
         IPacienteService service = new PacienteServiceImpl();
         List<Paciente> listaPaciente = service.obtenerRegistros(id);
-
+        System.out.println("Tamaño"+listaPaciente.size());
         request.setAttribute(
                 "listaPaciente", listaPaciente);
 
