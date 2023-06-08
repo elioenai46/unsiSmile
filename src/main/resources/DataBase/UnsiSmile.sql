@@ -118,7 +118,7 @@ FOREIGN KEY(fk_id_semestre_grupo) references semestre_grupo(id_semestre_grupo)
 
 -- rol de los alumnos
 
-create table rol_alumno( -- tabla que guarda el rol que puede desempeñar el alumno en una consulta ej: encargado, asistente, etc
+create table rol_alumno( -- tabla que guarda el rol que puede desempeniar el alumno en una consulta ej: encargado, asistente, etc
 id_rol_alumno int not null auto_increment primary key,
 rol_alumno varchar(50)
 );
@@ -160,7 +160,7 @@ estatus boolean default true
 );
 
 -- tutores
-create table tutor( -- se necesitará de un tutor si se es menor de edad
+create table tutor( -- se necesitara de un tutor si se es menor de edad
 id_tutor int not null auto_increment primary key,
 nombre1 varchar(50),
 nombre2 varchar(50),
@@ -243,7 +243,7 @@ come_alimentos_chatarra boolean,
 toma_dos_litros_de_agua_x_dia boolean,
 uno_o_mas_refrescos_dia boolean,
 horas_duerme_dia int,
-baño_veces_x_semana int,
+banio_veces_x_semana int,
 cepillado_x_dia int,
 su_vivienda_tiene_piso int,
 material_de_vivienda varchar(30)
@@ -287,9 +287,9 @@ observaciones text
 
 create table analisis_funcional(
 id_analisis_funcional int not null auto_increment primary key,
-Deglución text,
-Fonación_masticación text,
-Respiración text,
+Deglucion text,
+Fonacion_masticacion text,
+Respiracion text,
 Observaciones text
 );
 
@@ -302,10 +302,10 @@ atm_palpacion text
 create table examen_bucal(
 -- clasificacion de angle
 id_examen_bucal int not null auto_increment primary key,
-Relación_molar_Derecha text,
-Relación_molar_Izquierda text,
-Relación_canina_Derecha text,
-Relación_canina_Izquierda text
+Relacion_molar_Derecha text,
+Relacion_molar_Izquierda text,
+Relacion_canina_Derecha text,
+Relacion_canina_Izquierda text
 );
 
 
@@ -328,7 +328,7 @@ create table estudio_de_laboratorio_biopsia(
 id_estudio_de_laboratorio_biopsia int not null auto_increment primary key,
 tipo_de_estudio text,
 tipo_de_biopsia text,
-región_donde_se_realizó_biopsia text,
+region_donde_se_realizo_biopsia text,
 laboratorio_donde_se_envia_el_estudio text
 );
 
@@ -348,15 +348,15 @@ id_examen_clinico int not null auto_increment primary key,
 Paladar text,
 Istmo_fauces text,
 Mucosa_yugal text,
-Nódulos_linfáticos text,
+Nodulos_linfaticos text,
 Lengua text,
 Piso_boca text,
 Labios text,
-Glándulas_salivales text,
-Encía text,
+Glandulas_salivales text,
+Encia text,
 Frenillos text,
 Saliva text,
-Otras_señas_particulares text
+Otras_senias_particulares text
 );
 
 
@@ -415,14 +415,14 @@ id_regiones_diente_periodontograma int not null auto_increment primary key,
 region varchar(2)
 );
 
--- esquema que contendrá las regiones: vestibulares_superiores, palatinas, vestibulares_inferiores y linguales
+-- esquema que contendra las regiones: vestibulares_superiores, palatinas, vestibulares_inferiores y linguales
 create table regiones_medicion_bolsas( -- entidad catalogo 
 id_regiones_medicion_bolsas int not null auto_increment primary key,
 region varchar(30)
 );
 
 
-create table medicion_bolsas_detalle( -- tabla que contendrá la medición de bolsas de un diente en particular
+create table medicion_bolsas_detalle( -- tabla que contendra la medicion de bolsas de un diente en particular
 id_medicion_bolsas_detalle int not null auto_increment primary key,
 fk_id_regiones_diente_periodontograma int,
 fk_id_codigo_pieza_dental int,
@@ -441,7 +441,7 @@ FOREIGN KEY(fk_id_periodontograma) references periodontograma(id_periodontograma
 
 
 
--- ********************************** Historias clínicas **********************************************************
+-- ********************************** Historias clinicas **********************************************************
 -- tabla de la historia clinica general con llaves foraneas de sus respectivas regiones
 create table historia_clinica_general( 
 id_historia_clinica_general int not null auto_increment primary key,
@@ -484,7 +484,7 @@ foreign key(fk_id_catedratico_responsable) references catedraticos(id_catedratic
 
 /*
 
--- ********************************** Historia clínica de cirugía bucal **********************************************************
+-- ********************************** Historia clinica de cirugia bucal **********************************************************
 
 create table antecedentes_personales_familiares(
 id_antecedentes_personales_familiares int not null auto_increment primary key,
@@ -527,8 +527,8 @@ dientes_extraidos text,
 estado_del_paciente text
 );
 
--- tabla general sobre la historia clínica de cirugía bucal, en esta 
--- se encontrarán las referencias a las tablas previas para complementar la información
+-- tabla general sobre la historia clinica de cirugia bucal, en esta 
+-- se encontraran las referencias a las tablas previas para complementar la informacion
 
 create table historia_clinica_de_cirugia_bucal(
 id_historia_clinica_de_cirugia_bucal int not null auto_increment primary key,
@@ -546,7 +546,7 @@ foreign key (id_interrogatorios_por_aparatos_y_sistemas) references interrogator
 foreign key (id_padecimiento_actual) references padecimiento_actual(id_padecimiento_actual)
 );
 
--- ********************************** Historia clínica de Odontología preventiva y salud pública **********************************************************
+-- ********************************** Historia clinica de Odontologia preventiva y salud publica **********************************************************
 
 -- tabla de profilaxis
 create table profilaxis(
@@ -575,7 +575,7 @@ Terninado text,
 observaciones text
 );
 
--- tabla de la historia clinica   de odontología preventiva y salud pública con llaves foraneas de sus respectivas regiones
+-- tabla de la historia clinica   de odontologia preventiva y salud publica con llaves foraneas de sus respectivas regiones
 CREATE TABLE odontologia_preventiva (
     id_odontologia_preventica INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     fk_id_paciente INT NOT NULL,
@@ -595,7 +595,7 @@ CREATE TABLE odontologia_preventiva (
         REFERENCES odontograma (id_odontograma)
 );
 
--- ****************Historia Clínica de Prótesis Bucal****************************
+-- ****************Historia Clinica de Protesis Bucal****************************
 
 -- Interrogatorio
 Create table Interrogatorio(
@@ -603,17 +603,17 @@ id_Interrogatorio int not null auto_increment primary key,
 Motivo text,
 Padecimiento_Actual text,
 Salud text,
-Ateención_médica boolean,
+Ateencion_medica boolean,
 Tratamiento text,
-F_exam_físico date,
+F_exam_fisico date,
 Medicina_especial_droga boolean,
 Sustancia_y_motivo text,
 Medicamento_alergia text,
-Reacción_inusual text,
+Reaccion_inusual text,
 Anestesia_local_compl text,
 Detalles_extra text,
 Enfermedad_infecciosa text,
-Ataques_Epilépticos text,
+Ataques_Epilepticos text,
 Detalles_consultaprevia text,
 Embarazo boolean,
 Mes text
@@ -628,11 +628,11 @@ Sarro boolean,
 Gingivitis boolean,
 Bolsas_Periodontales boolean,
 Absceso_Periodontal boolean,
-Reabsorción_Ósea boolean,
+Reabsorcion_osea boolean,
 Movilidad_Dental boolean
 );
 
--- Exploración de la cavidad bucal y anexos;
+-- Exploracion de la cavidad bucal y anexos;
 create table Expl_Bucal(
 id_Expl_Bucal int not null auto_increment primary key,
 Piso_boca text,
@@ -641,9 +641,9 @@ Paladar text,
 Lengua text,
 Carrillos text,
 Proceso_Residual text,
-Áreas_Edéntulas text,
+areas_Edentulas text,
 Mucosa_Bucal text,
-Articulación_Temporomandibular text
+Articulacion_Temporomandibular text
 );
 
 -- Examen dientes pilares
@@ -653,31 +653,31 @@ Cariados text,
 Ausentes text,
 Obturados text,
 Extracciones_Indicadas text,
-Raíces text,
+Raices text,
 Amalgamas text,
 Resinas text,
 Incrustaciones text,
-Prótesis_fija text,
-Prótesis_Removible text
+Protesis_fija text,
+Protesis_Removible text
 );
 
--- Examen radiográfico dientes pilares
+-- Examen radiografico dientes pilares
 create table exm_radio_DP(
 id_exm_radio_DP int not null auto_increment primary key,
 CP_Normal boolean,
 CP_Amplio boolean,
 CP_Estrecho boolean,
-CP_Nódulos boolean,
+CP_Nodulos boolean,
 CP_Calcificada boolean,
 ZA_Periodonto_Norm boolean,
 ZA_Periodonto_Ensanchado boolean,
-ZA_Reabsorción_Apical boolean,
+ZA_Reabsorcion_Apical boolean,
 ZA_Cementosis boolean,
 ZA_Osteoesclerosis boolean,
 CR_Normal boolean,
 CR_Amplio boolean,
 CR_Estrecho boolean,
-CR_Agujas_Cálcicas boolean,
+CR_Agujas_Calcicas boolean,
 CR_Calcificado boolean
 );
 
@@ -688,8 +688,8 @@ Num_de_Conductos int not null,
 PC_R_1a3 boolean,
 PC_R_1a2 boolean,
 PC_R_1a1 boolean,
-Reabsorción_I boolean,
-Reabsorción_E boolean,
+Reabsorcion_I boolean,
+Reabsorcion_E boolean,
 Obturado boolean
 );
 
@@ -726,7 +726,7 @@ FOREIGN KEY(fk_odontograma) references odontograma(id_odontograma),
 FOREIGN KEY(fk_Plan_tratamiento) references Plan_tratamiento(id_Plan_tratamiento)
 );
 
--- *************************  HISTORIA CLÍNICA DE OPERATORIA DENTAL *************************
+-- *************************  HISTORIA CLiNICA DE OPERATORIA DENTAL *************************
 
 create table Historia_Clininca (
 NO_Expediente int, 
@@ -760,17 +760,17 @@ id_Interrogatorio int not null auto_increment primary key,
 Motivo_de_la_consulta text,
 Padecimiento_Actual text,
 Goza_de_Buena_salud text,
-Está_siendo_atendido_actualmente_por_un_médico text,
+Esta_siendo_atendido_actualmente_por_un_medico text,
 mencione_las_razones_de_su_tratamiento text,
-Fecha_de_su_último_examen_físico text,
-Está_recibiendo_en_este_momento_cualquier_tipo_de_medicación_o_droga text,
+Fecha_de_su_ultimo_examen_fisico text,
+Esta_recibiendo_en_este_momento_cualquier_tipo_de_medicacion_o_droga text,
 Indique_los_nombres_de_los_medicamentos_y_las_razones_por_las_cuales_las_usa text,
 Hay_alguna_medicina_que_usted_no_pueda_tomar text,
 Usa_usted_marca_paso_cardiaco text,
-Alguna_vez_ha_sufrido_una_reacción_inusual_a_una_droga_medicamento text,
-Existe_alguna_otra_información_que_deba_ser_conocida_acerca_de_su_salud text,
-Acerca_de_sus_consultas_odontológicas_previas text,
-En_caso_de_ser_mujer_usted_está_embarazada text,
+Alguna_vez_ha_sufrido_una_reaccion_inusual_a_una_droga_medicamento text,
+Existe_alguna_otra_informacion_que_deba_ser_conocida_acerca_de_su_salud text,
+Acerca_de_sus_consultas_odontologicas_previas text,
+En_caso_de_ser_mujer_usted_esta_embarazada text,
 Mes text
 ); */
 /*
@@ -779,17 +779,17 @@ id_Interrogatorio int not null auto_increment primary key,
 Motivo_consulta text,
 Padecimiento_Actual text,
 Buena_salud text,
-actualmente_es_atendido_por_un_médico text,
+actualmente_es_atendido_por_un_medico text,
 razones_de_su_tratamiento text,
-Fecha_examen_físico text,
-Está_recibiendo_actualmente_medicamentos_o_droga text,
+Fecha_examen_fisico text,
+Esta_recibiendo_actualmente_medicamentos_o_droga text,
 Indique_los_nombres_y_porque_las_usa text,
 Alergias_de_alguna_medicina text,
 Usa_usted_marca_paso_cardiaco text,
-reacción_inusual_a_una_droga_medicamento text,
-Otra_información_que_deba_ser_conocida_acerca_de_su_salud text,
-Acerca_de_sus_consultas_odontológicas_previas text,
-En_caso_de_ser_mujer_usted_está_embarazada text,
+reaccion_inusual_a_una_droga_medicamento text,
+Otra_informacion_que_deba_ser_conocida_acerca_de_su_salud text,
+Acerca_de_sus_consultas_odontologicas_previas text,
+En_caso_de_ser_mujer_usted_esta_embarazada text,
 Mes text
 );
 */
@@ -801,33 +801,33 @@ Alergias boolean,
 Anemias boolean,
 Artritis boolean,
 Asma boolean,
-Cáncer boolean,
-Dependencia_de_Drogas_o_Narcóticos boolean,
+Cancer boolean,
+Dependencia_de_Drogas_o_Narcoticos boolean,
 Diabetes boolean,
-Enfermedades_Venéreas boolean,
+Enfermedades_Venereas boolean,
 Epilepsia boolean,
-Trastorno_del_Riñón_o_Hígado boolean,
+Trastorno_del_Rinion_o_Higado boolean,
 SIDA boolean,
 Lesiones_en_cabeza_o_cuello boolean,
-Migraña boolean,
+Migrania boolean,
 Problemas_Cardiacos boolean,
 Sinusitis boolean,
 Trastornos_Metales boolean,
 Trastornos_Respiratorios boolean,
 Tuberculosis boolean,
-Ulceras_del_Estómago boolean,
-Fiebre_Reumática boolean,
+Ulceras_del_Estomago boolean,
+Fiebre_Reumatica boolean,
 otras text
 );
 
-create table EXPLORACIÓN_DE_LA_CAVIDAD_BUCAL_Y_ANEXOS (
-id_EXPLORACIÓN_DE_LA_CAVIDAD_BUCAL_Y_ANEXOS int not null auto_increment primary key,
+create table EXPLORACIoN_DE_LA_CAVIDAD_BUCAL_Y_ANEXOS (
+id_EXPLORACIoN_DE_LA_CAVIDAD_BUCAL_Y_ANEXOS int not null auto_increment primary key,
 Tejidos_Blandos text,
-Tejidos_Óseos text,
-Articulación_Temporomandibular text,
-Diagnóstico text,
+Tejidos_oseos text,
+Articulacion_Temporomandibular text,
+Diagnostico text,
 Estudio_de_Laboratorio_y_Gabinete text,
-Indicaciones_de_interconsulta_Médica_u_Odontológica text
+Indicaciones_de_interconsulta_Medica_u_Odontologica text
 );
 
 
