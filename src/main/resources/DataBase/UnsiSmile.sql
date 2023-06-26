@@ -19,7 +19,7 @@ nombre_rol VARCHAR (50) NOT NULL
 CREATE TABLE usuarios
 (id_usuario INT auto_increment PRIMARY KEY,
 nombre_usuario VARCHAR (20) NOT NULL,
-pass_usuario VARCHAR (15) NOT NULL,
+pass_usuario VARCHAR (20) NOT NULL,
 f_id_rol int NOT NULL,
 estatus boolean default true,
 foreign key (f_id_rol) references roles_tipos_usuario(id_rol)

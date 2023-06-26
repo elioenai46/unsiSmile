@@ -54,7 +54,7 @@ DELIMITER ;
 -- funcion para insertar usuarios
 DELIMITER $$
 drop function if exists spInsertarUsuario$$
-CREATE FUNCTION spInsertarUsuario (usuario VARCHAR(20), contrasenia VARCHAR(15), f_id_rol int)
+CREATE FUNCTION spInsertarUsuario (usuario VARCHAR(20), contrasenia VARCHAR(20), f_id_rol int)
 RETURNS INT
 deterministic
 BEGIN
